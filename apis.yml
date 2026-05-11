@@ -1,0 +1,73 @@
+aid: bynder
+name: Bynder
+description: >-
+  Bynder is a cloud-based digital asset management (DAM) platform that helps
+  organizations store, organize, distribute, and analyze brand and marketing
+  assets. The Bynder REST API enables developers to programmatically manage
+  assets, metadata, collections, taxonomies, workflows, and brand guidelines,
+  with OAuth 2.0 authentication against each customer's portal domain.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Digital Asset Management
+  - DAM
+  - Brand Management
+  - Content Management
+  - Marketing
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/bynder/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: bynder:bynder-api
+    name: Bynder API
+    description: >-
+      REST API for managing digital assets, metaproperties, collections,
+      taxonomies, brand guidelines, and asset workflows in a Bynder portal.
+      Authentication uses OAuth 2.0 with authorization code, client credentials,
+      and refresh token flows.
+    humanURL: https://developers.bynder.com
+    baseURL: https://yourportal.bynder.com/api
+    tags:
+      - Digital Asset Management
+      - DAM
+      - Brand Management
+      - Content
+    properties:
+      - type: Documentation
+        url: https://developers.bynder.com
+      - type: API Reference
+        url: https://bynder-api-documentation.readme.io/reference
+      - type: OpenAPI
+        url: openapi/bynder-openapi.yml
+      - type: Authentication
+        url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+
+common:
+  - type: Website
+    url: https://www.bynder.com
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: API Reference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Pricing
+    url: https://www.bynder.com/en/pricing/
+  - type: Support
+    url: https://support.bynder.com
+  - type: GitHub Organization
+    url: https://github.com/Bynder
+  - type: JavaScript SDK
+    url: https://github.com/Bynder/bynder-js-sdk
+  - type: PHP SDK
+    url: https://github.com/Bynder/bynder-php-sdk
+  - type: Python SDK
+    url: https://github.com/Bynder/bynder-python-sdk
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bynder
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
