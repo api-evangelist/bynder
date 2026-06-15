@@ -1,0 +1,1541 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bynder API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://yourportal.bynder.com/v6/authentication/oauth2/token/client-credentials",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authorization endpoint (authorization code flow)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v6/authentication/oauth2/auth",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Authorization endpoint (authorization code flow)"
+        },
+        {
+          "info": {
+            "name": "Exchange authorization code for access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/v6/authentication/oauth2/token/authorization"
+          },
+          "docs": "Exchange authorization code for access token"
+        },
+        {
+          "info": {
+            "name": "Get access token via client credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/v6/authentication/oauth2/token/client-credentials"
+          },
+          "docs": "Get access token via client credentials"
+        },
+        {
+          "info": {
+            "name": "Refresh an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/v6/authentication/oauth2/token/refresh"
+          },
+          "docs": "Refresh an access token"
+        },
+        {
+          "info": {
+            "name": "List available OAuth scopes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v6/authentication/oauth2/scopes"
+          },
+          "docs": "List available OAuth scopes"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve account information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/account"
+          },
+          "docs": "Retrieve account information"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve current user information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/currentuser"
+          },
+          "docs": "Retrieve current user information"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/users"
+          },
+          "docs": "List users"
+        },
+        {
+          "info": {
+            "name": "Create user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/users"
+          },
+          "docs": "Create user"
+        },
+        {
+          "info": {
+            "name": "Retrieve user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve user"
+        },
+        {
+          "info": {
+            "name": "Modify user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify user"
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/v4/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete user"
+        },
+        {
+          "info": {
+            "name": "List security profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/profiles"
+          },
+          "docs": "List security profiles"
+        },
+        {
+          "info": {
+            "name": "Retrieve security profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/profiles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve security profile"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/media",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List assets"
+        },
+        {
+          "info": {
+            "name": "Retrieve asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/media/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve asset"
+        },
+        {
+          "info": {
+            "name": "Modify asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/media/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify asset"
+        },
+        {
+          "info": {
+            "name": "Delete asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/v4/media/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete asset"
+        },
+        {
+          "info": {
+            "name": "Retrieve asset download location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/media/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve asset download location"
+        },
+        {
+          "info": {
+            "name": "Get public links for asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/media/:id/publiclinks",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get public links for asset"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/collections"
+          },
+          "docs": "List collections"
+        },
+        {
+          "info": {
+            "name": "Create collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/collections"
+          },
+          "docs": "Create collection"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve collection"
+        },
+        {
+          "info": {
+            "name": "Modify collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify collection"
+        },
+        {
+          "info": {
+            "name": "Delete collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/v4/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete collection"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/collections/:id/media",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve collection assets"
+        },
+        {
+          "info": {
+            "name": "Add assets to collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/collections/:id/media",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add assets to collection"
+        },
+        {
+          "info": {
+            "name": "Remove assets from collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/v4/collections/:id/media",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove assets from collection"
+        },
+        {
+          "info": {
+            "name": "Share collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/collections/:id/share",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Share collection"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metaproperties",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List metaproperties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/metaproperties"
+          },
+          "docs": "List metaproperties"
+        },
+        {
+          "info": {
+            "name": "Create metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/metaproperties"
+          },
+          "docs": "Create metaproperty"
+        },
+        {
+          "info": {
+            "name": "Retrieve metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/metaproperties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve metaproperty"
+        },
+        {
+          "info": {
+            "name": "Modify metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/metaproperties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify metaproperty"
+        },
+        {
+          "info": {
+            "name": "Delete metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/v4/metaproperties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete metaproperty"
+        },
+        {
+          "info": {
+            "name": "List options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/metaproperties/:id/options",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List options"
+        },
+        {
+          "info": {
+            "name": "Create option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/metaproperties/:id/options",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create option"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Taxonomy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List metaproperties (paginated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/1/taxonomy/metaproperties"
+          },
+          "docs": "List metaproperties (paginated)"
+        },
+        {
+          "info": {
+            "name": "Create metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/1/taxonomy/metaproperties"
+          },
+          "docs": "Create metaproperty"
+        },
+        {
+          "info": {
+            "name": "Retrieve metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/1/taxonomy/metaproperties/:metapropertyid",
+            "params": [
+              {
+                "name": "metapropertyid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve metaproperty"
+        },
+        {
+          "info": {
+            "name": "Modify metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{portal}.bynder.com/api/1/taxonomy/metaproperties/:metapropertyid",
+            "params": [
+              {
+                "name": "metapropertyid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify metaproperty"
+        },
+        {
+          "info": {
+            "name": "Delete metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/1/taxonomy/metaproperties/:metapropertyid",
+            "params": [
+              {
+                "name": "metapropertyid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete metaproperty"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/tags"
+          },
+          "docs": "List tags"
+        },
+        {
+          "info": {
+            "name": "Add tag to assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/v4/tags/:id/media",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add tag to assets"
+        },
+        {
+          "info": {
+            "name": "Remove tag from assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/v4/tags/:id/media",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove tag from assets"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Brands",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve brands",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/brands"
+          },
+          "docs": "Retrieve brands"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Derivatives",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List derivative presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/derivatives/presets"
+          },
+          "docs": "List derivative presets"
+        },
+        {
+          "info": {
+            "name": "Retrieve derivative preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/derivatives/presets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve derivative preset"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Smartfilters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List smartfilters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/v4/smartfilters"
+          },
+          "docs": "List smartfilters"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all asset events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v7/analytics/api/v1/asset/:assetid",
+            "params": [
+              {
+                "name": "assetid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve all asset events"
+        },
+        {
+          "info": {
+            "name": "Retrieve asset download events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v7/analytics/api/v1/asset/download"
+          },
+          "docs": "Retrieve asset download events"
+        },
+        {
+          "info": {
+            "name": "Retrieve asset views",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v7/analytics/api/v2/asset/views"
+          },
+          "docs": "Retrieve asset views"
+        },
+        {
+          "info": {
+            "name": "Retrieve user login events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v7/analytics/api/v1/user/login"
+          },
+          "docs": "Retrieve user login events"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Quarantine",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List quarantined assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v7/quarantine/v1/assets"
+          },
+          "docs": "List quarantined assets"
+        },
+        {
+          "info": {
+            "name": "Retrieve quarantined asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/v7/quarantine/v1/assets/:asset-id",
+            "params": [
+              {
+                "name": "asset-id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve quarantined asset"
+        },
+        {
+          "info": {
+            "name": "Update quarantined asset review status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{portal}.bynder.com/v7/quarantine/v1/assets/:asset-id",
+            "params": [
+              {
+                "name": "asset-id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update quarantined asset review status"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Automation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available triggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/automations/triggers"
+          },
+          "docs": "List available triggers"
+        },
+        {
+          "info": {
+            "name": "List available conditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/automations/conditions"
+          },
+          "docs": "List available conditions"
+        },
+        {
+          "info": {
+            "name": "List available actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/automations/actions"
+          },
+          "docs": "List available actions"
+        },
+        {
+          "info": {
+            "name": "List automation rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/automations/rules"
+          },
+          "docs": "List automation rules"
+        },
+        {
+          "info": {
+            "name": "Create automation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/automations/rules"
+          },
+          "docs": "Create automation rule"
+        },
+        {
+          "info": {
+            "name": "Retrieve automation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/automations/rules/:ruleid",
+            "params": [
+              {
+                "name": "ruleid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve automation rule"
+        },
+        {
+          "info": {
+            "name": "Update automation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{portal}.bynder.com/automations/rules/:ruleid",
+            "params": [
+              {
+                "name": "ruleid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update automation rule"
+        },
+        {
+          "info": {
+            "name": "Delete automation rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/automations/rules/:ruleid",
+            "params": [
+              {
+                "name": "ruleid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete automation rule"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Upload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Prepare file upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/v7/file/cmds/upload/prepare"
+          },
+          "docs": "Prepare file upload"
+        },
+        {
+          "info": {
+            "name": "Upload file chunk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/v7/file/cmds/upload/:file-id/chunk/:chunk-number",
+            "params": [
+              {
+                "name": "file-id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "chunk-number",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Upload file chunk"
+        },
+        {
+          "info": {
+            "name": "Finalize upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/v7/file/cmds/upload/:file-id/finalise",
+            "params": [
+              {
+                "name": "file-id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Finalize upload"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/store/order"
+          },
+          "docs": "Retrieve orders"
+        },
+        {
+          "info": {
+            "name": "Retrieve order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/store/order/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve order"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workflow",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/workflow/campaigns"
+          },
+          "docs": "List campaigns"
+        },
+        {
+          "info": {
+            "name": "Create campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/workflow/campaigns"
+          },
+          "docs": "Create campaign"
+        },
+        {
+          "info": {
+            "name": "Retrieve campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/workflow/campaigns/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve campaign"
+        },
+        {
+          "info": {
+            "name": "Modify campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{portal}.bynder.com/api/workflow/campaigns/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify campaign"
+        },
+        {
+          "info": {
+            "name": "Delete campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/workflow/campaigns/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete campaign"
+        },
+        {
+          "info": {
+            "name": "List jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/workflow/jobs"
+          },
+          "docs": "List jobs"
+        },
+        {
+          "info": {
+            "name": "Create job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/workflow/jobs"
+          },
+          "docs": "Create job"
+        },
+        {
+          "info": {
+            "name": "Retrieve job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/workflow/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve job"
+        },
+        {
+          "info": {
+            "name": "Modify job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{portal}.bynder.com/api/workflow/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify job"
+        },
+        {
+          "info": {
+            "name": "Delete job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/workflow/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete job"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List webhook configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/webhooks"
+          },
+          "docs": "List webhook configurations"
+        },
+        {
+          "info": {
+            "name": "Create webhook configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/webhooks"
+          },
+          "docs": "Create webhook configuration"
+        },
+        {
+          "info": {
+            "name": "Retrieve webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve webhook"
+        },
+        {
+          "info": {
+            "name": "Update webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{portal}.bynder.com/api/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update webhook"
+        },
+        {
+          "info": {
+            "name": "Patch webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{portal}.bynder.com/api/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Patch webhook"
+        },
+        {
+          "info": {
+            "name": "Delete webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete webhook"
+        },
+        {
+          "info": {
+            "name": "Retrieve webhook source IP ranges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/webhooks/ips"
+          },
+          "docs": "Retrieve webhook source IP ranges"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Trash",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve recently removed assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/trash/media"
+          },
+          "docs": "Retrieve recently removed assets"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ContentAccess",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve metaproperty access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{portal}.bynder.com/api/1/content/access"
+          },
+          "docs": "Retrieve metaproperty access"
+        },
+        {
+          "info": {
+            "name": "Create metaproperty access",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{portal}.bynder.com/api/1/content/access"
+          },
+          "docs": "Create metaproperty access"
+        },
+        {
+          "info": {
+            "name": "Delete metaproperty access",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{portal}.bynder.com/api/1/content/access"
+          },
+          "docs": "Delete metaproperty access"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
