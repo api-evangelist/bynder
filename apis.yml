@@ -7,7 +7,7 @@ description: >-
   assets, metadata, collections, taxonomies, workflows, and brand guidelines,
   with OAuth 2.0 authentication against each customer's portal domain.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Digital Asset Management
   - DAM
