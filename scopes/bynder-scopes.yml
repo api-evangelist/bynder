@@ -1,0 +1,58 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bynder-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/bynder-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://yourportal.bynder.com/v6/authentication/oauth2/auth
+    tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/authorization
+  - flow: clientCredentials
+    tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/client-credentials
+  description: OAuth 2.0 with JWT bearer access tokens
+scopes:
+- scope: asset:read
+  description: Read assets
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/bynder-openapi.yml
+- scope: asset:write
+  description: Write assets
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/bynder-openapi.yml
+- scope: collection:read
+  description: Read collections
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bynder-openapi.yml
+- scope: collection:write
+  description: Write collections
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bynder-openapi.yml
+- scope: meta.assetbank:read
+  description: Read asset bank metaproperties
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bynder-openapi.yml
+- scope: meta.assetbank:write
+  description: Write asset bank metaproperties
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bynder-openapi.yml
+- scope: offline
+  description: Refresh token access
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/bynder-openapi.yml

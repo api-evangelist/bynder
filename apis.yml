@@ -45,6 +45,10 @@ apis:
         url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
 
 common:
+  - type: OAuthScopes
+    url: scopes/bynder-scopes.yml
+  - type: Blog
+    url: https://www.bynder.com/en/blog/rss.xml
   - type: Website
     url: https://www.bynder.com
   - type: Documentation
