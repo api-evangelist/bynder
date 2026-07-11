@@ -45,6 +45,14 @@ apis:
         url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
 
 common:
+  - type: TrustCenter
+    url: security/bynder-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/bynder-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/bynder-domain-security.yml
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
   - type: OAuthScopes
     url: scopes/bynder-scopes.yml
   - type: Blog
