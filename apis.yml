@@ -45,6 +45,8 @@ apis:
         url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/bynder-agentic-access.yml
   - type: TrustCenter
     url: security/bynder-trust-center.yml
   - type: VulnerabilityDisclosure
