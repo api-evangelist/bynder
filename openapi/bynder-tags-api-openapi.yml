@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Bynder Account Tags API
+  version: '1.0'
+  description: 'Bynder is a cloud-based digital asset management (DAM) platform. The
+
+    REST API lets developers manage assets, metaproperties, collections,
+
+    taxonomies, workflows, brand guidelines, analytics, webhooks, and
+
+    automations.
+
+
+    Authentication uses OAuth 2.0 with authorization code, client
+
+    credentials, and refresh token flows against the customer''s portal
+
+    domain. All calls require a Bearer access token in JWT format. The
+
+    base URL is the customer''s portal hostname, e.g.
+
+    `https://yourportal.bynder.com`.
+
+
+    Rate limit: 4500 requests per 5-minute window per IP. Exceeding
+
+    returns HTTP 429.
+
+    '
+  contact:
+    name: Bynder Developer Portal
+    url: https://developers.bynder.com
+servers:
+- url: https://{portal}.bynder.com
+  description: Customer portal
+  variables:
+    portal:
+      default: yourportal
+      description: Customer portal subdomain
+security:
+- oauth2: []
+tags:
+- name: Tags
+paths:
+  /api/v4/tags:
+    get:
+      tags:
+      - Tags
+      summary: List tags
+      operationId: listTags
+      responses:
+        '200':
+          description: Tags
+  /api/v4/tags/{id}/media:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Tags
+      summary: Add tag to assets
+      operationId: addTagToAssets
+      responses:
+        '200':
+          description: Tagged
+    delete:
+      tags:
+      - Tags
+      summary: Remove tag from assets
+      operationId: removeTagFromAssets
+      responses:
+        '204':
+          description: Untagged
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 with JWT bearer access tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://yourportal.bynder.com/v6/authentication/oauth2/auth
+          tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/authorization
+          refreshUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/refresh
+          scopes:
+            offline: Refresh token access
+            asset:read: Read assets
+            asset:write: Write assets
+            collection:read: Read collections
+            collection:write: Write collections
+            meta.assetbank:read: Read asset bank metaproperties
+            meta.assetbank:write: Write asset bank metaproperties
+        clientCredentials:
+          tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/client-credentials
+          scopes:
+            asset:read: Read assets
+            asset:write: Write assets

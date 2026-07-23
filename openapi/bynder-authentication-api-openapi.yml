@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: Bynder Account Authentication API
+  version: '1.0'
+  description: 'Bynder is a cloud-based digital asset management (DAM) platform. The
+
+    REST API lets developers manage assets, metaproperties, collections,
+
+    taxonomies, workflows, brand guidelines, analytics, webhooks, and
+
+    automations.
+
+
+    Authentication uses OAuth 2.0 with authorization code, client
+
+    credentials, and refresh token flows against the customer''s portal
+
+    domain. All calls require a Bearer access token in JWT format. The
+
+    base URL is the customer''s portal hostname, e.g.
+
+    `https://yourportal.bynder.com`.
+
+
+    Rate limit: 4500 requests per 5-minute window per IP. Exceeding
+
+    returns HTTP 429.
+
+    '
+  contact:
+    name: Bynder Developer Portal
+    url: https://developers.bynder.com
+servers:
+- url: https://{portal}.bynder.com
+  description: Customer portal
+  variables:
+    portal:
+      default: yourportal
+      description: Customer portal subdomain
+security:
+- oauth2: []
+tags:
+- name: Authentication
+paths:
+  /v6/authentication/oauth2/auth:
+    get:
+      tags:
+      - Authentication
+      summary: Authorization endpoint (authorization code flow)
+      operationId: oauthAuthorize
+      parameters:
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - code
+      - name: scope
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      responses:
+        '302':
+          description: Redirect with code
+  /v6/authentication/oauth2/token/authorization:
+    post:
+      tags:
+      - Authentication
+      summary: Exchange authorization code for access token
+      operationId: oauthTokenAuthorization
+      responses:
+        '200':
+          description: OAuth token response
+  /v6/authentication/oauth2/token/client-credentials:
+    post:
+      tags:
+      - Authentication
+      summary: Get access token via client credentials
+      operationId: oauthTokenClientCredentials
+      responses:
+        '200':
+          description: OAuth token response
+  /v6/authentication/oauth2/token/refresh:
+    post:
+      tags:
+      - Authentication
+      summary: Refresh an access token
+      operationId: oauthTokenRefresh
+      responses:
+        '200':
+          description: OAuth token response
+  /v6/authentication/oauth2/scopes:
+    get:
+      tags:
+      - Authentication
+      summary: List available OAuth scopes
+      operationId: listScopes
+      responses:
+        '200':
+          description: Scopes list
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 with JWT bearer access tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://yourportal.bynder.com/v6/authentication/oauth2/auth
+          tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/authorization
+          refreshUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/refresh
+          scopes:
+            offline: Refresh token access
+            asset:read: Read assets
+            asset:write: Write assets
+            collection:read: Read collections
+            collection:write: Write collections
+            meta.assetbank:read: Read asset bank metaproperties
+            meta.assetbank:write: Write asset bank metaproperties
+        clientCredentials:
+          tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/client-credentials
+          scopes:
+            asset:read: Read assets
+            asset:write: Write assets
