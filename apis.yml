@@ -7,7 +7,19 @@ description: >-
   assets, metadata, collections, taxonomies, workflows, and brand guidelines,
   with OAuth 2.0 authentication against each customer's portal domain.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bynder.png
 tags:
   - Digital Asset Management
   - DAM
@@ -20,30 +32,326 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: bynder:bynder-api
-    name: Bynder API
-    description: >-
-      REST API for managing digital assets, metaproperties, collections,
-      taxonomies, brand guidelines, and asset workflows in a Bynder portal.
-      Authentication uses OAuth 2.0 with authorization code, client credentials,
-      and refresh token flows.
-    humanURL: https://developers.bynder.com
-    baseURL: https://yourportal.bynder.com/api
-    tags:
-      - Digital Asset Management
-      - DAM
-      - Brand Management
-      - Content
-    properties:
-      - type: Documentation
-        url: https://developers.bynder.com
-      - type: APIReference
-        url: https://bynder-api-documentation.readme.io/reference
-      - type: OpenAPI
-        url: openapi/bynder-openapi.yml
-      - type: Authentication
-        url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-
+- aid: bynder:bynder-account-api
+  name: Bynder Account API
+  description: The Account API from Bynder — 1 operation(s) for account.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-account-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-analytics-api
+  name: Bynder Analytics API
+  description: The Analytics API from Bynder — 4 operation(s) for analytics.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-authentication-api
+  name: Bynder Authentication API
+  description: The Authentication API from Bynder — 5 operation(s) for authentication.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-automation-api
+  name: Bynder Automation API
+  description: The Automation API from Bynder — 5 operation(s) for automation.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Automation
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-automation-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-brands-api
+  name: Bynder Brands API
+  description: The Brands API from Bynder — 1 operation(s) for brands.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Brands
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-brands-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-collections-api
+  name: Bynder Collections API
+  description: The Collections API from Bynder — 4 operation(s) for collections.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-collections-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-contentaccess-api
+  name: Bynder ContentAccess API
+  description: The ContentAccess API from Bynder — 1 operation(s) for contentaccess.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - ContentAccess
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-contentaccess-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-derivatives-api
+  name: Bynder Derivatives API
+  description: The Derivatives API from Bynder — 2 operation(s) for derivatives.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Derivatives
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-derivatives-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-media-api
+  name: Bynder Media API
+  description: The Media API from Bynder — 4 operation(s) for media.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-media-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-metaproperties-api
+  name: Bynder Metaproperties API
+  description: The Metaproperties API from Bynder — 3 operation(s) for metaproperties.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Metaproperties
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-metaproperties-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-orders-api
+  name: Bynder Orders API
+  description: The Orders API from Bynder — 2 operation(s) for orders.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-quarantine-api
+  name: Bynder Quarantine API
+  description: The Quarantine API from Bynder — 2 operation(s) for quarantine.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Quarantine
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-quarantine-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-smartfilters-api
+  name: Bynder Smartfilters API
+  description: The Smartfilters API from Bynder — 1 operation(s) for smartfilters.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Smartfilters
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-smartfilters-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-tags-api
+  name: Bynder Tags API
+  description: The Tags API from Bynder — 2 operation(s) for tags.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-tags-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-taxonomy-api
+  name: Bynder Taxonomy API
+  description: The Taxonomy API from Bynder — 2 operation(s) for taxonomy.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Taxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-taxonomy-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-trash-api
+  name: Bynder Trash API
+  description: The Trash API from Bynder — 1 operation(s) for trash.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Trash
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-trash-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-upload-api
+  name: Bynder Upload API
+  description: The Upload API from Bynder — 3 operation(s) for upload.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Upload
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-upload-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-users-api
+  name: Bynder Users API
+  description: The Users API from Bynder — 5 operation(s) for users.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-users-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-webhooks-api
+  name: Bynder Webhooks API
+  description: The Webhooks API from Bynder — 3 operation(s) for webhooks.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+- aid: bynder:bynder-workflow-api
+  name: Bynder Workflow API
+  description: The Workflow API from Bynder — 4 operation(s) for workflow.
+  humanURL: https://developers.bynder.com
+  baseURL: https://yourportal.bynder.com/api
+  tags:
+  - Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-workflow-api-openapi.yml
+  - type: Documentation
+    url: https://developers.bynder.com
+  - type: APIReference
+    url: https://bynder-api-documentation.readme.io/reference
+  - type: Authentication
+    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
 common:
   - type: AgenticAccess
     url: agentic-access/bynder-agentic-access.yml
