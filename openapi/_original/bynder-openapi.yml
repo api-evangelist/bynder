@@ -1,0 +1,318 @@
+openapi: 3.1.0
+info:
+  title: Bynder API
+  version: "1.0"
+  description: |
+    Bynder is a cloud-based digital asset management (DAM) platform. The
+    REST API lets developers manage assets, metaproperties, collections,
+    taxonomies, workflows, brand guidelines, analytics, webhooks, and
+    automations.
+
+    Authentication uses OAuth 2.0 with authorization code, client
+    credentials, and refresh token flows against the customer's portal
+    domain. All calls require a Bearer access token in JWT format. The
+    base URL is the customer's portal hostname, e.g.
+    `https://yourportal.bynder.com`.
+
+    Rate limit: 4500 requests per 5-minute window per IP. Exceeding
+    returns HTTP 429.
+  contact:
+    name: Bynder Developer Portal
+    url: https://developers.bynder.com
+servers:
+  - url: https://{portal}.bynder.com
+    description: Customer portal
+    variables:
+      portal:
+        default: yourportal
+        description: Customer portal subdomain
+security:
+  - oauth2: []
+tags:
+  - name: Authentication
+  - name: Account
+  - name: Users
+  - name: Media
+  - name: Collections
+  - name: Metaproperties
+  - name: Taxonomy
+  - name: Tags
+  - name: Brands
+  - name: Derivatives
+  - name: Smartfilters
+  - name: Analytics
+  - name: Quarantine
+  - name: Automation
+  - name: Upload
+  - name: Orders
+  - name: Workflow
+  - name: Webhooks
+  - name: Trash
+  - name: ContentAccess
+paths:
+  /v6/authentication/oauth2/auth:
+    get:
+      tags: [Authentication]
+      summary: Authorization endpoint (authorization code flow)
+      operationId: oauthAuthorize
+      parameters:
+        - { name: client_id, in: query, required: true, schema: { type: string } }
+        - { name: redirect_uri, in: query, required: true, schema: { type: string } }
+        - { name: response_type, in: query, required: true, schema: { type: string, enum: [code] } }
+        - { name: scope, in: query, schema: { type: string } }
+        - { name: state, in: query, schema: { type: string } }
+      responses: { "302": { description: Redirect with code } }
+  /v6/authentication/oauth2/token/authorization:
+    post:
+      tags: [Authentication]
+      summary: Exchange authorization code for access token
+      operationId: oauthTokenAuthorization
+      responses: { "200": { description: OAuth token response } }
+  /v6/authentication/oauth2/token/client-credentials:
+    post:
+      tags: [Authentication]
+      summary: Get access token via client credentials
+      operationId: oauthTokenClientCredentials
+      responses: { "200": { description: OAuth token response } }
+  /v6/authentication/oauth2/token/refresh:
+    post:
+      tags: [Authentication]
+      summary: Refresh an access token
+      operationId: oauthTokenRefresh
+      responses: { "200": { description: OAuth token response } }
+  /v6/authentication/oauth2/scopes:
+    get:
+      tags: [Authentication]
+      summary: List available OAuth scopes
+      operationId: listScopes
+      responses: { "200": { description: Scopes list } }
+
+  /api/v4/account:
+    get: { tags: [Account], summary: Retrieve account information, operationId: getAccount, responses: { "200": { description: Account } } }
+  /api/v4/currentuser:
+    get: { tags: [Users], summary: Retrieve current user information, operationId: getCurrentUser, responses: { "200": { description: User } } }
+  /api/v4/users:
+    get: { tags: [Users], summary: List users, operationId: listUsers, responses: { "200": { description: Users } } }
+    post: { tags: [Users], summary: Create user, operationId: createUser, responses: { "201": { description: Created } } }
+  /api/v4/users/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Users], summary: Retrieve user, operationId: getUser, responses: { "200": { description: User } } }
+    post: { tags: [Users], summary: Modify user, operationId: updateUser, responses: { "200": { description: Updated } } }
+    delete: { tags: [Users], summary: Delete user, operationId: deleteUser, responses: { "204": { description: Deleted } } }
+  /api/v4/profiles:
+    get: { tags: [Users], summary: List security profiles, operationId: listProfiles, responses: { "200": { description: Profiles } } }
+  /api/v4/profiles/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Users], summary: Retrieve security profile, operationId: getProfile, responses: { "200": { description: Profile } } }
+
+  /api/v4/media:
+    get:
+      tags: [Media]
+      summary: List assets
+      operationId: listAssets
+      parameters:
+        - { name: limit, in: query, schema: { type: integer } }
+        - { name: page, in: query, schema: { type: integer } }
+        - { name: keyword, in: query, schema: { type: string } }
+        - { name: type, in: query, schema: { type: string, enum: [image, document, audio, video] } }
+        - { name: orderBy, in: query, schema: { type: string } }
+      responses: { "200": { description: Assets } }
+  /api/v4/media/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Media], summary: Retrieve asset, operationId: getAsset, responses: { "200": { description: Asset } } }
+    post: { tags: [Media], summary: Modify asset, operationId: updateAsset, responses: { "200": { description: Updated } } }
+    delete: { tags: [Media], summary: Delete asset, operationId: deleteAsset, responses: { "204": { description: Deleted } } }
+  /api/v4/media/{id}/download:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Media], summary: Retrieve asset download location, operationId: getAssetDownload, responses: { "200": { description: Download URL } } }
+  /api/v4/media/{id}/publiclinks:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Media], summary: Get public links for asset, operationId: getAssetPublicLinks, responses: { "200": { description: Public links } } }
+
+  /api/v4/collections:
+    get: { tags: [Collections], summary: List collections, operationId: listCollections, responses: { "200": { description: Collections } } }
+    post: { tags: [Collections], summary: Create collection, operationId: createCollection, responses: { "201": { description: Created } } }
+  /api/v4/collections/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Collections], summary: Retrieve collection, operationId: getCollection, responses: { "200": { description: Collection } } }
+    post: { tags: [Collections], summary: Modify collection, operationId: updateCollection, responses: { "200": { description: Updated } } }
+    delete: { tags: [Collections], summary: Delete collection, operationId: deleteCollection, responses: { "204": { description: Deleted } } }
+  /api/v4/collections/{id}/media:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Collections], summary: Retrieve collection assets, operationId: getCollectionAssets, responses: { "200": { description: Assets } } }
+    post: { tags: [Collections], summary: Add assets to collection, operationId: addCollectionAssets, responses: { "200": { description: Added } } }
+    delete: { tags: [Collections], summary: Remove assets from collection, operationId: removeCollectionAssets, responses: { "204": { description: Removed } } }
+  /api/v4/collections/{id}/share:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    post: { tags: [Collections], summary: Share collection, operationId: shareCollection, responses: { "200": { description: Shared } } }
+
+  /api/v4/metaproperties:
+    get: { tags: [Metaproperties], summary: List metaproperties, operationId: listMetaproperties, responses: { "200": { description: Metaproperties } } }
+    post: { tags: [Metaproperties], summary: Create metaproperty, operationId: createMetaproperty, responses: { "201": { description: Created } } }
+  /api/v4/metaproperties/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Metaproperties], summary: Retrieve metaproperty, operationId: getMetaproperty, responses: { "200": { description: Metaproperty } } }
+    post: { tags: [Metaproperties], summary: Modify metaproperty, operationId: updateMetaproperty, responses: { "200": { description: Updated } } }
+    delete: { tags: [Metaproperties], summary: Delete metaproperty, operationId: deleteMetaproperty, responses: { "204": { description: Deleted } } }
+  /api/v4/metaproperties/{id}/options:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Metaproperties], summary: List options, operationId: listMetapropertyOptions, responses: { "200": { description: Options } } }
+    post: { tags: [Metaproperties], summary: Create option, operationId: createMetapropertyOption, responses: { "201": { description: Created } } }
+
+  /api/1/taxonomy/metaproperties:
+    get: { tags: [Taxonomy], summary: List metaproperties (paginated), operationId: taxListMetaproperties, responses: { "200": { description: Metaproperties } } }
+    post: { tags: [Taxonomy], summary: Create metaproperty, operationId: taxCreateMetaproperty, responses: { "201": { description: Created } } }
+  /api/1/taxonomy/metaproperties/{metapropertyid}:
+    parameters:
+      - { name: metapropertyid, in: path, required: true, schema: { type: string } }
+    get: { tags: [Taxonomy], summary: Retrieve metaproperty, operationId: taxGetMetaproperty, responses: { "200": { description: Metaproperty } } }
+    patch: { tags: [Taxonomy], summary: Modify metaproperty, operationId: taxUpdateMetaproperty, responses: { "200": { description: Updated } } }
+    delete: { tags: [Taxonomy], summary: Delete metaproperty, operationId: taxDeleteMetaproperty, responses: { "204": { description: Deleted } } }
+
+  /api/v4/tags:
+    get: { tags: [Tags], summary: List tags, operationId: listTags, responses: { "200": { description: Tags } } }
+  /api/v4/tags/{id}/media:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    post: { tags: [Tags], summary: Add tag to assets, operationId: addTagToAssets, responses: { "200": { description: Tagged } } }
+    delete: { tags: [Tags], summary: Remove tag from assets, operationId: removeTagFromAssets, responses: { "204": { description: Untagged } } }
+
+  /api/v4/brands:
+    get: { tags: [Brands], summary: Retrieve brands, operationId: listBrands, responses: { "200": { description: Brands } } }
+
+  /api/v4/derivatives/presets:
+    get: { tags: [Derivatives], summary: List derivative presets, operationId: listDerivativePresets, responses: { "200": { description: Presets } } }
+  /api/v4/derivatives/presets/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Derivatives], summary: Retrieve derivative preset, operationId: getDerivativePreset, responses: { "200": { description: Preset } } }
+
+  /api/v4/smartfilters:
+    get: { tags: [Smartfilters], summary: List smartfilters, operationId: listSmartfilters, responses: { "200": { description: Smartfilters } } }
+
+  /v7/analytics/api/v1/asset/{assetid}:
+    parameters:
+      - { name: assetid, in: path, required: true, schema: { type: string } }
+    get: { tags: [Analytics], summary: Retrieve all asset events, operationId: assetEvents, responses: { "200": { description: Events } } }
+  /v7/analytics/api/v1/asset/download:
+    get: { tags: [Analytics], summary: Retrieve asset download events, operationId: assetDownloadEvents, responses: { "200": { description: Events } } }
+  /v7/analytics/api/v2/asset/views:
+    get: { tags: [Analytics], summary: Retrieve asset views, operationId: assetViewsV2, responses: { "200": { description: Events } } }
+  /v7/analytics/api/v1/user/login:
+    get: { tags: [Analytics], summary: Retrieve user login events, operationId: userLoginEvents, responses: { "200": { description: Events } } }
+
+  /v7/quarantine/v1/assets:
+    get: { tags: [Quarantine], summary: List quarantined assets, operationId: listQuarantined, responses: { "200": { description: Assets } } }
+  /v7/quarantine/v1/assets/{asset-id}:
+    parameters:
+      - { name: asset-id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Quarantine], summary: Retrieve quarantined asset, operationId: getQuarantined, responses: { "200": { description: Asset } } }
+    put: { tags: [Quarantine], summary: Update quarantined asset review status, operationId: updateQuarantined, responses: { "200": { description: Updated } } }
+
+  /automations/triggers:
+    get: { tags: [Automation], summary: List available triggers, operationId: listTriggers, responses: { "200": { description: Triggers } } }
+  /automations/conditions:
+    get: { tags: [Automation], summary: List available conditions, operationId: listConditions, responses: { "200": { description: Conditions } } }
+  /automations/actions:
+    get: { tags: [Automation], summary: List available actions, operationId: listActions, responses: { "200": { description: Actions } } }
+  /automations/rules:
+    get: { tags: [Automation], summary: List automation rules, operationId: listRules, responses: { "200": { description: Rules } } }
+    post: { tags: [Automation], summary: Create automation rule, operationId: createRule, responses: { "201": { description: Created } } }
+  /automations/rules/{ruleid}:
+    parameters:
+      - { name: ruleid, in: path, required: true, schema: { type: string } }
+    get: { tags: [Automation], summary: Retrieve automation rule, operationId: getRule, responses: { "200": { description: Rule } } }
+    put: { tags: [Automation], summary: Update automation rule, operationId: updateRule, responses: { "200": { description: Updated } } }
+    delete: { tags: [Automation], summary: Delete automation rule, operationId: deleteRule, responses: { "204": { description: Deleted } } }
+
+  /v7/file/cmds/upload/prepare:
+    post: { tags: [Upload], summary: Prepare file upload, operationId: prepareUpload, responses: { "200": { description: Upload prepared } } }
+  /v7/file/cmds/upload/{file-id}/chunk/{chunk-number}:
+    parameters:
+      - { name: file-id, in: path, required: true, schema: { type: string } }
+      - { name: chunk-number, in: path, required: true, schema: { type: integer } }
+    post: { tags: [Upload], summary: Upload file chunk, operationId: uploadChunk, responses: { "200": { description: Chunk accepted } } }
+  /v7/file/cmds/upload/{file-id}/finalise:
+    parameters:
+      - { name: file-id, in: path, required: true, schema: { type: string } }
+    post: { tags: [Upload], summary: Finalize upload, operationId: finaliseUpload, responses: { "200": { description: Finalised } } }
+
+  /api/store/order:
+    get: { tags: [Orders], summary: Retrieve orders, operationId: listOrders, responses: { "200": { description: Orders } } }
+  /api/store/order/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Orders], summary: Retrieve order, operationId: getOrder, responses: { "200": { description: Order } } }
+
+  /api/workflow/campaigns:
+    get: { tags: [Workflow], summary: List campaigns, operationId: listCampaigns, responses: { "200": { description: Campaigns } } }
+    post: { tags: [Workflow], summary: Create campaign, operationId: createCampaign, responses: { "201": { description: Created } } }
+  /api/workflow/campaigns/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Workflow], summary: Retrieve campaign, operationId: getCampaign, responses: { "200": { description: Campaign } } }
+    put: { tags: [Workflow], summary: Modify campaign, operationId: updateCampaign, responses: { "200": { description: Updated } } }
+    delete: { tags: [Workflow], summary: Delete campaign, operationId: deleteCampaign, responses: { "204": { description: Deleted } } }
+  /api/workflow/jobs:
+    get: { tags: [Workflow], summary: List jobs, operationId: listJobs, responses: { "200": { description: Jobs } } }
+    post: { tags: [Workflow], summary: Create job, operationId: createJob, responses: { "201": { description: Created } } }
+  /api/workflow/jobs/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Workflow], summary: Retrieve job, operationId: getJob, responses: { "200": { description: Job } } }
+    put: { tags: [Workflow], summary: Modify job, operationId: updateJob, responses: { "200": { description: Updated } } }
+    delete: { tags: [Workflow], summary: Delete job, operationId: deleteJob, responses: { "204": { description: Deleted } } }
+
+  /api/webhooks:
+    get: { tags: [Webhooks], summary: List webhook configurations, operationId: listWebhooks, responses: { "200": { description: Webhooks } } }
+    post: { tags: [Webhooks], summary: Create webhook configuration, operationId: createWebhook, responses: { "201": { description: Created } } }
+  /api/webhooks/{id}:
+    parameters:
+      - { name: id, in: path, required: true, schema: { type: string } }
+    get: { tags: [Webhooks], summary: Retrieve webhook, operationId: getWebhook, responses: { "200": { description: Webhook } } }
+    put: { tags: [Webhooks], summary: Update webhook, operationId: updateWebhook, responses: { "200": { description: Updated } } }
+    patch: { tags: [Webhooks], summary: Patch webhook, operationId: patchWebhook, responses: { "200": { description: Updated } } }
+    delete: { tags: [Webhooks], summary: Delete webhook, operationId: deleteWebhook, responses: { "204": { description: Deleted } } }
+  /api/webhooks/ips:
+    get: { tags: [Webhooks], summary: Retrieve webhook source IP ranges, operationId: webhookIps, responses: { "200": { description: IP ranges } } }
+
+  /api/trash/media:
+    get: { tags: [Trash], summary: Retrieve recently removed assets, operationId: listTrash, responses: { "200": { description: Removed assets } } }
+
+  /api/1/content/access:
+    get: { tags: [ContentAccess], summary: Retrieve metaproperty access, operationId: getContentAccess, responses: { "200": { description: Access } } }
+    post: { tags: [ContentAccess], summary: Create metaproperty access, operationId: createContentAccess, responses: { "201": { description: Created } } }
+    delete: { tags: [ContentAccess], summary: Delete metaproperty access, operationId: deleteContentAccess, responses: { "204": { description: Deleted } } }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 with JWT bearer access tokens
+      flows:
+        authorizationCode:
+          authorizationUrl: https://yourportal.bynder.com/v6/authentication/oauth2/auth
+          tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/authorization
+          refreshUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/refresh
+          scopes:
+            offline: Refresh token access
+            asset:read: Read assets
+            asset:write: Write assets
+            collection:read: Read collections
+            collection:write: Write collections
+            meta.assetbank:read: Read asset bank metaproperties
+            meta.assetbank:write: Write asset bank metaproperties
+        clientCredentials:
+          tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/client-credentials
+          scopes:
+            asset:read: Read assets
+            asset:write: Write assets
