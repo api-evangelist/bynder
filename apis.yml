@@ -1,24 +1,32 @@
 aid: bynder
 name: Bynder
 description: >-
-  Bynder is a cloud-based digital asset management (DAM) platform that helps
-  organizations store, organize, distribute, and analyze brand and marketing
-  assets. The Bynder REST API enables developers to programmatically manage
-  assets, metadata, collections, taxonomies, workflows, and brand guidelines,
-  with OAuth 2.0 authentication against each customer's portal domain.
+  Bynder is a cloud-based digital asset management (DAM) platform used to store,
+  organize, distribute and analyze brand and marketing assets. Its REST API is not
+  one service but a federation of them behind each customer's own portal domain:
+  the /api/v4 asset bank (assets, collections, metaproperties, brands, tags,
+  smart filters, users and security profiles), an /api/1 taxonomy and content-access
+  layer, /v6 OAuth 2.0 authorization, /v7 upload, webhooks and antivirus services,
+  /api/workflow campaigns and jobs, and /api/store Brandstore ordering. Bynder
+  publishes 34 OpenAPI 3.1 definitions covering 156 operations
+  through its own API registry, a dated changelog, a documentation llms.txt, first-party
+  SDKs for JavaScript, Python, PHP, Java and C#, and an embeddable asset-picker
+  component. Authentication is OAuth 2.0 with JWT bearer tokens, layered on top of
+  named security roles that gate operations independently of scope.
 type: Index
 accessModel:
-  pricing: unknown
-  onboarding: self-serve
+  pricing: quote-only
+  onboarding: sales-led
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Contact sales for a quote
+  confidence: high
   source:
-  - authentication
-  generated: '2026-07-22'
-  method: derived
+  - https://www.bynder.com/en/pricing/
+  - plans/bynder-plans-pricing.yml
+  generated: '2026-08-13'
+  method: searched
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bynder.png
 tags:
   - Digital Asset Management
@@ -26,370 +34,849 @@ tags:
   - Brand Management
   - Content Management
   - Marketing
+  - Asset Workflow
+  - Metadata
+  - Content Operations
+  - Media
+  - Analytics
 url: >-
   https://raw.githubusercontent.com/api-evangelist/bynder/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 apis:
-- aid: bynder:bynder-account-api
+- aid: bynder:bynder-access-rights-and-options-v4-api
+  name: Bynder Access Rights and Optiops API
+  description: >-
+    The combined access-rights and metaproperty-options surface, covering metaproperty
+    access control alongside the option operations on the /api/content_access paths.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Access Rights
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-access-rights-and-options-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-access-rights-and-options-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-access-rights-v4-api
+  name: Bynder Access Rights API
+  description: >-
+    Content access rights on metaproperties — retrieve, create and delete which users or
+    groups may see a given metaproperty.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Access Rights
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-access-rights-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-access-rights-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-account-v4-api
   name: Bynder Account API
-  description: The Account API from Bynder — 1 operation(s) for account.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+  description: >-
+    Account information for a Bynder portal, including the derivative configuration the
+    account has available.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
   - Account
+  - Administration
   properties:
   - type: OpenAPI
-    url: openapi/bynder-account-api-openapi.yml
+    url: openapi/bynder-account-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-account-v4-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+    url: authentication/bynder-authentication.yml
 - aid: bynder:bynder-analytics-api
   name: Bynder Analytics API
-  description: The Analytics API from Bynder — 4 operation(s) for analytics.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+  description: >-
+    The Analytics module: asset views and downloads, search usage, user usage,
+    collection usage, reporting and historical data. The largest single Bynder
+    definition, cursor-paged rather than page-and-limit.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
   - Analytics
+  - Reporting
   properties:
   - type: OpenAPI
-    url: openapi/bynder-analytics-api-openapi.yml
+    url: openapi/bynder-analytics-openapi.json
+  - type: Overlay
+    url: overlays/bynder-analytics-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-authentication-api
-  name: Bynder Authentication API
-  description: The Authentication API from Bynder — 5 operation(s) for authentication.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-antivirus-api
+  name: Bynder Antivirus API
+  description: >-
+    Antivirus and quarantine: list assets held pending review, retrieve a quarantined
+    asset, and update review status individually or for a list of asset ids.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
-  - Authentication
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-authentication-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-automation-api
-  name: Bynder Automation API
-  description: The Automation API from Bynder — 5 operation(s) for automation.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Automation
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-automation-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-brands-api
-  name: Bynder Brands API
-  description: The Brands API from Bynder — 1 operation(s) for brands.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Brands
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-brands-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-collections-api
-  name: Bynder Collections API
-  description: The Collections API from Bynder — 4 operation(s) for collections.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Collections
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-collections-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-contentaccess-api
-  name: Bynder ContentAccess API
-  description: The ContentAccess API from Bynder — 1 operation(s) for contentaccess.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - ContentAccess
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-contentaccess-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-derivatives-api
-  name: Bynder Derivatives API
-  description: The Derivatives API from Bynder — 2 operation(s) for derivatives.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Derivatives
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-derivatives-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-media-api
-  name: Bynder Media API
-  description: The Media API from Bynder — 4 operation(s) for media.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Media
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-media-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-metaproperties-api
-  name: Bynder Metaproperties API
-  description: The Metaproperties API from Bynder — 3 operation(s) for metaproperties.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Metaproperties
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-metaproperties-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-orders-api
-  name: Bynder Orders API
-  description: The Orders API from Bynder — 2 operation(s) for orders.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Orders
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-orders-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-quarantine-api
-  name: Bynder Quarantine API
-  description: The Quarantine API from Bynder — 2 operation(s) for quarantine.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
+  - Antivirus
   - Quarantine
   properties:
   - type: OpenAPI
-    url: openapi/bynder-quarantine-api-openapi.yml
+    url: openapi/bynder-antivirus-openapi.json
+  - type: Overlay
+    url: overlays/bynder-antivirus-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-smartfilters-api
-  name: Bynder Smartfilters API
-  description: The Smartfilters API from Bynder — 1 operation(s) for smartfilters.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-asset-download-api
+  name: Bynder Download API
+  description: >-
+    Time-limited download locations for an asset's original file, a specific version, or
+    a specific item within the asset. Gated by the MEDIAHIGHRES, ARCHIVEDOWNLOAD,
+    DOWNLOADWATERMARK and KEYVISUALSDOWNLOAD security roles.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
-  - Smartfilters
+  - Download
+  - Assets
   properties:
   - type: OpenAPI
-    url: openapi/bynder-smartfilters-api-openapi.yml
+    url: openapi/bynder-asset-download-openapi.json
+  - type: Overlay
+    url: overlays/bynder-asset-download-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-tags-api
-  name: Bynder Tags API
-  description: The Tags API from Bynder — 2 operation(s) for tags.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Tags
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-tags-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-taxonomy-api
-  name: Bynder Taxonomy API
-  description: The Taxonomy API from Bynder — 2 operation(s) for taxonomy.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Taxonomy
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-taxonomy-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-trash-api
-  name: Bynder Trash API
-  description: The Trash API from Bynder — 1 operation(s) for trash.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
-  tags:
-  - Trash
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-trash-api-openapi.yml
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-upload-api
-  name: Bynder Upload API
-  description: The Upload API from Bynder — 3 operation(s) for upload.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-asset-upload-api
+  name: Bynder Upload Assets API
+  description: >-
+    Bynder's chunked upload sequence: request the closest S3 upload endpoint, initialise
+    the upload, register each chunk, poll for processing, then finalise the file as a
+    new asset or as a new version of an existing asset.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
   - Upload
+  - Assets
   properties:
   - type: OpenAPI
-    url: openapi/bynder-upload-api-openapi.yml
+    url: openapi/bynder-asset-upload-openapi.json
+  - type: Overlay
+    url: overlays/bynder-asset-upload-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-users-api
-  name: Bynder Users API
-  description: The Users API from Bynder — 5 operation(s) for users.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-asset-usage-v4-api
+  name: Bynder Asset Usage API
+  description: >-
+    Asset usage tracking: record where an asset has been used by an integration,
+    retrieve usage for an asset, delete a usage entry, and sync all usage from a single
+    integration in one call.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
-  - Users
+  - Asset Usage
+  - Analytics
   properties:
   - type: OpenAPI
-    url: openapi/bynder-users-api-openapi.yml
+    url: openapi/bynder-asset-usage-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-asset-usage-v4-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-webhooks-api
-  name: Bynder Webhooks API
-  description: The Webhooks API from Bynder — 3 operation(s) for webhooks.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-asset-v4-api
+  name: Bynder Asset Management API
+  description: >-
+    The core asset-bank API. List and search assets by keyword, type, brand and
+    metaproperty, retrieve a single asset with its metaproperty values, tags and
+    derivatives, modify it, delete it, and set metaproperty options on it.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
-  - Webhooks
+  - Assets
+  - Digital Asset Management
   properties:
   - type: OpenAPI
-    url: openapi/bynder-webhooks-api-openapi.yml
+    url: openapi/bynder-asset-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-asset-v4-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-- aid: bynder:bynder-workflow-api
-  name: Bynder Workflow API
-  description: The Workflow API from Bynder — 4 operation(s) for workflow.
-  humanURL: https://developers.bynder.com
-  baseURL: https://yourportal.bynder.com/api
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-automation-workflow-svc-api
+  name: Bynder Automation Workflow API
+  description: >-
+    Automation workflow rules: list the available triggers, conditions and actions, then
+    create, read, update, delete and pause or publish rules that act on assets
+    automatically.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
   tags:
+  - Automation
   - Workflow
   properties:
   - type: OpenAPI
-    url: openapi/bynder-workflow-api-openapi.yml
+    url: openapi/bynder-automation-workflow-svc-openapi.json
+  - type: Overlay
+    url: overlays/bynder-automation-workflow-svc-overlay.yaml
   - type: Documentation
-    url: https://developers.bynder.com
+    url: https://api.bynder.com/docs/getting-started
   - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
+    url: https://api.bynder.com/reference
   - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-avs-api
+  name: Bynder Adaptive Video Streaming API
+  description: >-
+    Adaptive Video Streaming: retrieve the public streaming links for a video asset so
+    it can be played back adaptively.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Video
+  - Streaming
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-avs-openapi.json
+  - type: Overlay
+    url: overlays/bynder-avs-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-brands-v4-api
+  name: Bynder Brands API
+  description: >-
+    Retrieve the brands and sub-brands configured in a Bynder portal. Every asset
+    belongs to a brand, so this is the entry point for brand-scoped asset queries.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Brands
+  - Brand Management
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-brands-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-brands-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-brandstore-api
+  name: Bynder Brandstore API
+  description: >-
+    Brandstore ordering: retrieve orders, retrieve a specific order by id, list and add
+    order products, and modify order lines. The commerce surface on top of the DAM.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Brandstore
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-brandstore-openapi.json
+  - type: Overlay
+    url: overlays/bynder-brandstore-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-collections-v4-api
+  name: Bynder Collections API
+  description: >-
+    Collections are Bynder's unit of hand-off. Create, read, modify and delete
+    collections, add and remove assets, retrieve a collection's assets, and share a
+    collection with named recipients.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Collections
+  - Sharing
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-collections-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-collections-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-dat-api
+  name: Bynder Dynamic Asset Transformations API
+  description: >-
+    Dynamic Asset Transformations: request a transformed rendition of an asset by id and
+    transform name, generated on the fly rather than from a stored derivative.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Transformations
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-dat-openapi.json
+  - type: Overlay
+    url: overlays/bynder-dat-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-derivative-presets-api
+  name: Bynder Derivative Presets API
+  description: >-
+    Derivative presets — the named rendition and transform presets a portal defines.
+    List every preset, or retrieve a specific one.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Derivatives
+  - Renditions
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-derivative-presets-openapi.json
+  - type: Overlay
+    url: overlays/bynder-derivative-presets-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-groups-v4-api
+  name: Bynder Groups API
+  description: >-
+    Retrieve the user groups configured in a portal. Groups drive workflow assignment
+    and permission grouping.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Groups
+  - Administration
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-groups-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-groups-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-metaproperty-v4-api
+  name: Bynder Metaproperty Operations API
+  description: >-
+    Metaproperty definitions — the custom metadata fields a portal defines. Create,
+    retrieve, modify and delete metaproperties on the /api/v4 asset-bank surface.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Metaproperties
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-metaproperty-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-metaproperty-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-modern-stack-upload-api
+  name: Bynder Modern Stack File Upload API
+  description: >-
+    The newer /v7 file-command upload surface: prepare an upload, push numbered chunks,
+    and finalise. An alternative to the /api/v4 upload sequence on portals running the
+    modern stack.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Upload
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-modern-stack-upload-openapi.json
+  - type: Overlay
+    url: overlays/bynder-modern-stack-upload-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-oauth2-api
+  name: Bynder OAuth 2.0 API
+  description: >-
+    OAuth 2.0 authorization for a Bynder portal: the authorize endpoint, the token
+    endpoint (authorization code, client credentials and refresh token grants) and a
+    runtime scope reference that returns each scope with the user permissions it
+    requires.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Authentication
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-oauth2-openapi.json
+  - type: Overlay
+    url: overlays/bynder-oauth2-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-options-v4-api
+  name: Bynder Metaproperty Options API
+  description: >-
+    Metaproperty options and their dependency graph: create and manage the selectable
+    values on a metaproperty, retrieve dependencies globally or per metaproperty, and
+    manage grouped and ungrouped option dependencies.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Metaproperty Options
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-options-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-options-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-product-layer-v4-api
+  name: Bynder Product Layer Metaproperties API
+  description: >-
+    Product layer metaproperties — the product-information metadata layer Bynder
+    maintains alongside the asset-bank metaproperties.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Product Layer
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-product-layer-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-product-layer-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-securityroles-v4-api
+  name: Bynder Security Roles API
+  description: >-
+    Security profiles — the named role sets that gate every Bynder operation alongside
+    the OAuth scope. List every profile, or retrieve one by id.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Security Profiles
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-securityroles-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-securityroles-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-similar-assets-api
+  name: Bynder Similar Assets Search API
+  description: >-
+    Similarity search over the asset bank — find assets that resemble a reference asset.
+    Part of Bynder's AI search surface, on the /api/1 RFC 4122 id space rather than
+    /api/v4.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Search
+  - AI
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-similar-assets-openapi.json
+  - type: Overlay
+    url: overlays/bynder-similar-assets-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-smartfilter-v4-api
+  name: Bynder Smartfilters API
+  description: >-
+    Smart filters are saved queries over the asset bank. This API lists the smart
+    filters configured in a portal.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Smart Filters
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-smartfilter-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-smartfilter-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-taxonomy-v1-api
+  name: Bynder Taxonomy API
+  description: >-
+    The taxonomy service exposes metaproperties and their options on the /api/1 surface
+    with RFC 4122 UUIDs, in parallel to the /api/v4 metaproperty endpoints.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Taxonomy
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-taxonomy-v1-openapi.json
+  - type: Overlay
+    url: overlays/bynder-taxonomy-v1-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-tea-api
+  name: Bynder TEA - Public API
+  description: >-
+    The Content Workflow (TEA) public authoring API — retrieve an authored document by
+    UUID from the editorial content surface Bynder acquired with GatherContent.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Content Workflow
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-tea-openapi.json
+  - type: Overlay
+    url: overlays/bynder-tea-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-trash-v4-api
+  name: Bynder Trash API
+  description: >-
+    Retrieve recently removed assets from the portal trash, before they are permanently
+    purged.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Trash
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-trash-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-trash-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-users-v4-api
+  name: Bynder Users API
+  description: >-
+    User administration: list, create, retrieve, modify and delete portal users, and
+    retrieve the currently authenticated user.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Users
+  - Administration
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-users-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-users-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-webhooks-api
+  name: Bynder Webhooks API
+  description: >-
+    Webhook subscription management. Create, retrieve, update, patch and delete
+    subscriptions that receive Bynder asset and workflow events at an endpoint you
+    control.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Webhooks
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-webhooks-openapi.json
+  - type: Overlay
+    url: overlays/bynder-webhooks-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-wf-campaigns-v4-api
+  name: Bynder Workflow Campaigns API
+  description: >-
+    Asset Workflow campaigns — create, retrieve, modify, close and delete the campaigns
+    that group workflow jobs.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Workflow Campaigns
+  - Asset Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-wf-campaigns-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-wf-campaigns-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-wf-jobs-v4-api
+  name: Bynder Workflow Jobs API
+  description: >-
+    Asset Workflow jobs — create jobs under a campaign, attach assets, read stages,
+    advance the active stage, and finish the job. The largest workflow definition.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Workflow Jobs
+  - Asset Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-wf-jobs-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-wf-jobs-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-wf-metaproperties-v4-api
+  name: Bynder Workflow Metaproperties API
+  description: >-
+    Metaproperties as seen by the Asset Workflow service, separate from the asset-bank
+    metaproperty definitions.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Workflow Metaproperties
+  - Asset Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-wf-metaproperties-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-wf-metaproperties-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
+- aid: bynder:bynder-wf-users-groups-v4-api
+  name: Bynder Workflow Users and Groups API
+  description: >-
+    Users and groups as seen by the Asset Workflow service, separate from the asset-bank
+    user administration API.
+  humanURL: https://api.bynder.com/reference
+  baseURL: https://yourportal.bynder.com
+  tags:
+  - Workflow Users
+  - Asset Workflow
+  properties:
+  - type: OpenAPI
+    url: openapi/bynder-wf-users-groups-v4-openapi.json
+  - type: Overlay
+    url: overlays/bynder-wf-users-groups-v4-overlay.yaml
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: Authentication
+    url: authentication/bynder-authentication.yml
 common:
-  - type: AgenticAccess
-    url: agentic-access/bynder-agentic-access.yml
-  - type: TrustCenter
-    url: security/bynder-trust-center.yml
-  - type: VulnerabilityDisclosure
-    url: security/bynder-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/bynder-domain-security.yml
+  - type: DeveloperPortal
+    url: https://developers.bynder.com
+  - type: Documentation
+    url: https://api.bynder.com/docs/getting-started
+  - type: APIReference
+    url: https://api.bynder.com/reference
+  - type: GettingStarted
+    url: https://api.bynder.com/docs/getting-started
+  - type: Website
+    url: https://www.bynder.com
+  - type: Blog
+    url: https://www.bynder.com/en/blog/rss.xml
+  - type: Support
+    url: https://support.bynder.com
+  - type: HelpCenter
+    url: https://support.bynder.com/hc/en-us
+  - type: Community
+    url: https://community.bynder.com
+  - type: GitHubOrganization
+    url: https://github.com/Bynder
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bynder
+  - type: Pricing
+    url: https://www.bynder.com/en/pricing/
+  - type: TermsOfService
+    url: https://www.bynder.com/en/legal/terms-of-use/
+  - type: PrivacyPolicy
+    url: https://www.bynder.com/en/legal/privacy-policy/
+  - type: Postman
+    url: collections/bynder.postman_collection.json
+  - type: PostmanCollection
+    url: https://dam.bynder.com/m/5f2d178f1d6308bf/original/Bynder-Postman-Collection.json
+  - type: ChangeLog
+    url: changelog/bynder-changelog.yml
+  - type: ReleaseNotes
+    url: https://api.bynder.com/changelog/2025
+  - type: StatusPage
+    url: https://status.bynder.com
+  - type: Lifecycle
+    url: lifecycle/bynder-lifecycle.yml
+  - type: SLA
+    url: https://www.bynder.com/en/legal/service-level-agreement-v12/
   - type: Authentication
     url: authentication/bynder-authentication.yml
   - type: OAuthScopes
     url: scopes/bynder-scopes.yml
-  - type: Blog
-    url: https://www.bynder.com/en/blog/rss.xml
-  - type: Website
-    url: https://www.bynder.com
-  - type: Documentation
-    url: https://developers.bynder.com
-  - type: APIReference
-    url: https://bynder-api-documentation.readme.io/reference
-  - type: Pricing
-    url: https://www.bynder.com/en/pricing/
-  - type: Support
-    url: https://support.bynder.com
-  - type: GitHubOrganization
-    url: https://github.com/Bynder
+  - type: Conventions
+    url: conventions/bynder-conventions.yml
+  - type: ErrorCatalog
+    url: errors/bynder-problem-types.yml
+  - type: DataModel
+    url: data-model/bynder-data-model.yml
+  - type: RateLimits
+    url: rate-limits/bynder-rate-limits.yml
+  - type: Plans
+    url: plans/bynder-plans-pricing.yml
+  - type: Conformance
+    url: conformance/bynder-conformance.yml
+  - type: Compliance
+    url: https://trust.bynder.com/
+  - type: TrustCenter
+    url: security/bynder-trust-center.yml
+  - type: Security
+    url: https://www.bynder.com/en/legal/responsible-disclosure-policy/
+  - type: VulnerabilityDisclosure
+    url: security/bynder-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/bynder-domain-security.yml
+  - type: SecurityTxt
+    url: well-known/bynder-security.txt
+  - type: WellKnown
+    url: well-known/bynder-well-known.yml
+  - type: LLMsTxt
+    url: llms/bynder-llms.txt
+  - type: Packages
+    url: packages/bynder-packages.yml
+  - type: SDKs
+    url: packages/bynder-packages.yml
   - type: JavaScript SDK
     url: https://github.com/Bynder/bynder-js-sdk
   - type: PHP SDK
     url: https://github.com/Bynder/bynder-php-sdk
   - type: Python SDK
     url: https://github.com/Bynder/bynder-python-sdk
-  - type: Authentication
-    url: https://developer-docs.bynder.com/authentication-oauth2-oauth-apps
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/bynder
+  - type: Java SDK
+    url: https://github.com/Bynder/bynder-java-sdk
+  - type: C# SDK
+    url: https://github.com/Bynder/bynder-c-sharp-sdk
+  - type: Components
+    url: components/bynder-components.yml
+  - type: Webhooks
+    url: asyncapi/bynder-webhooks.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: AgenticAccess
+    url: agentic-access/bynder-agentic-access.yml
 
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 129
+  pass: local-v1
+
