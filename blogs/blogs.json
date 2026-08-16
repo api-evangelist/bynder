@@ -9,10 +9,13 @@
       "method": "feed"
     },
     {
-      "source": "https://developer-docs.bynder.com/authentication-oauth2-oauth-apps",
-      "error": "HTTPError"
+      "source": "https://www.bynder.com",
+      "feed_url": "https://www.bynder.com/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
-  "fetched": "2026-08-06T13:56:59Z",
+  "fetched": "2026-08-15T12:22:01Z",
   "post_count": 43
 }
