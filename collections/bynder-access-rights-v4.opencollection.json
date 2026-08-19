@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Access Rights API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Access rights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve metaproperty access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/content_access/metaproperties/:metaproperty_id",
+            "params": [
+              {
+                "name": "metaproperty_id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ]
+          },
+          "docs": "Retrieve metaproperty access"
+        },
+        {
+          "info": {
+            "name": "Create metaproperty access",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/content_access/metaproperties/:metaproperty_id",
+            "params": [
+              {
+                "name": "metaproperty_id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create metaproperty access"
+        },
+        {
+          "info": {
+            "name": "Delete metaproperty access",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/content_access/metaproperties/:metaproperty_id",
+            "params": [
+              {
+                "name": "metaproperty_id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete metaproperty access"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

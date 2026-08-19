@@ -1,0 +1,352 @@
+{
+  "item": [
+    {
+      "id": "cc3cadb3-83d2-4f99-98f6-669a59c85859",
+      "name": "Generate dynamic asset transformation",
+      "request": {
+        "name": "Generate dynamic asset transformation",
+        "description": {
+          "content": "Generate a derivative on the fly with a transformation (such as cropping, scaling, filling) applied to it.   More information about this feature can be found in our [Knowledge Base item](https://support.bynder.com/hc/en-us/articles/360018559260-Dynamic-Asset-Transformations-DAT-).\nImage operations can be passed as `io` parameters in the form of `transform:{operation},{param1}:{value1},{param2}:{value2},...`.   It's possible to specify several operations: `?io={operation1}&io={operation2}&...`. The operations will be applied in the same order they are passed in the url.\nThese are the possible image operations and their parameters:\n| Operation    | Parameter       | Possible values                                                                      | | ------------ | --------------- | ------------------------------------------------------------------------------------ | | `background` | color           | color name (yellow, black, etc.) or hexadecimal (rgb, rrggbb)                        | | `crop`       | width           | integer                                                                              | |              | height          | integer                                                                              | |              | x               | integer                                                                              | |              | y               | integer                                                                              | |              | gravity         | topleft / top / topright / left / center / right / bottomleft / bottom / bottomright | |              | shape           | circle / square                                                                      | |              | blur            | integer                                                                              | |              | background      | color name (yellow, black, etc.) or hexadecimal (rgb, rrggbb)                        | | `extend`     | width           | integer                                                                              | |              | height          | integer                                                                              | |              | background      | color name (yellow, black, etc.) or hexadecimal (rgb, rrggbb)                        | | `fill`       | width           | integer                                                                              | |              | height          | integer                                                                              | |              | gravity         | topleft / top / topright / left / center / right / bottomleft / bottom / bottomright | |              | aspectratio     | {integer}x{integer}                                                                  | | `fit`        | width           | integer                                                                              | |              | height          | integer                                                                              | | `flip`       | (no parameters) |                                                                                      | | `mirror`     | (no parameters) |                                                                                      | | `rotate`     | angle           | integer between 0 and 360                                                            | |              | background      | color name (yellow, black, etc.) or hexadecimal (rgb, rrggbb)                        | | `scale`      | width           | integer                                                                              | |              | height          | integer                                                                              |\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "transform",
+            ":id",
+            ":name"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "io",
+              "value": "<string>",
+              "description": "The operation(s) performed on the image before it's served to the client."
+            },
+            {
+              "disabled": false,
+              "key": "io",
+              "value": "<string>",
+              "description": "The operation(s) performed on the image before it's served to the client."
+            },
+            {
+              "disabled": false,
+              "key": "focuspoint",
+              "value": "<string>",
+              "description": "Focus point as a x,y coordinate (with values between 0 - 1)."
+            },
+            {
+              "disabled": false,
+              "key": "format",
+              "value": "<string>",
+              "description": "Format of the served image. This can either be `jpg` or `png` and it will overwrite the default `webP`."
+            },
+            {
+              "disabled": false,
+              "key": "quality",
+              "value": "<integer>",
+              "description": "Image quality, ranging from 1 - 100 (has no effect when `format` is set to 'png')."
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "name",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "image/jpeg"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7909ce0d-9b82-46ec-b02e-c1138bcba751",
+          "name": "Image",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transform",
+                ":id",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "io",
+                  "value": "<string>"
+                },
+                {
+                  "key": "io",
+                  "value": "<string>"
+                },
+                {
+                  "key": "focuspoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "format",
+                  "value": "<string>"
+                },
+                {
+                  "key": "quality",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "image/jpeg"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "image/jpeg"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "d08abd43-f3cd-4c39-a173-d9677518b245",
+          "name": "Image Operation not supported",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transform",
+                ":id",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "io",
+                  "value": "<string>"
+                },
+                {
+                  "key": "io",
+                  "value": "<string>"
+                },
+                {
+                  "key": "focuspoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "format",
+                  "value": "<string>"
+                },
+                {
+                  "key": "quality",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "bca55458-dbfa-4469-a6bc-33684c1422d5",
+          "name": "Not Found",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transform",
+                ":id",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "io",
+                  "value": "<string>"
+                },
+                {
+                  "key": "io",
+                  "value": "<string>"
+                },
+                {
+                  "key": "focuspoint",
+                  "value": "<string>"
+                },
+                {
+                  "key": "format",
+                  "value": "<string>"
+                },
+                {
+                  "key": "quality",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aae5e0bc-b7e0-405a-8c2c-3e0f31e17d17",
+    "name": "Dynamic Asset Transformations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

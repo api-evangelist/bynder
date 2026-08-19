@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Security Roles",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve security profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/profiles/",
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It’s the API’s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve specific security profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/profiles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Security profile id."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "This call allows you to retrieve your own security profile without requiring the PERMISSIONMANAGEMENT security role. In order to get your own security profile use your user profile id retrieved by executing the Specific User or Current User call.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

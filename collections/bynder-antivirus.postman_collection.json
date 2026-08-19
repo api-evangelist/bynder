@@ -1,0 +1,896 @@
+{
+  "item": [
+    {
+      "id": "0dc09289-4f66-4468-983f-49ebcbae62d3",
+      "name": "Quarantine",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4bf4c54-1c82-470d-9035-af9413ed0e0c",
+          "name": "Retrieve a list of quarantined assets",
+          "request": {
+            "name": "Retrieve a list of quarantined assets",
+            "description": {},
+            "url": {
+              "path": [
+                "v7",
+                "quarantine",
+                "v1",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Audit quarantined assets"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ef3aeccb-2de3-4bf9-b968-5f9f95b0c3d4",
+              "name": "List of quarantined assets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalCount\": 1,\n  \"assets\": [\n    {\n      \"id\": \"a69f3104-0107-48af-a522-b437cd700b34\",\n      \"accountId\": \"9c06c1e3-f0cb-427a-88f0-a545c475047f\",\n      \"assetId\": \"5c554910-11f4-49a3-b7bf-04c21c99af05\",\n      \"assetName\": \"example-asset-name\",\n      \"requesterId\": \"0b403671-8047-4fb9-9c59-ab4273973fb5\",\n      \"scanStatus\": \"SKIPPED\",\n      \"dateAdded\": \"2024-06-28T10:42:02\",\n      \"dateModified\": \"2024-06-28T10:42:11\",\n      \"uploadEventType\": \"LEGACY\",\n      \"fileType\": \"None\",\n      \"fileSize\": 0,\n      \"scanFailureReason\": \"client_error\",\n      \"reviewStatus\": \"REJECTED\",\n      \"reviewedById\": \"string\",\n      \"isRemoved\": false,\n      \"isSafe\": false\n    },\n    {\n      \"id\": \"a69f3104-0107-48af-a522-b437cd700b34\",\n      \"accountId\": \"9c06c1e3-f0cb-427a-88f0-a545c475047f\",\n      \"assetId\": \"5c554910-11f4-49a3-b7bf-04c21c99af05\",\n      \"assetName\": \"example-asset-name\",\n      \"requesterId\": \"0b403671-8047-4fb9-9c59-ab4273973fb5\",\n      \"scanStatus\": \"SKIPPED\",\n      \"dateAdded\": \"2024-06-28T10:42:02\",\n      \"dateModified\": \"2024-06-28T10:42:11\",\n      \"uploadEventType\": \"LEGACY\",\n      \"fileType\": \"None\",\n      \"fileSize\": 0,\n      \"scanFailureReason\": \"client_error\",\n      \"reviewStatus\": \"REJECTED\",\n      \"reviewedById\": \"string\",\n      \"isRemoved\": false,\n      \"isSafe\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "698272c5-6204-4a5e-9700-021cd2ec860b",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Asset not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "265a8766-712c-4d0f-860a-5ae5db5d5bf1",
+          "name": "Retrieve a quarantined asset by id",
+          "request": {
+            "name": "Retrieve a quarantined asset by id",
+            "description": {},
+            "url": {
+              "path": [
+                "v7",
+                "quarantine",
+                "v1",
+                "assets",
+                ":asset_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Audit quarantined assets"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aa75cae4-6393-430e-9734-4a1def0ea42e",
+              "name": "Quarantined asset details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets",
+                    ":asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"a69f3104-0107-48af-a522-b437cd700b34\",\n  \"accountId\": \"9c06c1e3-f0cb-427a-88f0-a545c475047f\",\n  \"assetId\": \"5c554910-11f4-49a3-b7bf-04c21c99af05\",\n  \"assetName\": \"example-asset-name\",\n  \"requesterId\": \"0b403671-8047-4fb9-9c59-ab4273973fb5\",\n  \"scanStatus\": \"SKIPPED\",\n  \"dateAdded\": \"2024-06-28T10:42:02\",\n  \"dateModified\": \"2024-06-28T10:42:11\",\n  \"uploadEventType\": \"LEGACY\",\n  \"fileType\": \"None\",\n  \"fileSize\": 0,\n  \"scanFailureReason\": \"client_error\",\n  \"reviewStatus\": \"REJECTED\",\n  \"reviewedById\": \"string\",\n  \"isRemoved\": false,\n  \"isSafe\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0f21678-5c70-44f6-88dc-36cebc1ba25d",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets",
+                    ":asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Asset not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaf13aea-cf89-4cde-b3ce-1698ae8ae643",
+          "name": "Update review status by id",
+          "request": {
+            "name": "Update review status by id",
+            "description": {},
+            "url": {
+              "path": [
+                "v7",
+                "quarantine",
+                "v1",
+                "assets",
+                ":asset_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Audit quarantined assets"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"review_status\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d39b32a1-461b-421b-87f8-c611ce188b9f",
+              "name": "Review status updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets",
+                    ":asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"review_status\": \"DENIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db2d7a56-e88e-4610-9c08-ac324bef4395",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets",
+                    ":asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"review_status\": \"DENIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa438e10-eca2-451c-8381-a85cee3d5559",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets",
+                    ":asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"review_status\": \"DENIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68c4eaa7-da67-4cd7-b44d-2e706c6848b2",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "assets",
+                    ":asset_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"review_status\": \"DENIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Asset not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3738fcd8-a962-4bc6-b406-59d65c7a4107",
+          "name": "Update review status by list of asset Ids",
+          "request": {
+            "name": "Update review status by list of asset Ids",
+            "description": {},
+            "url": {
+              "path": [
+                "v7",
+                "quarantine",
+                "v1",
+                "antivirus-audit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "Audit quarantined assets"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"antivirus_asset_ids\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"review_status\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2bf738a-ec8e-4610-93ab-e689e1a36b9d",
+              "name": "Review status updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "antivirus-audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"antivirus_asset_ids\": [\n      \"ac93e443-e4d5-442f-966b-b6f24c025c71\",\n      \"ac93e443-e4d5-442f-966b-b6f24c025c71\"\n    ],\n    \"review_status\": \"DENIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d248df2c-78a5-4841-b327-d6845840fb01",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "antivirus-audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"antivirus_asset_ids\": [\n      \"ac93e443-e4d5-442f-966b-b6f24c025c71\",\n      \"ac93e443-e4d5-442f-966b-b6f24c025c71\"\n    ],\n    \"review_status\": \"DENIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1aaf4c4-2c63-432a-857f-f2a328b18430",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "quarantine",
+                    "v1",
+                    "antivirus-audit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"antivirus_asset_ids\": [\n      \"ac93e443-e4d5-442f-966b-b6f24c025c71\",\n      \"ac93e443-e4d5-442f-966b-b6f24c025c71\"\n    ],\n    \"review_status\": \"DENIED\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7b854fd1-d64e-4726-9202-935ab29365df",
+    "name": "Antivirus API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

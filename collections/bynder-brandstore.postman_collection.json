@@ -1,0 +1,775 @@
+{
+  "item": [
+    {
+      "id": "fe545670-0c0f-4b4f-8110-9af84632806a",
+      "name": "Orders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e37a176d-f8f7-4044-a17a-4b3e295346a6",
+          "name": "Retrieve orders",
+          "request": {
+            "name": "Retrieve orders",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "store",
+                "order",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "389ad409-c12f-417f-89c7-6411083c65e6",
+              "name": "A list of orders",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "store",
+                    "order",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"order_ref\": \"NA13334\",\n    \"net_price\": 0,\n    \"date_created\": \"2018-10-25T14:26:01+00:00\",\n    \"username\": \"john.doe@bynder.com\",\n    \"account_name\": \"Bynder\",\n    \"order_status\": \"In production\",\n    \"currency_symbol\": \"8364\"\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"order_ref\": \"NA13334\",\n    \"net_price\": 0,\n    \"date_created\": \"2018-10-25T14:26:01+00:00\",\n    \"username\": \"john.doe@bynder.com\",\n    \"account_name\": \"Bynder\",\n    \"order_status\": \"In production\",\n    \"currency_symbol\": \"8364\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2065a97-39a8-46e8-8a82-8e60ffa30e58",
+          "name": "Retrieve specific order info",
+          "request": {
+            "name": "Retrieve specific order info",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "store",
+                "order",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7d5e370d-e074-4545-83ea-87c2e297ff3b",
+              "name": "Specific order information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "store",
+                    "order",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000-0000-0000-0000000000000000\",\n  \"dateCreated\": \"2015-06-01T08:36:18Z\",\n  \"status\": \"IN_PRODUCTION\",\n  \"orderReference\": \"NL0456\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a990a800-bd7a-46a0-b6a0-5a26097969f9",
+          "name": "Retrieve specific order by id",
+          "request": {
+            "name": "Retrieve specific order by id",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "store",
+                "order",
+                ":id",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6a996adb-8c74-4fed-bdf4-7283db235099",
+              "name": "Specific order products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "store",
+                    "order",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"orderId\": \"00000000-0000-0000-0000-000000000000\",\n    \"product\": {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"name\": \"Train the trainer product\",\n      \"description\": \"This is such a nice product!\",\n      \"isFeatured\": false,\n      \"product_number\": \"999999999\",\n      \"size_height\": 1,\n      \"size_width\": 1,\n      \"size_depth\": 1,\n      \"weight\": 1,\n      \"min_quantity\": 1,\n      \"max_quantity\": 10,\n      \"default_quantity\": 1,\n      \"datecreated\": \"2016-08-10T12:14:16+00:00\",\n      \"isActive\": true,\n      \"product_type\": \"print\",\n      \"product_package\": \"unit\",\n      \"sku\": \"1\",\n      \"step\": 1,\n      \"display_length_unit\": \"cm\",\n      \"isFree\": false,\n      \"isShipping\": false\n    },\n    \"referenceId\": \"999999999\",\n    \"name\": \"Train the trainer product\",\n    \"itemPrice\": 0.2333,\n    \"quantity\": 3\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"orderId\": \"00000000-0000-0000-0000-000000000000\",\n    \"product\": {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"name\": \"Train the trainer product\",\n      \"description\": \"This is such a nice product!\",\n      \"isFeatured\": false,\n      \"product_number\": \"999999999\",\n      \"size_height\": 1,\n      \"size_width\": 1,\n      \"size_depth\": 1,\n      \"weight\": 1,\n      \"min_quantity\": 1,\n      \"max_quantity\": 10,\n      \"default_quantity\": 1,\n      \"datecreated\": \"2016-08-10T12:14:16+00:00\",\n      \"isActive\": true,\n      \"product_type\": \"print\",\n      \"product_package\": \"unit\",\n      \"sku\": \"1\",\n      \"step\": 1,\n      \"display_length_unit\": \"cm\",\n      \"isFree\": false,\n      \"isShipping\": false\n    },\n    \"referenceId\": \"999999999\",\n    \"name\": \"Train the trainer product\",\n    \"itemPrice\": 0.2333,\n    \"quantity\": 3\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e75ba76-b4d8-44ff-8642-1577993fcc7b",
+          "name": "Modify order",
+          "request": {
+            "name": "Modify order",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "store",
+                "order",
+                ":id",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trackingnumber",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9b4632d1-6965-4a61-9b1f-9cc0bcf3c349",
+              "name": "Order modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "store",
+                    "order",
+                    ":id",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "status",
+                      "value": "IN_PROGRESS"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "message",
+                      "value": "Order has been delivered"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "trackingnumber",
+                      "value": "trackingnumber"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"status_code\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3136624-6310-44ab-8996-cdccfcbba52d",
+          "name": "Retrieve specific orderline",
+          "request": {
+            "name": "Retrieve specific orderline",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "store",
+                "orderproducts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1a4e567d-d5ea-42ef-8f3f-03d200442b73",
+              "name": "Specific orderline information",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "store",
+                    "orderproducts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"status\": \"unknown\",\n  \"orderId\": \"00000000-0000-0000-0000-000000000000\",\n  \"customerReference\": \"000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc8750f2-4d92-47c2-afce-6f5622c27bd7",
+          "name": "Modify orderline",
+          "request": {
+            "name": "Modify orderline",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "store",
+                "orderproducts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"customerReference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2bbf172b-60d7-47a3-bbbd-31a1b52dac07",
+              "name": "Orderline modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "store",
+                    "orderproducts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"approved\",\n  \"customerReference\": \"000000000000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"status_code\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6182dccf-eab6-4847-8e9e-bfda765ab3a4",
+    "name": "Brandstore API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

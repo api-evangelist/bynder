@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Antivirus API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Quarantine",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of quarantined assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/quarantine/v1/assets",
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieve a list of quarantined assets"
+        },
+        {
+          "info": {
+            "name": "Retrieve a quarantined asset by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/quarantine/v1/assets/:asset_id",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieve a quarantined asset by id"
+        },
+        {
+          "info": {
+            "name": "Update review status by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{your-bynder-domain}/v7/quarantine/v1/assets/:asset_id",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update review status by id"
+        },
+        {
+          "info": {
+            "name": "Update review status by list of asset Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/v7/quarantine/v1/antivirus-audit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update review status by list of asset Ids"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

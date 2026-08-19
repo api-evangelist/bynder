@@ -1,0 +1,297 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  Derived from the 34 active OpenAPI definitions in openapi/ ($ref graph,
+  request/response schemas and id-reference fields), cross-read against the object
+  reference at https://api.bynder.com/llms.txt.
+note: >-
+  Bynder's data model is asset-centred: Asset is the hub and almost every other
+  entity either describes it (Metaproperty, Tag, Brand), contains it (Collection,
+  Job, Order) or is produced from it (derivative, usage record, quarantine record).
+  The model is split across generations of the API, and the split is load-bearing:
+  the same conceptual Metaproperty is addressed by an 8-4-4-16 ColdFusion UUID on
+  /api/v4 and by an RFC 4122 8-4-4-4-12 UUID on /api/1, and the two id spaces are
+  not interchangeable.
+id_formats:
+- surface: /api/v4/*
+  format: ColdFusion UUID, 8-4-4-16
+  example_shape: 00000000-0000-0000-0000000000000000
+  source: https://api.bynder.com/docs/getting-started
+- surface: /api/* (without /v4)
+  format: RFC 4122 UUID version 4, 8-4-4-4-12
+  example_shape: 00000000-0000-0000-0000-000000000000
+  source: https://api.bynder.com/docs/getting-started
+schema_count: 61
+entity_count: 19
+entities:
+- name: Asset
+  domain: asset
+  path: /api/v4/media
+  description: >-
+    The central entity. A media item with a file, derivatives, tags and metaproperty
+    values.
+  relationships:
+  - belongs_to Brand via brandId
+  - has_many AssetItem (file items / additionals) via additionalId
+  - has_many MetapropertyOption via metaproperty option ids
+  - has_many Tag via tags
+  - has_many AssetUsage via assetId
+  - belongs_to Collection via collection membership
+- name: Collection
+  domain: collection
+  path: /api/v4/collections
+  description: >-
+    An ordered, shareable set of assets.
+  relationships:
+  - has_many Asset via collection assets
+  - belongs_to User via owner
+- name: Metaproperty
+  domain: metaproperty
+  path: /api/v4/metaproperties and /api/1/taxonomy/metaproperties
+  description: >-
+    A custom metadata field definition. The taxonomy service exposes the same objects
+    under /api/1 with RFC 4122 UUIDs.
+  relationships:
+  - has_many MetapropertyOption via options
+  - has_many MetapropertyOptionDependency via dependencies
+- name: MetapropertyOption
+  domain: option
+  path: /api/v4/metaproperties/{id}/options
+  description: >-
+    A selectable value on a metaproperty.
+  relationships:
+  - belongs_to Metaproperty via metapropertyId
+  - has_many MetapropertyOption via dependency groups
+- name: User
+  domain: user
+  path: /api/v4/users
+  description: >-
+    A portal user.
+  relationships:
+  - belongs_to SecurityProfile via profileId
+  - has_many Group via group membership
+- name: SecurityProfile
+  domain: profile
+  path: /api/v4/profiles
+  description: >-
+    The named role set that gates every operation alongside the OAuth scope.
+  relationships:
+  - has_many User via profileId
+- name: Group
+  domain: group
+  path: /api/v4/groups
+  description: >-
+    A user group used for workflow assignment and permissions.
+  relationships:
+  - has_many User
+- name: Brand
+  domain: brand
+  path: /api/v4/brands
+  description: >-
+    A brand (and sub-brand) an asset belongs to.
+  relationships:
+  - has_many Asset
+- name: Tag
+  domain: tag
+  path: /api/v4/tags
+  description: >-
+    A free-form label applied to assets.
+  relationships:
+  - has_many Asset via /api/v4/tags/{id}/media
+- name: Smartfilter
+  domain: smartfilter
+  path: /api/v4/smartfilters
+  description: >-
+    A saved query over assets.
+- name: DerivativePreset
+  domain: preset
+  path: /api/1/derivative-presets
+  description: >-
+    A named rendition/transform preset.
+  relationships:
+  - has_many AssetDerivative
+- name: Campaign
+  domain: campaign
+  path: /api/workflow/campaigns
+  description: >-
+    A workflow campaign grouping jobs.
+  relationships:
+  - has_many Job via campaign jobs
+- name: Job
+  domain: job
+  path: /api/workflow/jobs
+  description: >-
+    A workflow job moving through stages.
+  relationships:
+  - belongs_to Campaign via campaignId
+  - has_many Stage via activeStage
+  - has_many Asset via job media
+  - belongs_to User via assignee
+- name: Order
+  domain: order
+  path: /api/store/order
+  description: >-
+    A Brandstore order.
+  relationships:
+  - has_many OrderLine
+- name: WebhookConfiguration
+  domain: webhook config
+  path: /v7/webhooks/public/api/subscriptions
+  description: >-
+    A webhook subscription: endpoint plus the event names it receives.
+- name: AutomationRule
+  domain: rule
+  path: /rules (automation workflow service)
+  description: >-
+    A trigger/condition/action rule. Rules reference the trigger, condition and action
+    catalogs.
+  relationships:
+  - has_many Trigger
+  - has_many Condition
+  - has_many Action
+- name: QuarantinedAsset
+  domain: quarantined asset
+  path: /v7/quarantine/v1/assets
+  description: >-
+    An asset held by the antivirus service pending review.
+  relationships:
+  - belongs_to Asset via assetId
+- name: AssetUsage
+  domain: usage
+  path: /api/media/usage
+  description: >-
+    A record that an asset was used by an integration.
+  relationships:
+  - belongs_to Asset via assetId
+- name: UploadSession
+  domain: upload
+  path: /v7/file/cmds/upload and /api/upload
+  description: >-
+    A chunked upload in flight, finalised into an Asset or an asset version.
+  relationships:
+  - produces Asset via importId
+schemas_declared:
+- name: Accept
+  specs: 1
+- name: AndCondition
+  specs: 1
+- name: ApiContentAccessMetapropertiesRequest
+  specs: 1
+- name: ApiContentAccessMetapropertiesRequest1
+  specs: 1
+- name: ApiContentAccessMetapropertiesResponse
+  specs: 1
+- name: ApiContentAccessMetapropertiesResponse1
+  specs: 1
+- name: ApiV7WebhooksPublicApiSubscriptionsRequest
+  specs: 1
+- name: ApiV7WebhooksPublicApiSubscriptionsRequest1
+  specs: 1
+- name: ApiV7WebhooksPublicApiSubscriptionsRequest2
+  specs: 1
+- name: ApiV7WebhooksPublicApiSubscriptionsResponse
+  specs: 1
+- name: ArchiveTerm
+  specs: 1
+- name: AssetTypeTerm
+  specs: 1
+- name: Attributes
+  specs: 1
+- name: AutomationWorkflowAction
+  specs: 1
+- name: AutomationWorkflowActionsResponse
+  specs: 1
+- name: AutomationWorkflowCondition
+  specs: 1
+- name: AutomationWorkflowConditionsResponse
+  specs: 1
+- name: AutomationWorkflowResponse
+  specs: 1
+- name: AutomationWorkflowRuleBody
+  specs: 1
+- name: AutomationWorkflowStep
+  specs: 1
+- name: AutomationWorkflowStepActionAgent
+  specs: 1
+- name: AutomationWorkflowStepActionBase
+  specs: 1
+- name: AutomationWorkflowStepAddToCollectionAction
+  specs: 1
+- name: AutomationWorkflowTrigger
+  specs: 1
+- name: AutomationWorkflowTriggersResponse
+  specs: 1
+- name: CreateAutomationWorkflowRuleResponse
+  specs: 1
+- name: Data
+  specs: 1
+- name: DocumentContentBody
+  specs: 1
+- name: EditAutomationWorkflowRuleBody
+  specs: 1
+- name: ErrorAuthorizationResponse
+  specs: 1
+- name: ErrorCode
+  specs: 1
+- name: ErrorObject
+  specs: 1
+- name: ErrorResponse
+  specs: 1
+- name: ErrorResponseNotFound
+  specs: 1
+- name: ErrorResponseRuleAlreadyPaused
+  specs: 1
+- name: ErrorsObject
+  specs: 1
+- name: ExpressionCondition
+  specs: 1
+- name: JSONAPIresponseshapeschema.Itshouldincludedata.attributes
+  specs: 1
+- name: LeafCondition
+  specs: 1
+- name: Level
+  specs: 1
+- name: ListAutomationWorkflowRulesResponse
+  specs: 1
+- name: ListOptionsOutput
+  specs: 1
+- name: MetadataOutput
+  specs: 2
+- name: MetapropertyNotExistingOutput1
+  specs: 1
+- name: MetapropertyOption
+  specs: 1
+- name: MetapropertyOptionTerm
+  specs: 1
+- name: OptionListCursorFormatInvalidOutput
+  specs: 1
+- name: OptionListCursorParameterInvalidOutput
+  specs: 1
+- name: OptionListInvalidOutput
+  specs: 1
+- name: Principal
+  specs: 1
+- name: PrincipalExtraInformation
+  specs: 1
+- name: PrincipalType
+  specs: 1
+- name: PublicLinks
+  specs: 1
+- name: Resourcerepresentingthecontentinadocument
+  specs: 1
+- name: Resourcerepresentingthecontentinadocument1
+  specs: 1
+- name: SingleRuleAutomationWorkflowResponse
+  specs: 1
+- name: StepActionAgentData
+  specs: 1
+- name: StepAddToCollectionActionData
+  specs: 1
+- name: Term
+  specs: 1
+- name: UpdateStatusAutomationWorkflowRuleBody
+  specs: 1
+- name: User
+  specs: 1
+render: null
+render_note: No subway/ visual exists for this provider yet.

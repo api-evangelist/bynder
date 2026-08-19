@@ -1,0 +1,2407 @@
+{
+  "item": [
+    {
+      "id": "24520fdc-ff32-42a6-859e-4f2b22431c91",
+      "name": "Get closest AmazonS3 upload endpoint",
+      "request": {
+        "name": "Get closest AmazonS3 upload endpoint",
+        "description": {
+          "content": "Get the closest AmazonS3 upload endpoint.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "upload",
+            "endpoint"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "MEDIAUPLOAD MEDIAUPLOADFORAPPROVAL"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "d98a4886-bd72-406c-a6ea-592fc90822c9",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "upload",
+                "endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"https://bynder-public-eu-central-1.s3.amazonaws.com/\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "88be13b3-2029-4c28-8b88-ff3a714f0fc5",
+      "name": "Initialise upload",
+      "request": {
+        "name": "Initialise upload",
+        "description": {
+          "content": "Initialise an upload.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "upload",
+            "init"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "MEDIAUPLOAD MEDIAUPLOADFORAPPROVAL"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        },
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "filename",
+              "value": "<string>"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "c6b9ca07-8fb6-4feb-9bc5-b8e72559ebee",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "upload",
+                "init"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "filename",
+                  "value": "image.jpeg"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"s3file\": {\n    \"uploadid\": \"UPLOAD_ID\",\n    \"targetid\": \"final/00000000-0000-0000-0000-000000000000/image.jpeg\"\n  },\n  \"s3_filename\": \"pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg\",\n  \"target_key\": \"pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg\",\n  \"multipart_params\": {\n    \"acl\": \"private\",\n    \"success_action_status\": \"201\",\n    \"Content-Type\": \"image/*\",\n    \"key\": \"pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg\",\n    \"Policy\": \"AWS_S3_POLICY\",\n    \"X-Amz-Signature\": \"AWS_S3_SIGNATURE\",\n    \"x-amz-credential\": \"AWS_S3_AUTH\",\n    \"x-amz-algorithm\": \"AWS4-HMAC-SHA256\",\n    \"x-amz-date\": \"20160216T100755Z\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "ffddad39-7cee-4c24-8b8f-b6d88d9d3c23",
+          "name": "Invalid input",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "upload",
+                "init"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "filename",
+                  "value": "image.jpeg"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "45ab2ca0-9008-4d8b-97e0-345f1ae57b6b",
+      "name": "Register uploaded chunk",
+      "request": {
+        "name": "Register uploaded chunk",
+        "description": {
+          "content": "Register the completion of an uploaded chunk.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "v4",
+            "upload",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "MEDIAUPLOAD MEDIAUPLOADFORAPPROVAL"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        },
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "chunkNumber",
+              "value": "<number>",
+              "description": "required for every chunk"
+            },
+            {
+              "disabled": false,
+              "key": "targetid",
+              "value": "<string>",
+              "description": "required for every chunk"
+            },
+            {
+              "disabled": false,
+              "key": "filename",
+              "value": "<string>",
+              "description": "required for every chunk"
+            },
+            {
+              "disabled": false,
+              "key": "s3_filename",
+              "value": "<string>",
+              "description": "required in the final call"
+            },
+            {
+              "disabled": false,
+              "key": "chunks",
+              "value": "<number>",
+              "description": "required in the final call"
+            },
+            {
+              "disabled": false,
+              "key": "original_filename",
+              "value": "<string>",
+              "description": "required in the final call"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "8bf2c10f-4ec8-4110-afe4-dd1290cc870d",
+          "name": "Chunk registered successfully",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "upload",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required for every chunk",
+                    "type": "text/plain"
+                  },
+                  "key": "chunkNumber",
+                  "value": "5"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required for every chunk",
+                    "type": "text/plain"
+                  },
+                  "key": "targetid",
+                  "value": "final/00000000-0000-0000-0000000000000000/Logo.png"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required for every chunk",
+                    "type": "text/plain"
+                  },
+                  "key": "filename",
+                  "value": "api_uploads/00000000-0000-0000-0000000000000000/00000000-0000-0000-0000000000000000/Logo.png/p5"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required in the final call",
+                    "type": "text/plain"
+                  },
+                  "key": "s3_filename",
+                  "value": "api_uploads/159D8D4B-B981-49B8-BF0569FD144CB359/A29FABF0-26B8-44BF-890920E4C09E7C11/Logo.png"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required in the final call",
+                    "type": "text/plain"
+                  },
+                  "key": "chunks",
+                  "value": "5"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required in the final call",
+                    "type": "text/plain"
+                  },
+                  "key": "original_filename",
+                  "value": "Logo.png"
+                }
+              ]
+            }
+          },
+          "status": "Accepted",
+          "code": 202,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"ok\",\n  \"output\": \"final/2ba07d00-586a-4a44-b13c-c58598cfe828/\",\n  \"batchId\": \"00000000-0000-0000-0000000000000000\",\n  \"file\": {\n    \"bucket\": \"BUCKET\",\n    \"path\": \"final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG\",\n    \"type\": \"s3\"\n  },\n  \"filename\": \"final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG\",\n  \"importId\": \"000000000-0000-0000-0000000000000000\",\n  \"locationType\": \"s3\",\n  \"success\": 1\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "ea843d3c-c63c-4a71-a961-6db3fab89290",
+          "name": "Upload failed or not ready",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "upload",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required for every chunk",
+                    "type": "text/plain"
+                  },
+                  "key": "chunkNumber",
+                  "value": "5"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required for every chunk",
+                    "type": "text/plain"
+                  },
+                  "key": "targetid",
+                  "value": "final/00000000-0000-0000-0000000000000000/Logo.png"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required for every chunk",
+                    "type": "text/plain"
+                  },
+                  "key": "filename",
+                  "value": "api_uploads/00000000-0000-0000-0000000000000000/00000000-0000-0000-0000000000000000/Logo.png/p5"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required in the final call",
+                    "type": "text/plain"
+                  },
+                  "key": "s3_filename",
+                  "value": "api_uploads/159D8D4B-B981-49B8-BF0569FD144CB359/A29FABF0-26B8-44BF-890920E4C09E7C11/Logo.png"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required in the final call",
+                    "type": "text/plain"
+                  },
+                  "key": "chunks",
+                  "value": "5"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "required in the final call",
+                    "type": "text/plain"
+                  },
+                  "key": "original_filename",
+                  "value": "Logo.png"
+                }
+              ]
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"Could not complete upload\",\n  \"retry\": 1,\n  \"success\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5d07f1b8-efdc-4ef0-b460-b048a81293a0",
+      "name": "Retrieve poll state",
+      "request": {
+        "name": "Retrieve poll state",
+        "description": {
+          "content": "This call needs to be executed in a loop until its response returns the item(s) id(s) passed in the **items** parameter.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "v4",
+            "upload",
+            "poll"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "items",
+              "value": "<string>",
+              "description": "(Required) Comma-separated import id's of a finalised file, as returned by the finalise call."
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "MEDIAUPLOAD MEDIAUPLOADFORAPPROVAL"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "c35fd400-b278-47c1-9b91-c24100b1d5d8",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "upload",
+                "poll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "items",
+                  "value": "00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"itemsDone\": [\n    \"00000000-0000-0000-0000000000000000\"\n  ],\n  \"itemsFailed\": [],\n  \"itemsRejected\": []\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ec019065-db99-45df-8220-c2d1276d996b",
+      "name": "Save as a new asset",
+      "request": {
+        "name": "Save as a new asset",
+        "description": {
+          "content": "For metaproperties that use options (Select, Select2, Autocomplete), modifying an asset's metaproperty options should be done via option UUID's for the API to work optimally, sending name or label values will be deprecated in the future. Other metaproperties (Date, Text and Longtext), values can be submitted directly.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "v4",
+            "media",
+            "save",
+            ":importId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "importId",
+              "description": "(Required) Import id of a finalised and processed upload to be saved."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "MEDIAUPLOAD MEDIAUPLOADFORAPPROVAL"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        },
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "brandId",
+              "value": "<string>",
+              "description": "Brand id to save the asset to."
+            },
+            {
+              "disabled": false,
+              "key": "name",
+              "value": "<string>",
+              "description": "Name of the asset."
+            },
+            {
+              "disabled": false,
+              "key": "description",
+              "value": "<string>",
+              "description": "Extended asset description."
+            },
+            {
+              "disabled": false,
+              "key": "copyright",
+              "value": "<string>",
+              "description": "Copyright information of the asset."
+            },
+            {
+              "disabled": false,
+              "key": "tags",
+              "value": "<string>",
+              "description": "Comma-separated list of tags of the asset."
+            },
+            {
+              "disabled": false,
+              "key": "metaproperty",
+              "value": "<string>",
+              "description": "Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.\n"
+            },
+            {
+              "disabled": false,
+              "key": "categories",
+              "value": "<string>",
+              "description": "Comma-separated category ids of the asset."
+            },
+            {
+              "disabled": false,
+              "key": "audit",
+              "value": "<boolean>",
+              "description": "Flags if the asset should be sent to the waiting room."
+            },
+            {
+              "disabled": false,
+              "key": "isPublic",
+              "value": "<boolean>",
+              "description": "Flags if the asset should be Public."
+            },
+            {
+              "disabled": false,
+              "key": "accessRequestId",
+              "value": "<string>",
+              "description": "If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.\n"
+            },
+            {
+              "disabled": false,
+              "key": "requestorId",
+              "value": "<string>",
+              "description": "If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.\n"
+            },
+            {
+              "disabled": false,
+              "key": "accessType",
+              "value": "<string>",
+              "description": "If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.\n"
+            },
+            {
+              "disabled": false,
+              "key": "ISOPublicationDate",
+              "value": "<dateTime>",
+              "description": "Date/time of publication in ISO08601-format."
+            },
+            {
+              "disabled": false,
+              "key": "publicationDate",
+              "value": "<string>",
+              "description": "*DEPRECATED* Date/time of publication in linked API user selected locale-format.\n"
+            },
+            {
+              "disabled": false,
+              "key": "archiveDate",
+              "value": "<dateTime>",
+              "description": "Archive date/time of the asset in ISO8601-format."
+            },
+            {
+              "disabled": false,
+              "key": "watermarkDate",
+              "value": "<dateTime>",
+              "description": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n"
+            },
+            {
+              "disabled": false,
+              "key": "crc32",
+              "value": "<integer>",
+              "description": "CRC32 checksum of the original file, used for verification."
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "62d5fc77-5b4b-4cf0-8010-308fad2c6d50",
+          "name": "Created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                "save",
+                ":importId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "importId",
+                  "description": "(Required) Import id of a finalised and processed upload to be saved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Brand id to save the asset to.",
+                    "type": "text/plain"
+                  },
+                  "key": "brandId",
+                  "value": "00000000-0000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Name of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "name",
+                  "value": "Asset name"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Extended asset description.",
+                    "type": "text/plain"
+                  },
+                  "key": "description",
+                  "value": "Extended asset description"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Copyright information of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "copyright",
+                  "value": "Copyright (c) Example corp."
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of tags of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "tags",
+                  "value": "scenery,grassland,Holland"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "metaproperty",
+                  "value": "metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated category ids of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "categories",
+                  "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be sent to the waiting room.",
+                    "type": "text/plain"
+                  },
+                  "key": "audit",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be Public.",
+                    "type": "text/plain"
+                  },
+                  "key": "isPublic",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessRequestId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "requestorId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessType",
+                  "value": "upload"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Date/time of publication in ISO08601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "ISOPublicationDate",
+                  "value": "2014-06-12T14:53:21-04:00"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "*DEPRECATED* Date/time of publication in linked API user selected locale-format.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "publicationDate",
+                  "value": "05-31-2010"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Archive date/time of the asset in ISO8601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "archiveDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "watermarkDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "CRC32 checksum of the original file, used for verification.",
+                    "type": "text/plain"
+                  },
+                  "key": "crc32",
+                  "value": "79764919"
+                }
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"accessRequestId\": \"00000000-0000-0000-0000000000000000\",\n  \"mediaid\": \"00000000-0000-0000-0000000000000000\",\n  \"batchId\": \"00000000-0000-0000-0000000000000000\",\n  \"success\": true,\n  \"mediaitems\": [\n    {\n      \"original\": \"final/00000000-0000-0000-0000000000000000/image.jpg\",\n      \"destination\": \"___URL_TO_BYNDER_CDN___\"\n    },\n    {\n      \"original\": \"final/00000000-0000-0000-0000000000000000/thul-image.jpg\",\n      \"destination\": \"___URL_TO_BYNDER_CDN___\"\n    },\n    {\n      \"original\": \"final/00000000-0000-0000-0000000000000000/mini-image.jpg\",\n      \"destination\": \"___URL_TO_BYNDER_CDN___\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "fefb1a6c-8cba-48b8-886d-9dba5d01db0e",
+          "name": "Import not converted yet, please poll",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                "save",
+                ":importId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "importId",
+                  "description": "(Required) Import id of a finalised and processed upload to be saved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Brand id to save the asset to.",
+                    "type": "text/plain"
+                  },
+                  "key": "brandId",
+                  "value": "00000000-0000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Name of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "name",
+                  "value": "Asset name"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Extended asset description.",
+                    "type": "text/plain"
+                  },
+                  "key": "description",
+                  "value": "Extended asset description"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Copyright information of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "copyright",
+                  "value": "Copyright (c) Example corp."
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of tags of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "tags",
+                  "value": "scenery,grassland,Holland"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "metaproperty",
+                  "value": "metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated category ids of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "categories",
+                  "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be sent to the waiting room.",
+                    "type": "text/plain"
+                  },
+                  "key": "audit",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be Public.",
+                    "type": "text/plain"
+                  },
+                  "key": "isPublic",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessRequestId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "requestorId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessType",
+                  "value": "upload"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Date/time of publication in ISO08601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "ISOPublicationDate",
+                  "value": "2014-06-12T14:53:21-04:00"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "*DEPRECATED* Date/time of publication in linked API user selected locale-format.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "publicationDate",
+                  "value": "05-31-2010"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Archive date/time of the asset in ISO8601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "archiveDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "watermarkDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "CRC32 checksum of the original file, used for verification.",
+                    "type": "text/plain"
+                  },
+                  "key": "crc32",
+                  "value": "79764919"
+                }
+              ]
+            }
+          },
+          "status": "See Other",
+          "code": 303,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"Import not converted yet, please poll\",\n  \"statuscode\": \"303\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "49d09fed-ac21-41dc-bbd9-f49a50653515",
+          "name": "Bad Request",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                "save",
+                ":importId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "importId",
+                  "description": "(Required) Import id of a finalised and processed upload to be saved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Brand id to save the asset to.",
+                    "type": "text/plain"
+                  },
+                  "key": "brandId",
+                  "value": "00000000-0000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Name of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "name",
+                  "value": "Asset name"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Extended asset description.",
+                    "type": "text/plain"
+                  },
+                  "key": "description",
+                  "value": "Extended asset description"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Copyright information of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "copyright",
+                  "value": "Copyright (c) Example corp."
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of tags of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "tags",
+                  "value": "scenery,grassland,Holland"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "metaproperty",
+                  "value": "metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated category ids of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "categories",
+                  "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be sent to the waiting room.",
+                    "type": "text/plain"
+                  },
+                  "key": "audit",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be Public.",
+                    "type": "text/plain"
+                  },
+                  "key": "isPublic",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessRequestId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "requestorId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessType",
+                  "value": "upload"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Date/time of publication in ISO08601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "ISOPublicationDate",
+                  "value": "2014-06-12T14:53:21-04:00"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "*DEPRECATED* Date/time of publication in linked API user selected locale-format.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "publicationDate",
+                  "value": "05-31-2010"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Archive date/time of the asset in ISO8601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "archiveDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "watermarkDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "CRC32 checksum of the original file, used for verification.",
+                    "type": "text/plain"
+                  },
+                  "key": "crc32",
+                  "value": "79764919"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"No importid provided\",\n  \"statuscode\": \"400\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "cf36f67f-8bd8-49b2-9122-76603c405607",
+          "name": "Access denied",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                "save",
+                ":importId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "importId",
+                  "description": "(Required) Import id of a finalised and processed upload to be saved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Brand id to save the asset to.",
+                    "type": "text/plain"
+                  },
+                  "key": "brandId",
+                  "value": "00000000-0000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Name of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "name",
+                  "value": "Asset name"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Extended asset description.",
+                    "type": "text/plain"
+                  },
+                  "key": "description",
+                  "value": "Extended asset description"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Copyright information of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "copyright",
+                  "value": "Copyright (c) Example corp."
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of tags of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "tags",
+                  "value": "scenery,grassland,Holland"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "metaproperty",
+                  "value": "metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated category ids of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "categories",
+                  "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be sent to the waiting room.",
+                    "type": "text/plain"
+                  },
+                  "key": "audit",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be Public.",
+                    "type": "text/plain"
+                  },
+                  "key": "isPublic",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessRequestId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "requestorId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessType",
+                  "value": "upload"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Date/time of publication in ISO08601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "ISOPublicationDate",
+                  "value": "2014-06-12T14:53:21-04:00"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "*DEPRECATED* Date/time of publication in linked API user selected locale-format.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "publicationDate",
+                  "value": "05-31-2010"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Archive date/time of the asset in ISO8601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "archiveDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "watermarkDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "CRC32 checksum of the original file, used for verification.",
+                    "type": "text/plain"
+                  },
+                  "key": "crc32",
+                  "value": "79764919"
+                }
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"Access denied\",\n  \"statuscode\": \"403\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "8c96b217-275a-4e7c-aac7-aef2d10d638f",
+          "name": "Not Found",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                "save",
+                ":importId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "importId",
+                  "description": "(Required) Import id of a finalised and processed upload to be saved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Brand id to save the asset to.",
+                    "type": "text/plain"
+                  },
+                  "key": "brandId",
+                  "value": "00000000-0000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Name of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "name",
+                  "value": "Asset name"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Extended asset description.",
+                    "type": "text/plain"
+                  },
+                  "key": "description",
+                  "value": "Extended asset description"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Copyright information of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "copyright",
+                  "value": "Copyright (c) Example corp."
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of tags of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "tags",
+                  "value": "scenery,grassland,Holland"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "metaproperty",
+                  "value": "metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated category ids of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "categories",
+                  "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be sent to the waiting room.",
+                    "type": "text/plain"
+                  },
+                  "key": "audit",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be Public.",
+                    "type": "text/plain"
+                  },
+                  "key": "isPublic",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessRequestId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "requestorId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessType",
+                  "value": "upload"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Date/time of publication in ISO08601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "ISOPublicationDate",
+                  "value": "2014-06-12T14:53:21-04:00"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "*DEPRECATED* Date/time of publication in linked API user selected locale-format.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "publicationDate",
+                  "value": "05-31-2010"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Archive date/time of the asset in ISO8601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "archiveDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "watermarkDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "CRC32 checksum of the original file, used for verification.",
+                    "type": "text/plain"
+                  },
+                  "key": "crc32",
+                  "value": "79764919"
+                }
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"Import ID not found\",\n  \"statuscode\": \"404\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "1e436e1a-179f-4dab-add0-0999c77dc656",
+          "name": "Internal Server Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                "save",
+                ":importId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "importId",
+                  "description": "(Required) Import id of a finalised and processed upload to be saved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Brand id to save the asset to.",
+                    "type": "text/plain"
+                  },
+                  "key": "brandId",
+                  "value": "00000000-0000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Name of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "name",
+                  "value": "Asset name"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Extended asset description.",
+                    "type": "text/plain"
+                  },
+                  "key": "description",
+                  "value": "Extended asset description"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Copyright information of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "copyright",
+                  "value": "Copyright (c) Example corp."
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated list of tags of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "tags",
+                  "value": "scenery,grassland,Holland"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "metaproperty",
+                  "value": "metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Comma-separated category ids of the asset.",
+                    "type": "text/plain"
+                  },
+                  "key": "categories",
+                  "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be sent to the waiting room.",
+                    "type": "text/plain"
+                  },
+                  "key": "audit",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Flags if the asset should be Public.",
+                    "type": "text/plain"
+                  },
+                  "key": "isPublic",
+                  "value": "true"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessRequestId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "requestorId",
+                  "value": "00000000-0000-0000-0000000000000000"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "accessType",
+                  "value": "upload"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Date/time of publication in ISO08601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "ISOPublicationDate",
+                  "value": "2014-06-12T14:53:21-04:00"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "*DEPRECATED* Date/time of publication in linked API user selected locale-format.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "publicationDate",
+                  "value": "05-31-2010"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Archive date/time of the asset in ISO8601-format.",
+                    "type": "text/plain"
+                  },
+                  "key": "archiveDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "watermarkDate",
+                  "value": "2014-12-25T10:30:00Z"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "CRC32 checksum of the original file, used for verification.",
+                    "type": "text/plain"
+                  },
+                  "key": "crc32",
+                  "value": "79764919"
+                }
+              ]
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"message\": \"Upload failed or not ready\",\n  \"statuscode\": \"500\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0cff71fc-2ab6-4275-9a56-8d4cde48b263",
+      "name": "Save as a new asset version",
+      "request": {
+        "name": "Save as a new asset version",
+        "description": {},
+        "url": {
+          "path": [
+            "api",
+            "v4",
+            "media",
+            ":id",
+            "save",
+            ":importId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) Asset id for which to save the new version."
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "importId",
+              "description": "(Required) Import id of a finalised and processed upload to be saved."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "scope",
+              "value": "MEDIAUPLOAD MEDIAUPLOADFORAPPROVAL"
+            },
+            {
+              "key": "accessTokenUrl",
+              "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+            },
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        },
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "disabled": false,
+              "key": "0",
+              "value": "<"
+            },
+            {
+              "disabled": false,
+              "key": "1",
+              "value": "o"
+            },
+            {
+              "disabled": false,
+              "key": "2",
+              "value": "b"
+            },
+            {
+              "disabled": false,
+              "key": "3",
+              "value": "j"
+            },
+            {
+              "disabled": false,
+              "key": "4",
+              "value": "e"
+            },
+            {
+              "disabled": false,
+              "key": "5",
+              "value": "c"
+            },
+            {
+              "disabled": false,
+              "key": "6",
+              "value": "t"
+            },
+            {
+              "disabled": false,
+              "key": "7",
+              "value": ">"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "e15f18e5-ac88-485f-9cc3-41d13983f305",
+          "name": "Created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                ":id",
+                "save",
+                ":importId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Asset id for which to save the new version."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "importId",
+                  "description": "(Required) Import id of a finalised and processed upload to be saved."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "0",
+                  "value": "<"
+                },
+                {
+                  "disabled": false,
+                  "key": "1",
+                  "value": "o"
+                },
+                {
+                  "disabled": false,
+                  "key": "2",
+                  "value": "b"
+                },
+                {
+                  "disabled": false,
+                  "key": "3",
+                  "value": "j"
+                },
+                {
+                  "disabled": false,
+                  "key": "4",
+                  "value": "e"
+                },
+                {
+                  "disabled": false,
+                  "key": "5",
+                  "value": "c"
+                },
+                {
+                  "disabled": false,
+                  "key": "6",
+                  "value": "t"
+                },
+                {
+                  "disabled": false,
+                  "key": "7",
+                  "value": ">"
+                }
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"mediaid\": \"00000000-0000-0000-0000000000000000\",\n  \"batchId\": \"00000000-0000-0000-0000000000000000\",\n  \"success\": true,\n  \"mediaitems\": [\n    {\n      \"original\": \"final/00000000-0000-0000-0000000000000000/image.jpg\",\n      \"destination\": \"___URL_TO_BYNDER_CDN___\"\n    },\n    {\n      \"original\": \"final/00000000-0000-0000-0000000000000000/thul-image.jpg\",\n      \"destination\": \"___URL_TO_BYNDER_CDN___\"\n    },\n    {\n      \"original\": \"final/00000000-0000-0000-0000000000000000/mini-image.jpg\",\n      \"destination\": \"___URL_TO_BYNDER_CDN___\"\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c8c4ad1a-c40d-4ad7-9f57-3b9c1147521a",
+    "name": "Upload Assets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

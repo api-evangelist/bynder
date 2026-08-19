@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Adaptive Video Streaming API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Public links",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get public links for an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.example.com/api/1/assets/:asset_id/public-links",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the asset"
+              }
+            ]
+          },
+          "docs": "This API returns public links to both HLS and DASH manifests for video assets, as well as the Video player HTML embed code to integrate Adaptive Video Streaming links with a supported video player. This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `asset_id`, and [Note on identifiers](https://api.bynder.com/docs/getting-started#note-on-identifiers) for more information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

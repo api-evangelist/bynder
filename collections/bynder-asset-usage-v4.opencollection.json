@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Usage API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Asset Usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve asset usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/media/usage",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "query",
+                "description": "Asset id."
+              },
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query",
+                "description": "Integration id."
+              },
+              {
+                "name": "uri",
+                "value": "",
+                "type": "query",
+                "description": "URI."
+              }
+            ]
+          },
+          "docs": "Retrieve asset usage information."
+        },
+        {
+          "info": {
+            "name": "Create asset usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/media/usage",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "integration_id",
+                  "value": ""
+                },
+                {
+                  "name": "asset_id",
+                  "value": ""
+                },
+                {
+                  "name": "timestamp",
+                  "value": ""
+                },
+                {
+                  "name": "uri",
+                  "value": ""
+                },
+                {
+                  "name": "additional",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create a new asset usage entry."
+        },
+        {
+          "info": {
+            "name": "Delete asset usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/media/usage",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query",
+                "description": "Integration id."
+              },
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "query",
+                "description": "Asset id."
+              },
+              {
+                "name": "uri",
+                "value": "",
+                "type": "query",
+                "description": "Asset location."
+              }
+            ]
+          },
+          "docs": "Delete an asset usage entry."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Asset Usage Sync",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sync asset usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/media/usage/sync",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sync all usage from a single integration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

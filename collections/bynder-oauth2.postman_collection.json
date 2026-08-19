@@ -1,0 +1,466 @@
+{
+  "item": [
+    {
+      "id": "818a05cd-517e-48f9-8557-643e39130e19",
+      "name": "Authorize endpoint",
+      "description": {
+        "content": "When using the Authorization Code grant, redirect the user to the [Authorize application](#reference/oauth-2.0/authorize-endpoint/authorize-application) endpoint. After the user\nis authenticated and approves the authorization request, Bynder will redirect the user back with an\nauthorization code which can then be passed to the [Token endpoint](#reference/oauth-2.0/token-endpoint/using-an-authorization-code).\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5480bdcd-406e-4fed-aac2-21ab0dbf3b49",
+          "name": "Authorize endpoint",
+          "request": {
+            "name": "Authorize endpoint",
+            "description": {
+              "content": "When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user is authenticated and approves the authorization request, Bynder will redirect the user back with an authorization code which can then be passed to the Token endpoint.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "authentication",
+                "oauth2",
+                "auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "2abb2c01-12f0-4cb1-8711-3c17e37e8fcf",
+              "name": "Found. Redirecting to the login provider.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "authentication",
+                    "oauth2",
+                    "auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "offline asset:read"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "https://localhost/callback"
+                    },
+                    {
+                      "key": "response_type",
+                      "value": "code"
+                    },
+                    {
+                      "key": "state",
+                      "value": "xyz"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL to redirect the user to for login.",
+                  "key": "Location",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "Found. Redirecting to https://your-bynder-domain/v6/login-provider/login?login_challenge=8e41a26ceb3b845114b5a37d9d0e2e50",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e7c92eaf-7433-4eaa-83d9-f4073a8df914",
+      "name": "Token endpoint",
+      "description": {
+        "content": "Use the token endpoint to retrieve a access token which can be used to authorize API\nrequests. Depending on the type of grant, different fields are required which are\noutlined per request.\n\n_The token endpoint requires authorization either in the body or by\nsending the Authorization header._\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ac52acfc-433e-4821-95e3-b390beea670f",
+          "name": "Using an authorization code or the refresh token",
+          "request": {
+            "name": "Using an authorization code or the refresh token",
+            "description": {
+              "content": "Use the token endpoint to retrieve an access token which can be used to authorize API\nrequests. This endpoint supports the Authorization Code grant, the Refresh Token grant and the Client Credentials grant.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "authentication",
+                "oauth2",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "Application client ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "Application client secret."
+                },
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "Identifies the grant type being used. For Authorization Code grant use **authorization_code**."
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>",
+                  "description": "The URL specified in the Authorize application request, the values must match."
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>",
+                  "description": "The Authorization Code returned from the Authorize application request."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "List of scopes to request to be granted to the access token. Can only be a subset of the scopes requested in the Authorize application request. When not passed, all the scopes will be requested."
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>",
+                  "description": "Refresh token returned from the Retrieve token request."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bdd6392f-b443-4343-9521-313190df0aed",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "authentication",
+                    "oauth2",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Application client ID.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Application client secret.",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Identifies the grant type being used. For Authorization Code grant use **authorization_code**.",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The URL specified in the Authorize application request, the values must match.",
+                        "type": "text/plain"
+                      },
+                      "key": "redirect_uri",
+                      "value": "https://localhost/callback"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The Authorization Code returned from the Authorize application request.",
+                        "type": "text/plain"
+                      },
+                      "key": "code",
+                      "value": "6440327e7ddb660435e377a17a5463ba"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of scopes to request to be granted to the access token. Can only be a subset of the scopes requested in the Authorize application request. When not passed, all the scopes will be requested.",
+                        "type": "text/plain"
+                      },
+                      "key": "scope",
+                      "value": "offline asset:read"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Refresh token returned from the Retrieve token request.",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "c11e...b5bc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token_type\": \"bearer\",\n  \"expires_in\": 3600,\n  \"access_token\": \"eyJh...NDcw\",\n  \"scope\": \"offline asset:read\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7ad6d868-c6ab-4021-b911-349026c9c40b",
+      "name": "Scopes endpoint",
+      "description": {
+        "content": "The scopes endpoint provides a JSON formatted overview of the existing scopes within Bynder\nand what user permissions are required in order for the OAuth2 service to grant a scope to a user.\n",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "15f0c778-6374-45ba-8eb4-cd6cefeb49c2",
+      "name": "Scopes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7fbac6d-4e10-4123-a01b-c4ef134962a3",
+          "name": "Retrieve scopes",
+          "request": {
+            "name": "Retrieve scopes",
+            "description": {
+              "content": "Retrieve a JSON formatted overview of the existing scopes within Bynder and the required user permissions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v6",
+                "authentication",
+                "oauth2",
+                "scopes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16e5bf8c-a5a1-4e33-8497-2c0a6272ac7f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v6",
+                    "authentication",
+                    "oauth2",
+                    "scopes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"groups\": [\n    {\n      \"name\": \"Group name\",\n      \"scopes\": [\n        {\n          \"name\": \"scope:action\",\n          \"description\": \"Scope description\",\n          \"anyOfPermissions\": [\n            \"scope.permission\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "156c1b02-781f-455a-a1fa-0af44d4927a8",
+    "name": "OAuth 2.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

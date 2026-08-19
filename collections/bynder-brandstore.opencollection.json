@@ -1,0 +1,183 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brandstore API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/store/order/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve orders"
+        },
+        {
+          "info": {
+            "name": "Retrieve specific order info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/store/order/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve specific order info"
+        },
+        {
+          "info": {
+            "name": "Retrieve specific order by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/store/order/:id/products",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve specific order by id"
+        },
+        {
+          "info": {
+            "name": "Modify order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/store/order/:id/products",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "status",
+                  "value": ""
+                },
+                {
+                  "name": "message",
+                  "value": ""
+                },
+                {
+                  "name": "trackingnumber",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Modify order"
+        },
+        {
+          "info": {
+            "name": "Retrieve specific orderline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/store/orderproducts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve specific orderline"
+        },
+        {
+          "info": {
+            "name": "Modify orderline",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{your-bynder-domain}/api/store/orderproducts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Modify orderline"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

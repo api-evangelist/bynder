@@ -1,0 +1,533 @@
+{
+  "item": [
+    {
+      "id": "50d9645b-a04b-423a-bd46-6d35eb19357a",
+      "name": "Metaproperties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "891cac02-090f-4a5a-8722-591efe188a0e",
+          "name": "Retrieve metaproperties",
+          "request": {
+            "name": "Retrieve metaproperties",
+            "description": {
+              "content": "Retrieve a list of metaproperties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "pim",
+                "metaproperties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "metaproperty.view METAPROPERTYMANAGEMENT"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "58409b75-572b-42a3-97b8-59e67c81dbcb",
+              "name": "Successfully retrieved metaproperties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "pim",
+                    "metaproperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"00000000-0000-0000-0000-000000000000\",\n  \"00000000-0000-0000-0000-000000000000\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddfa9767-8bbc-4eea-b6da-bd2c8574196c",
+          "name": "Retrieve specific metaproperty",
+          "request": {
+            "name": "Retrieve specific metaproperty",
+            "description": {
+              "content": "Retrieve the details of a specific metaproperty.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "pim",
+                "metaproperties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "metaproperty.view METAPROPERTYMANAGEMENT"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f1f09188-2f54-4732-94ca-bed0119584c6",
+              "name": "Successfully retrieved specific metaproperty",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "pim",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"name\": \"Product A\",\n  \"label\": \"Product A\",\n  \"description\": \"Metaproperty for Product A\",\n  \"mp_options\": [\n    {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"name\": \"Product A option 1\",\n      \"label\": \"Product A option 1\",\n      \"description\": \"Metaproperty option 1 for Product A\",\n      \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\",\n      \"relations\": [\n        {\n          \"id\": \"00000000-0000-0000-0000-000000000000\",\n          \"name\": \"Product B option 1\",\n          \"label\": \"Product B option 1\",\n          \"description\": \"Metaproperty option 1 for Product B\",\n          \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n        },\n        {\n          \"id\": \"00000000-0000-0000-0000-000000000000\",\n          \"name\": \"Product B option 1\",\n          \"label\": \"Product B option 1\",\n          \"description\": \"Metaproperty option 1 for Product B\",\n          \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n        }\n      ]\n    },\n    {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"name\": \"Product A option 1\",\n      \"label\": \"Product A option 1\",\n      \"description\": \"Metaproperty option 1 for Product A\",\n      \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\",\n      \"relations\": [\n        {\n          \"id\": \"00000000-0000-0000-0000-000000000000\",\n          \"name\": \"Product B option 1\",\n          \"label\": \"Product B option 1\",\n          \"description\": \"Metaproperty option 1 for Product B\",\n          \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n        },\n        {\n          \"id\": \"00000000-0000-0000-0000-000000000000\",\n          \"name\": \"Product B option 1\",\n          \"label\": \"Product B option 1\",\n          \"description\": \"Metaproperty option 1 for Product B\",\n          \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d3151e4c-1a1a-4181-b89b-fcf7f2a79d5f",
+      "name": "Options",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4c68e6dc-d2ca-4c54-933d-da3180bf499c",
+          "name": "Retrieve metaproperty options",
+          "request": {
+            "name": "Retrieve metaproperty options",
+            "description": {
+              "content": "Retrieve a paginated list of options for the given metaproperty id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "pim",
+                "metaproperties",
+                ":id",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "metaproperty.view METAPROPERTYMANAGEMENT"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ee55025d-1fdd-4edb-9289-65566c0fccc6",
+              "name": "Successfully retrieved metaproperty options",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "pim",
+                    "metaproperties",
+                    ":id",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Product A option 1\",\n    \"label\": \"Product A option 1\",\n    \"description\": \"Metaproperty option 1 for Product A\",\n    \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\",\n    \"product_options\": [\n      {\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Product A option 1 child\",\n        \"label\": \"Product A option 1 child\",\n        \"description\": \"Metaproperty option 1 child\",\n        \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Product A option 1 child\",\n        \"label\": \"Product A option 1 child\",\n        \"description\": \"Metaproperty option 1 child\",\n        \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n      }\n    ]\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Product A option 1\",\n    \"label\": \"Product A option 1\",\n    \"description\": \"Metaproperty option 1 for Product A\",\n    \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\",\n    \"product_options\": [\n      {\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Product A option 1 child\",\n        \"label\": \"Product A option 1 child\",\n        \"description\": \"Metaproperty option 1 child\",\n        \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Product A option 1 child\",\n        \"label\": \"Product A option 1 child\",\n        \"description\": \"Metaproperty option 1 child\",\n        \"metapropertyid\": \"00000000-0000-0000-0000-000000000000\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff58c9f1-8653-4df4-80ff-ef4b8046a7ee",
+          "name": "Modify metaproperty option",
+          "request": {
+            "name": "Modify metaproperty option",
+            "description": {
+              "content": "Edit the children of a metaproperty option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "pim",
+                "metapropertyoptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "metaproperty.view METAPROPERTYMANAGEMENT"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"children\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cec20099-58d4-473b-91b8-79ae00fb0ed2",
+              "name": "Metaproperty option modified successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "pim",
+                    "metapropertyoptions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"children\": [\n    \"00000000-0000-0000-0000-000000000000\",\n    \"00000000-0000-0000-0000-000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f105fa5f-3c7f-4fa3-bd7d-15c9afaa1c2e",
+    "name": "Product Layer Metaproperties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

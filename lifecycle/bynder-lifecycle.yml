@@ -1,0 +1,88 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://status.bynder.com, https://api.bynder.com/changelog/2025.md,
+  https://www.bynder.com/en/legal/service-level-agreement-v12/
+versioning:
+  scheme: uri-path
+  note: >-
+    Bynder does not run one version train. Each service carries its own path
+    prefix and its own generation, and they coexist: /api/v4/ (the asset bank,
+    ColdFusion-era UUIDs), /api/1/ (taxonomy, automations, derivative presets,
+    content access — RFC 4122 v4 UUIDs), /v6/ (OAuth 2.0), /v7/ (upload, webhooks,
+    quarantine/antivirus), /api/workflow/ (campaigns and jobs) and
+    /api/store/ (Brandstore orders). There is no global version header and no
+    documented version-negotiation mechanism.
+  paths_observed:
+  - /api/v4/
+  - /api/1/
+  - /v6/authentication/
+  - /v7/
+  - /api/workflow/
+  - /api/store/
+  docs: https://api.bynder.com/docs/getting-started
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    Bynder announces deprecations in the dated changelog but publishes no
+    deprecation policy, no notice period, and no machine-readable signal. No
+    operation in any of the 34 published OpenAPI definitions carries
+    `deprecated: true`, and no RFC 8594 Sunset or Deprecation header is
+    documented. An integrator learns an endpoint is going away only by reading
+    the changelog prose. No `Deprecation` pointer is emitted for this profile —
+    dated notices in a changelog are not a policy.
+  observed_deprecations:
+  - date: '2025-03'
+    item: Analytics Collection Views V1 (deprecation notice issued alongside the V2 launch)
+  - date: '2025-03'
+    item: Analytics Asset Download V2, Asset Create and Asset Create CSV endpoints
+  - date: '2025-01'
+    item: Asset Views and Asset Downloads removed from Asset Usage V1
+sla:
+  url: https://www.bynder.com/en/legal/service-level-agreement-v12/
+  version: v12
+  uptime_target: null
+  note: >-
+    A versioned Service Level Agreement is published at a public URL (currently
+    v12). The specific uptime commitment is stated in contractual terms rather
+    than as a headline number on the page.
+status_page:
+  url: https://status.bynder.com
+  provider: Atlassian Statuspage
+  api: https://status.bynder.com/api/v2/summary.json
+  machine_readable: true
+  status_at_probe: All Systems Operational
+  components:
+  - Asset Library API v4
+  - Workflow API v5
+  - Asset Library
+  - Uploads
+  - Downloads
+  - Collections
+  - Analytics
+  - Asset Workflow
+  - Content Workflow
+  - Brandstore
+  - Studio
+  - Brand Guidelines
+  - Digital Brand Templates
+  - Print Brand Templates
+  - Styleguide
+  - Marketplace
+  - Knowledge base
+  - AI search experience
+  - Bynder Express
+  - iOS Mobile App
+  - Android Mobile App
+  - Bynder.com
+  regions:
+  - Global
+  - US Only
+  - EU Only
+  note: >-
+    Two of the status components are API surfaces in their own right — "Asset
+    Library API v4" and "Workflow API v5" — so API availability is reported
+    separately from the web application.
+deprecated_operations: []

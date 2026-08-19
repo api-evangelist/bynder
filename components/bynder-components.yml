@@ -1,0 +1,56 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://developers.bynder.com/universal-compact-view,
+  https://www.npmjs.com/package/@bynder/compact-view,
+  https://support.bynder.com/hc/en-us/articles/360013932739-Understanding-Universal-Compact-View-UCV
+note: >-
+  Bynder ships one embeddable client-side component family. It is a genuinely
+  distinct product from the REST SDKs in packages/: Universal Compact View is a
+  prebuilt asset-picker surface that handles the DAM authentication, search and
+  selection UI for you, so a host application can add "insert an asset from
+  Bynder" without calling the REST API at all.
+family_count: 1
+families:
+- name: Universal Compact View (UCV)
+  kind: embedded-picker
+  description: >-
+    A configurable, prebuilt UI component that opens a window into a Bynder
+    portal from inside another application. Users query, filter (by smartfilter,
+    metaproperty, tag, keyword or existing collection), sort and select assets,
+    and the component hands the selection — original files, derivatives, metadata
+    and tags — back to the host system.
+  written_in: TypeScript
+  docs: https://developers.bynder.com/universal-compact-view
+  overview_docs: https://developers.bynder.com/uicomponents.html
+  support_docs: https://support.bynder.com/hc/en-us/articles/360013932739-Understanding-Universal-Compact-View-UCV
+  quick_start: https://support.bynder.com/hc/en-us/articles/360013871340-Quick-Start-Guide-for-Universal-Compact-View
+  integration_guide: https://support.bynder.com/hc/en-us/articles/360013871360-Integrate-Universal-Compact-View
+  demo: https://support.bynder.com/hc/en-us/articles/360013932699-Universal-Compact-View-Demo
+  loader:
+    registry: npm
+    package: '@bynder/compact-view'
+    url: https://www.npmjs.com/package/@bynder/compact-view
+    install: npm install @bynder/compact-view
+    version: 5.4.0
+    published: '2026-06-09'
+    official: true
+  asset_types_supported: [image, video, document, audio]
+  returns: [original file, derivatives, metadata, tags]
+  configuration:
+    style: javascript-api
+    note: >-
+      From Universal Compact View 2 onwards configuration moved from HTML data
+      attributes to a JavaScript API that controls the component lifetime
+      programmatically. The documented breaking change on that migration is
+      confined to the `@bynder/compact-view/components` entry point.
+  third_party_integrations:
+  - name: Magnolia CMS
+    url: https://docs.magnolia-cms.com/bynder-universal-compact-view-integration/
+    note: Magnolia ships a first-party-documented UCV integration module.
+not_components:
+  note: >-
+    The server-side REST clients (@bynder/bynder-js-sdk, bynder-sdk, bynder-php-sdk,
+    bynder-java-sdk, Bynder.Sdk) are catalogued in packages/bynder-packages.yml.
+    The WordPress and Sitecore connectors are packaged applications, not embeddable
+    components, and are listed under related_first_party there.

@@ -1,58 +1,379 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/bynder-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: https://api.bynder.com/docs/getting-started
+docs: https://api.bynder.com/docs/getting-started
+scope_reference: https://api.bynder.com/reference/get_v6-authentication-oauth2-scopes
+note: >-
+  Bynder publishes its OAuth scope reference as a scope-to-operation table in the
+  Getting Started guide, and exposes a live "Retrieve scopes" endpoint
+  (GET /v6/authentication/oauth2/scopes) that returns the scopes together with the
+  user permissions each one requires. The 29 scopes below are the documented OAuth
+  scopes, read from that table.
+authorization_model: two-layer
+authorization_note: >-
+  A scope is necessary but not sufficient. Bynder states that it "will only grant
+  the scopes matching the user's required permissions" — the granted token is the
+  intersection of the requested scopes and the user's security profile. Separately,
+  many operations additionally enforce named security roles (MEDIAHIGHRES,
+  ARCHIVEDOWNLOAD, DOWNLOADWATERMARK, KEYVISUALSDOWNLOAD, PERMISSIONMANAGEMENT,
+  "Manage Webhooks configurations"). Holding the scope and still receiving a 403
+  is expected behaviour, not a bug.
 schemes:
-- name: oauth2
-  source: openapi/bynder-openapi.yml
+- name: OAuth2
+  type: oauth2
   flows:
   - flow: authorizationCode
-    authorizationUrl: https://yourportal.bynder.com/v6/authentication/oauth2/auth
-    tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/authorization
+    authorizationUrl: https://{your-bynder-domain}/v6/authentication/oauth2/auth
+    tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
   - flow: clientCredentials
-    tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/client-credentials
-  description: OAuth 2.0 with JWT bearer access tokens
+    tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+  refresh:
+    grant: refresh_token
+    tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+    docs: https://api.bynder.com/reference/post_v6-authentication-oauth2-token-refresh
+  note: >-
+    Hosts are templated — each customer authorises against their own portal
+    domain. There is no shared Bynder authorization server and no RFC 8414
+    discovery document (/.well-known/oauth-authorization-server returns 404).
+scope_count: 29
 scopes:
+- scope: admin.profile:read
+  family: administration
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve security profiles
+  - Retrieve specific security profile
+  source: https://api.bynder.com/docs/getting-started
+- scope: admin.user:read
+  family: administration
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve users
+  - Retrieve specific user
+  - Retrieve user specific temporary access token
+  - Retrieve users (Workflow)
+  source: https://api.bynder.com/docs/getting-started
+- scope: admin.user:write
+  family: administration
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create user
+  - Modify user
+  - Delete user
+  source: https://api.bynder.com/docs/getting-started
+- scope: current.profile:read
+  family: current-user
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve specific security profile
+  source: https://api.bynder.com/docs/getting-started
+- scope: current.user:read
+  family: current-user
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve current user
+  source: https://api.bynder.com/docs/getting-started
 - scope: asset:read
-  description: Read assets
-  flows:
-  - authorizationCode
-  - clientCredentials
-  sources:
-  - openapi/bynder-openapi.yml
+  family: assets
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve assets
+  - Retrieve specific asset
+  - Retrieve asset download location
+  - Retrieve asset version download location
+  - Retrieve specific asset item download location
+  - Retrieve recently removed assets
+  - Search for similar assets
+  source: https://api.bynder.com/docs/getting-started
 - scope: asset:write
-  description: Write assets
-  flows:
-  - authorizationCode
-  - clientCredentials
-  sources:
-  - openapi/bynder-openapi.yml
+  family: assets
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Modify asset
+  - Delete asset
+  - Add tag to assets
+  - Remove tag from assets
+  - Save as new asset
+  - Save as a new asset version
+  source: https://api.bynder.com/docs/getting-started
+- scope: asset.usage:read
+  family: assets
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve asset usage
+  source: https://api.bynder.com/docs/getting-started
+- scope: asset.usage:write
+  family: assets
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create asset usage
+  - Delete asset usage
+  source: https://api.bynder.com/docs/getting-started
 - scope: collection:read
-  description: Read collections
-  flows:
-  - authorizationCode
-  sources:
-  - openapi/bynder-openapi.yml
+  family: collections
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve collections
+  - Retrieve specific collection
+  - Retrieve the assets of a specific collection
+  source: https://api.bynder.com/docs/getting-started
 - scope: collection:write
-  description: Write collections
-  flows:
-  - authorizationCode
-  sources:
-  - openapi/bynder-openapi.yml
+  family: collections
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create collection
+  - Modify collection
+  - Delete collection
+  - Share collection
+  - Add assets to a collection
+  - Remove assets from a collection
+  source: https://api.bynder.com/docs/getting-started
 - scope: meta.assetbank:read
-  description: Read asset bank metaproperties
-  flows:
-  - authorizationCode
-  sources:
-  - openapi/bynder-openapi.yml
+  family: metadata
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve metaproperties
+  - Retrieve specific metaproperty
+  - Retrieve metaproperty dependencies
+  - Retrieve metaproperty options by ids
+  - Retrieve metaproperty options
+  - Retrieve global option dependencies
+  - Retrieve metaproperty option dependencies
+  - Retrieve specific metaproperty option dependencies
+  - Retrieve metaproperties (PIM)
+  - Retrieve specific metaproperty (PIM)
+  - Retrieve metaproperty options (PIM)
+  source: https://api.bynder.com/docs/getting-started
 - scope: meta.assetbank:write
-  description: Write asset bank metaproperties
-  flows:
-  - authorizationCode
-  sources:
-  - openapi/bynder-openapi.yml
-- scope: offline
-  description: Refresh token access
-  flows:
-  - authorizationCode
-  sources:
-  - openapi/bynder-openapi.yml
+  family: metadata
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create metaproperty
+  - Modify metaproperty
+  - Delete metaproperty
+  - Create dependency
+  - Delete dependency
+  - Create metaproperty option
+  - Modify metaproperty option
+  - Delete metaproperty option
+  - Add a dependency
+  - Delete a dependency
+  - Create dependency group
+  - Modify dependency group
+  - Delete dependency group
+  - Add a dependency option to a group
+  - Remove a dependency option from a group
+  - Modify metaproperty option (PIM)
+  source: https://api.bynder.com/docs/getting-started
+- scope: meta.workflow:read
+  family: metadata
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve metaproperties
+  - Retrieve specific metaproperty
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.campaign:read
+  family: workflow
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrive campaigns
+  - Retrieve specific campaign
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.campaign:write
+  family: workflow
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create campaign
+  - Modify campaign
+  - Delete campaign
+  - Close campaign
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.group:read
+  family: workflow
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve groups
+  - Retrieve specific group
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.group:write
+  family: workflow
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create group
+  - Modify group
+  - Delete group
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.job:read
+  family: workflow
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve jobs
+  - Retrieve the jobs of a specific campaign
+  - Retrieve specific job
+  - Retrieve specific stage
+  - Retrieve stages of specific job
+  - Finish job
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.job:write
+  family: workflow
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create job
+  - Modify job
+  - Delete job
+  - Modify stage
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.job:approve
+  family: workflow
+  access: approve
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Finish job
+  source: https://api.bynder.com/docs/getting-started
+- scope: workflow.preset:read
+  family: workflow
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve specific job preset
+  source: https://api.bynder.com/docs/getting-started
+- scope: brandstore.order:read
+  family: brandstore
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve orders
+  - Retrieve specific order info
+  - Retrieve specific order by id
+  - Retrieve specific order by number
+  - Retrieve specific orderline
+  source: https://api.bynder.com/docs/getting-started
+- scope: brandstore.order:write
+  family: brandstore
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Modify orderline
+  source: https://api.bynder.com/docs/getting-started
+- scope: analytics.api:read
+  family: analytics
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Analytics API read access
+  source: https://api.bynder.com/docs/getting-started
+- scope: antivirus.asset.audit:read
+  family: antivirus
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve a list of quarantined assets
+  - Retrieve a quarantined asset by id
+  source: https://api.bynder.com/docs/getting-started
+- scope: antivirus.asset.audit:write
+  family: antivirus
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Update review status by id
+  - Update review status by list of asset Ids
+  source: https://api.bynder.com/docs/getting-started
+- scope: webhooks.config:read
+  family: webhooks
+  access: read
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Retrieve Webhook configurations
+  source: https://api.bynder.com/docs/getting-started
+- scope: webhooks.config:write
+  family: webhooks
+  access: write
+  flows: [authorizationCode, clientCredentials]
+  operations:
+  - Create a Webhook configuration
+  - Update a Webhook configuration
+  - Patch a Webhook configuration
+  - Delete a Webhook configuration
+  source: https://api.bynder.com/docs/getting-started
+spec_declared_scope_strings:
+  note: >-
+    Separately from the 29 documented OAuth scopes, the securitySchemes blocks in
+    Bynder's published OpenAPI definitions list a different set of strings in their
+    oauth2 `scopes` maps — these are Bynder SECURITY ROLE names (MEDIAEDIT,
+    ARCHIVEDOWNLOAD, PERMISSIONMANAGEMENT, ...), not OAuth scopes. They are recorded
+    here because they are what a spec-reading client will see, and because they are
+    the second authorization layer described above. Do not send them as OAuth scope
+    values.
+  source: openapi/*.json securitySchemes.OAuth2.flows.*.scopes
+  count: 46
+  values:
+  - ARCHIVEDOWNLOAD
+  - ARCHIVEMEDIA
+  - Audit quarantined assets
+  - CAMPAIGNADD
+  - CAMPAIGNEDIT
+  - CAMPAIGNOVERVIEW
+  - CAMPAIGNREMOVE
+  - CAMPAIGNWRITE
+  - COLLECTIONS
+  - DOWNLOADWATERMARK
+  - EMARGOMEDIA
+  - GROUPMANAGEMENT
+  - GROUPOVERVIEW
+  - INBOXPUBLIC
+  - JOBADD
+  - JOBAPPROVE
+  - JOBEDIT
+  - JOBOVERVIEW
+  - JOBREMOVE
+  - KEYVISUALDOWNLOAD
+  - KEYVISUALSDOWNLOAD
+  - MARKPUBLIC
+  - MEDIAEDIT
+  - MEDIAHIGHRES
+  - MEDIAREMOVE
+  - MEDIAUPLOAD
+  - MEDIAUPLOADFORAPPROVAL
+  - METAMANAGEMENT
+  - METAPROPERTYMANAGEMENT
+  - METAPROPERTYOVERVIEW
+  - OUTBOXPUBLIC
+  - PERMISSIONMANAGEMENT
+  - PRESETOVERVIEW
+  - PUBLICCOLLECTIONS
+  - PUBLISHCOLLECTIONS
+  - SHARECOLLECTION
+  - SHARING
+  - STATISTICS
+  - USERMANAGEMENT
+  - WORKFLOWADMIN
+  - analytics.api:read
+  - brandstore.orderadmin.edit
+  - brandstore.orderadmin.view
+  - collection.public.view
+  - metaproperty.view
+  - trash.assets
+gaps:
+- No RFC 8414 authorization-server metadata document (404 on every host).
+- Scope-to-security-role mapping is only available at runtime from the Retrieve scopes endpoint.
+- The oauth2 scope maps in the published OpenAPI definitions carry security-role names rather than the documented OAuth scopes, so a client generated straight from the spec will request invalid scope values.

@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Webhooks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configurations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a Webhook Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/webhooks/public/api/subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook configuration ID."
+              }
+            ]
+          },
+          "docs": "Please be aware that using this endpoint requires either the `View Webhooks configurations` or `Manage Webhooks configurations` security role."
+        },
+        {
+          "info": {
+            "name": "Create a Webhook Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/v7/webhooks/public/api/subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook configuration ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please be aware that using this endpoint requires the `Manage Webhooks configurations` security role."
+        },
+        {
+          "info": {
+            "name": "Update a Webhook Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{your-bynder-domain}/v7/webhooks/public/api/subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook configuration ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please be aware that using this endpoint requires the `Manage Webhooks configurations` security role."
+        },
+        {
+          "info": {
+            "name": "Patch a Webhook Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{your-bynder-domain}/v7/webhooks/public/api/subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook configuration ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please be aware that using this endpoint requires the `Manage Webhooks configurations` security role."
+        },
+        {
+          "info": {
+            "name": "Delete a Webhook Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/v7/webhooks/public/api/subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook configuration ID."
+              }
+            ]
+          },
+          "docs": "Please be aware that using this endpoint requires the `Manage Webhooks configurations` security role."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

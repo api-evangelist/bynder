@@ -1,0 +1,348 @@
+{
+  "item": [
+    {
+      "id": "625aa56c-915c-42f6-b224-3ce9bb071f87",
+      "name": "Profiles",
+      "description": {
+        "content": "To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It's the API's responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89c1cb35-ed5e-4fa5-926f-630fa5fdf4c0",
+          "name": "Retrieve security profiles",
+          "request": {
+            "name": "Retrieve security profiles",
+            "description": {
+              "content": "To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It’s the API’s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "profiles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46a8d006-7163-4210-a512-872693d4f76b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "profiles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"[\\n  {\\n    \\\"name\\\": \\\"Admin\\\",\\n    \\\"id\\\": \\\"1\\\",\\n    \\\"roles\\\": [\\n      \\\"GROUPMANAGEMENT\\\",\\n      \\\"USERMANAGEMENT\\\",\\n      \\\"PERMISSIONMANAGEMENT\\\"\\n    ]\\n  },\\n  {\\n    \\\"name\\\": \\\"User\\\",\\n    \\\"id\\\": \\\"2\\\",\\n    \\\"roles\\\": [\\n      \\\"USERMANAGEMENT\\\"\\n    ]\\n  }\\n]\\n\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3d3fc67-8e06-4e34-a132-50709e4a6bf4",
+              "name": "Invalid or expired token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "profiles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "Invalid or expired token.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63aa7b02-8182-464f-a081-26771c9c34b0",
+          "name": "Retrieve specific security profile",
+          "request": {
+            "name": "Retrieve specific security profile",
+            "description": {
+              "content": "This call allows you to retrieve your own security profile without requiring the PERMISSIONMANAGEMENT security role. In order to get your own security profile use your user profile id retrieved by executing the Specific User or Current User call.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "profiles",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Security profile id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "PERMISSIONMANAGEMENT"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7cd2d8d4-9b27-4e2e-818b-00f1308ce794",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "profiles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Security profile id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"name\\\": \\\"Admin\\\",\\n  \\\"id\\\": \\\"1\\\",\\n  \\\"roles\\\": [\\n    \\\"GROUPMANAGEMENT\\\",\\n    \\\"USERMANAGEMENT\\\",\\n    \\\"PERMISSIONMANAGEMENT\\\"\\n  ]\\n}\\n\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dff50d8f-fc63-4364-a2f4-b474f4ee7f62",
+              "name": "Invalid or expired token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "profiles",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Security profile id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "Invalid or expired token.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e516b1fe-4d0b-4a57-82b5-450e9ac5be2f",
+    "name": "Security Roles",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

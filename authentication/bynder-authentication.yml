@@ -1,23 +1,117 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/bynder-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: https://api.bynder.com/docs/getting-started (documented) + the 34 published OpenAPI
+  definitions in openapi/ (derived)
+docs: https://api.bynder.com/docs/getting-started
+token_reference: https://api.bynder.com/reference/post_v6-authentication-oauth2-token-authorization
+refresh_reference: https://api.bynder.com/reference/post_v6-authentication-oauth2-token-refresh
+scope_reference: https://api.bynder.com/reference/get_v6-authentication-oauth2-scopes
+note: 'Bynder documents exactly one authorization protocol: "OAuth 2.0 using an Authorization
+  Header including a bearer access token in JWT format". Every host is the customer''s own
+  portal domain, so there is no shared authorization server and no RFC 8414 discovery document
+  — /.well-known/oauth-authorization-server returns 404 on every Bynder host probed. The permanentToken
+  apiKey scheme declared alongside OAuth2 in 25 of the published definitions is Bynder''s
+  long-lived token: it carries no scopes and inherits the issuing user''s full security profile.'
+authorization_model: two-layer
+authorization_note: Scopes alone do not authorize a call. Bynder grants only the intersection
+  of the requested scopes and the user's permissions, and then separately enforces named security
+  roles (MEDIAHIGHRES, ARCHIVEDOWNLOAD, DOWNLOADWATERMARK, KEYVISUALSDOWNLOAD, PERMISSIONMANAGEMENT,
+  'Manage Webhooks configurations'). A 403 on a call whose scope you hold means the security
+  profile is missing the role.
+token_format: JWT
+header: 'Authorization: Bearer <access_token>'
+grants:
+- authorization_code
+- client_credentials
+- refresh_token
+discovery:
+  oauth_authorization_server: false
+  openid_configuration: false
+  note: 'Endpoints are fixed paths on the portal host: /v6/authentication/oauth2/auth, /v6/authentication/oauth2/token,
+    /v6/authentication/oauth2/scopes'
+scopes: scopes/bynder-scopes.yml
+conventions: conventions/bynder-conventions.yml
 summary:
   types:
+  - apiKey
+  - http
   - oauth2
+  api_key_in:
+  - header
   oauth2_flows:
   - authorizationCode
   - clientCredentials
 schemes:
-- name: oauth2
+- name: permanentToken
+  type: apiKey
+  in: header
+  parameter: Authorization
+  sources:
+  - openapi/bynder-access-rights-and-options-v4-openapi.json
+  - openapi/bynder-access-rights-v4-openapi.json
+  - openapi/bynder-account-v4-openapi.json
+  - openapi/bynder-analytics-openapi.json
+  - openapi/bynder-antivirus-openapi.json
+  - openapi/bynder-asset-download-openapi.json
+  - openapi/bynder-asset-upload-openapi.json
+  - openapi/bynder-asset-usage-v4-openapi.json
+  - openapi/bynder-asset-v4-openapi.json
+  - openapi/bynder-brands-v4-openapi.json
+  - openapi/bynder-brandstore-openapi.json
+  - openapi/bynder-collections-v4-openapi.json
+  - openapi/bynder-dat-openapi.json
+  - openapi/bynder-groups-v4-openapi.json
+  - openapi/bynder-metaproperty-v4-openapi.json
+  - openapi/bynder-options-v4-openapi.json
+  - openapi/bynder-product-layer-v4-openapi.json
+  - openapi/bynder-securityroles-v4-openapi.json
+  - openapi/bynder-smartfilter-v4-openapi.json
+  - openapi/bynder-trash-v4-openapi.json
+  - openapi/bynder-users-v4-openapi.json
+  - openapi/bynder-wf-campaigns-v4-openapi.json
+  - openapi/bynder-wf-jobs-v4-openapi.json
+  - openapi/bynder-wf-metaproperties-v4-openapi.json
+  - openapi/bynder-wf-users-groups-v4-openapi.json
+- name: OAuth2
   type: oauth2
   flows:
-  - flow: authorizationCode
-    authorizationUrl: https://yourportal.bynder.com/v6/authentication/oauth2/auth
-    tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/authorization
-    scopes: 7
   - flow: clientCredentials
-    tokenUrl: https://yourportal.bynder.com/v6/authentication/oauth2/token/client-credentials
-    scopes: 2
-  description: OAuth 2.0 with JWT bearer access tokens
+    tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+    scopes: 0
+  - flow: authorizationCode
+    authorizationUrl: https://DefaultParameterValue/
+    tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+    scopes: 0
   sources:
-  - openapi/bynder-openapi.yml
+  - openapi/bynder-access-rights-and-options-v4-openapi.json
+  - openapi/bynder-access-rights-v4-openapi.json
+  - openapi/bynder-account-v4-openapi.json
+  - openapi/bynder-analytics-openapi.json
+  - openapi/bynder-antivirus-openapi.json
+  - openapi/bynder-asset-download-openapi.json
+  - openapi/bynder-asset-upload-openapi.json
+  - openapi/bynder-asset-usage-v4-openapi.json
+  - openapi/bynder-asset-v4-openapi.json
+  - openapi/bynder-brands-v4-openapi.json
+  - openapi/bynder-brandstore-openapi.json
+  - openapi/bynder-collections-v4-openapi.json
+  - openapi/bynder-dat-openapi.json
+  - openapi/bynder-groups-v4-openapi.json
+  - openapi/bynder-metaproperty-v4-openapi.json
+  - openapi/bynder-options-v4-openapi.json
+  - openapi/bynder-product-layer-v4-openapi.json
+  - openapi/bynder-securityroles-v4-openapi.json
+  - openapi/bynder-smartfilter-v4-openapi.json
+  - openapi/bynder-trash-v4-openapi.json
+  - openapi/bynder-users-v4-openapi.json
+  - openapi/bynder-wf-campaigns-v4-openapi.json
+  - openapi/bynder-wf-jobs-v4-openapi.json
+  - openapi/bynder-wf-metaproperties-v4-openapi.json
+  - openapi/bynder-wf-users-groups-v4-openapi.json
+- name: httpAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/bynder-automation-workflow-svc-openapi.json
+  - openapi/bynder-derivative-presets-openapi.json
+  - openapi/bynder-tea-openapi.json

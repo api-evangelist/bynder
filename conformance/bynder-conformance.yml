@@ -1,0 +1,105 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://api.bynder.com/docs/getting-started, https://www.bynder.com/security/,
+  https://trust.bynder.com/, and the 34 active OpenAPI definitions in openapi/.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: >-
+    All 33 of the 34 active definitions declare `openapi: 3.1.0`; the Adaptive
+    Video Streaming definition declares 3.0.0. Published by Bynder through its own
+    ReadMe API registry.
+- id: oauth2
+  conforms: true
+  evidence: >-
+    `OAuth2` securityScheme declared in 25 definitions with authorizationCode and
+    clientCredentials flows plus refresh-token grant, documented at
+    https://api.bynder.com/docs/getting-started.
+- id: oauth2-rfc8414-discovery
+  conforms: false
+  evidence: >-
+    /.well-known/oauth-authorization-server returns 404 on every Bynder host
+    probed. Authorization and token endpoints are documented in prose and in the
+    specs, not discoverable.
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host probed.
+- id: jwt-rfc7519
+  conforms: true
+  evidence: >-
+    "OAuth 2.0 using an Authorization Header including a bearer access token in
+    JWT format" — https://api.bynder.com/docs/getting-started.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    No application/problem+json response in any published definition. Errors are
+    application/json, application/vnd.api+json or text/plain.
+- id: json-api
+  conforms: partial
+  evidence: >-
+    The workflow-jobs and automation-workflow services return
+    application/vnd.api+json on some error responses, but the payloads do not
+    follow the JSON:API document structure elsewhere. A media type without the
+    contract behind it.
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: >-
+    https://www.bynder.com/.well-known/security.txt returns 200 with Contact,
+    Expires (2030-01-01), Encryption, Preferred-Languages and Policy fields.
+    Note the copies served on developers.bynder.com and developer-docs.bynder.com
+    carry an Expires of 2024-02-13 and are therefore expired.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: >-
+    No Sunset or Deprecation header documented; no operation flagged
+    `deprecated` in any published definition.
+- id: rfc9331-ratelimit-headers
+  conforms: false
+  evidence: No RateLimit-* or X-RateLimit-* header documented or declared; 429 not declared in any spec.
+- id: idempotency-key
+  conforms: false
+  evidence: No Idempotency-Key header or parameter anywhere in the documentation or specs.
+- id: webhooks
+  conforms: true
+  evidence: >-
+    Webhook subscription management API at /v7/webhooks/public/api/subscriptions
+    with a published event catalogue. See asyncapi/bynder-webhooks.yml.
+- id: asyncapi
+  conforms: false
+  evidence: No AsyncAPI document published for the webhook event surface.
+- id: mcp
+  conforms: false
+  evidence: >-
+    No first-party MCP server. Probed https://mcp.bynder.com/mcp (no route) and
+    the developer documentation; the only MCP access to Bynder is through
+    third-party bridges (Zapier for Content Workflow, CI HUB), not Bynder itself.
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404 or 500 on every host probed.
+- id: llms-txt
+  conforms: true
+  evidence: >-
+    Two published llms.txt files — https://api.bynder.com/llms.txt (the API
+    documentation index, 227 reference entries) and https://www.bynder.com/llms.txt
+    (the marketing site index).
+- id: scim2
+  conforms: false
+  evidence: >-
+    User provisioning is done through Bynder's own /api/v4/users endpoints, not
+    through a SCIM 2.0 /Users surface.
+compliance_program:
+  published: true
+  url: https://trust.bynder.com/
+  secondary_url: https://www.bynder.com/security/
+  certifications:
+  - SOC 2
+  - ISO 27001
+  - ISO 27018
+  - HIPAA
+  - GDPR
+  note: >-
+    Bynder runs a hosted trust centre at https://trust.bynder.com (Vanta) in
+    addition to the public security page. The trust centre itself is a
+    client-rendered application, so the certification list above is read from
+    https://www.bynder.com/security/, which states it in the served HTML.

@@ -1,0 +1,27 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Brands",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Retrieve brands",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{your-bynder-domain}/api/v4/brands/",
+        "auth": {
+          "type": "apikey",
+          "key": "Authorization",
+          "value": "{{Authorization}}",
+          "placement": "header"
+        }
+      },
+      "docs": "Retrieve brands"
+    }
+  ],
+  "bundled": true
+}

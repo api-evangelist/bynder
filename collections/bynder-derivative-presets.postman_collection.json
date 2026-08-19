@@ -1,0 +1,221 @@
+{
+  "item": [
+    {
+      "id": "1d1d250a-0462-47f4-a8af-7b7b399e9174",
+      "name": "Retrieve all configured derivative presets.",
+      "request": {
+        "name": "Retrieve all configured derivative presets.",
+        "description": {
+          "content": "Retrieve all configured derivative presets.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "1",
+            "derivative-presets",
+            ""
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{bearerToken}}"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "90433c57-3654-469d-ac17-14e70a828612",
+          "name": "A list of derivative presets.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "1",
+                "derivative-presets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"id\": \"a3ac00eb-56fd-f2b7-d183-89ebb8bf154e\",\n    \"prefix\": \"string\",\n    \"height\": 4295,\n    \"isCrop\": 3702,\n    \"dpi\": 7637,\n    \"width\": 9538,\n    \"allowedTypes\": \"string\",\n    \"isOnTheFly\": 1096,\n    \"isExtent\": 5174,\n    \"isPublic\": 9849\n  },\n  {\n    \"id\": \"19670eda-b973-6a50-496f-5e7e108dc4a1\",\n    \"prefix\": \"string\",\n    \"height\": 5700,\n    \"isCrop\": 143,\n    \"dpi\": 5380,\n    \"width\": 2577,\n    \"allowedTypes\": \"string\",\n    \"isOnTheFly\": 9985,\n    \"isExtent\": 8928,\n    \"isPublic\": 3351\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "78d67deb-7bde-4a30-a0ef-0b0cbb66b7f5",
+      "name": "Retrieve a specific configured derivative preset.",
+      "request": {
+        "name": "Retrieve a specific configured derivative preset.",
+        "description": {
+          "content": "Retrieve a specific configured derivative preset.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "api",
+            "1",
+            "derivative-presets",
+            ":preset_id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<uuid>",
+              "key": "preset_id",
+              "description": "(Required) The ID of the derivative preset."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{bearerToken}}"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "1b92a4c4-7aa6-48a4-996e-dfc5afee2e62",
+          "name": "A specific derivative preset.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "api",
+                "1",
+                "derivative-presets",
+                ":preset_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "preset_id",
+                  "description": "(Required) The ID of the derivative preset."
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: bearer",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Bearer <token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"46192a3d-f600-c948-a33d-b34cb19e56bc\",\n  \"prefix\": \"string\",\n  \"height\": 5686,\n  \"isCrop\": 6669,\n  \"dpi\": 4712,\n  \"width\": 7915,\n  \"allowedTypes\": \"string\",\n  \"isOnTheFly\": 9217,\n  \"isExtent\": 8822,\n  \"isPublic\": 6025\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3272d720-8065-4f2a-9637-663a5b17b50c",
+    "name": "Derivative Presets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OAuth 2.0",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorize endpoint",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authorize endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v6/authentication/oauth2/auth",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "offline asset:read",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "https://localhost/callback",
+                "type": "query"
+              },
+              {
+                "name": "response_type",
+                "value": "code",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "xyz",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user is authenticated and approves the authorization request, Bynder will redirect the user back with an authorization code which can then be passed to the Token endpoint.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Token endpoint",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Using an authorization code or the refresh token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v6/authentication/oauth2/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "scope",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Use the token endpoint to retrieve an access token which can be used to authorize API\nrequests. This endpoint supports the Authorization Code grant, the Refresh Token grant and the Client Credentials grant.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scopes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve scopes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v6/authentication/oauth2/scopes"
+          },
+          "docs": "Retrieve a JSON formatted overview of the existing scopes within Bynder and the required user permissions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

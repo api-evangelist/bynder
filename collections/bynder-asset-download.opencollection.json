@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Download API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Media download",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve asset download location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/media/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve the download location for an asset.\n__Warning:__ Requires the MEDIAHIGHRES security role.\n__Warning:__ Requires the ARCHIVEDOWNLOAD security role if the asset in question is archived.\n__Warning:__ Requires the DOWNLOADWATERMARK security role if the asset in question is watermarked.\n__Warning:__ Requires the KEYVISUALSDOWNLOAD security role if the asset in question is marked as limited usage.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve asset version download location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/media/:id/:version/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the download location for a specific asset version.\n__Warning:__ Requires the MEDIAHIGHRES security role.\n__Warning:__ Requires the ARCHIVEDOWNLOAD security role if the asset in question is archived.\n__Warning:__ Requires the DOWNLOADWATERMARK security role if the asset in question is watermarked.\n__Warning:__ Requires the KEYVISUALSDOWNLOAD security role if the asset in question is marked as limited usage.\n"
+        },
+        {
+          "info": {
+            "name": "Retrieve specific asset item download location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/media/:id/download/:itemId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve the download location for a specific asset item.\n__Warning:__ Requires the MEDIAHIGHRES security role.\n__Warning:__ Requires the ARCHIVEDOWNLOAD security role if the asset in question is archived.\n__Warning:__ Requires the DOWNLOADWATERMARK security role if the asset in question is watermarked.\n__Warning:__ Requires the KEYVISUALSDOWNLOAD security role if the asset in question is marked as limited usage.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

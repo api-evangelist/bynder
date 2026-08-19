@@ -1,0 +1,74 @@
+generated: '2026-08-13'
+method: searched
+source: live probes of every host in apis.yml and every OpenAPI servers[] host
+note: >-
+  Probed the marketing host (www.bynder.com), the developer portal
+  (developers.bynder.com / developer-docs.bynder.com) and the API documentation
+  host (api.bynder.com). Only /.well-known/security.txt returns a real document;
+  every other well-known path returns a 404 or the site's error page. The
+  templated OpenAPI servers host `https://{your-bynder-domain}` is a per-customer
+  portal domain and cannot be probed anonymously.
+hosts:
+- host: https://www.bynder.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: bynder-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://developers.bynder.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    note: >-
+      Served, but the Expires field reads 2024-02-13 — this copy is expired under
+      RFC 9116 section 2.5.5. The www.bynder.com copy is current (2030-01-01).
+  - path: /.well-known/openid-configuration
+    status: 500
+  - path: /.well-known/oauth-authorization-server
+    status: 500
+  - path: /.well-known/api-catalog
+    status: 500
+  - path: /.well-known/agent-card.json
+    status: 500
+  - path: /.well-known/agent.json
+    status: 500
+- host: https://developer-docs.bynder.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    note: same expired copy as developers.bynder.com (both resolve to the same portal)
+  - path: /.well-known/agent-card.json
+    status: 500
+  - path: /.well-known/agent.json
+    status: 500
+- host: https://api.bynder.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+findings:
+  security_txt: true
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false

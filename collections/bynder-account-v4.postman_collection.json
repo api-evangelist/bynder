@@ -1,0 +1,208 @@
+{
+  "item": [
+    {
+      "id": "54fcae41-db48-4f86-927f-432be32a048c",
+      "name": "Account",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7b0fa2f-720a-4a6c-914c-681e4d19f77f",
+          "name": "Retrieve account information",
+          "request": {
+            "name": "Retrieve account information",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64e3ad27-e064-440d-88aa-3b977ae00e97",
+              "name": "Account information retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"availableLanguages\": [\n    \"nl_NL\",\n    \"en_GB\",\n    \"en_US\",\n    \"fr_FR\",\n    \"de_DE\",\n    \"it_IT\",\n    \"es_ES\",\n    \"pl_PL\"\n  ],\n  \"defaultLanguage\": \"en_US\",\n  \"name\": \"Bynder\",\n  \"timeZone\": \"Europe/Amsterdam\",\n  \"isOpenImageBank\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33f88e8e-1d32-4afb-bed5-725a44797f79",
+          "name": "Retrieve derivatives",
+          "request": {
+            "name": "Retrieve derivatives",
+            "description": {
+              "content": "A derivative is a file that is based on another source, for example, a low-resolution representation of a print-quality photo. During the upload process, Bynder can automatically create pre-defined image derivatives with different dimensions, quality, and format. Bynder can either maintain the original aspect ratio of an image, or crop or pad an image to fit the specified dimensions. We can create smaller versions of your original image asset in both a JPG and PNG file extension. However, the resolution of derivatives can't be larger than the original file.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "account",
+                "derivatives"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bff5b423-1726-4b8a-84db-9472a3634906",
+              "name": "Derivatives retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "account",
+                    "derivatives"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"prefix\": \"500x500\",\n    \"height\": 500,\n    \"isCrop\": true,\n    \"dpi\": -1,\n    \"width\": 500,\n    \"allowedTypes\": \"\",\n    \"isOnTheFly\": true,\n    \"isExtent\": false,\n    \"isPublic\": true\n  },\n  {\n    \"prefix\": \"500x500\",\n    \"height\": 500,\n    \"isCrop\": true,\n    \"dpi\": -1,\n    \"width\": 500,\n    \"allowedTypes\": \"\",\n    \"isOnTheFly\": true,\n    \"isExtent\": false,\n    \"isPublic\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2179e176-c99b-4c69-83e1-96764f56f28f",
+    "name": "Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

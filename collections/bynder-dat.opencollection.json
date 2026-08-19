@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dynamic Asset Transformations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Generate dynamic asset transformation",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{your-bynder-domain}/transform/:id/:name",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "io",
+            "value": "",
+            "type": "query",
+            "description": "The operation(s) performed on the image before it's served to the client."
+          },
+          {
+            "name": "focuspoint",
+            "value": "",
+            "type": "query",
+            "description": "Focus point as a x,y coordinate (with values between 0 - 1)."
+          },
+          {
+            "name": "format",
+            "value": "",
+            "type": "query",
+            "description": "Format of the served image. This can either be `jpg` or `png` and it will overwrite the default `webP`."
+          },
+          {
+            "name": "quality",
+            "value": "",
+            "type": "query",
+            "description": "Image quality, ranging from 1 - 100 (has no effect when `format` is set to 'png')."
+          }
+        ]
+      },
+      "docs": "Generate a derivative on the fly with a transformation (such as cropping, scaling, filling) applied to it.   More information about this feature can be found in our [Knowledge Base item](https://support.bynder.com/hc/en-us/articles/360018559260-Dynamic-Asset-Transformations-DAT-).\nImage operations can be passed as `io` parameters in the form of `transform:{operation},{param1}:{value1},{param2}:{value2},...`.   It's possible to specify several operations: `?io={operation1}&io={operation2}&...`. T"
+    }
+  ],
+  "bundled": true
+}

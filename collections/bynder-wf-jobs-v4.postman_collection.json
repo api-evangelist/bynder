@@ -1,0 +1,1804 @@
+{
+  "item": [
+    {
+      "id": "6fb5a3df-9c59-47a3-aae8-e58f7b85cb77",
+      "name": "Presets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ddcbe3d5-e8ca-4f1d-93a9-4595e3ec50bc",
+          "name": "Retrieve specific job preset",
+          "request": {
+            "name": "Retrieve specific job preset",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "presets",
+                "job",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8e682a6a-20a6-4c9d-a539-ab462600ccdf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "presets",
+                    "job",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ID\": \"00000000-0000-0000-0000-000000000000\",\n  \"name\": \"API name\",\n  \"ftp_settings\": {},\n  \"wf_uuid\": \"00000000-0000-0000-0000-000000000000\",\n  \"presetstages\": {\n    \"ID\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Revision Stage\",\n    \"description\": \"\",\n    \"position\": \"1.0\",\n    \"editableBy\": \"all\",\n    \"restrictToGroupID\": null,\n    \"type\": \"download\",\n    \"responsibleID\": null,\n    \"responsibleGroupID\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fa711000-c9f8-4ace-a964-7e89a0d98079",
+      "name": "Jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7172d705-96eb-46a3-b944-238c6009c7b4",
+          "name": "Retrieve jobs",
+          "request": {
+            "name": "Retrieve jobs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dateCreatedFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateCreatedTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateModifiedFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateModifiedTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "deadlineFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "deadlineTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resonsibleIDs",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountableIDs",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a5c48158-9dbe-4858-96d8-3d2b6f014bf4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dateCreatedFrom",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "dateCreatedTo",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "dateModifiedFrom",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "dateModifiedTo",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "deadlineFrom",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "deadlineTo",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "resonsibleIDs",
+                      "value": "00000000000000000000000000000000,00000000000000000000000000000000"
+                    },
+                    {
+                      "key": "accountableIDs",
+                      "value": "00000000000000000000000000000000,00000000000000000000000000000000"
+                    },
+                    {
+                      "key": "status",
+                      "value": "Approved,NeedsChanges"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "deadline asc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-TotalRecords",
+                  "value": "10000",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-TotalPages",
+                  "value": "100",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-Page",
+                  "value": "2",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-Limit",
+                  "value": "100",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"job_stages\": [\n      {\n        \"position\": 1,\n        \"status\": \"Approved\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 2,\n        \"status\": \"Active\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 3,\n        \"status\": \"Idle\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      }\n    ],\n    \"dateModified\": \"2017-03-30T11:43:19+00:00\",\n    \"presetID\": null,\n    \"jobKey\": \"0000-0\",\n    \"dateFinished\": null,\n    \"jobFinishedHistory\": null,\n    \"jobMetaproperties\": {\n      \"00000000-0000-0000-0000-000000000001\": \"00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000002\": \"Country\",\n      \"00000000-0000-0000-0000-000000000003\": \"City\"\n    },\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"job_next_stage\": {\n      \"position\": 3,\n      \"status\": \"Idle\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"description\": \"\",\n    \"accountableID\": \"00000000-0000-0000-0000-000000000000\",\n    \"basedOnPreset\": false,\n    \"dateCreated\": \"2017-03-30T11:42:30+00:00\",\n    \"job_active_stage\": {\n      \"position\": 2,\n      \"status\": \"Active\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"deadline\": null,\n    \"name\": \"Test API\",\n    \"campaignID\": \"00000000-0000-0000-0000-000000000000\",\n    \"job_previous_stage\": {\n      \"position\": 1,\n      \"status\": \"Approved\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  },\n  {\n    \"job_stages\": [\n      {\n        \"position\": 1,\n        \"status\": \"Approved\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 2,\n        \"status\": \"Active\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 3,\n        \"status\": \"Idle\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bookedMinutes\": 5\n      }\n    ],\n    \"dateModified\": \"2017-03-30T11:43:19+00:00\",\n    \"presetID\": null,\n    \"jobKey\": \"0000-0\",\n    \"dateFinished\": \"2021-02-25T16:19:42+00:00\",\n    \"jobFinishedHistory\": [\n      {\n        \"userId\": \"00000000-0000-0000-0000-000000000000\",\n        \"date\": \"2021-02-24T16:23:48+00:00\"\n      },\n      {\n        \"userId\": \"00000000-0000-0000-0000-000000000000\",\n        \"date\": \"2021-02-25T16:19:42+00:00\"\n      }\n    ],\n    \"jobMetaproperties\": {\n      \"00000000-0000-0000-0000-000000000001\": \"00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000002\": \"Country\",\n      \"00000000-0000-0000-0000-000000000003\": \"City\"\n    },\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"job_next_stage\": {\n      \"position\": 3,\n      \"status\": \"Idle\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"description\": \"\",\n    \"accountableID\": \"00000000-0000-0000-0000-000000000000\",\n    \"basedOnPreset\": false,\n    \"dateCreated\": \"2017-03-30T11:42:30+00:00\",\n    \"job_active_stage\": {\n      \"position\": 2,\n      \"status\": \"Active\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"deadline\": null,\n    \"name\": \"Test API with booked time\",\n    \"campaignID\": \"00000000-0000-0000-0000-000000000000\",\n    \"bookedMinutes\": 10,\n    \"job_previous_stage\": {\n      \"position\": 1,\n      \"status\": \"Approved\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cae1b1a8-a802-43c0-864d-7ff6fdabe0e7",
+          "name": "Create job",
+          "request": {
+            "name": "Create job",
+            "description": {
+              "content": "Requires the JOBADD security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"deadline\": \"<string>\",\n  \"campaignID\": \"<string>\",\n  \"accountableID\": \"<string>\",\n  \"presetID\": \"<string>\",\n  \"jobMetaproperties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"stages\": [\n    {\n      \"preset_stage_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"responsibleGroupID\": \"<string>\",\n      \"responsibleID\": \"<string>\",\n      \"deadline\": \"<string>\"\n    },\n    {\n      \"preset_stage_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"responsibleGroupID\": \"<string>\",\n      \"responsibleID\": \"<string>\",\n      \"deadline\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9af32b69-4154-48c7-bbd5-d87d8dcedabe",
+              "name": "Job created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Job Example\",\n  \"description\": \"Job Description\",\n  \"deadline\": \"2018-09-29\",\n  \"campaignID\": \"00000000-0000-0000-0000-000000000000\",\n  \"accountableID\": \"00000000-0000-0000-0000-000000000000\",\n  \"presetID\": \"00000000-0000-0000-0000-000000000000\",\n  \"jobMetaproperties\": {\n    \"00000000-0000-0000-0000-000000000000\": \"00000000-0000-0000-0000-000000000000\"\n  },\n  \"stages\": [\n    {\n      \"preset_stage_id\": \"00000000-0000-0000-0000-000000000000\",\n      \"name\": \"Review\",\n      \"description\": \"Awesome description\",\n      \"responsibleGroupID\": \"00000000-0000-0000-0000-000000000000\",\n      \"responsibleID\": \"00000000-0000-0000-0000-000000000000\",\n      \"deadline\": \"2018-09-29\"\n    },\n    {\n      \"preset_stage_id\": \"00000000-0000-0000-0000-000000000000\",\n      \"name\": \"Review\",\n      \"description\": \"Awesome description\",\n      \"responsibleGroupID\": \"00000000-0000-0000-0000-000000000000\",\n      \"responsibleID\": \"00000000-0000-0000-0000-000000000000\",\n      \"deadline\": \"2018-09-29\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Created\",\n  \"job_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "076b3e47-c81a-46a0-9600-915956cf5590",
+          "name": "Retrieve specific job",
+          "request": {
+            "name": "Retrieve specific job",
+            "description": {
+              "content": "Requires the JOBOVERVIEW security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd588201-8581-4b68-80d8-192843c320ef",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"name\": \"Test API\",\n  \"description\": \"\",\n  \"deadline\": null,\n  \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n  \"accountableID\": \"00000000-0000-0000-0000-000000000000\",\n  \"dateCreated\": \"2017-03-30T11:42:30+00:00\",\n  \"dateModified\": \"2017-03-30T11:43:19+00:00\",\n  \"basedOnPreset\": false,\n  \"presetID\": null,\n  \"campaignID\": \"00000000-0000-0000-0000-000000000000\",\n  \"bookedMinutes\": 10,\n  \"jobKey\": \"0000-0\",\n  \"dateFinished\": \"2021-02-25T16:19:42+00:00\",\n  \"jobFinishedHistory\": [\n    {\n      \"userId\": \"00000000-0000-0000-0000-000000000000\",\n      \"date\": \"2021-02-24T16:23:48+00:00\"\n    },\n    {\n      \"userId\": \"00000000-0000-0000-0000-000000000000\",\n      \"date\": \"2021-02-25T16:19:42+00:00\"\n    }\n  ],\n  \"job_stages\": [\n    {\n      \"position\": 1,\n      \"status\": \"Approved\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    {\n      \"position\": 2,\n      \"status\": \"Active\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    {\n      \"position\": 3,\n      \"status\": \"Idle\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  ],\n  \"job_previous_stage\": {\n    \"position\": 1,\n    \"status\": \"Approved\",\n    \"id\": \"00000000-0000-0000-0000-000000000000\"\n  },\n  \"job_active_stage\": {\n    \"position\": 2,\n    \"status\": \"Active\",\n    \"id\": \"00000000-0000-0000-0000-000000000000\"\n  },\n  \"job_next_stage\": {\n    \"position\": 3,\n    \"status\": \"Idle\",\n    \"id\": \"00000000-0000-0000-0000-000000000000\"\n  },\n  \"jobMetaproperties\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92197ed1-4f94-4bfb-92ff-2be323e5992e",
+          "name": "Modify job",
+          "request": {
+            "name": "Modify job",
+            "description": {
+              "content": "Requires the JOBEDIT security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"deadline\": \"<string>\",\n  \"campaignID\": \"<string>\",\n  \"accountableID\": \"<string>\",\n  \"jobMetaproperties\": {\n    \"key_0\": \"<string>\"\n  },\n  \"activeStage\": {\n    \"id\": \"<string>\",\n    \"deadline\": \"<string>\",\n    \"status\": \"<string>\"\n  },\n  \"nextStage\": {\n    \"id\": \"<string>\",\n    \"deadline\": \"<string>\",\n    \"status\": \"<string>\"\n  },\n  \"previousStage\": {\n    \"id\": \"<string>\",\n    \"deadline\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5294f11-16ed-46b4-8add-ae2f3feb7b56",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Job Example\",\n  \"description\": \"Job Description\",\n  \"deadline\": \"2018-09-29\",\n  \"campaignID\": \"00000000-0000-0000-0000-000000000000\",\n  \"accountableID\": \"00000000-0000-0000-0000-000000000000\",\n  \"jobMetaproperties\": {\n    \"00000000-0000-0000-0000-000000000000\": \"00000000-0000-0000-0000-000000000000\"\n  },\n  \"nextStage\": {\n    \"status\": \"Idle\",\n    \"id\": \"00000000-0000-0000-0000-000000000003\",\n    \"deadline\": \"2024-08-31T00:00:00+00:00\"\n  },\n  \"activeStage\": {\n    \"status\": \"Active\",\n    \"id\": \"00000000-0000-0000-0000-000000000002\"\n  },\n  \"previousStage\": {\n    \"status\": \"Approved\",\n    \"id\": \"00000000-0000-0000-0000-000000000001\",\n    \"deadline\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Updated\",\n  \"job_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89377d7a-d26b-435e-8c95-0110f156d5e9",
+          "name": "Delete job",
+          "request": {
+            "name": "Delete job",
+            "description": {
+              "content": "Requires the JOBREMOVE security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2a379f8e-6564-473c-a3b9-a033f6649325",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8754f3aa-7233-43fa-94b8-6379a50ec25b",
+      "name": "Campaign jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f173ea7d-374d-4500-8d69-7b794287d7ef",
+          "name": "Retrieve the jobs of a specific campaign",
+          "request": {
+            "name": "Retrieve the jobs of a specific campaign",
+            "description": {
+              "content": "Requires the CAMPAIGNOVERVIEW security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "campaigns",
+                ":id",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dateCreatedFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateCreatedTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateModifiedFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateModifiedTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "deadlineFrom",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "deadlineTo",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resonsibleIDs",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "accountableIDs",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d26cc8b5-c3c2-4b31-850e-f5684aeed2c2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns",
+                    ":id",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dateCreatedFrom",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "dateCreatedTo",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "dateModifiedFrom",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "dateModifiedTo",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "deadlineFrom",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "deadlineTo",
+                      "value": "2020-01-01T12:00:00Z"
+                    },
+                    {
+                      "key": "resonsibleIDs",
+                      "value": "00000000000000000000000000000000,00000000000000000000000000000000"
+                    },
+                    {
+                      "key": "accountableIDs",
+                      "value": "00000000000000000000000000000000,00000000000000000000000000000000"
+                    },
+                    {
+                      "key": "status",
+                      "value": "Approved,NeedsChanges"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "dateModified desc"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-TotalRecords",
+                  "value": "10000",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-TotalPages",
+                  "value": "100",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-Page",
+                  "value": "2",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Pagination-Limit",
+                  "value": "100",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"job_stages\": [\n      {\n        \"position\": 1,\n        \"status\": \"Approved\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 2,\n        \"status\": \"Active\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 3,\n        \"status\": \"Idle\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      }\n    ],\n    \"dateModified\": \"2017-03-30T11:43:19+00:00\",\n    \"presetID\": null,\n    \"jobKey\": \"0000-0\",\n    \"dateFinished\": \"2021-02-25T16:19:42+00:00\",\n    \"jobFinishedHistory\": [\n      {\n        \"userId\": \"00000000-0000-0000-0000-000000000000\",\n        \"date\": \"2021-02-24T16:23:48+00:00\"\n      },\n      {\n        \"userId\": \"00000000-0000-0000-0000-000000000000\",\n        \"date\": \"2021-02-25T16:19:42+00:00\"\n      }\n    ],\n    \"jobMetaproperties\": {\n      \"00000000-0000-0000-0000-000000000001\": \"00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000002\": \"Country\",\n      \"00000000-0000-0000-0000-000000000003\": \"City\"\n    },\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"job_next_stage\": {\n      \"position\": 3,\n      \"status\": \"Idle\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"description\": \"\",\n    \"accountableID\": \"00000000-0000-0000-0000-000000000000\",\n    \"basedOnPreset\": false,\n    \"dateCreated\": \"2017-03-30T11:42:30+00:00\",\n    \"job_active_stage\": {\n      \"position\": 2,\n      \"status\": \"Active\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"deadline\": null,\n    \"name\": \"Test API\",\n    \"campaignID\": \"00000000-0000-0000-0000-000000000000\",\n    \"job_previous_stage\": {\n      \"position\": 1,\n      \"status\": \"Approved\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  },\n  {\n    \"job_stages\": [\n      {\n        \"position\": 1,\n        \"status\": \"Approved\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 2,\n        \"status\": \"Active\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\n      },\n      {\n        \"position\": 3,\n        \"status\": \"Idle\",\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bookedMinutes\": 5\n      }\n    ],\n    \"dateModified\": \"2017-03-30T11:43:19+00:00\",\n    \"presetID\": null,\n    \"jobKey\": \"0000-0\",\n    \"dateFinished\": null,\n    \"jobFinishedHistory\": null,\n    \"jobMetaproperties\": {\n      \"00000000-0000-0000-0000-000000000001\": \"00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000\",\n      \"00000000-0000-0000-0000-000000000002\": \"Country\",\n      \"00000000-0000-0000-0000-000000000003\": \"City\"\n    },\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"job_next_stage\": {\n      \"position\": 3,\n      \"status\": \"Idle\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"description\": \"\",\n    \"accountableID\": \"00000000-0000-0000-0000-000000000000\",\n    \"basedOnPreset\": false,\n    \"dateCreated\": \"2017-03-30T11:42:30+00:00\",\n    \"job_active_stage\": {\n      \"position\": 2,\n      \"status\": \"Active\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    },\n    \"deadline\": null,\n    \"name\": \"Test API with booked time\",\n    \"campaignID\": \"00000000-0000-0000-0000-000000000000\",\n    \"bookedMinutes\": 10,\n    \"job_previous_stage\": {\n      \"position\": 1,\n      \"status\": \"Approved\",\n      \"id\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1f7f3f44-b067-4a9a-abd6-3b4c713b3b62",
+      "name": "Job media",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb1ac14d-a344-46f8-abb7-57efea62887c",
+          "name": "Retrieve media of specific job",
+          "request": {
+            "name": "Retrieve media of specific job",
+            "description": {
+              "content": "Requires the JOBOVERVIEW security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs",
+                ":id",
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0171f431-1e61-4fb4-bad9-0f0219ff96f0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"filename\": \"filename.png\",\n    \"uploader_name\": \"John Doe\",\n    \"responsible_name\": \"John Doe\",\n    \"dateCreated\": \"2021-05-12T08:48:01+00:00\",\n    \"dateModified\": \"2021-05-12T08:51:22+00:00\",\n    \"orientation\": \"square\",\n    \"original_url\": \"https://url.to.file/original.png\",\n    \"status\": \"AwaitingApproval\",\n    \"versionParentID\": null,\n    \"version\": 1,\n    \"previews\": [\n      {\n        \"type\": \"thumbnail\",\n        \"url\": \"https://url.to.file/preview.png\"\n      },\n      {\n        \"type\": \"preview\",\n        \"url\": \"https://url.to.file/preview.png\"\n      },\n      {\n        \"type\": \"activity\",\n        \"url\": \"https://url.to.file/preview.png\"\n      }\n    ],\n    \"sub_versions\": [\n      {\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"filename\": \"filename.png\",\n        \"uploader_name\": \"John Doe\",\n        \"responsible_name\": \"John Doe\",\n        \"dateCreated\": \"2021-05-13T08:48:01+00:00\",\n        \"dateModified\": \"2021-05-13T08:51:22+00:00\",\n        \"orientation\": \"square\",\n        \"original_url\": \"https://url.to.file/original.png\",\n        \"status\": \"AwaitingApproval\",\n        \"versionParentID\": \"00000000-0000-0000-0000-000000000000\",\n        \"version\": 2,\n        \"previews\": [\n          {\n            \"type\": \"thumbnail\",\n            \"url\": \"https://url.to.file/preview.png\"\n          },\n          {\n            \"type\": \"preview\",\n            \"url\": \"https://url.to.file/preview.png\"\n          },\n          {\n            \"type\": \"activity\",\n            \"url\": \"https://url.to.file/preview.png\"\n          }\n        ],\n        \"sub_versions\": []\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "28660667-79ec-4682-a5e0-6a0903a70eb4",
+      "name": "File upload",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c58ecc9d-3af7-43af-85fa-734f692cfdea",
+          "name": "Upload a file to a workflow job",
+          "request": {
+            "name": "Upload a file to a workflow job",
+            "description": {
+              "content": "To upload a file to a workflow job it needs to be uploaded via the Upload file endpoint for modern stack. After completing the various steps described in the Upload file endpoint, the `fileId` retrieved from those steps is needed in this request to reference the file to the job. This file will be attached to the job only.\n**Warning:** Requires the **JOBEDIT** security role.\n**Warning:** Is only available for Files-Service portals.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workflow-jobs",
+                ":id",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The id of a Job."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fileId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"fileSize\": \"<number>\",\n  \"assetId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfe797b1-3642-4a88-bddb-274df3dd368b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflow-jobs",
+                    ":id",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The id of a Job."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fileId\": \"00000000-0000-0000-0000-000000000001\",\n  \"name\": \"example-name.jpg\",\n  \"fileSize\": 50000,\n  \"assetId\": \"00000000-0000-0000-0000-000000000002\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mediaId\": \"00000000000000000000000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1bfd030b-f5b0-47cb-bbf4-3dddf7c4c111",
+      "name": "Stages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "414d4489-55a3-49d9-a624-e70f43d9af39",
+      "name": "Finish",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c23b866-0852-4f1d-aa3a-804551727e55",
+          "name": "Finish job",
+          "request": {
+            "name": "Finish job",
+            "description": {
+              "content": "Requires the JOBAPPROVE security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs",
+                ":id",
+                "finish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"job_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c62e128-2664-4762-a176-114d7f4b43f4",
+              "name": "Ok: Job finished successfully\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id",
+                    "finish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"Finished\",\n  \"job_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Finished\",\n  \"job_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd1910bf-8846-407e-84ec-72fe86079ee0",
+              "name": "Forbidden: The user does not have the required permissions for this operation.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id",
+                    "finish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"Finished\",\n  \"job_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46fe4712-8fe4-4149-b2fc-6bb15b2bea61",
+              "name": "Conflict: The job is not open (has been finished), the activeStage.status is Approved. Or the job is not on the last stage.\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id",
+                    "finish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"Finished\",\n  \"job_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Job already finished.\",\n  \"message\": \"Re-open the job to finish again.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d0a02eca-7b61-4aed-9759-1ad58b392b00",
+      "name": "Job stages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75d512ad-9ab1-4217-acc1-9d0e17f6155b",
+          "name": "Retrieve stages of specific job",
+          "request": {
+            "name": "Retrieve stages of specific job",
+            "description": {
+              "content": "Requires the JOBOVERVIEW security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "jobs",
+                ":id",
+                "stages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "067143a0-beb2-47b1-a02b-9db062cbb2cb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "jobs",
+                    ":id",
+                    "stages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Start stage\",\n    \"description\": \"This is the first stage\",\n    \"deadline\": null,\n    \"dateCreated\": \"2021-02-08T16:38:03+00:00\",\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"status\": \"Active\",\n    \"position\": 1,\n    \"responsible\": {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"type\": \"user\"\n    }\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000-000000000000\",\n    \"name\": \"Second stage\",\n    \"description\": \"\",\n    \"deadline\": \"2021-02-18T18:00:00+00:00\",\n    \"dateCreated\": \"2021-02-08T16:38:03+00:00\",\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"status\": \"Idle\",\n    \"position\": 2,\n    \"responsible\": {\n      \"id\": \"00000000-0000-0000-0000-000000000000\",\n      \"type\": \"group\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "604639c0-f5ea-4817-a06d-aa2027feeb24",
+    "name": "Workflow Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

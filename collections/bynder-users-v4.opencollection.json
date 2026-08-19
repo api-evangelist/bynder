@@ -1,0 +1,251 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Users",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/users/",
+            "params": [
+              {
+                "name": "includeInActive",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include inactive users in the list of results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results to return. If limit is not provided, all results are returned."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "What page of results to return."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve users"
+        },
+        {
+          "info": {
+            "name": "Create user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/users/",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create user"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users ID",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve specific user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id or username of the user you’d like to retrieve."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve specific user"
+        },
+        {
+          "info": {
+            "name": "Modify user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id of the user you’d like to modify."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                },
+                {
+                  "name": "email",
+                  "value": ""
+                },
+                {
+                  "name": "profileId",
+                  "value": ""
+                },
+                {
+                  "name": "active",
+                  "value": ""
+                },
+                {
+                  "name": "isSSOOnly",
+                  "value": ""
+                },
+                {
+                  "name": "language",
+                  "value": ""
+                },
+                {
+                  "name": "firstname",
+                  "value": ""
+                },
+                {
+                  "name": "infix",
+                  "value": ""
+                },
+                {
+                  "name": "lastname",
+                  "value": ""
+                },
+                {
+                  "name": "groupIds",
+                  "value": ""
+                },
+                {
+                  "name": "phoneNumber",
+                  "value": ""
+                },
+                {
+                  "name": "companyName",
+                  "value": ""
+                },
+                {
+                  "name": "department",
+                  "value": ""
+                },
+                {
+                  "name": "job",
+                  "value": ""
+                },
+                {
+                  "name": "costCenter",
+                  "value": ""
+                },
+                {
+                  "name": "termsAccepted",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Modify user"
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/v4/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id or username of the user you’d like to delete."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Delete user"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Current User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/currentUser/"
+          },
+          "docs": "Retrieve the current user information. Unlike [Retrieve specific user](#reference/users/specific-user-operations/retrieve-specific-user) this call doesn't require you to know your user id in order to retrieve your current user information.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metaproperty Operations",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metaproperty operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve metaproperties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether or not the response should include asset count results for metaproperty-options."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of asset types. Filters the count results by asset type."
+              },
+              {
+                "name": "options",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether or not the response should include the metaproperty options of each metaproperty."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of metaproperty ids. Will return a metaproperty for each existing id."
+              }
+            ]
+          },
+          "docs": "Retrieve metaproperties"
+        },
+        {
+          "info": {
+            "name": "Create metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "data",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Specific metaproperty operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve specific metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether or not the response should include asset count results for metaproperty-options."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of asset types. Filters the count results by asset type."
+              },
+              {
+                "name": "options",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether or not the response should include the metaproperty options of the metaproperty."
+              }
+            ]
+          },
+          "docs": "Retrieve specific metaproperty"
+        },
+        {
+          "info": {
+            "name": "Modify metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id",
+                  "value": ""
+                },
+                {
+                  "name": "data",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role."
+        },
+        {
+          "info": {
+            "name": "Delete metaproperty",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ]
+          },
+          "docs": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

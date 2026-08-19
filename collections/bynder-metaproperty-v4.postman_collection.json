@@ -1,0 +1,990 @@
+{
+  "item": [
+    {
+      "id": "9f89b7c8-518f-4060-879d-faf60a7b141f",
+      "name": "Metaproperty operations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d53d355-675c-4dc1-ba6a-5de75ecfb673",
+          "name": "Retrieve metaproperties",
+          "request": {
+            "name": "Retrieve metaproperties",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "false",
+                  "description": "Indicates whether or not the response should include asset count results for metaproperty-options."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Comma-separated list of asset types. Filters the count results by asset type."
+                },
+                {
+                  "disabled": false,
+                  "key": "options",
+                  "value": "true",
+                  "description": "Indicates whether or not the response should include the metaproperty options of each metaproperty."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of metaproperty ids. Will return a metaproperty for each existing id."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5973fad5-8603-489a-ba5b-54b3d1873ba5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "options",
+                      "value": "true"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Colours\": {\n    \"isMultiselect\": false,\n    \"isMultifilter\": false,\n    \"isRequired\": false,\n    \"isMainfilter\": true,\n    \"isFilterable\": true,\n    \"isApiField\": true,\n    \"isDisplayField\": false,\n    \"isDrilldown\": false,\n    \"isEditable\": true,\n    \"name\": \"colours\",\n    \"label\": \"Colours\",\n    \"zindex\": 16,\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"type\": \"sidebar\",\n    \"showInListView\": true,\n    \"showInGridView\": false,\n    \"showInDuplicateView\": false,\n    \"useDependencies\": false,\n    \"options\": [\n      {\n        \"displayLabel\": \"Yellow\",\n        \"date\": \"February, 15 2017 14:54:58 +0000\",\n        \"pregeneratedZipFileSize\": 0,\n        \"linkedOptionIds\": [],\n        \"isSelectable\": true,\n        \"zindex\": 1,\n        \"product_suffix\": \"\",\n        \"name\": \"yellow\",\n        \"id\": \"00000000-0000-0000-0000000000000000\",\n        \"active\": true,\n        \"label\": \"Yellow\",\n        \"labels\": {\n          \"nl_NL\": \"Geel\",\n          \"en_US\": \"Yellow\"\n        },\n        \"descriptions\": {},\n        \"description\": \"\",\n        \"hideByDefault\": false,\n        \"image\": \"___URL_TO_BYNDER_CDN___\"\n      },\n      {\n        \"displayLabel\": \"Red\",\n        \"date\": \"February, 15 2017 15:50:55 +0000\",\n        \"pregeneratedZipFileSize\": 0,\n        \"linkedOptionIds\": [],\n        \"isSelectable\": true,\n        \"zindex\": 1,\n        \"product_suffix\": \"\",\n        \"name\": \"red\",\n        \"id\": \"00000000-0000-0000-0000000000000001\",\n        \"active\": true,\n        \"label\": \"Red\",\n        \"labels\": {\n          \"nl_NL\": \"Rood\",\n          \"en_US\": \"Red\"\n        },\n        \"descriptions\": {},\n        \"description\": \"\",\n        \"hideByDefault\": false,\n        \"image\": \"___URL_TO_BYNDER_CDN___\"\n      }\n    ]\n  },\n  \"Bob_button\": {\n    \"isMultiselect\": false,\n    \"isMultifilter\": false,\n    \"isRequired\": false,\n    \"isMainfilter\": true,\n    \"isFilterable\": true,\n    \"isApiField\": true,\n    \"isDisplayField\": false,\n    \"isDrilldown\": false,\n    \"isEditable\": true,\n    \"name\": \"Bob_button\",\n    \"label\": \"Bob_button\",\n    \"zindex\": 2,\n    \"id\": \"00000000-0000-0000-0000000000000001\",\n    \"type\": \"button\",\n    \"showInListView\": true,\n    \"showInGridView\": false,\n    \"showInDuplicateView\": false,\n    \"useDependencies\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f96f78cf-e79d-41f2-85f4-2ee451cba223",
+          "name": "Create metaproperty",
+          "request": {
+            "name": "Create metaproperty",
+            "description": {
+              "content": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c9f33cb6-7f6d-4bd2-88ce-34c1f9336e84",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"name\": \"ColourMeta\", \"type\": \"select\", \"label\": \"Colour\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isEditable\": true, \"isFilterable\": true, \"isMainfilter\": true, \"isMultiselect\": true, \"isRequired\": true, \"isMultifilter\": true, \"isDrilldown\": true, \"isDisplayField\": true, \"isApiField\": true}"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201,\n  \"id\": \"00000000-0000-0000-0000000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e95aad8c-5065-481f-900b-52828d3a026b",
+              "name": "Invalid metaproperty type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"name\": \"ColourMeta\", \"type\": \"select\", \"label\": \"Colour\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isEditable\": true, \"isFilterable\": true, \"isMainfilter\": true, \"isMultiselect\": true, \"isRequired\": true, \"isMultifilter\": true, \"isDrilldown\": true, \"isDisplayField\": true, \"isApiField\": true}"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid metaproperty type\",\n  \"statuscode\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8568ffa4-a3ce-40ba-afbc-c869f922e8dc",
+      "name": "Specific metaproperty operations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4a7ad689-72ed-4e0a-ad0b-faa7da641c4d",
+          "name": "Retrieve specific metaproperty",
+          "request": {
+            "name": "Retrieve specific metaproperty",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "false",
+                  "description": "Indicates whether or not the response should include asset count results for metaproperty-options."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Comma-separated list of asset types. Filters the count results by asset type."
+                },
+                {
+                  "disabled": false,
+                  "key": "options",
+                  "value": "true",
+                  "description": "Indicates whether or not the response should include the metaproperty options of the metaproperty."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metaproperty id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7740e3a3-50a4-4a93-8e2d-4ea50fa791a1",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "options",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metaproperty id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"isMultiselect\": false,\n  \"isMultifilter\": false,\n  \"isRequired\": false,\n  \"isMainfilter\": true,\n  \"isFilterable\": true,\n  \"isApiField\": true,\n  \"isDisplayField\": false,\n  \"isDrilldown\": false,\n  \"isEditable\": true,\n  \"name\": \"colours\",\n  \"label\": \"Colours\",\n  \"zindex\": 16,\n  \"id\": \"00000000-0000-0000-0000000000000000\",\n  \"type\": \"sidebar\",\n  \"showInListView\": true,\n  \"showInGridView\": false,\n  \"showInDuplicateView\": false,\n  \"useDependencies\": false,\n  \"options\": [\n    {\n      \"displayLabel\": \"Yellow\",\n      \"date\": \"February, 15 2017 14:54:58 +0000\",\n      \"pregeneratedZipFileSize\": 0,\n      \"linkedOptionIds\": [],\n      \"isSelectable\": true,\n      \"zindex\": 1,\n      \"product_suffix\": \"\",\n      \"name\": \"yellow\",\n      \"id\": \"00000000-0000-0000-0000000000000000\",\n      \"active\": true,\n      \"label\": \"Yellow\",\n      \"labels\": {\n        \"nl_NL\": \"Geel\",\n        \"en_US\": \"Yellow\"\n      },\n      \"descriptions\": {},\n      \"description\": \"\",\n      \"hideByDefault\": false,\n      \"image\": \"___URL_TO_BYNDER_CDN___\"\n    },\n    {\n      \"displayLabel\": \"Red\",\n      \"date\": \"February, 15 2017 15:50:55 +0000\",\n      \"pregeneratedZipFileSize\": 0,\n      \"linkedOptionIds\": [],\n      \"isSelectable\": true,\n      \"zindex\": 1,\n      \"product_suffix\": \"\",\n      \"name\": \"red\",\n      \"id\": \"00000000-0000-0000-0000000000000000\",\n      \"active\": true,\n      \"label\": \"Red\",\n      \"labels\": {\n        \"nl_NL\": \"Rood\",\n        \"en_US\": \"Red\"\n      },\n      \"descriptions\": {},\n      \"description\": \"\",\n      \"hideByDefault\": false,\n      \"image\": \"___URL_TO_BYNDER_CDN___\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0a76cca-1ed1-4c19-837e-23f17a0ec6c8",
+              "name": "Metaproperty not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "options",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metaproperty id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Metaproperty not found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "674f95f4-39bb-4910-b8b5-3e95f4726a4f",
+          "name": "Modify metaproperty",
+          "request": {
+            "name": "Modify metaproperty",
+            "description": {
+              "content": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metaproperty id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "Metaproperty id."
+                },
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ca2402ca-b3e5-4630-9aff-9ab3bfdc8b82",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metaproperty id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Metaproperty id.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\n  \"type\": \"select\",\n  \"label\": \"Colour\",\n  \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"},\n  \"zindex\": 4,\n  \"isEditable\": true,\n  \"isFilterable\": true,\n  \"isMainfilter\": true,\n  \"isMultiselect\": true,\n  \"isRequired\": true,\n  \"isMultifilter\": true,\n  \"isDrilldown\": true,\n  \"isDisplayField\": true,\n  \"isApiField\": true\n}\n"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1033779-9b8e-4637-a488-5b656cf9fc1d",
+              "name": "Invalid metaproperty type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metaproperty id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Metaproperty id.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\n  \"type\": \"select\",\n  \"label\": \"Colour\",\n  \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"},\n  \"zindex\": 4,\n  \"isEditable\": true,\n  \"isFilterable\": true,\n  \"isMainfilter\": true,\n  \"isMultiselect\": true,\n  \"isRequired\": true,\n  \"isMultifilter\": true,\n  \"isDrilldown\": true,\n  \"isDisplayField\": true,\n  \"isApiField\": true\n}\n"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid metaproperty type\",\n  \"statuscode\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "544bcca2-4885-4c3a-9e5f-81d1554518f1",
+              "name": "Metaproperty not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metaproperty id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Metaproperty id.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\n  \"type\": \"select\",\n  \"label\": \"Colour\",\n  \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"},\n  \"zindex\": 4,\n  \"isEditable\": true,\n  \"isFilterable\": true,\n  \"isMainfilter\": true,\n  \"isMultiselect\": true,\n  \"isRequired\": true,\n  \"isMultifilter\": true,\n  \"isDrilldown\": true,\n  \"isDisplayField\": true,\n  \"isApiField\": true\n}\n"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Metaproperty not found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6881e8b-0b1d-442b-ad49-072b880ee8b1",
+          "name": "Delete metaproperty",
+          "request": {
+            "name": "Delete metaproperty",
+            "description": {
+              "content": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Metaproperty id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73bf6a67-b787-4f55-a758-a6387da6cf3a",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metaproperty id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74fe184a-07e7-46d6-8ea6-54832180eab8",
+              "name": "Metaproperty not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Metaproperty id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Metaproperty not found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "METAPROPERTYMANAGEMENT METAMANAGEMENT"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "acd8c63b-ad85-4727-819c-509befba45a5",
+    "name": "Metaproperty Operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

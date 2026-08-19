@@ -1,0 +1,63 @@
+generated: '2026-08-13'
+method: searched
+source: https://api.bynder.com/changelog/2025.md
+docs: https://api.bynder.com/changelog/2025
+note: >-
+  Bynder publishes a dated, year-partitioned API changelog running from 2019 to
+  2025 and indexes it in its own llms.txt. As probed on 2026-08-13 there is no 2026
+  page — https://api.bynder.com/changelog/2026.md returns 404 and the most recent
+  dated entry is July 2025. The changelog is prose per month, not per release;
+  Bynder ships no version numbers for the API itself, so entries are anchored to
+  month and endpoint rather than to a release tag.
+scheme: dated-monthly
+current_version: null
+versioning_note: >-
+  The API carries no product version. Version lives in the URI path per service
+  (see lifecycle/bynder-lifecycle.yml) and changes are announced by month.
+years_published: ['2019', '2020', '2021', '2022', '2023', '2024', '2025']
+latest_entry: '2025-07'
+staleness:
+  checked: '2026-08-13'
+  months_since_last_entry: 13
+  finding: >-
+    Thirteen months with no changelog entry, while the underlying documentation
+    is demonstrably live — the webhooks reference page carries an updatedAt of
+    2026-08-03 and the getting-started guide 2026-05-15. The API is being changed;
+    the changelog is not being written.
+entries:
+- date: '2025-07'
+  breaking: true
+  highlights:
+  - Restricted the set of statuses accepted on `activeStage` in the Modify job endpoint.
+- date: '2025-05'
+  breaking: false
+  additions:
+  - New Adaptive Video Streaming endpoint.
+  - '`customThumbnailFileId` and `removeCustomThumbnail` added to Modify Asset.'
+- date: '2025-03'
+  breaking: true
+  additions:
+  - Collection Views V2 added to the Analytics module.
+  - Search for similar assets endpoint added.
+  - '`fileName` added to the Retrieve assets response.'
+  deprecations:
+  - Collection Views V1 (deprecation notice issued).
+  - Asset Download V2, Asset Create and Asset Create CSV endpoints deprecated.
+- date: '2025-01'
+  breaking: true
+  additions:
+  - Two endpoints added to list and get derivative presets / account additionals.
+  - '`additionalId` added to mediaitems in Retrieve assets and Retrieve specific asset.'
+  - Asset Creations V2 added to the Asset Usage V2 section of Analytics.
+  removals:
+  - Removed the already-deprecated Asset Views and Asset Downloads endpoints from Asset Usage V1.
+  renames:
+  - Retrieve derivative presets endpoint renamed.
+year_summaries:
+- year: '2025'
+  summary: >-
+    "Throughout this year, we focused on tightening our API workflows and
+    expanding the depth of our asset management tools" — significant Analytics
+    upgrades (Collection Views V2, a more robust Asset Usage tracking system),
+    retirement of legacy V1 endpoints, adaptive video streaming, and custom
+    thumbnail controls.

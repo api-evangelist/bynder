@@ -1,0 +1,43 @@
+generated: '2026-08-13'
+method: generated
+source: >-
+  Generated from the 34 active OpenAPI definitions Bynder publishes in openapi/,
+  the conventions in conventions/bynder-conventions.yml, the error catalogue in
+  errors/bynder-problem-types.yml and the scope reference in scopes/bynder-scopes.yml.
+note: >-
+  Bynder publishes no AGENTS.md and no skill files of its own — searched the
+  developer documentation index at https://api.bynder.com/llms.txt and the Bynder
+  GitHub organization. These skills are authored by API Evangelist and grounded in
+  Bynder's published contracts. Where a Bynder definition declares an operationId
+  the skill names it; the majority of Bynder's published operations carry no
+  operationId at all (147 of 197), so those steps are grounded on the verified
+  METHOD + path instead. No operationId is invented.
+grounding:
+  operations_published: 197
+  operations_with_operationid: 50
+  operations_without_operationid: 147
+skills:
+- file: bynder-authenticate.md
+  name: Authenticate against a Bynder portal
+  api: openapi/bynder-oauth2-openapi.json
+  operations: ["GET /v6/authentication/oauth2/auth", "POST /v6/authentication/oauth2/token", "GET /v6/authentication/oauth2/scopes"]
+- file: bynder-find-and-download-asset.md
+  name: Find an asset and get its download URL
+  api: openapi/bynder-asset-v4-openapi.json
+  operations: ["GET /api/v4/media/", "GET /api/v4/media/{id}", "GET /api/v4/media/{id}/download", "POST /api/1/assets/similarity-search/"]
+- file: bynder-upload-asset.md
+  name: Upload a file and save it as a Bynder asset
+  api: openapi/bynder-asset-upload-openapi.json
+  operations: ["GET /api/upload/endpoint", "POST /api/upload/init", "POST /api/v4/upload/{id}", "GET /api/v4/upload/poll", "POST /api/v4/media/save/{importId}"]
+- file: bynder-curate-collection.md
+  name: Build and share a Bynder collection
+  api: openapi/bynder-collections-v4-openapi.json
+  operations: ["GET /api/v4/collections", "POST /api/v4/collections", "POST /api/v4/collections/{id}/media", "POST /api/v4/collections/{id}/share"]
+- file: bynder-subscribe-to-events.md
+  name: Subscribe to Bynder asset and workflow events
+  api: openapi/bynder-webhooks-openapi.json
+  operations: [RetrieveaWebhookConfiguration, CreateaWebhookConfiguration, UpdateaWebhookConfiguration, PatchaWebhookConfiguration, DeleteaWebhookConfiguration]
+- file: bynder-run-workflow-job.md
+  name: Move a Bynder workflow job through its stages
+  api: openapi/bynder-wf-jobs-v4-openapi.json
+  operations: ["GET /api/workflow/jobs", "POST /api/workflow/jobs", "GET /api/workflow/jobs/{id}/stages", "PATCH /api/workflow/jobs/{id}/finish"]

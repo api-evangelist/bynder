@@ -1,0 +1,173 @@
+{
+  "item": [
+    {
+      "id": "9c3794fa-b37a-42dd-987b-624266e78b99",
+      "name": "Public links",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84599a3a-b81a-43f0-a9b7-0d817427be14",
+          "name": "Get public links for an asset",
+          "request": {
+            "name": "Get public links for an asset",
+            "description": {
+              "content": "This API returns public links to both HLS and DASH manifests for video assets, as well as the Video player HTML embed code to integrate Adaptive Video Streaming links with a supported video player. This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `asset_id`, and [Note on identifiers](https://api.bynder.com/docs/getting-started#note-on-identifiers) for more information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "1",
+                "assets",
+                ":asset_id",
+                "public-links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "asset_id",
+                  "description": "(Required) The UUID of the asset"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eae7496f-1cd4-4219-b92c-1d19ca1ff248",
+              "name": "Successful response with public links",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1",
+                    "assets",
+                    ":asset_id",
+                    "public-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "asset_id",
+                      "description": "(Required) The UUID of the asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hls\": \"https://your.portal.url/vod-stream/00000000-0000-0000-0000-000000000000/play-hls2.m3u8\",\n  \"dash\": \"https://your.portal.url/vod-stream/00000000-0000-0000-0000-000000000000/play-dash.mpd\",\n  \"embedCode\": \"<link rel=\\\"stylesheet\\\" type=\\\"text/css\\\" href=\\\"https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css\\\"/><div   bvd-manifest-url=\\\"https://deliver-testmanual.bynder-stage.com/vod-stream/450b9520-b186-48c6-8a51-faec286abc37/play-hls2.m3u8\\\" bvd-poster=\\\"https://deliver-testmanual.bynder-stage.com/asset/450b9520-b186-48c6-8a51-faec286abc37/thumbnail/webimage-poster\\\"></div><script src=\\\"https://deliver-testmanual.bynder-stage.com/v7/video-delivery/main.js\\\"></script>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4beddccc-c169-437c-b467-b53371ef89e0",
+              "name": "No adaptive streaming available for given asset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1",
+                    "assets",
+                    ":asset_id",
+                    "public-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "asset_id",
+                      "description": "(Required) The UUID of the asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "manifest file not found",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.example.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7438ff22-4bb5-4f5e-b985-58e832612c23",
+    "name": "Adaptive Video Streaming API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for retrieving public links to HLS and DASH manifests for video assets",
+      "type": "text/plain"
+    }
+  }
+}

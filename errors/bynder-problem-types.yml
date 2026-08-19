@@ -1,0 +1,136 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  Derived from the 4xx/5xx responses declared across the 34 active OpenAPI
+  definitions Bynder publishes in openapi/, cross-read against the documented
+  error semantics on https://api.bynder.com/docs/getting-started.
+format: none
+format_note: >-
+  Bynder does NOT use RFC 9457 problem+json. No response in any published
+  definition uses the application/problem+json media type and no `type`/`title`/
+  `detail`/`instance` envelope is declared. Errors come back as plain
+  application/json, as application/vnd.api+json on a handful of the newer
+  services (workflow jobs, automation workflow), or as text/plain — three
+  different shapes across one API. There is no single machine-readable error
+  contract an agent can rely on.
+envelope:
+  consistent: false
+  media_types_observed:
+  - application/json
+  - application/vnd.api+json
+  - text/plain
+  note: >-
+    Where a schema is declared at all, the common shape is a JSON object with a
+    `message` or `error` string; several 4xx responses declare no schema and no
+    content at all.
+coverage:
+  active_specs: 34
+  operations: 156
+  error_responses_declared: 108
+  distinct_status_codes: 6
+  missing_429: true
+  missing_429_note: >-
+    Bynder documents a hard per-IP rate limit that returns 429, but not one of the
+    34 published definitions declares a 429 response. The single failure mode an
+    integrator is most likely to hit is absent from the machine-readable contract.
+problems:
+- status: 400
+  title: Bad request
+  occurrences: 37
+  media_types: [application/json, application/vnd.api+json, text/plain]
+  specs_declaring: 14
+  provider_descriptions:
+  - 'Bad Request'
+  - 'Bad request'
+  - 'Image Operation not supported'
+  - 'Invalid input'
+  - 'Invalid metaproperty ID'
+  - 'Invalid metaproperty type'
+  - 'Invalid request'
+  - 'Invalid request parameters.'
+  remediation: >-
+    Validate the request body and query parameters against the operation schema; several
+    Bynder endpoints reject unknown or mistyped metaproperty and option IDs with a 400
+    rather than a 404.
+  example_operations: [RetrieveaWebhookConfiguration, deleteRulesRuleid, getActions, getApi1TaxonomyMetapropertiesMetapropertyidOptions, getConditions]
+- status: 401
+  title: Unauthorized
+  occurrences: 12
+  media_types: [application/json, text/plain]
+  specs_declaring: 3
+  provider_descriptions:
+  - 'Invalid or expired token'
+  - 'Unauthorized'
+  remediation: >-
+    The access token is missing, malformed or expired. Re-run the OAuth 2.0 token exchange
+    (see authentication/bynder-authentication.yml); Bynder access tokens are JWTs sent as
+    `Authorization: Bearer <token>`.
+  example_operations: [deleteRulesRuleid, getActions, getConditions, getRules, getRulesRuleid]
+- status: 403
+  title: Forbidden
+  occurrences: 18
+  media_types: [application/json, application/vnd.api+json]
+  specs_declaring: 8
+  provider_descriptions:
+  - 'Access denied'
+  - 'Access denied.'
+  - 'Forbidden'
+  - 'Forbidden: The user does not have the required permissions for this operation.'
+  - 'Permissions Error'
+  remediation: >-
+    The token is valid but the user's Bynder security profile lacks the required role.
+    Bynder enforces named security roles (MEDIAHIGHRES, ARCHIVEDOWNLOAD,
+    PERMISSIONMANAGEMENT, Manage Webhooks configurations, ...) in addition to OAuth scopes —
+    read the required role from the endpoint's documentation and check it against Retrieve
+    security profiles.
+  example_operations: [getDocument]
+- status: 404
+  title: Not found
+  occurrences: 36
+  media_types: [application/json, text/plain]
+  specs_declaring: 12
+  provider_descriptions:
+  - 'Asset not found'
+  - 'Campaign not found'
+  - 'Collection not found.'
+  - 'File not found'
+  - 'Media not found'
+  - 'Meta property option not found'
+  - 'Metaproperty not found'
+  - 'No adaptive streaming available for given asset'
+  remediation: >-
+    The resource id does not exist in this portal, or it exists in a different id format.
+    Bynder uses two incompatible UUID formats — 8-4-4-16 (ColdFusion) on /api/v4 and
+    8-4-4-4-12 (RFC 4122) on /api/1 — and passing one to the other yields a 404.
+  example_operations: [closeCampaign, deleteRulesRuleid, getApi1TaxonomyMetapropertiesMetapropertyidOptions, getAssetPublicLinks, getRulesRuleid]
+- status: 409
+  title: Conflict
+  occurrences: 2
+  media_types: [application/json]
+  specs_declaring: 2
+  provider_descriptions:
+  - 'Conflict: The job is not open (has been finished), the activeStage.status is Approved. Or '
+  remediation: >-
+    The target object is not in a state that accepts the change (for example a workflow job
+    that has already been finished). Re-read the object and check its state before retrying;
+    retrying the same request will not succeed.
+  example_operations: [patchRulesRuleidStatus]
+- status: 500
+  title: Internal server error
+  occurrences: 3
+  media_types: [application/json, application/vnd.api+json]
+  specs_declaring: 2
+  provider_descriptions:
+  - 'Internal Server Error'
+  - 'Server Error'
+  - 'Upload failed or not ready'
+  remediation: >-
+    Server-side failure. Bynder publishes no retry guidance; back off and retry idempotent
+    reads, and check https://status.bynder.com before escalating.
+  example_operations: [getDocument]
+gaps:
+- No 429 response declared anywhere, despite a documented hard rate limit.
+- Three different error media types across one API (application/json, application/vnd.api+json, text/plain).
+- No error code registry — errors carry an HTTP status and a prose message, with no stable machine-readable code.
+- No RFC 9457 problem+json.
+- Several 4xx responses declare a description but no schema, so the body shape is undiscoverable from the contract.

@@ -1,0 +1,178 @@
+{
+  "item": [
+    {
+      "id": "4183a30b-139f-479b-bc26-fa939d029d03",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e7a1f13-cf4f-43a3-a759-f0ba0938c510",
+          "name": "Search for similar assets",
+          "request": {
+            "name": "Search for similar assets",
+            "description": {
+              "content": "This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `assetIds`, and [Note on identifiers](https://api.bynder.com/docs/getting-started#note-on-identifiers) for more information. Additionally, only one of the search parameters (`assetIds`, `imageUrl`, `imageData`, `textQuery`) should be provided per request. Providing multiple parameters will result in a `400` Bad Request response. Only OAuth2 authentication is supported for this endpoint, and permanent tokens are not accepted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "1",
+                "assets",
+                "similarity-search",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assetIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"imageUrl\": \"<string>\",\n  \"imageData\": \"<string>\",\n  \"textQuery\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a508671-228e-4ad4-b2ae-778899a23e79",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1",
+                    "assets",
+                    "similarity-search",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetIds\": [\n    \"f4d5881d-9a2b-4e3d-a1f7-29f6771309f9\",\n    \"5af81baa-ee0b-4611-bfa6-fd023c7989b8\"\n  ],\n  \"imageUrl\": \"https://d2csxpduxe849s.cloudfront.net/media/A7148429-45E9-45C9-98BABD031228C0E2/0A1C48A2-2523-440C-81DD9DFA221D28FC/webimage-5FE11596-1C5D-4FC1-9C216A240BA53979.png\",\n  \"imageData\": \"data:image/jpeg;base64,...\",\n  \"textQuery\": \"Image of a sunset\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assets\": [\n    {\n      \"assetId\": \"e0664bc4-4d64-4776-a010-a19d337f7ee9\",\n      \"similarityScore\": 0.98\n    },\n    {\n      \"assetId\": \"e0664bc4-4d64-4776-a010-a19d337f7ee9\",\n      \"similarityScore\": 0.98\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dba8407c-4eb7-4f8d-9d10-3d689372aaff",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "1",
+                    "assets",
+                    "similarity-search",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetIds\": [\n    \"f4d5881d-9a2b-4e3d-a1f7-29f6771309f9\",\n    \"5af81baa-ee0b-4611-bfa6-fd023c7989b8\"\n  ],\n  \"imageUrl\": \"https://d2csxpduxe849s.cloudfront.net/media/A7148429-45E9-45C9-98BABD031228C0E2/0A1C48A2-2523-440C-81DD9DFA221D28FC/webimage-5FE11596-1C5D-4FC1-9C216A240BA53979.png\",\n  \"imageData\": \"data:image/jpeg;base64,...\",\n  \"textQuery\": \"Image of a sunset\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Multiple search parameters provided. Please provide only one of the following parameters: assetIds, imageUrl, imageData, textQuery.\",\n  \"reason\": \"MULTIPLE_SEARCH_PARAMETERS\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e4f7bec-affe-44bc-bdec-ea4aa2b11eba",
+    "name": "Similar Assets Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

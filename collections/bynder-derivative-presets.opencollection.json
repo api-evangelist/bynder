@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Derivative Presets API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Retrieve all configured derivative presets.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/1/derivative-presets/",
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Retrieve all configured derivative presets."
+    },
+    {
+      "info": {
+        "name": "Retrieve a specific configured derivative preset.",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/1/derivative-presets/:preset_id",
+        "params": [
+          {
+            "name": "preset_id",
+            "value": "",
+            "type": "path",
+            "description": "The ID of the derivative preset."
+          }
+        ],
+        "auth": {
+          "type": "bearer",
+          "token": "{{bearerToken}}"
+        }
+      },
+      "docs": "Retrieve a specific configured derivative preset."
+    }
+  ],
+  "bundled": true
+}

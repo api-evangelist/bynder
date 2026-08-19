@@ -1,0 +1,728 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Analytics API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Asset Usage V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve asset views",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v2/asset/views",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve view events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              }
+            ]
+          },
+          "docs": "Retrieve asset views"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Asset Usage V1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve asset view events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/asset/view",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve view events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "This endpoint will be deprecated on July, 15th. Use the Asset Views V2 endpoint instead."
+        },
+        {
+          "info": {
+            "name": "Retrieve asset download events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/asset/download",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve download events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "Retrieve asset download events"
+        },
+        {
+          "info": {
+            "name": "Retrieve asset download events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/asset/v2/download",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve download events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "This endpoint only offers data from 2023-11-01. Use the Asset Download endpoint for previous data."
+        },
+        {
+          "info": {
+            "name": "Retrieve asset creation events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/asset/create",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve create events occurred after this date."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve asset creation events within a specified date range."
+        },
+        {
+          "info": {
+            "name": "Retrieve asset archive events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/asset/archive",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve archive events occurred after this date."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter."
+              }
+            ]
+          },
+          "docs": "Retrieve archive events for assets within a specified date range."
+        },
+        {
+          "info": {
+            "name": "Retrieve removed asset events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/asset/remove",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve remove events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              }
+            ]
+          },
+          "docs": "Retrieve analytics events for removed assets."
+        },
+        {
+          "info": {
+            "name": "Retrieve all events performed in a given asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/asset/:assetId",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "Asset id."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve events performed in a given asset occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter."
+              }
+            ]
+          },
+          "docs": "This endpoint will allow you to retrieve all the events performed in a given asset."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search Usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve search execution events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/search/executions",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve executions events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              }
+            ]
+          },
+          "docs": "Retrieve search execution events"
+        },
+        {
+          "info": {
+            "name": "Retrieve search keyword events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/search/keyword",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve keyword events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              }
+            ]
+          },
+          "docs": "Deprecated. Use the Search Executions endpoint instead."
+        },
+        {
+          "info": {
+            "name": "Retrieve search keyword events in CSV format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/search/keyword.csv",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve keyword events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds."
+              }
+            ]
+          },
+          "docs": "Deprecated. Use the Search Executions endpoint instead."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "User Usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User Login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/user/login",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve login events occurred after this date. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "Retrieve login events."
+        },
+        {
+          "info": {
+            "name": "User Activity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/user/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "User id."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve events triggered by a user occurred after this date. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "Retrieve all the events triggered by a given user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collection Usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve collection view events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/collection/views",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve view events occurred after this date. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "Retrieve collection view events"
+        },
+        {
+          "info": {
+            "name": "Retrieve collection view events in CSV format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/collection/views.csv",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve view events occurred after this date. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateTime",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateTime\" parameter. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "Retrieve collection view events in CSV format"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reporting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve asset reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/report/asset",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of asset reports to retrieve. Allowed values are between 1 and 10000."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor mark returned in the response headers to be used for pagination purposes."
+              },
+              {
+                "name": "fromDateCreated",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve reports of assets created after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateCreated",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateCreated\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "fromDateModified",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve reports of assets modified after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              },
+              {
+                "name": "toDateModified",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"fromDateModified\" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.\n"
+              }
+            ]
+          },
+          "docs": "This endpoint allows you to retrieve a human readable report of any of the assets in the DAM. The report will include all the metadata of the asset."
+        },
+        {
+          "info": {
+            "name": "Retrieve specific asset report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/report/asset/:assetId",
+            "params": [
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "path",
+                "description": "Asset id."
+              }
+            ]
+          },
+          "docs": "This endpoint allows you to retrieve a human readable report for a specific asset in the DAM. The report will include all the metadata of the asset."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Historical Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve historical data in CSV format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/v7/analytics/api/v1/historical/:year.csv",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year."
+              }
+            ]
+          },
+          "docs": "This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

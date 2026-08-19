@@ -1,0 +1,193 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automation Workflow API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Automation Workflow Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetches all automation workflow rules.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://example.com/api/1/automation-workflow/rules",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches all automation workflow rules within an account in descending order of creation, with optional pagination (start and limit)."
+        },
+        {
+          "info": {
+            "name": "Creates a new automation workflow rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://example.com/api/1/automation-workflow/rules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\nCreates a new automation workflow rule. Ensure that you check the available triggers, conditions, and actions to use valid options.\n\nUse the following endpoints to check which options are available before creating a rule:\n- `/triggers` – lists available triggers\n- `/conditions` – lists available conditions\n- `/actions` – lists available actions\n        "
+        },
+        {
+          "info": {
+            "name": "Fetches a specific automation workflow rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://example.com/api/1/automation-workflow/rules/:ruleId",
+            "params": [
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetches a specific automation workflow rule."
+        },
+        {
+          "info": {
+            "name": "Updates an existing automation workflow rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://example.com/api/1/automation-workflow/rules/:ruleId",
+            "params": [
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing automation workflow rule."
+        },
+        {
+          "info": {
+            "name": "Deletes an automation workflow rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://example.com/api/1/automation-workflow/rules/:ruleId",
+            "params": [
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes an automation workflow rule by its ID."
+        },
+        {
+          "info": {
+            "name": "Updates the status of an existing automation workflow rule.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://example.com/api/1/automation-workflow/rules/:ruleId/status",
+            "params": [
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the status of an existing automation workflow rule. The status must be one of the following: `PUBLISHED` or `PAUSED`."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Automation Workflow Triggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetches a list of available automation workflow triggers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://example.com/api/1/automation-workflow/triggers"
+          },
+          "docs": "\nFetches a list of available automation workflow triggers.\n\n<b>Note:</b> The `RelativeDate` trigger must be used with the `Archived` condition.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Automation Workflow Conditions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetches a list of available automation workflow conditions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://example.com/api/1/automation-workflow/conditions"
+          },
+          "docs": "\nFetches a list of available automation workflow conditions.\n\nSome conditions accept only specific predefined terms, which are included in the response for reference.\n\n<b>Note:</b> The `Archived` condition requires the `RelativeDate` trigger.\n        "
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Automation Workflow Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetches a list of available automation workflow actions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://example.com/api/1/automation-workflow/actions"
+          },
+          "docs": "\nFetches a list of available automation workflow actions.\n\n<b>Note:</b> Only actions that the authenticated user has permission to use are included in the response.\nFor example, actions requiring specific features or roles may be omitted if the user lacks access.\n        "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

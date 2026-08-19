@@ -1,0 +1,634 @@
+{
+  "item": [
+    {
+      "id": "008b79c1-3899-4eeb-bfa9-f5fbe334b8c8",
+      "name": "Step 1",
+      "description": {
+        "content": "This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dfd61c3b-3e7a-469f-9845-a5b3b15f43ee",
+          "name": "Prepare the upload",
+          "request": {
+            "name": "Prepare the upload",
+            "description": {
+              "content": "Prepare the upload of a file in chunks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v7",
+                "file_cmds",
+                "upload",
+                "prepare"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Bynder domain.",
+                  "type": "any",
+                  "value": "{{your-bynder-domain}}",
+                  "key": "your-bynder-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a561c07-1279-4497-b1a1-b9ede4553ba9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "file_cmds",
+                    "upload",
+                    "prepare"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Bynder domain.",
+                      "type": "any",
+                      "value": "{{your-bynder-domain}}",
+                      "key": "your-bynder-domain"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"file_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50fad9c0-04f4-4c58-b886-610c99737ab3",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "file_cmds",
+                    "upload",
+                    "prepare"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Bynder domain.",
+                      "type": "any",
+                      "value": "{{your-bynder-domain}}",
+                      "key": "your-bynder-domain"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "544fa70c-ad58-491e-a3ef-a67a22d89c14",
+      "name": "Step 2",
+      "description": {
+        "content": "This endpoint uploads a chunk of the file. You need to provide the file ID obtained from the prepare upload step and the chunk number (starting from 0). The request body should contain the binary data of the chunk being uploaded.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6b3b888-ba49-431e-adeb-61a6bb020087",
+          "name": "Upload a file chunk",
+          "request": {
+            "name": "Upload a file chunk",
+            "description": {
+              "content": "Upload a chunk of the file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v7",
+                "file_cmds",
+                "upload",
+                ":file_id",
+                "chunk",
+                ":chunk_number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file_id",
+                  "description": "(Required) The file ID retrieved from the prepare upload step."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "chunk_number",
+                  "description": "(Required) The number of the chunk being uploaded. The first chunk is 0."
+                },
+                {
+                  "description": "Your Bynder domain.",
+                  "type": "any",
+                  "value": "{{your-bynder-domain}}",
+                  "key": "your-bynder-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<binary>"
+            }
+          },
+          "response": [
+            {
+              "id": "f73403d0-a6c7-46d8-a367-4d63277b80c8",
+              "name": "Chunk uploaded successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "file_cmds",
+                    "upload",
+                    ":file_id",
+                    "chunk",
+                    ":chunk_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_id",
+                      "description": "(Required) The file ID retrieved from the prepare upload step."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "chunk_number",
+                      "description": "(Required) The number of the chunk being uploaded. The first chunk is 0."
+                    },
+                    {
+                      "description": "Your Bynder domain.",
+                      "type": "any",
+                      "value": "{{your-bynder-domain}}",
+                      "key": "your-bynder-domain"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b2610c7-14fc-4f49-a59a-02f0c6151f6c",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "file_cmds",
+                    "upload",
+                    ":file_id",
+                    "chunk",
+                    ":chunk_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_id",
+                      "description": "(Required) The file ID retrieved from the prepare upload step."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "chunk_number",
+                      "description": "(Required) The number of the chunk being uploaded. The first chunk is 0."
+                    },
+                    {
+                      "description": "Your Bynder domain.",
+                      "type": "any",
+                      "value": "{{your-bynder-domain}}",
+                      "key": "your-bynder-domain"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<binary>"
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "3f8f5b08-7aeb-42bc-97d4-5fcaa780be65",
+      "name": "Step 3",
+      "description": {
+        "content": "This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c586eb4b-edae-4e3d-b373-9fad4239a793",
+          "name": "Finalize the upload",
+          "request": {
+            "name": "Finalize the upload",
+            "description": {
+              "content": "Finalize the upload after all chunks have been uploaded.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v7",
+                "file_cmds",
+                "upload",
+                ":file_id",
+                "finalise_api"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file_id",
+                  "description": "(Required) The file ID retrieved from the prepare upload step."
+                },
+                {
+                  "description": "Your Bynder domain.",
+                  "type": "any",
+                  "value": "{{your-bynder-domain}}",
+                  "key": "your-bynder-domain"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "fileName",
+                  "value": "<string>",
+                  "description": "Filename of the file."
+                },
+                {
+                  "disabled": false,
+                  "key": "fileSize",
+                  "value": "<integer>",
+                  "description": "Size of the file in bytes."
+                },
+                {
+                  "disabled": false,
+                  "key": "chunksCount",
+                  "value": "<integer>",
+                  "description": "Number of chunks the file was split into."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aaad671d-9a01-45ef-9c3d-c092f9bfa787",
+              "name": "Upload finalized successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "file_cmds",
+                    "upload",
+                    ":file_id",
+                    "finalise_api"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_id",
+                      "description": "(Required) The file ID retrieved from the prepare upload step."
+                    },
+                    {
+                      "description": "Your Bynder domain.",
+                      "type": "any",
+                      "value": "{{your-bynder-domain}}",
+                      "key": "your-bynder-domain"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Filename of the file.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileName",
+                      "value": "image.jpeg"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Size of the file in bytes.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileSize",
+                      "value": "63973541"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of chunks the file was split into.",
+                        "type": "text/plain"
+                      },
+                      "key": "chunksCount",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "54b40acc-1ca5-48ab-ad60-4fb1277ec4c8",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v7",
+                    "file_cmds",
+                    "upload",
+                    ":file_id",
+                    "finalise_api"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "file_id",
+                      "description": "(Required) The file ID retrieved from the prepare upload step."
+                    },
+                    {
+                      "description": "Your Bynder domain.",
+                      "type": "any",
+                      "value": "{{your-bynder-domain}}",
+                      "key": "your-bynder-domain"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Filename of the file.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileName",
+                      "value": "image.jpeg"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Size of the file in bytes.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileSize",
+                      "value": "63973541"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of chunks the file was split into.",
+                        "type": "text/plain"
+                      },
+                      "key": "chunksCount",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Bynder domain.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "example.com",
+      "key": "your-bynder-domain"
+    },
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "04252b66-b91d-4b2a-a92a-e970383f3121",
+    "name": "Modern Stack File Upload",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

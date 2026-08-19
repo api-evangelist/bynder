@@ -1,0 +1,380 @@
+{
+  "item": [
+    {
+      "id": "c5e5b050-bf9c-40c3-a1e8-957010af6f0c",
+      "name": "document",
+      "description": {
+        "content": "Concerns a document entity, that is, a document for the widget",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "f55c04b0-6bef-4a74-b42d-fa0d70467aca",
+      "name": "Document",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67c79371-37aa-4b98-94d2-70256e1d259c",
+          "name": "Get document",
+          "request": {
+            "name": "Get document",
+            "description": {
+              "content": "Use this endpoint to retrieve your text content in CXUC. The `$ACCOUNT` is your assigned subdomain, or just replace the URL if you have a custom domain.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "documents",
+                ":document_uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_uuid",
+                  "description": "(Required) The UUID of the document to be actioned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "The referer header is required to derive the calling module for permissions functionality.",
+                "key": "Referer",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "28e08504-7f0d-4c01-8c8a-a44a9503b9ef",
+              "name": "A DocumentContent response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":document_uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_uuid",
+                      "description": "(Required) The UUID of the document to be actioned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The Accept header must be set to application/vnd.api+json",
+                    "key": "Accept",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization header that is using the JWT token and the Bearer scheme.",
+                    "key": "Authorization",
+                    "value": "Bearer jX(Sp`\"B"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The referer header is required to derive the calling module for permissions functionality.",
+                    "key": "Referer",
+                    "value": "https://account.example.com/guidelines/page/d4822bae-91ac-4cec-b392-9c5c1877f718"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"string\",\n    \"type\": \"string\",\n    \"attributes\": {\n      \"document\": \"string\",\n      \"html\": \"<p>Hello world!</p>\",\n      \"documentGroupId\": \"group_id_1\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "652ced8c-5a76-4e05-810d-37fcbc08b3cb",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":document_uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_uuid",
+                      "description": "(Required) The UUID of the document to be actioned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The Accept header must be set to application/vnd.api+json",
+                    "key": "Accept",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization header that is using the JWT token and the Bearer scheme.",
+                    "key": "Authorization",
+                    "value": "Bearer jX(Sp`\"B"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The referer header is required to derive the calling module for permissions functionality.",
+                    "key": "Referer",
+                    "value": "https://account.example.com/guidelines/page/d4822bae-91ac-4cec-b392-9c5c1877f718"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 6917.169575165961,\n      \"code\": \"VALIDATION_ERROR\",\n      \"title\": \"ValidationError\",\n      \"detail\": \"body/data/attributes must have required property 'html'\",\n      \"id\": \"req-adcaa568-7082-4cc8-9db9-9d78f1a3d95d\",\n      \"meta\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80b19223-16bd-48cc-ad8c-7b8a9fddacdb",
+              "name": "Permissions Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":document_uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_uuid",
+                      "description": "(Required) The UUID of the document to be actioned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The Accept header must be set to application/vnd.api+json",
+                    "key": "Accept",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization header that is using the JWT token and the Bearer scheme.",
+                    "key": "Authorization",
+                    "value": "Bearer jX(Sp`\"B"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The referer header is required to derive the calling module for permissions functionality.",
+                    "key": "Referer",
+                    "value": "https://account.example.com/guidelines/page/d4822bae-91ac-4cec-b392-9c5c1877f718"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"id\": \"req-adcaa568-7082-4cc8-9db9-9d78f1a3d95d\",\n      \"status\": 403,\n      \"code\": \"FORBIDDEN_ERROR\",\n      \"title\": \"ForbiddenError\",\n      \"detail\": \"Something went wrong\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fabd42b-49c1-4dfd-8d66-863cd9e17b5c",
+              "name": "Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "documents",
+                    ":document_uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_uuid",
+                      "description": "(Required) The UUID of the document to be actioned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The Accept header must be set to application/vnd.api+json",
+                    "key": "Accept",
+                    "value": "string"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The authorization header that is using the JWT token and the Bearer scheme.",
+                    "key": "Authorization",
+                    "value": "Bearer jX(Sp`\"B"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "The referer header is required to derive the calling module for permissions functionality.",
+                    "key": "Referer",
+                    "value": "https://account.example.com/guidelines/page/d4822bae-91ac-4cec-b392-9c5c1877f718"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"id\": \"req-adcaa568-7082-4cc8-9db9-9d78f1a3d95d\",\n      \"status\": 500,\n      \"code\": \"UNKNOWN_ERROR\",\n      \"title\": \"UnknownError\",\n      \"detail\": \"Something went wrong\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://$ACCOUNT.bynder.com/api/1/authoring",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e8028fe6-ed50-414e-92b4-c62b491161bd",
+    "name": "TEA - Public API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public API for retrieving text content within Bynder.",
+      "type": "text/plain"
+    }
+  }
+}

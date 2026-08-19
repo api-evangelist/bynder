@@ -1,0 +1,35 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.bynder.com/en/pricing/
+docs: https://www.bynder.com/en/pricing/
+plan_count: 0
+note: >-
+  Bynder publishes no priced tiers. The pricing page is headed "Build your custom
+  package" and states that "our modular plans are customized for your specific use
+  cases while remaining rooted in our core AI-powered DAM platform" with a single
+  "Get a quote" call to action. There is no self-serve signup, no free tier, no
+  published list price, no seat price and no API-call quota anywhere on the page —
+  the only entry points are a quote request and a demo booking. No machine-readable
+  pricing or catalog endpoint is published either.
+pricing_model: quote-only
+plans: []
+modules_advertised:
+- AI-powered DAM (described as the core product; all plans include it)
+- Asset Workflow
+- Content Workflow
+- Analytics
+- Studio
+- Content Experiences (Omnichannel and User Community)
+- AI Agents
+- AI Search Experience
+contact_routes:
+- label: Get a quote
+  url: https://www.bynder.com/en/pricing/
+- label: Book a demo
+  url: https://www.bynder.com/en/demo-request/
+api_pricing:
+  metered: false
+  note: >-
+    The REST API is not separately priced or metered in any published material.
+    It is governed by the per-IP rate limit in rate-limits/bynder-rate-limits.yml,
+    not by a plan quota.

@@ -1,0 +1,2232 @@
+{
+  "item": [
+    {
+      "id": "58dd9b3c-3822-4077-ab7b-36cf33177e27",
+      "name": "Media",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fb655650-999d-463c-b286-51606e85e255",
+          "name": "Retrieve assets",
+          "request": {
+            "name": "Retrieve assets",
+            "description": {
+              "content": "`original` is only returned for assets marked as public and requires the account to have the `seoBaseUrl` setting configured.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "brandId",
+                  "value": "<uuid>",
+                  "description": "Brand id, can be retrieved using the Retrieve brands and subbrands call."
+                },
+                {
+                  "disabled": false,
+                  "key": "subBrandId",
+                  "value": "<uuid>",
+                  "description": "Sub-brand id, can be retrieved using the Retrieve brands and subbrands call."
+                },
+                {
+                  "disabled": false,
+                  "key": "categoryId",
+                  "value": "<uuid>",
+                  "description": "Category id, can be retrieved using the Retrieve categories call."
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionId",
+                  "value": "<uuid>",
+                  "description": "Collection id, can be retrieved using the Retrieve collections call."
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<uuid>",
+                  "description": "Asset id, will return the asset for that id."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of asset ids. Will return an asset for each existing id."
+                },
+                {
+                  "disabled": false,
+                  "key": "propertyOptionId",
+                  "value": "<string>",
+                  "description": "Comma-separated list of (metaproperty) option ids, can be retrieved using the Retrieve metaproperties call."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Comma-separated list of tags, can be retrieved using the Retrieve tags call."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Comma-separated list of asset types."
+                },
+                {
+                  "disabled": false,
+                  "key": "orientation",
+                  "value": "<string>",
+                  "description": "Comma-separated list of asset orientation."
+                },
+                {
+                  "disabled": false,
+                  "key": "property_NAME",
+                  "value": "<string>",
+                  "description": "Metaproperty option name or comma-separated list ids of metaproperty options for that metaproperty. Beware that NAME should be replaced with the actual metaproperty name. This is an AND operation when passing multiple values. If a Date type metaproperty is added, retrieving assets using the dates for that metaproperty is not supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "limited",
+                  "value": "<boolean>",
+                  "description": "Indicates whether or not the response should only contain assets marked as \"limited usage\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "archive",
+                  "value": "<boolean>",
+                  "description": "Indicates whether or not the response should only contain archived assets."
+                },
+                {
+                  "disabled": false,
+                  "key": "isPublic",
+                  "value": "<boolean>",
+                  "description": "Indicates whether or not the response should only contain assets marked as public."
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>",
+                  "description": "Search on filenames, tags, extensions, collection names, guidelines, brandstore, campaigns in workflow, enriched PDFs, word documents."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateCreated",
+                  "value": "<dateTime>",
+                  "description": "Retrieve assets created after this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateCreatedTo",
+                  "value": "<dateTime>",
+                  "description": "Set a date range together with the \"dateCreated\" parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateCreatedOn",
+                  "value": "<dateTime>",
+                  "description": "Retrieve assets created on this specific date."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateModified",
+                  "value": "<dateTime>",
+                  "description": "Retrieve assets modified after this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateModifiedTo",
+                  "value": "<dateTime>",
+                  "description": "Set a date range together with the \"dateModified\" parameter."
+                },
+                {
+                  "disabled": false,
+                  "key": "dateModifiedOn",
+                  "value": "<dateTime>",
+                  "description": "Retrieve assets modified on this specific date."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "Order of the returned list of assets."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Offset page for results: return the N-th set of limit-results.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "false",
+                  "description": "Indicating whether or not the response should include count results."
+                },
+                {
+                  "disabled": false,
+                  "key": "total",
+                  "value": "false",
+                  "description": "Indicating whether or not the response should include the total count of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeMediaItems",
+                  "value": "false",
+                  "description": "Indicating whether or not the response should include all the different media items (derivatives) available for each asset."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeVersionNumber",
+                  "value": "false",
+                  "description": "Indicating whether or not the response should include the active version number."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "cursorMark returned in the X-Bynder-NextCursor response header which allows to return the next set of results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a52fdcf6-cb06-4eb3-9326-faa635b20721",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "subBrandId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "categoryId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "propertyOptionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "property_NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "archive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isPublic",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateCreated",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateCreatedTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateCreatedOn",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateModified",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateModifiedTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateModifiedOn",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "total",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeMediaItems",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeVersionNumber",
+                      "value": "false"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) OAuth 2.0 Bearer access token.",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "SOLR nextCursorMark which can be used to return the next X number of results. Returned when solr-cursor account feature is enabled.",
+                  "key": "X-Bynder-NextCursor",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dateModified\": \"1981-08-16T20:12:17.263Z\",\n    \"propertyOptions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"type\": \"string\",\n    \"brandId\": \"2d8e5844-6929-25dc-bf9d-cd9635d29b7f\",\n    \"fileSize\": 7908,\n    \"id\": \"e3d42a91-6b89-c028-0ab6-f6f947d4b825\",\n    \"height\": 3055,\n    \"description\": \"string\",\n    \"idHash\": \"string\",\n    \"name\": \"string\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"orientation\": \"string\",\n    \"width\": 3119,\n    \"datePublished\": \"1996-09-15T11:40:15.172Z\",\n    \"copyright\": \"string\",\n    \"extension\": [\n      \"string\",\n      \"string\"\n    ],\n    \"userCreated\": \"string\",\n    \"dateCreated\": \"1955-03-25T17:23:45.525Z\",\n    \"archive\": true,\n    \"property_limitedrights\": \"string\",\n    \"watermarked\": false,\n    \"limited\": true,\n    \"isPublic\": false,\n    \"thumbnails\": {\n      \"mini\": \"string\",\n      \"webimage\": \"string\",\n      \"thul\": \"string\"\n    },\n    \"transformBaseUrl\": \"string\",\n    \"videoPreviewURLs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"original\": \"string\",\n    \"mediaItems\": [\n      {\n        \"name\": \"string\",\n        \"publicUrl\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"publicUrl\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  },\n  {\n    \"dateModified\": \"1961-04-03T23:11:49.697Z\",\n    \"propertyOptions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"type\": \"string\",\n    \"brandId\": \"a5920a33-6f2e-af7f-40bf-76d38efaf3d2\",\n    \"fileSize\": 347,\n    \"id\": \"2d30b8dc-cd85-b90e-c3c2-61e08723ffef\",\n    \"height\": 7186,\n    \"description\": \"string\",\n    \"idHash\": \"string\",\n    \"name\": \"string\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"orientation\": \"string\",\n    \"width\": 9672,\n    \"datePublished\": \"1964-07-10T16:16:30.488Z\",\n    \"copyright\": \"string\",\n    \"extension\": [\n      \"string\",\n      \"string\"\n    ],\n    \"userCreated\": \"string\",\n    \"dateCreated\": \"2012-12-29T21:28:37.582Z\",\n    \"archive\": false,\n    \"property_limitedrights\": \"string\",\n    \"watermarked\": true,\n    \"limited\": false,\n    \"isPublic\": true,\n    \"thumbnails\": {\n      \"mini\": \"string\",\n      \"webimage\": \"string\",\n      \"thul\": \"string\"\n    },\n    \"transformBaseUrl\": \"string\",\n    \"videoPreviewURLs\": [\n      \"string\",\n      \"string\"\n    ],\n    \"original\": \"string\",\n    \"mediaItems\": [\n      {\n        \"name\": \"string\",\n        \"publicUrl\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"publicUrl\": \"string\",\n        \"type\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2521160-b5c1-461f-8118-4a8956586418",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "brandId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "subBrandId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "categoryId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "collectionId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "propertyOptionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "property_NAME",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "archive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isPublic",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dateCreated",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateCreatedTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateCreatedOn",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateModified",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateModifiedTo",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "dateModifiedOn",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "total",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeMediaItems",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeVersionNumber",
+                      "value": "false"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) OAuth 2.0 Bearer access token.",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"statuscode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b01e3e59-24b4-4a81-8b39-53e16cda4d5f",
+      "name": "Media ID",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73c6da3d-4e97-491e-95cd-ffa57f0c070a",
+          "name": "Retrieve specific asset",
+          "request": {
+            "name": "Retrieve specific asset",
+            "description": {
+              "content": "Requires the **STATISTICS** security role in order to retrieve *views* and *downloads* statistics data in the response, using the `stats` parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "versions",
+                  "value": "false",
+                  "description": "Include information about the different asset media items including versions."
+                },
+                {
+                  "disabled": false,
+                  "key": "stats",
+                  "value": "false",
+                  "description": "Include information about *views* and *downloads*."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Asset id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c7d6c309-4b08-4f58-bf8a-014c6d613bf0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versions",
+                      "value": "false"
+                    },
+                    {
+                      "key": "stats",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) OAuth 2.0 Bearer access token.",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dateModified\": \"2014-03-31T16:44:30.353Z\",\n  \"propertyOptions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"type\": \"string\",\n  \"brandId\": \"e97c5d6f-2bc0-6ca7-6849-9edd0ef4ad85\",\n  \"fileSize\": 5807,\n  \"id\": \"4caeb0ae-aa06-417a-cb10-3b0cea880966\",\n  \"height\": 389,\n  \"description\": \"string\",\n  \"idHash\": \"string\",\n  \"name\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"orientation\": \"string\",\n  \"width\": 7932,\n  \"datePublished\": \"1980-12-04T15:13:10.403Z\",\n  \"copyright\": \"string\",\n  \"extension\": [\n    \"string\",\n    \"string\"\n  ],\n  \"userCreated\": \"string\",\n  \"dateCreated\": \"1983-06-05T02:00:53.777Z\",\n  \"archive\": true,\n  \"property_assettype\": [\n    \"string\",\n    \"string\"\n  ],\n  \"watermarked\": true,\n  \"limited\": false,\n  \"videoPreviewURLs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"thumbnails\": {\n    \"mini\": \"string\",\n    \"webimage\": \"string\",\n    \"thul\": \"string\"\n  },\n  \"views\": 2501,\n  \"downloads\": 5153,\n  \"isPublic\": false,\n  \"original\": \"string\",\n  \"relatedAssets\": [\n    {\n      \"metaPropertyId\": \"string\",\n      \"assets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metaPropertyName\": \"string\"\n    },\n    {\n      \"metaPropertyId\": \"string\",\n      \"assets\": [\n        \"string\",\n        \"string\"\n      ],\n      \"metaPropertyName\": \"string\"\n    }\n  ],\n  \"activeOriginalFocusPoint\": {\n    \"y\": 8443,\n    \"x\": 9983\n  },\n  \"transformBaseUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf2231c1-7780-4ef9-94bb-727617cdee52",
+              "name": "File not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versions",
+                      "value": "false"
+                    },
+                    {
+                      "key": "stats",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) OAuth 2.0 Bearer access token.",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"statuscode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f13d2d3-4df4-4a45-809d-0f168343ea1a",
+          "name": "Modify asset",
+          "request": {
+            "name": "Modify asset",
+            "description": {
+              "content": "Requires the **MEDIAEDIT** security role. Requires the **MARKPUBLIC** security role in order to change an asset's isPublic state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Asset id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "Asset id."
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the asset, beware the asset will have no name when this is empty."
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "Asset description."
+                },
+                {
+                  "disabled": false,
+                  "key": "copyright",
+                  "value": "<string>",
+                  "description": "Copyright information of the asset."
+                },
+                {
+                  "disabled": false,
+                  "key": "brandId",
+                  "value": "<string>",
+                  "description": "Id of the brand to save the asset to."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Comma-separated tags. Tags will overwrite the current tags list."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "<string>",
+                  "description": "Dictionary with (metaproperty) options to set on the asset."
+                },
+                {
+                  "disabled": false,
+                  "key": "datePublished",
+                  "value": "<dateTime>",
+                  "description": "Publication datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "archive",
+                  "value": "<boolean>",
+                  "description": "Indicating the archived state of the asset."
+                },
+                {
+                  "disabled": false,
+                  "key": "archiveDate",
+                  "value": "<dateTime>",
+                  "description": "Archive datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "limited",
+                  "value": "<boolean>",
+                  "description": "Indicating the limit state of the asset."
+                },
+                {
+                  "disabled": false,
+                  "key": "limitedDate",
+                  "value": "<dateTime>",
+                  "description": "Limit datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "watermarkDate",
+                  "value": "<dateTime>",
+                  "description": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "isPublic",
+                  "value": "<boolean>",
+                  "description": "Indicating the public state of the asset. Warning irreversible, once changed to true it cannot be changed back."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a553544e-2d96-4725-995a-85819cef482d",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Asset id.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of the asset, beware the asset will have no name when this is empty.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Asset description.",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Copyright information of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "copyright",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id of the brand to save the asset to.",
+                        "type": "text/plain"
+                      },
+                      "key": "brandId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Comma-separated tags. Tags will overwrite the current tags list.",
+                        "type": "text/plain"
+                      },
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Dictionary with (metaproperty) options to set on the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Publication datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "datePublished",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the archived state of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "archive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Archive datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "archiveDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the limit state of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Limit datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "limitedDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "watermarkDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the public state of the asset. Warning irreversible, once changed to true it cannot be changed back.",
+                        "type": "text/plain"
+                      },
+                      "key": "isPublic",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"statuscode\": 286\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8dc41ffe-62ef-4ea7-993a-c88b6e42e3f0",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Asset id.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of the asset, beware the asset will have no name when this is empty.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Asset description.",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Copyright information of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "copyright",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id of the brand to save the asset to.",
+                        "type": "text/plain"
+                      },
+                      "key": "brandId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Comma-separated tags. Tags will overwrite the current tags list.",
+                        "type": "text/plain"
+                      },
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Dictionary with (metaproperty) options to set on the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Publication datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "datePublished",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the archived state of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "archive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Archive datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "archiveDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the limit state of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Limit datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "limitedDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "watermarkDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the public state of the asset. Warning irreversible, once changed to true it cannot be changed back.",
+                        "type": "text/plain"
+                      },
+                      "key": "isPublic",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"statuscode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "085bf3fd-a5aa-455f-a34a-a63417b446e6",
+              "name": "Media not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Asset id.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of the asset, beware the asset will have no name when this is empty.",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Asset description.",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Copyright information of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "copyright",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Id of the brand to save the asset to.",
+                        "type": "text/plain"
+                      },
+                      "key": "brandId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Comma-separated tags. Tags will overwrite the current tags list.",
+                        "type": "text/plain"
+                      },
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Dictionary with (metaproperty) options to set on the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Publication datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "datePublished",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the archived state of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "archive",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Archive datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "archiveDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the limit state of the asset.",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Limit datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "limitedDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "watermarkDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicating the public state of the asset. Warning irreversible, once changed to true it cannot be changed back.",
+                        "type": "text/plain"
+                      },
+                      "key": "isPublic",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"statuscode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0195c333-3cc2-4c17-b77b-8b1e7fd5a0a5",
+          "name": "Delete asset",
+          "request": {
+            "name": "Delete asset",
+            "description": {
+              "content": "Requires the **MEDIAREMOVE** security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "media",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Asset id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "32f6e138-d97b-43b4-9db7-b8e188909844",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) OAuth 2.0 Bearer access token.",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "998a30e7-cc9a-4b46-9cdc-94f8050edaa8",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) OAuth 2.0 Bearer access token.",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"statuscode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a84b61f-d28b-4ca2-b2bb-8cb8779222f3",
+              "name": "Media not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Asset id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) OAuth 2.0 Bearer access token.",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"statuscode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2c5b4604-0835-4162-bcb1-b5decdfdf1df",
+      "name": "Media options",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1b84d986-f65f-46c5-ac18-ce01cc178015",
+          "name": "Add metaproperty options",
+          "request": {
+            "name": "Add metaproperty options",
+            "description": {
+              "content": "These calls allow you to change the metaproperty options attached to an asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "media",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"asset_id\": \"<string>\",\n  \"metaproperty_id\": \"<string>\",\n  \"metaproperty_option_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0702c5de-1932-4750-a37c-cbefc26a10a6",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_option_ids\": [\n    \"00000000-0000-0000-0000000000000000\",\n    \"00000000-0000-0000-0000000000000001\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96cccb3d-e562-4a4d-8124-8d3141fb2bbb",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_option_ids\": [\n    \"00000000-0000-0000-0000000000000000\",\n    \"00000000-0000-0000-0000000000000001\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Access denied\",\n  \"statuscode\": 403\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e24343d-5943-45a4-a117-4ea3aeccd90e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_option_ids\": [\n    \"00000000-0000-0000-0000000000000000\",\n    \"00000000-0000-0000-0000000000000001\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not Found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5feaaf02-53d3-48b1-a646-9995a986c04d",
+          "name": "Delete metaproperty options",
+          "request": {
+            "name": "Delete metaproperty options",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "media",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"asset_id\": \"<string>\",\n  \"metaproperty_id\": \"<string>\",\n  \"metaproperty_option_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9dd6b76e-97bc-4e82-bd7e-915dbe294388",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_option_ids\": [\n    \"00000000-0000-0000-0000000000000000\",\n    \"00000000-0000-0000-0000000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"No Content\",\n  \"statuscode\": 204\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ce3d78f-d94f-4a69-b28a-ff915ca8202e",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_option_ids\": [\n    \"00000000-0000-0000-0000000000000000\",\n    \"00000000-0000-0000-0000000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Access denied\",\n  \"statuscode\": 403\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61548615-3f2f-451d-86b1-e7b46194c949",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"asset_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_id\": \"00000000-0000-0000-0000000000000000\",\n  \"metaproperty_option_ids\": [\n    \"00000000-0000-0000-0000000000000000\",\n    \"00000000-0000-0000-0000000000000000\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Not Found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5016759d-ea45-4a43-b501-f43fb5cad275",
+    "name": "Asset Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

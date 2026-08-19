@@ -1,0 +1,44 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Bynder — Brandstore API
+  version: 1.0.0
+extends: openapi/bynder-brandstore-openapi.json
+x-apievangelist:
+  generated: '2026-08-13'
+  method: generated
+  source: openapi/bynder-brandstore-openapi.json
+  note: >-
+    Captures API Evangelist's enhancements and findings for this definition as an
+    OpenAPI Overlay. The harvested definition in openapi/ is never mutated.
+actions:
+  - target: $.info
+    description: Record the API Evangelist provenance of this harvested definition.
+    update:
+      x-apievangelist-provider: bynder
+      x-apievangelist-harvested: '2026-08-13'
+      x-apievangelist-source: https://api.bynder.com/reference
+      x-apievangelist-registry-filename: brandstore.yaml
+  - target: $.info
+    description: >-
+      The published definition carries no info.description. Left unset rather than
+      authored — API Evangelist does not write prose into a provider's contract.
+    update: {}
+  - target: $.info
+    description: >-
+      6 of 6 operations in this definition carry no operationId,
+      so they cannot be referenced from an Arazzo workflow, an Agent Skill or a
+      generated SDK. Recorded as a finding; no operationIds are invented here.
+    update:
+      x-apievangelist-missing-operationids: 6
+      x-apievangelist-operations: 6
+  - target: $.info
+    description: Cross-link the derived artifacts API Evangelist publishes alongside this definition.
+    update:
+      x-apievangelist-artifacts:
+        authentication: authentication/bynder-authentication.yml
+        scopes: scopes/bynder-scopes.yml
+        conventions: conventions/bynder-conventions.yml
+        errors: errors/bynder-problem-types.yml
+        rate-limits: rate-limits/bynder-rate-limits.yml
+        lifecycle: lifecycle/bynder-lifecycle.yml
+        data-model: data-model/bynder-data-model.yml

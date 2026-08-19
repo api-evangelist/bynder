@@ -1,0 +1,2146 @@
+{
+  "item": [
+    {
+      "id": "2bfb666a-1402-44a7-8783-af35cfef2efd",
+      "name": "Collections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "94d46168-2cf0-4cb5-86bd-3698cdf4de73",
+          "name": "Retrieve collections",
+          "request": {
+            "name": "Retrieve collections",
+            "description": {
+              "content": "Retrieve a list of collections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "isPublic",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "minCount",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f3711ac8-62ae-49f4-9d4a-fe70c1bbe42e",
+              "name": "A list of collections.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "key": "count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "Amsterdam"
+                    },
+                    {
+                      "key": "isPublic",
+                      "value": "false"
+                    },
+                    {
+                      "key": "minCount",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"userId\": \"48817BA7-2FC3-4A43-918761514D322C15\",\n    \"dateModified\": \"March, 08 2017 14:17:37 +0000\",\n    \"filename\": \"collection_1\",\n    \"dateCreated\": \"March, 01 2017 10:49:12 +0000\",\n    \"collectionCount\": 2,\n    \"id\": \"00B627BB-8054-44C0-A343FCF40BC790CD\",\n    \"name\": \"Collection 1\",\n    \"cover\": {\n      \"thumbnail\": \"___URL_TO_BYNDER_CDN___\",\n      \"thumbnails\": [\n        \"___URL_TO_BYNDER_CDN___\",\n        \"___URL_TO_BYNDER_CDN___\",\n        \"___URL_TO_BYNDER_CDN___\"\n      ],\n      \"large\": \"___URL_TO_BYNDER_CDN___\"\n    },\n    \"user\": {\n      \"id\": \"48817BA7-2FC3-4A43-918761514D322C15\",\n      \"name\": \"John Doe\"\n    },\n    \"description\": \"Collection 1 with various assets.\",\n    \"isPublic\": true\n  },\n  {\n    \"userId\": \"80E53210-5BB0-4BF9-907F917D457801BB\",\n    \"dateModified\": \"March, 10 2017 07:57:18 +0000\",\n    \"filename\": \"collection_2\",\n    \"dateCreated\": \"October, 30 2014 13:54:00 +0000\",\n    \"collectionCount\": 4,\n    \"id\": \"050960F7-98B3-461D-B967F4B84D3A3866\",\n    \"name\": \"Collection 2\",\n    \"cover\": {\n      \"thumbnail\": \"___URL_TO_BYNDER_CDN___\",\n      \"thumbnails\": [\n        \"___URL_TO_BYNDER_CDN___\",\n        \"___URL_TO_BYNDER_CDN___\",\n        \"___URL_TO_BYNDER_CDN___\"\n      ],\n      \"large\": \"___URL_TO_BYNDER_CDN___\"\n    },\n    \"user\": {\n      \"id\": \"80E53210-5BB0-4BF9-907F917D457801BB\",\n      \"name\": \"Jane Doe\"\n    },\n    \"description\": \"Collection 2 with various assets.\",\n    \"isPublic\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0716584c-f0fc-4817-bd5c-aa5a115cf0b3",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "key": "count",
+                      "value": "false"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "Amsterdam"
+                    },
+                    {
+                      "key": "isPublic",
+                      "value": "false"
+                    },
+                    {
+                      "key": "minCount",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid request parameters.\",\n  \"statuscode\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33edbf18-1227-470f-a91e-44697614f867",
+          "name": "Create collection",
+          "request": {
+            "name": "Create collection",
+            "description": {
+              "content": "Create a new collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Collection name"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "Collection description"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6dbc1a74-e2e4-4488-9dcc-44486eb54395",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Collection name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "Featured collection"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Collection description",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "Collection of featured assets"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL to the created collection",
+                  "key": "Location",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cb5d71c-c9c8-4a26-8b75-85bf1f8437ae",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Collection name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "Featured collection"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Collection description",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "Collection of featured assets"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Collection name can't be empty\",\n  \"statuscode\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ba39bf5-d0a2-444b-94c5-d4f794b329c5",
+              "name": "Access denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Collection name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "Featured collection"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Collection description",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "Collection of featured assets"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Access denied\",\n  \"statuscode\": 403\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "169206f0-e423-447a-9048-a9e0649ab6d6",
+      "name": "Collections ID",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3c06711-af77-47ae-a2fe-05378a7d5b8f",
+          "name": "Retrieve specific collection",
+          "request": {
+            "name": "Retrieve specific collection",
+            "description": {
+              "content": "Retrieve a specific collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "169e679a-f1d9-4241-aee5-f857692e0674",
+              "name": "A specific collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dateCreated\": \"March, 01 2017 10:49:12 +0000\",\n  \"thumbnail\": \"___URL_TO_BYNDER_CDN___\",\n  \"name\": \"Collection 1\",\n  \"link\": \"___URL_TO_BYNDER_CDN___\",\n  \"views\": 2,\n  \"description\": \"Collection 1 with various assets.\",\n  \"user\": {\n    \"id\": \"80E53210-5BB0-4BF9-907F917D457801BB\",\n    \"name\": \"Jane Doe\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3472eb93-2747-4fc8-b83e-023c1e7641e5",
+              "name": "Collection not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Collection not found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bf03827-f04e-400d-acdf-6dbdb2b73be7",
+          "name": "Modify collection",
+          "request": {
+            "name": "Modify collection",
+            "description": {
+              "content": "Modify a specific collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "isPublic",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "thumbnailAssetId",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "153f7ab8-3283-4997-8f21-20d41999f0bb",
+              "name": "Collection modified.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "Featured collection"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "Collection of featured assets"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "isPublic",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "thumbnailAssetId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2154a779-1d4c-4488-b706-84f791ace92f",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "Featured collection"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "Collection of featured assets"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "isPublic",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "thumbnailAssetId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Collection name can't be empty\",\n  \"statuscode\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0384addf-1a4a-44a7-a736-e60474d686e0",
+              "name": "Access denied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "name",
+                      "value": "Featured collection"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "description",
+                      "value": "Collection of featured assets"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "isPublic",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "thumbnailAssetId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Access denied\",\n  \"statuscode\": 403\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c3116d1-0792-4c99-b0d7-f9ffee761258",
+          "name": "Delete collection",
+          "request": {
+            "name": "Delete collection",
+            "description": {
+              "content": "Delete a specific collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9cff15e6-5d78-4a18-aa52-6940173e9c3a",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95ec0635-8a6d-4e7a-b9dd-3105d9557329",
+              "name": "Collection not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Collection not found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "62825df5-0959-4975-958b-2bec1290097c",
+      "name": "Share collection",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38db2710-522c-40dc-a44d-ccf4649805e6",
+          "name": "Share collection",
+          "request": {
+            "name": "Share collection",
+            "description": {
+              "content": "Share a specific collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections",
+                ":id",
+                "share"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "recipients",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groups",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "profiles",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionOptions",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loginRequired",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateStart",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateEnd",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sendMail",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "message",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27825c53-28fc-4ca6-b27b-0f6761df8999",
+              "name": "Collection shared.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "share"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "recipients",
+                      "value": "user1@bynder.com,user2@bynder.com"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "groups",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "profiles",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "collectionOptions",
+                      "value": "view"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "loginRequired",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "dateStart",
+                      "value": "2014-08-12T08:07:24Z"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "dateEnd",
+                      "value": "2015-08-12T08:07:24Z"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "sendMail",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "message",
+                      "value": "Your message goes here"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"accepted\",\n  \"statuscode\": 202\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ede13dea-422a-48e4-959d-57d5287bf921",
+              "name": "Invalid request parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "share"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "recipients",
+                      "value": "user1@bynder.com,user2@bynder.com"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "groups",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "profiles",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "collectionOptions",
+                      "value": "view"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "loginRequired",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "dateStart",
+                      "value": "2014-08-12T08:07:24Z"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "dateEnd",
+                      "value": "2015-08-12T08:07:24Z"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "sendMail",
+                      "value": "true"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "message",
+                      "value": "Your message goes here"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Recipients, groups or profiles must contain at least one entry\",\n  \"statuscode\": 400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9b075adf-ce89-4560-b70a-12214a6ef35c",
+      "name": "Collections assets",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6b4fcf75-7f58-4f28-9171-d2e35c0792f4",
+          "name": "Retrieve the assets of a specific collection",
+          "request": {
+            "name": "Retrieve the assets of a specific collection",
+            "description": {
+              "content": "Retrieve the assets of a specific collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections",
+                ":id",
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bd15b0ac-9483-49c3-a7a3-229ccde83b23",
+              "name": "A list of asset IDs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"00000000-0000-0000-0000000000000000\",\n  \"00000000-0000-0000-0000000000000001\",\n  \"00000000-0000-0000-0000000000000002\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08ffffe1-34a4-4d8d-aca8-f055be9a6f61",
+              "name": "Collection not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Collection not found\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f84cfd77-ede6-4432-9b35-808ef439dbb5",
+          "name": "Add assets to a collection",
+          "request": {
+            "name": "Add assets to a collection",
+            "description": {
+              "content": "Add assets to a specific collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections",
+                ":id",
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f736b7fc-b75d-4910-892f-b6a192a842b9",
+              "name": "Assets added to collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "data",
+                      "value": "[\"00000000-0000-0000-0000000000000000\"]"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Accepted\",\n  \"statuscode\": 202\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dfd1243-7ce7-4cad-b509-94c011d551c0",
+              "name": "Access denied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "data",
+                      "value": "[\"00000000-0000-0000-0000000000000000\"]"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Access denied\",\n  \"statuscode\": 403\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4d93814-ecd7-4769-a7f5-816665eba50b",
+          "name": "Remove assets from a collection",
+          "request": {
+            "name": "Remove assets from a collection",
+            "description": {
+              "content": "Remove assets from a specific collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "collections",
+                ":id",
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "deleteIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "collection.public.view INBOXPUBLIC OUTBOXPUBLIC PUBLICCOLLECTIONS COLLECTIONS PUBLISHCOLLECTIONS SHARECOLLECTION SHARING"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2120617c-660a-4d3f-ab77-21a4a607d076",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "deleteIds",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b75289f5-4033-49a6-9e56-dd8af19ddd21",
+              "name": "Access denied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "collections",
+                    ":id",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "deleteIds",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Access denied\",\n  \"statuscode\": 403\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7aa329ae-2d32-4f39-b30a-404a55e1d102",
+    "name": "Collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

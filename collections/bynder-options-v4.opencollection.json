@@ -1,0 +1,537 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Metaproperty Options API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metaproperty options operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve metaproperty options by ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/options",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve metaproperty options by ids"
+        },
+        {
+          "info": {
+            "name": "Retrieve metaproperty options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "externalReference",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve metaproperty options"
+        },
+        {
+          "info": {
+            "name": "Create metaproperty option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "data",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Specific metaproperty option operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Modify metaproperty option",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "data",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "client_credentials",
+              "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Modify a specific metaproperty option."
+        },
+        {
+          "info": {
+            "name": "Delete metaproperty option",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete metaproperty option"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Retrieve all metaproperty option dependencies globally",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve global option dependencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/options/dependencies"
+          },
+          "docs": "Retrieve all metaproperty option dependencies globally."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Retrieve all metaproperty option dependencies for a metaproperty",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve metaproperty option dependencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/dependencies",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve all metaproperty option dependencies for a specific metaproperty."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Retrieve options a metaproperty option depends on",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve specific metaproperty option dependencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId/dependencies",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeGroupedResults",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve options a metaproperty option depends on."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Manage ungrouped metaproperty option dependencies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a dependency",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId/dependencies/:dependencyId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dependencyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Manage ungrouped metaproperty option dependencies"
+        },
+        {
+          "info": {
+            "name": "Delete a dependency",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId/dependencies/:dependencyId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dependencyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a dependency from a metaproperty option."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Create metaproperty option dependency group",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create dependency group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId/dependencies/group",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id",
+                  "value": ""
+                },
+                {
+                  "name": "optionId",
+                  "value": ""
+                },
+                {
+                  "name": "data",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Create a dependency group for a metaproperty option."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Specific metaproperty option dependency group operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Modify dependency group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId/dependencies/group/:groupId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id",
+                  "value": ""
+                },
+                {
+                  "name": "optionId",
+                  "value": ""
+                },
+                {
+                  "name": "groupId",
+                  "value": ""
+                },
+                {
+                  "name": "data",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Modify a dependency group for a metaproperty option."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Manage option dependency in dependency group",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add a dependency option to a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId/dependencies/group/:groupId/:dependencyId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "dependencyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id",
+                  "value": ""
+                },
+                {
+                  "name": "optionId",
+                  "value": ""
+                },
+                {
+                  "name": "groupId",
+                  "value": ""
+                },
+                {
+                  "name": "dependencyId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Add a dependency option to a specific dependency group for a metaproperty option."
+        },
+        {
+          "info": {
+            "name": "Remove a dependency option from a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/v4/metaproperties/:id/options/:optionId/dependencies/group/:groupId/:dependencyId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id of the metaproperty the (metaproperty) option belongs to."
+              },
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the (metaproperty) option the dependency group belongs to."
+              },
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the dependency group you’d like to remove a dependency from."
+              },
+              {
+                "name": "dependencyId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the dependency (metaproperty option) you’d like to remove from the dependency group."
+              }
+            ]
+          },
+          "docs": "Remove a dependency option from a specific dependency group for a metaproperty option."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Modern Stack File Upload",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Step 1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Prepare the upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/v7/file_cmds/upload/prepare",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Prepare the upload of a file in chunks."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Step 2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload a file chunk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/v7/file_cmds/upload/:file_id/chunk/:chunk_number",
+            "params": [
+              {
+                "name": "file_id",
+                "value": "",
+                "type": "path",
+                "description": "The file ID retrieved from the prepare upload step."
+              },
+              {
+                "name": "chunk_number",
+                "value": "",
+                "type": "path",
+                "description": "The number of the chunk being uploaded. The first chunk is 0."
+              }
+            ]
+          },
+          "docs": "Upload a chunk of the file."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Step 3",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finalize the upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/v7/file_cmds/upload/:file_id/finalise_api",
+            "params": [
+              {
+                "name": "file_id",
+                "value": "",
+                "type": "path",
+                "description": "The file ID retrieved from the prepare upload step."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "fileName",
+                  "value": ""
+                },
+                {
+                  "name": "fileSize",
+                  "value": ""
+                },
+                {
+                  "name": "chunksCount",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Finalize the upload after all chunks have been uploaded."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

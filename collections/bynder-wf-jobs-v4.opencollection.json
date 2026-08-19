@@ -1,0 +1,449 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workflow Jobs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Presets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve specific job preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/workflow/presets/job/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve specific job preset"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs",
+            "params": [
+              {
+                "name": "dateCreatedFrom",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "dateCreatedTo",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "dateModifiedFrom",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "dateModifiedTo",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "deadlineFrom",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "deadlineTo",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "resonsibleIDs",
+                "value": "00000000000000000000000000000000,00000000000000000000000000000000",
+                "type": "query"
+              },
+              {
+                "name": "accountableIDs",
+                "value": "00000000000000000000000000000000,00000000000000000000000000000000",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "Approved,NeedsChanges",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "deadline asc",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieve jobs"
+        },
+        {
+          "info": {
+            "name": "Create job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the JOBADD security role."
+        },
+        {
+          "info": {
+            "name": "Retrieve specific job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the JOBOVERVIEW security role."
+        },
+        {
+          "info": {
+            "name": "Modify job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the JOBEDIT security role."
+        },
+        {
+          "info": {
+            "name": "Delete job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the JOBREMOVE security role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Campaign jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve the jobs of a specific campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/workflow/campaigns/:id/jobs",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              },
+              {
+                "name": "dateCreatedFrom",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "dateCreatedTo",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "dateModifiedFrom",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "dateModifiedTo",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "deadlineFrom",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "deadlineTo",
+                "value": "2020-01-01T12:00:00Z",
+                "type": "query"
+              },
+              {
+                "name": "resonsibleIDs",
+                "value": "00000000000000000000000000000000,00000000000000000000000000000000",
+                "type": "query"
+              },
+              {
+                "name": "accountableIDs",
+                "value": "00000000000000000000000000000000,00000000000000000000000000000000",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "Approved,NeedsChanges",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "dateModified desc",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the CAMPAIGNOVERVIEW security role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Job media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve media of specific job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs/:id/media",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the JOBOVERVIEW security role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Job stages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve stages of specific job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs/:id/stages",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the JOBOVERVIEW security role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "File upload",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload a file to a workflow job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/workflow-jobs/:id/upload",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id of a Job."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To upload a file to a workflow job it needs to be uploaded via the Upload file endpoint for modern stack. After completing the various steps described in the Upload file endpoint, the `fileId` retrieved from those steps is needed in this request to reference the file to the job. This file will be attached to the job only.\n**Warning:** Requires the **JOBEDIT** security role.\n**Warning:** Is only available for Files-Service portals.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Finish",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finish job",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{your-bynder-domain}/api/workflow/jobs/:id/finish",
+            "params": [
+              {
+                "name": "id",
+                "value": "00000000-0000-0000-0000-000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the JOBAPPROVE security role."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

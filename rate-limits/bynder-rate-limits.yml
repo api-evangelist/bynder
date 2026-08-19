@@ -1,0 +1,41 @@
+generated: '2026-08-13'
+method: searched
+source: https://api.bynder.com/docs/getting-started
+docs: https://api.bynder.com/docs/getting-started
+limit_count: 1
+note: >-
+  Bynder publishes exactly one rate limit, applied per source IP address rather
+  than per API key or per account, and documents no response headers for it.
+  An agent cannot read its remaining budget from a Bynder response — it can only
+  observe the 429 after the fact. Bynder's own guidance is to self-throttle to
+  roughly 10 requests/second and, on a 429, to stop for five minutes.
+limits:
+- scope: per-ip
+  window: 5m
+  limit: 4500
+  burst: null
+  recommended_rate: 10 requests/second (Bynder's published guidance)
+  status_on_exhaustion: 429
+  reset_behavior: >-
+    "If five minutes pass with no requests coming from your IP address we will
+    lift the block and you will be able to send API requests again." Requests
+    made during the block extend it — the window is idle-based, not rolling-reset.
+  quote: >-
+    "We allow a number of 4500 requests in any five-minute time frame from a
+    single IP address. When you have reached the maximum number of allowed
+    requests the exceeding requests will be blocked. When a request is rejected
+    you will receive the 429 (Too Many Requests) error returned via the API."
+  source: https://api.bynder.com/docs/getting-started
+response_headers:
+  documented: []
+  observed: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header is documented anywhere in
+    the Bynder API documentation, and none appears in any of the 34 published
+    OpenAPI definitions. No 429 response is declared in any spec either. This is
+    the runtime signal an agent most needs and Bynder does not emit it.
+gaps:
+- No rate-limit response headers (RFC 9331 / X-RateLimit-*) documented or specified.
+- No Retry-After on 429.
+- No 429 response object in any of the published OpenAPI definitions.
+- Per-IP scoping means every integration sharing an egress IP shares one budget.

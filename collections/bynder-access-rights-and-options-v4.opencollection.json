@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Access Rights and Optiops API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Access rights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrievemetapropertyaccess",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/content_access/metaproperties/:metaproperty_id",
+            "params": [
+              {
+                "name": "metaproperty_id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ]
+          },
+          "docs": "Retrievemetapropertyaccess"
+        },
+        {
+          "info": {
+            "name": "Createmetapropertyaccess",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/content_access/metaproperties/:metaproperty_id",
+            "params": [
+              {
+                "name": "metaproperty_id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Createmetapropertyaccess"
+        },
+        {
+          "info": {
+            "name": "Deletemetapropertyaccess",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/content_access/metaproperties/:metaproperty_id",
+            "params": [
+              {
+                "name": "metaproperty_id",
+                "value": "",
+                "type": "path",
+                "description": "Metaproperty id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletemetapropertyaccess"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Options",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Option Access Rights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/1/content-access/options/:optionId",
+            "params": [
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path",
+                "description": "Option ID"
+              },
+              {
+                "name": "principalId",
+                "value": "",
+                "type": "query",
+                "description": "Principal ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for next page"
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for previous page"
+              }
+            ]
+          },
+          "docs": "Retrieve Option Access Rights"
+        },
+        {
+          "info": {
+            "name": "Modify Option Access Rights",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{your-bynder-domain}/api/1/content-access/options/:optionId",
+            "params": [
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path",
+                "description": "Option ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify Option Access Rights"
+        },
+        {
+          "info": {
+            "name": "Retrieve Option Default Visibility",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/1/content-access/options/:optionId/visibility",
+            "params": [
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path",
+                "description": "Option ID"
+              }
+            ]
+          },
+          "docs": "Retrieve Option Default Visibility"
+        },
+        {
+          "info": {
+            "name": "Modify Option Default Visibility",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{your-bynder-domain}/api/1/content-access/options/:optionId/visibility",
+            "params": [
+              {
+                "name": "optionId",
+                "value": "",
+                "type": "path",
+                "description": "Option ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modify Option Default Visibility"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

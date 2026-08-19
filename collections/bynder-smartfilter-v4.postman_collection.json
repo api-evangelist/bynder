@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "e3f1503e-e380-480f-b15a-5a0a06d0cd36",
+      "name": "Smartfilters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6cea6a54-4498-4860-a442-840f6613d175",
+          "name": "Retrieve smartfilters",
+          "request": {
+            "name": "Retrieve smartfilters",
+            "description": {
+              "content": "Retrieve a list of smartfilters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "smartfilters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bebb91cb-4961-4564-a690-5c44d30858aa",
+              "name": "A list of smartfilters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "smartfilters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"icon\": \"fa fa-group\",\n    \"labels\": {\n      \"nl_NL\": \"Destinations\",\n      \"en_US\": \"Destinations\",\n      \"fr_FR\": \"Destinations\",\n      \"de_DE\": \"Destinations\"\n    },\n    \"zindex\": 0,\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"metaproperties\": [\n      \"00000000-0000-0000-0000000000000000\",\n      \"00000000-0000-0000-0000000000000000\"\n    ]\n  },\n  {\n    \"icon\": \"fa fa-tag\",\n    \"labels\": {\n      \"nl_NL\": \"Holiday\",\n      \"en_US\": \"Holiday\",\n      \"fr_FR\": \"Holiday\",\n      \"de_DE\": \"Holiday\"\n    },\n    \"zindex\": 1,\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"metaproperties\": [\n      \"00000000-0000-0000-0000000000000000\",\n      \"00000000-0000-0000-0000000000000000\",\n      \"00000000-0000-0000-0000000000000000\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f9fd2f6-aa69-4d8b-bb66-888f4541b7ba",
+    "name": "Smartfilters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

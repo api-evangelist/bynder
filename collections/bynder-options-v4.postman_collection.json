@@ -1,0 +1,3467 @@
+{
+  "item": [
+    {
+      "id": "e8407f13-2376-45a8-8bb9-2b6ab3512dc6",
+      "name": "Metaproperty options operations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da05277b-6252-4677-bdfe-d0f9d7ff8504",
+          "name": "Retrieve metaproperty options by ids",
+          "request": {
+            "name": "Retrieve metaproperty options by ids",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea162254-1958-4e26-9224-ee54fd6e0d2f",
+              "name": "A list of metaproperty options",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"displayLabel\": \"Yellow\",\n    \"date\": \"2017-02-15T14:54:58+00:00\",\n    \"name\": \"yellow\",\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"active\": 1,\n    \"label\": \"Yellow\",\n    \"labels\": {\n      \"nl_NL\": \"Geel\",\n      \"en_US\": \"Yellow\"\n    }\n  },\n  {\n    \"displayLabel\": \"Red\",\n    \"date\": \"2017-02-15T15:50:55+00:00\",\n    \"name\": \"red\",\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"active\": 1,\n    \"label\": \"Red\",\n    \"labels\": {\n      \"nl_NL\": \"Rood\",\n      \"en_US\": \"Red\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6f97a16-4de4-424d-bc7a-7e4f01a7f838",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"No data sent\",\n  \"statuscode\": \"400\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7ea1c9e-aee4-4807-87c5-599d12a6d1df",
+          "name": "Retrieve metaproperty options",
+          "request": {
+            "name": "Retrieve metaproperty options",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalReference",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2221784-b8cb-48f8-b8e9-6237b18f5205",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "Amsterdam"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "250"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "externalReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"displayLabel\": \"Yellow\",\n    \"date\": \"2017-02-15T14:54:58+00:00\",\n    \"name\": \"yellow\",\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"active\": 1,\n    \"label\": \"Yellow\",\n    \"labels\": {\n      \"nl_NL\": \"Geel\",\n      \"en_US\": \"Yellow\"\n    }\n  },\n  {\n    \"displayLabel\": \"Red\",\n    \"date\": \"2017-02-15T15:50:55+00:00\",\n    \"name\": \"red\",\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"active\": 1,\n    \"label\": \"Red\",\n    \"labels\": {\n      \"nl_NL\": \"Rood\",\n      \"en_US\": \"Red\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de1d173e-4beb-4d8c-93e8-20970db5e503",
+              "name": "Invalid metaproperty ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "Amsterdam"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "250"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "externalReference",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid metaproperty ID\",\n  \"statuscode\": \"400\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d9e206c-aeb6-4d46-bcb9-a3ea3d3f6d9a",
+          "name": "Create metaproperty option",
+          "request": {
+            "name": "Create metaproperty option",
+            "description": {
+              "content": "Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "467eae6b-042c-46e6-93d3-6db6ef2e5e4d",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"name\": \"BlueType\", \"externalReference\": \"Reference number 1\", \"label\": \"Blue\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\", \"options\": [{\"name\": \"BlueType\", \"label\": \"Blue\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\"}]}"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201,\n  \"id\": \"00000000-0000-0000-0000000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "251a29a9-c408-42fa-bcd3-632a99ffc0a5",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"name\": \"BlueType\", \"externalReference\": \"Reference number 1\", \"label\": \"Blue\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\", \"options\": [{\"name\": \"BlueType\", \"label\": \"Blue\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\"}]}"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid metaproperty ID\",\n  \"statuscode\": \"400\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d708c30-dc66-473f-ace9-4d8da00f5b5d",
+              "name": "Metaproperty not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"name\": \"BlueType\", \"externalReference\": \"Reference number 1\", \"label\": \"Blue\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\", \"options\": [{\"name\": \"BlueType\", \"label\": \"Blue\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\"}]}"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Metaproperty not found\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8440d6d8-aded-44fb-8d51-5b8d3330bf67",
+      "name": "Specific metaproperty option operations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "077ccdfa-1268-453f-84eb-1aa2be7d7b97",
+          "name": "Modify metaproperty option",
+          "request": {
+            "name": "Modify metaproperty option",
+            "description": {
+              "content": "Modify a specific metaproperty option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "METAPROPERTYMANAGEMENT METAMANAGEMENT"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised string"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e2871da8-1e67-463f-ae13-c58f956bbb92",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"label\": \"Blue\", \"externalReference\": \"Reference number 1\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22ceefc9-d71c-47c0-b6f5-613b8f55da51",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"label\": \"Blue\", \"externalReference\": \"Reference number 1\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Editing meta property option name not allowed\",\n  \"statuscode\": \"400\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99712de6-8437-4cb1-b96c-c6d6453995de",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "{\"label\": \"Blue\", \"externalReference\": \"Reference number 1\", \"labels\": {\"fr_FR\": \"foo\", \"en_US\": \"foo\"}, \"zindex\": 4, \"isSelectable\": true, \"parentId\": \"00000000-0000-0000-0000000000000000\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Meta property option not found\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b5de562-810b-477f-b726-0fc7bdd1ef16",
+          "name": "Delete metaproperty option",
+          "request": {
+            "name": "Delete metaproperty option",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b671e6c-b1ea-4eff-b48a-9950fca91a1f",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Meta property option deleted successfully\",\n  \"statuscode\": \"204\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "233423ba-ac3a-4e1f-91aa-a825d4090bcb",
+              "name": "Meta property option not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Meta property option not found\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c688dab1-425c-4f40-acb0-2d43cd537a69",
+      "name": "Retrieve all metaproperty option dependencies globally",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e9daeaf-d667-4678-990a-e23f80f40e1a",
+          "name": "Retrieve global option dependencies",
+          "request": {
+            "name": "Retrieve global option dependencies",
+            "description": {
+              "content": "Retrieve all metaproperty option dependencies globally.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                "options",
+                "dependencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28748d37-6fd2-4f61-b0db-61952ef4a8f0",
+              "name": "A list of global option dependencies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    "options",
+                    "dependencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"00000000-0000-0000-0000000000000000\": {\n    \"00000000-0000-0000-0000000000000000\": {\n      \"00000000-0000-0000-0000000000000000\": [\n        \"00000000-0000-0000-0000000000000000\",\n        \"00000000-0000-0000-0000000000000001\",\n        \"00000000-0000-0000-0000000000000002\"\n      ]\n    }\n  },\n  \"00000000-0000-0000-0000000000000001\": {\n    \"00000000-0000-0000-0000000000000000\": {\n      \"ungrouped\": [\n        \"00000000-0000-0000-0000000000000000\",\n        \"00000000-0000-0000-0000000000000001\"\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fe4c5b5f-42eb-47bd-bf91-c1cfc2dfe200",
+      "name": "Retrieve all metaproperty option dependencies for a metaproperty",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0fa97a0-ba9c-4aba-bb64-204d7581a2fd",
+          "name": "Retrieve metaproperty option dependencies",
+          "request": {
+            "name": "Retrieve metaproperty option dependencies",
+            "description": {
+              "content": "Retrieve all metaproperty option dependencies for a specific metaproperty.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                "dependencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41704472-4acd-4821-b8b1-cdda031130a4",
+              "name": "A list of metaproperty option dependencies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    "dependencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"00000000-0000-0000-0000000000000000\": {\n    \"00000000-0000-0000-0000000000000000\": [\n      \"00000000-0000-0000-0000000000000000\",\n      \"00000000-0000-0000-0000000000000001\",\n      \"00000000-0000-0000-0000000000000002\"\n    ],\n    \"ungrouped\": [\n      \"00000000-0000-0000-0000000000000000\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49cd2a2d-af02-458d-b828-cce3f969323b",
+              "name": "Unknown metaproperty",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    "dependencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown metaproperty\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "5074fa1e-56d1-44c3-9bef-a5d64d5f6401",
+      "name": "Retrieve options a metaproperty option depends on",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c2f72e8e-3d4a-4718-9149-4427179a9f0b",
+          "name": "Retrieve specific metaproperty option dependencies",
+          "request": {
+            "name": "Retrieve specific metaproperty option dependencies",
+            "description": {
+              "content": "Retrieve options a metaproperty option depends on.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId",
+                "dependencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeGroupedResults",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "082ce925-6c32-43fe-82a4-93732b10dc8b",
+              "name": "A list of specific metaproperty option dependencies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeGroupedResults",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"00000000-0000-0000-0000000000000000\",\n  \"00000000-0000-0000-0000000000000001\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f3515d3-0bf1-4d41-86c3-e2d13643df5d",
+              "name": "Unknown metaproperty or metaproperty option",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeGroupedResults",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown metaproperty\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a3c8cdd8-2c92-4f7f-8f14-e072028ed29a",
+      "name": "Manage ungrouped metaproperty option dependencies",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8fee23c9-f3d9-406b-aea0-63fc0adffdcd",
+          "name": "Add a dependency",
+          "request": {
+            "name": "Add a dependency",
+            "description": {
+              "content": "Manage ungrouped metaproperty option dependencies",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId",
+                "dependencies",
+                ":dependencyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dependencyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "842b991e-2acc-4653-a7e1-6daaf7525c8c",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c099ee2c-83f3-493a-93b2-9020007f3a57",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown metaproperty\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3125637e-a3c7-452f-9e4a-96e9a9bcdd1c",
+          "name": "Delete a dependency",
+          "request": {
+            "name": "Delete a dependency",
+            "description": {
+              "content": "Delete a dependency from a metaproperty option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId",
+                "dependencies",
+                ":dependencyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dependencyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72bd0e6b-50fd-4b0c-be34-5ce00705807d",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50f349d3-05c4-42e2-ad76-07807b3be2e2",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown metaproperty\",\n  \"statuscode\": 404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d0a773b0-e8b9-46ec-a7cd-be3850717f88",
+      "name": "Create metaproperty option dependency group",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11433638-0ac2-4bbb-9bba-a07cf201d960",
+          "name": "Create dependency group",
+          "request": {
+            "name": "Create dependency group",
+            "description": {
+              "content": "Create a dependency group for a metaproperty option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId",
+                "dependencies",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "The id of the metaproperty the (metaproperty) option belongs to."
+                },
+                {
+                  "disabled": false,
+                  "key": "optionId",
+                  "value": "<string>",
+                  "description": "The id of the (metaproperty) option for which you’d like to create a dependency group."
+                },
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised list of dependency option ids."
+                },
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised list of dependency option ids."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "967eb07e-a465-484d-8cec-f1f110582435",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the metaproperty the (metaproperty) option belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the (metaproperty) option for which you’d like to create a dependency group.",
+                        "type": "text/plain"
+                      },
+                      "key": "optionId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised list of dependency option ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised list of dependency option ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201,\n  \"id\": \"00000000-0000-0000-0000000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc448488-26ba-4749-9a8b-330074a2d41b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the metaproperty the (metaproperty) option belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the (metaproperty) option for which you’d like to create a dependency group.",
+                        "type": "text/plain"
+                      },
+                      "key": "optionId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised list of dependency option ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised list of dependency option ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid metaproperty ID\",\n  \"statuscode\": \"400\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8b121ca-83bd-4048-8308-af5465c60999",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the metaproperty the (metaproperty) option belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the (metaproperty) option for which you’d like to create a dependency group.",
+                        "type": "text/plain"
+                      },
+                      "key": "optionId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised list of dependency option ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised list of dependency option ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown dependency option\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ac3e8817-da15-4027-bac1-db26a8e75ea3",
+      "name": "Specific metaproperty option dependency group operations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c07d6c1c-9c32-4219-9f57-a0b36c3779d0",
+          "name": "Modify dependency group",
+          "request": {
+            "name": "Modify dependency group",
+            "description": {
+              "content": "Modify a dependency group for a metaproperty option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId",
+                "dependencies",
+                "group",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "The id of the metaproperty the (metaproperty) option belongs to."
+                },
+                {
+                  "disabled": false,
+                  "key": "optionId",
+                  "value": "<string>",
+                  "description": "The id of the (metaproperty) option the dependency group belongs to."
+                },
+                {
+                  "disabled": false,
+                  "key": "groupId",
+                  "value": "<string>",
+                  "description": "The id of the dependency group you’d like to modify."
+                },
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised string of dependency (metaproperty option) ids."
+                },
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "JSON-serialised string of dependency (metaproperty option) ids."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c884b55b-8065-4817-aa9f-b776a548e6a2",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the metaproperty the (metaproperty) option belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the (metaproperty) option the dependency group belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "optionId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the dependency group you’d like to modify.",
+                        "type": "text/plain"
+                      },
+                      "key": "groupId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string of dependency (metaproperty option) ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string of dependency (metaproperty option) ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68b366a9-e43c-41ee-a03d-3967dc3468d5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the metaproperty the (metaproperty) option belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the (metaproperty) option the dependency group belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "optionId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the dependency group you’d like to modify.",
+                        "type": "text/plain"
+                      },
+                      "key": "groupId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string of dependency (metaproperty option) ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "JSON-serialised string of dependency (metaproperty option) ids.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown metaproperty option\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "82369083-5ae3-46ed-881f-fd31995bb16a",
+      "name": "Manage option dependency in dependency group",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "abcc75d7-a42c-4a65-9fd7-726a115620de",
+          "name": "Add a dependency option to a group",
+          "request": {
+            "name": "Add a dependency option to a group",
+            "description": {
+              "content": "Add a dependency option to a specific dependency group for a metaproperty option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId",
+                "dependencies",
+                "group",
+                ":groupId",
+                ":dependencyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dependencyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "The id of the metaproperty the (metaproperty) option belongs to."
+                },
+                {
+                  "disabled": false,
+                  "key": "optionId",
+                  "value": "<string>",
+                  "description": "The id of the (metaproperty) option the dependency group belongs to."
+                },
+                {
+                  "disabled": false,
+                  "key": "groupId",
+                  "value": "<string>",
+                  "description": "The id of the dependency group you’d like to add a dependency to."
+                },
+                {
+                  "disabled": false,
+                  "key": "dependencyId",
+                  "value": "<string>",
+                  "description": "The id of the dependency (metaproperty option) you’d like to add to the dependency group."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f842d531-5ad4-4859-adee-2328d9609d3d",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group",
+                    ":groupId",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the metaproperty the (metaproperty) option belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the (metaproperty) option the dependency group belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "optionId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the dependency group you’d like to add a dependency to.",
+                        "type": "text/plain"
+                      },
+                      "key": "groupId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the dependency (metaproperty option) you’d like to add to the dependency group.",
+                        "type": "text/plain"
+                      },
+                      "key": "dependencyId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Created\",\n  \"statuscode\": 201\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af3ec4d9-41ca-4e84-8c60-253bebf2cc23",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group",
+                    ":groupId",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the metaproperty the (metaproperty) option belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the (metaproperty) option the dependency group belongs to.",
+                        "type": "text/plain"
+                      },
+                      "key": "optionId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the dependency group you’d like to add a dependency to.",
+                        "type": "text/plain"
+                      },
+                      "key": "groupId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The id of the dependency (metaproperty option) you’d like to add to the dependency group.",
+                        "type": "text/plain"
+                      },
+                      "key": "dependencyId",
+                      "value": "00000000-0000-0000-0000000000000000"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown metaproperty\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0540166c-c0a5-4e2a-bfc8-09d1eef642ec",
+          "name": "Remove a dependency option from a group",
+          "request": {
+            "name": "Remove a dependency option from a group",
+            "description": {
+              "content": "Remove a dependency option from a specific dependency group for a metaproperty option.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "metaproperties",
+                ":id",
+                "options",
+                ":optionId",
+                "dependencies",
+                "group",
+                ":groupId",
+                ":dependencyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The id of the metaproperty the (metaproperty) option belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "optionId",
+                  "description": "(Required) The id of the (metaproperty) option the dependency group belongs to."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) The id of the dependency group you’d like to remove a dependency from."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dependencyId",
+                  "description": "(Required) The id of the dependency (metaproperty option) you’d like to remove from the dependency group."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05b48ec3-201a-40d5-95cb-8712358717e0",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group",
+                    ":groupId",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The id of the metaproperty the (metaproperty) option belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) The id of the (metaproperty) option the dependency group belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) The id of the dependency group you’d like to remove a dependency from."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) The id of the dependency (metaproperty option) you’d like to remove from the dependency group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4512802c-fe97-4f7b-a3a3-a3a2d905023a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "metaproperties",
+                    ":id",
+                    "options",
+                    ":optionId",
+                    "dependencies",
+                    "group",
+                    ":groupId",
+                    ":dependencyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The id of the metaproperty the (metaproperty) option belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "optionId",
+                      "description": "(Required) The id of the (metaproperty) option the dependency group belongs to."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) The id of the dependency group you’d like to remove a dependency from."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dependencyId",
+                      "description": "(Required) The id of the dependency (metaproperty option) you’d like to remove from the dependency group."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unknown metaproperty\",\n  \"statuscode\": \"404\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "METAPROPERTYMANAGEMENT METAMANAGEMENT"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d6b60535-0952-4f68-8f8f-94a0bb933913",
+    "name": "Metaproperty Options API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

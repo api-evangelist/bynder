@@ -1,0 +1,94 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://api.bynder.com/reference/getwebhookconfigurations and the published
+  Webhooks API definition at openapi/bynder-webhooks-openapi.json
+spec_type: none
+spec_type_note: >-
+  Bynder publishes no AsyncAPI document. The event surface is real and documented,
+  but only as a REST subscription-management API plus a published event-name list —
+  there is no machine-readable event schema, no channel document and no payload
+  contract for what Bynder POSTs to a subscriber. This artifact captures the
+  webhook catalogue so the event surface is recorded; it is not an AsyncAPI and is
+  not presented as one.
+management_api:
+  base_path: /v7/webhooks/public/api/subscriptions
+  spec: openapi/bynder-webhooks-openapi.json
+  operations:
+  - operationId: RetrieveaWebhookConfiguration
+    method: GET
+    path: /v7/webhooks/public/api/subscriptions/{id}
+  - operationId: CreateaWebhookConfiguration
+    method: POST
+    path: /v7/webhooks/public/api/subscriptions/{id}
+  - operationId: UpdateaWebhookConfiguration
+    method: PUT
+    path: /v7/webhooks/public/api/subscriptions/{id}
+  - operationId: PatchaWebhookConfiguration
+    method: PATCH
+    path: /v7/webhooks/public/api/subscriptions/{id}
+  - operationId: DeleteaWebhookConfiguration
+    method: DELETE
+    path: /v7/webhooks/public/api/subscriptions/{id}
+  list_operation:
+    path: /v7/webhooks/public/api/subscriptions
+    method: GET
+    note: Documented at https://api.bynder.com/reference/getwebhookconfigurations
+  scopes: [webhooks.config:read, webhooks.config:write]
+  security_roles:
+  - View Webhooks configurations
+  - Manage Webhooks configurations
+  security_note: >-
+    Both an OAuth scope and a named security role are required. A token holding
+    webhooks.config:write still receives a 403 unless the user's security profile
+    carries "Manage Webhooks configurations".
+events:
+  count: 8
+  source: >-
+    Published verbatim in the Retrieve Webhooks configurations response example at
+    https://api.bynder.com/reference/getwebhookconfigurations
+  catalog:
+  - name: asset_bank.media.create
+    description: An asset was created in the asset bank.
+  - name: asset_bank.media.updated
+    description: An asset was updated.
+  - name: asset_bank.media.meta_updated
+    description: An asset's metaproperty values were updated.
+  - name: asset_bank.media.deleted
+    description: An asset was deleted.
+  - name: asset_bank.media.archived
+    description: An asset was archived.
+  - name: asset_bank.media.pre_archived
+    description: >-
+      An asset is approaching archival. The subscription carries a
+      preArchivedNotificationDays field controlling how far ahead this fires.
+  - name: workflow.job.create
+    description: A workflow job was created.
+  - name: antivirus.scan.failed
+    description: >-
+      An antivirus scan failed for an uploaded asset. Gated by the
+      antivirusEnabled flag on the subscription.
+subscription_fields:
+- configId
+- name
+- endpoint
+- events
+- confirmed
+- antivirusEnabled
+- preArchivedNotificationDays
+- is_legacy
+- migratedSubscriptions
+delivery:
+  signature_verification: undocumented
+  retry_policy: undocumented
+  source_ip_ranges: undocumented
+  note: >-
+    Bynder documents how to manage subscriptions but not how to verify or handle
+    what it delivers. No payload schema, no signing scheme, no retry/backoff
+    policy and no publisher IP range list is published. A subscriber cannot
+    authenticate an inbound Bynder webhook from the documentation alone.
+gaps:
+- No AsyncAPI document.
+- No event payload schemas.
+- No webhook signature or verification scheme documented.
+- No retry or delivery-guarantee policy documented.

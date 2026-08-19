@@ -1,0 +1,122 @@
+generated: '2026-08-13'
+method: derived
+status: candidate
+source: >-
+  Derived from the operations in the 34 active OpenAPI definitions Bynder
+  publishes. Searched first for a first-party server: probed https://mcp.bynder.com/mcp
+  (no route), /mcp on the documentation and portal hosts, the Bynder GitHub
+  organization (https://github.com/Bynder — no MCP repository), npm (no
+  @bynder/*-mcp package) and the developer documentation index at
+  https://api.bynder.com/llms.txt (no MCP page).
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: oauth
+  verified: searched
+pointer_policy: >-
+  No `MCPServer` pointer is emitted in apis.yml for this artifact. The rating's
+  MCPServer checks assert that the PROVIDER ships an MCP server; Bynder does not.
+  This file is a candidate surface derived by API Evangelist and must not be
+  scored as a Bynder agent surface. If Bynder publishes a real server, add the
+  pointer then.
+deployment_note: >-
+  Bynder ships no MCP server of any kind — no hosted endpoint and no installable
+  stdio package. The tools below are a CANDIDATE surface derived by API Evangelist
+  from Bynder's own published OpenAPI, not something Bynder operates. Third-party
+  bridges exist (Zapier exposes Content Workflow by Bynder; CI HUB sells a
+  commercial DAM connector) but neither is first-party and neither covers the core
+  DAM REST API, so neither is recorded as a Bynder MCP server.
+  `auth: oauth` records what a server would have to implement — Bynder's OAuth 2.0
+  authorization-code and client-credentials flows against the customer portal
+  domain — not an auth mode of a server that exists.
+candidate_note: >-
+  Any Bynder MCP server has to be per-tenant: the base URL is the customer's own
+  portal domain (https://{your-bynder-domain}), so a single shared hosted server
+  is not possible without per-customer configuration. That is the structural reason
+  a hosted Bynder MCP endpoint does not exist, and it is worth stating rather than
+  reading the absence as neglect.
+tools:
+- name: list_assets
+  description: List assets in the portal, filtered by keyword, type, brand or metaproperty.
+  source_operation: openapi/bynder-asset-v4-openapi.json#GET /api/v4/media/
+  scope: asset:read
+- name: get_asset
+  description: Retrieve a single asset with its metaproperty values and derivatives.
+  source_operation: openapi/bynder-asset-v4-openapi.json#GET /api/v4/media/{id}
+  scope: asset:read
+- name: update_asset
+  description: Modify an asset's metadata, tags, thumbnail or metaproperty values.
+  source_operation: openapi/bynder-asset-v4-openapi.json#POST /api/v4/media/{id}
+  scope: asset:write
+- name: search_similar_assets
+  description: Find assets visually or semantically similar to a given asset.
+  source_operation: openapi/bynder-similar-assets-openapi.json#POST /api/1/assets/similarity-search/
+  scope: asset:read
+- name: get_asset_download_url
+  description: Retrieve a time-limited download location for an asset.
+  source_operation: openapi/bynder-asset-download-openapi.json#GET /api/v4/media/{id}/download
+  scope: asset:read
+  note: Additionally requires the MEDIAHIGHRES security role, and ARCHIVEDOWNLOAD / DOWNLOADWATERMARK / KEYVISUALSDOWNLOAD depending on the asset.
+- name: list_collections
+  description: List collections in the portal.
+  source_operation: openapi/bynder-collections-v4-openapi.json#GET /api/v4/collections
+  scope: collection:read
+- name: create_collection
+  description: Create a collection.
+  source_operation: openapi/bynder-collections-v4-openapi.json#POST /api/v4/collections
+  scope: collection:write
+- name: add_assets_to_collection
+  description: Add assets to an existing collection.
+  source_operation: openapi/bynder-collections-v4-openapi.json#POST /api/v4/collections/{id}/media
+  scope: collection:write
+- name: list_metaproperties
+  description: List metaproperty definitions and their options.
+  source_operation: openapi/bynder-metaproperty-v4-openapi.json#GET /api/v4/metaproperties
+  scope: meta.assetbank:read
+- name: list_brands
+  description: Retrieve the brands and sub-brands configured in the portal.
+  source_operation: openapi/bynder-brands-v4-openapi.json#GET /api/v4/brands/
+  scope: asset:read
+- name: list_smartfilters
+  description: List saved smart filters.
+  source_operation: openapi/bynder-smartfilter-v4-openapi.json#GET /api/v4/smartfilters
+  scope: asset:read
+- name: list_workflow_jobs
+  description: List workflow jobs, optionally scoped to a campaign.
+  source_operation: openapi/bynder-wf-jobs-v4-openapi.json#GET /api/workflow/jobs
+  scope: workflow.job:read
+- name: list_workflow_campaigns
+  description: List workflow campaigns.
+  source_operation: openapi/bynder-wf-campaigns-v4-openapi.json#GET /api/workflow/campaigns
+  scope: workflow.campaign:read
+- name: list_automation_rules
+  description: List automation workflow rules.
+  source_operation: openapi/bynder-automation-workflow-svc-openapi.json#getRules
+  scope: null
+- name: get_asset_usage
+  description: Retrieve where an asset has been used across integrations.
+  source_operation: openapi/bynder-asset-usage-v4-openapi.json#GET /api/media/usage
+  scope: asset.usage:read
+- name: list_webhook_configurations
+  description: List webhook subscriptions and the events each receives.
+  source_operation: openapi/bynder-webhooks-openapi.json#RetrieveaWebhookConfiguration
+  scope: webhooks.config:read
+- name: list_quarantined_assets
+  description: List assets held by the antivirus service pending review.
+  source_operation: openapi/bynder-antivirus-openapi.json#GET /v7/quarantine/v1/assets
+  scope: antivirus.asset.audit:read
+- name: get_account
+  description: Retrieve account information for the portal.
+  source_operation: openapi/bynder-account-v4-openapi.json#GET /api/v4/account
+  scope: null
+third_party_bridges:
+- name: Zapier MCP — Content Workflow by Bynder
+  url: https://zapier.com/mcp/content-workflow-by-bynder
+  first_party: false
+  covers: Content Workflow (the acquired GatherContent product) only, not the core DAM REST API.
+- name: CI HUB Connector
+  url: https://ci-hub.com/blog/turning-dam-into-mcp-server
+  first_party: false
+  covers: A commercial multi-DAM bridge that lists Bynder among its supported systems.

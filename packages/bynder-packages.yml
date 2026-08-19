@@ -1,0 +1,108 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  npm registry, PyPI, Packagist, Maven Central, NuGet, and the Bynder GitHub
+  organization (https://github.com/Bynder). Versions and dates read from each
+  registry's metadata endpoint on 2026-08-13.
+official_count: 6
+packages:
+- language: javascript
+  registry: npm
+  name: '@bynder/bynder-js-sdk'
+  url: https://www.npmjs.com/package/@bynder/bynder-js-sdk
+  repository: https://github.com/Bynder/bynder-js-sdk
+  install: npm install @bynder/bynder-js-sdk
+  official: true
+  version: 2.5.6
+  published: '2026-06-30'
+  note: Published by the `devops-bynder` npm account. The most actively maintained Bynder SDK.
+- language: javascript
+  registry: npm
+  name: '@bynder/compact-view'
+  url: https://www.npmjs.com/package/@bynder/compact-view
+  install: npm install @bynder/compact-view
+  official: true
+  version: 5.4.0
+  published: '2026-06-09'
+  note: >-
+    Universal Compact View — the embeddable asset-picker UI component, not a REST
+    client. Catalogued in full in components/bynder-components.yml.
+- language: python
+  registry: pypi
+  name: bynder-sdk
+  url: https://pypi.org/project/bynder-sdk/
+  repository: https://github.com/Bynder/bynder-python-sdk
+  install: pip install bynder-sdk
+  official: true
+  version: 2.0.2
+  published: '2025-08-05'
+  note: >-
+    Distribution name is `bynder-sdk`; the repository is `bynder-python-sdk`.
+    Last release predates the 2026 API additions (adaptive video streaming,
+    similar-asset search, automation workflow rules).
+- language: php
+  registry: packagist
+  name: bynder/bynder-php-sdk
+  url: https://packagist.org/packages/bynder/bynder-php-sdk
+  repository: https://github.com/Bynder/bynder-php-sdk
+  install: composer require bynder/bynder-php-sdk
+  official: true
+  version: 2.2.6
+  published: '2025-05-05'
+  note: 1,144,041 total Packagist installs.
+- language: java
+  registry: maven-central
+  name: com.bynder:bynder-java-sdk
+  url: https://central.sonatype.com/artifact/com.bynder/bynder-java-sdk
+  repository: https://github.com/Bynder/bynder-java-sdk
+  install: "implementation 'com.bynder:bynder-java-sdk:2.2.31'"
+  official: true
+  version: 2.2.31
+  published: '2026-03-31'
+  note: Date read from the Maven Central maven-metadata.xml lastUpdated field (20260331173926).
+- language: csharp
+  registry: nuget
+  name: Bynder.Sdk
+  url: https://www.nuget.org/packages/Bynder.Sdk
+  repository: https://github.com/Bynder/bynder-c-sharp-sdk
+  install: dotnet add package Bynder.Sdk
+  official: true
+  version: 3.0.1
+  published: '2024-10-14'
+  note: >-
+    Oldest first-party release in the set — nearly two years behind the API it
+    wraps. The GitHub repository was last pushed 2026-05-27, so source moves
+    without a corresponding NuGet release.
+- language: ruby
+  registry: rubygems
+  name: bynder
+  url: null
+  official: false
+  version: null
+  published: null
+  note: Checked rubygems.org/api/v1/gems/bynder — "This rubygem could not be found." No Ruby SDK is published.
+- language: go
+  registry: pkg.go.dev
+  name: null
+  official: false
+  version: null
+  published: null
+  note: No first-party Go module found in the Bynder GitHub organization or on pkg.go.dev.
+related_first_party:
+- name: bynder-wordpress-plugin
+  url: https://github.com/Bynder/bynder-wordpress-plugin
+  note: Official WordPress connector; distributed through wordpress.org, not a language registry.
+- name: cw-wordpress-plugin
+  url: https://github.com/Bynder/cw-wordpress-plugin
+  note: Official Content Workflow (GatherContent) WordPress connector.
+- name: webdam-c-sharp-sdk
+  url: https://github.com/Bynder/webdam-c-sharp-sdk
+  note: >-
+    C# SDK for WebDAM, the DAM product Bynder acquired. Same GitHub organization,
+    different product surface than the Bynder REST API profiled here.
+currency_finding: >-
+  Every first-party SDK is published by Bynder and all six carry a real version.
+  The JavaScript SDK (2026-06-30) and the Java SDK (2026-03-31) track the current
+  API; the Python (2025-08-05), PHP (2025-05-05) and especially the C# (2024-10-14)
+  releases predate documented 2025 and 2026 API changes recorded in
+  changelog/bynder-changelog.yml.

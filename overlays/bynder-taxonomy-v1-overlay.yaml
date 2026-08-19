@@ -1,0 +1,36 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Bynder — Taxonomy
+  version: 1.0.0
+extends: openapi/bynder-taxonomy-v1-openapi.json
+x-apievangelist:
+  generated: '2026-08-13'
+  method: generated
+  source: openapi/bynder-taxonomy-v1-openapi.json
+  note: >-
+    Captures API Evangelist's enhancements and findings for this definition as an
+    OpenAPI Overlay. The harvested definition in openapi/ is never mutated.
+actions:
+  - target: $.info
+    description: Record the API Evangelist provenance of this harvested definition.
+    update:
+      x-apievangelist-provider: bynder
+      x-apievangelist-harvested: '2026-08-13'
+      x-apievangelist-source: https://api.bynder.com/reference
+      x-apievangelist-registry-filename: taxonomy-v1.yaml
+  - target: $.info
+    description: >-
+      The published definition carries no info.description. Left unset rather than
+      authored — API Evangelist does not write prose into a provider's contract.
+    update: {}
+  - target: $.info
+    description: Cross-link the derived artifacts API Evangelist publishes alongside this definition.
+    update:
+      x-apievangelist-artifacts:
+        authentication: authentication/bynder-authentication.yml
+        scopes: scopes/bynder-scopes.yml
+        conventions: conventions/bynder-conventions.yml
+        errors: errors/bynder-problem-types.yml
+        rate-limits: rate-limits/bynder-rate-limits.yml
+        lifecycle: lifecycle/bynder-lifecycle.yml
+        data-model: data-model/bynder-data-model.yml

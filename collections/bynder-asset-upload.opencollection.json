@@ -1,0 +1,282 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Upload Assets API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get closest AmazonS3 upload endpoint",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{your-bynder-domain}/api/upload/endpoint",
+        "auth": {
+          "type": "oauth2",
+          "flow": "client_credentials",
+          "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+          "credentials": {
+            "clientId": "{{clientId}}",
+            "clientSecret": "{{clientSecret}}"
+          }
+        }
+      },
+      "docs": "Get the closest AmazonS3 upload endpoint."
+    },
+    {
+      "info": {
+        "name": "Initialise upload",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{your-bynder-domain}/api/upload/init",
+        "body": {
+          "type": "form-urlencoded",
+          "data": [
+            {
+              "name": "filename",
+              "value": ""
+            }
+          ]
+        },
+        "auth": {
+          "type": "oauth2",
+          "flow": "client_credentials",
+          "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+          "credentials": {
+            "clientId": "{{clientId}}",
+            "clientSecret": "{{clientSecret}}"
+          }
+        }
+      },
+      "docs": "Initialise an upload."
+    },
+    {
+      "info": {
+        "name": "Register uploaded chunk",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{your-bynder-domain}/api/v4/upload/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "form-urlencoded",
+          "data": [
+            {
+              "name": "chunkNumber",
+              "value": ""
+            },
+            {
+              "name": "targetid",
+              "value": ""
+            },
+            {
+              "name": "filename",
+              "value": ""
+            },
+            {
+              "name": "s3_filename",
+              "value": ""
+            },
+            {
+              "name": "chunks",
+              "value": ""
+            },
+            {
+              "name": "original_filename",
+              "value": ""
+            }
+          ]
+        },
+        "auth": {
+          "type": "oauth2",
+          "flow": "client_credentials",
+          "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+          "credentials": {
+            "clientId": "{{clientId}}",
+            "clientSecret": "{{clientSecret}}"
+          }
+        }
+      },
+      "docs": "Register the completion of an uploaded chunk."
+    },
+    {
+      "info": {
+        "name": "Retrieve poll state",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://{your-bynder-domain}/api/v4/upload/poll",
+        "params": [
+          {
+            "name": "items",
+            "value": "",
+            "type": "query",
+            "description": "Comma-separated import id's of a finalised file, as returned by the finalise call."
+          }
+        ],
+        "auth": {
+          "type": "oauth2",
+          "flow": "client_credentials",
+          "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+          "credentials": {
+            "clientId": "{{clientId}}",
+            "clientSecret": "{{clientSecret}}"
+          }
+        }
+      },
+      "docs": "This call needs to be executed in a loop until its response returns the item(s) id(s) passed in the **items** parameter.\n"
+    },
+    {
+      "info": {
+        "name": "Save as a new asset",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{your-bynder-domain}/api/v4/media/save/:importId",
+        "params": [
+          {
+            "name": "importId",
+            "value": "",
+            "type": "path",
+            "description": "Import id of a finalised and processed upload to be saved."
+          }
+        ],
+        "body": {
+          "type": "form-urlencoded",
+          "data": [
+            {
+              "name": "brandId",
+              "value": ""
+            },
+            {
+              "name": "name",
+              "value": ""
+            },
+            {
+              "name": "description",
+              "value": ""
+            },
+            {
+              "name": "copyright",
+              "value": ""
+            },
+            {
+              "name": "tags",
+              "value": ""
+            },
+            {
+              "name": "metaproperty",
+              "value": ""
+            },
+            {
+              "name": "categories",
+              "value": ""
+            },
+            {
+              "name": "audit",
+              "value": ""
+            },
+            {
+              "name": "isPublic",
+              "value": ""
+            },
+            {
+              "name": "accessRequestId",
+              "value": ""
+            },
+            {
+              "name": "requestorId",
+              "value": ""
+            },
+            {
+              "name": "accessType",
+              "value": ""
+            },
+            {
+              "name": "ISOPublicationDate",
+              "value": ""
+            },
+            {
+              "name": "publicationDate",
+              "value": ""
+            },
+            {
+              "name": "archiveDate",
+              "value": ""
+            },
+            {
+              "name": "watermarkDate",
+              "value": ""
+            },
+            {
+              "name": "crc32",
+              "value": ""
+            }
+          ]
+        },
+        "auth": {
+          "type": "oauth2",
+          "flow": "client_credentials",
+          "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+          "credentials": {
+            "clientId": "{{clientId}}",
+            "clientSecret": "{{clientSecret}}"
+          }
+        }
+      },
+      "docs": "For metaproperties that use options (Select, Select2, Autocomplete), modifying an asset's metaproperty options should be done via option UUID's for the API to work optimally, sending name or label values will be deprecated in the future. Other metaproperties (Date, Text and Longtext), values can be submitted directly.\n"
+    },
+    {
+      "info": {
+        "name": "Save as a new asset version",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://{your-bynder-domain}/api/v4/media/:id/save/:importId",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "Asset id for which to save the new version."
+          },
+          {
+            "name": "importId",
+            "value": "",
+            "type": "path",
+            "description": "Import id of a finalised and processed upload to be saved."
+          }
+        ],
+        "body": {
+          "type": "form-urlencoded",
+          "data": []
+        },
+        "auth": {
+          "type": "oauth2",
+          "flow": "client_credentials",
+          "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+          "credentials": {
+            "clientId": "{{clientId}}",
+            "clientSecret": "{{clientSecret}}"
+          }
+        }
+      },
+      "docs": "Save as a new asset version"
+    }
+  ],
+  "bundled": true
+}

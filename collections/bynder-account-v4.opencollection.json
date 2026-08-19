@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Account API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{your-bynder-domain}/v6/authentication/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve account information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/account"
+          },
+          "docs": "Retrieve account information"
+        },
+        {
+          "info": {
+            "name": "Retrieve derivatives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/account/derivatives"
+          },
+          "docs": "A derivative is a file that is based on another source, for example, a low-resolution representation of a print-quality photo. During the upload process, Bynder can automatically create pre-defined image derivatives with different dimensions, quality, and format. Bynder can either maintain the original aspect ratio of an image, or crop or pad an image to fit the specified dimensions. We can create smaller versions of your original image asset in both a JPG and PNG file extension. However, the re"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

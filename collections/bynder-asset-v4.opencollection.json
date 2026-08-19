@@ -1,0 +1,435 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Asset Management API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/media/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "brandId",
+                "value": "",
+                "type": "query",
+                "description": "Brand id, can be retrieved using the Retrieve brands and subbrands call."
+              },
+              {
+                "name": "subBrandId",
+                "value": "",
+                "type": "query",
+                "description": "Sub-brand id, can be retrieved using the Retrieve brands and subbrands call."
+              },
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "query",
+                "description": "Category id, can be retrieved using the Retrieve categories call."
+              },
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "query",
+                "description": "Collection id, can be retrieved using the Retrieve collections call."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Asset id, will return the asset for that id."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of asset ids. Will return an asset for each existing id."
+              },
+              {
+                "name": "propertyOptionId",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of (metaproperty) option ids, can be retrieved using the Retrieve metaproperties call."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of tags, can be retrieved using the Retrieve tags call."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of asset types."
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of asset orientation."
+              },
+              {
+                "name": "property_NAME",
+                "value": "",
+                "type": "query",
+                "description": "Metaproperty option name or comma-separated list ids of metaproperty options for that metaproperty. Beware that NAME should be replaced with the actual metaproperty name. This is an AND operation when passing multiple values. If a Date type metaproperty is added, retrieving assets using the dates for that metaproperty is not supported."
+              },
+              {
+                "name": "limited",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether or not the response should only contain assets marked as \"limited usage\"."
+              },
+              {
+                "name": "archive",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether or not the response should only contain archived assets."
+              },
+              {
+                "name": "isPublic",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether or not the response should only contain assets marked as public."
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Search on filenames, tags, extensions, collection names, guidelines, brandstore, campaigns in workflow, enriched PDFs, word documents."
+              },
+              {
+                "name": "dateCreated",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve assets created after this date."
+              },
+              {
+                "name": "dateCreatedTo",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"dateCreated\" parameter."
+              },
+              {
+                "name": "dateCreatedOn",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve assets created on this specific date."
+              },
+              {
+                "name": "dateModified",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve assets modified after this date."
+              },
+              {
+                "name": "dateModifiedTo",
+                "value": "",
+                "type": "query",
+                "description": "Set a date range together with the \"dateModified\" parameter."
+              },
+              {
+                "name": "dateModifiedOn",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve assets modified on this specific date."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "Order of the returned list of assets."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Offset page for results: return the N-th set of limit-results.\n"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Indicating whether or not the response should include count results."
+              },
+              {
+                "name": "total",
+                "value": "",
+                "type": "query",
+                "description": "Indicating whether or not the response should include the total count of results."
+              },
+              {
+                "name": "includeMediaItems",
+                "value": "",
+                "type": "query",
+                "description": "Indicating whether or not the response should include all the different media items (derivatives) available for each asset."
+              },
+              {
+                "name": "includeVersionNumber",
+                "value": "",
+                "type": "query",
+                "description": "Indicating whether or not the response should include the active version number."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "cursorMark returned in the X-Bynder-NextCursor response header which allows to return the next set of results."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "`original` is only returned for assets marked as public and requires the account to have the `seoBaseUrl` setting configured.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Media ID",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve specific asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{your-bynder-domain}/api/v4/media/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Asset id."
+              },
+              {
+                "name": "versions",
+                "value": "",
+                "type": "query",
+                "description": "Include information about the different asset media items including versions."
+              },
+              {
+                "name": "stats",
+                "value": "",
+                "type": "query",
+                "description": "Include information about *views* and *downloads*."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the **STATISTICS** security role in order to retrieve *views* and *downloads* statistics data in the response, using the `stats` parameter."
+        },
+        {
+          "info": {
+            "name": "Modify asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/v4/media/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Asset id."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "value": ""
+                },
+                {
+                  "name": "description",
+                  "value": ""
+                },
+                {
+                  "name": "copyright",
+                  "value": ""
+                },
+                {
+                  "name": "brandId",
+                  "value": ""
+                },
+                {
+                  "name": "tags",
+                  "value": ""
+                },
+                {
+                  "name": "metaproperty",
+                  "value": ""
+                },
+                {
+                  "name": "datePublished",
+                  "value": ""
+                },
+                {
+                  "name": "archive",
+                  "value": ""
+                },
+                {
+                  "name": "archiveDate",
+                  "value": ""
+                },
+                {
+                  "name": "limited",
+                  "value": ""
+                },
+                {
+                  "name": "limitedDate",
+                  "value": ""
+                },
+                {
+                  "name": "watermarkDate",
+                  "value": ""
+                },
+                {
+                  "name": "isPublic",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the **MEDIAEDIT** security role. Requires the **MARKPUBLIC** security role in order to change an asset's isPublic state."
+        },
+        {
+          "info": {
+            "name": "Delete asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/v4/media/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Asset id."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Requires the **MEDIAREMOVE** security role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Media options",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add metaproperty options",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/media/options",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "These calls allow you to change the metaproperty options attached to an asset."
+        },
+        {
+          "info": {
+            "name": "Delete metaproperty options",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{your-bynder-domain}/api/media/options",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Delete metaproperty options"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

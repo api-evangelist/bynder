@@ -1,0 +1,240 @@
+{
+  "item": [
+    {
+      "id": "e730bd0e-cb94-4761-ba70-a586659b4405",
+      "name": "Metaproperties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4225c3d6-43ec-4db0-88e1-c1771ff7cfc8",
+          "name": "Retrieve metaproperties",
+          "request": {
+            "name": "Retrieve metaproperties",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "metaproperties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e80ccb2b-8022-4955-98bd-a7fce2063cf9",
+              "name": "List of metaproperties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "metaproperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ID\": \"00000000-0000-0000-0000-000000000000\",\n  \"label\": \"Holiday Type\",\n  \"short_name\": \"JOB-9\",\n  \"description\": \"\",\n  \"export\": \"false\",\n  \"removed_by\": null,\n  \"dependency\": null,\n  \"position\": 12,\n  \"default\": true,\n  \"dateCreated\": \"2017-10-27T16:31:52+00:00\",\n  \"exportName\": \"\",\n  \"type\": \"select\",\n  \"required\": false,\n  \"dependencyValue\": null,\n  \"assetbank_metaproperty\": null,\n  \"entity\": \"job\",\n  \"created_by\": {\n    \"ID\": \"00000000-0000-0000-0000-000000000000\",\n    \"fullName\": \"User1\"\n  },\n  \"options\": [\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 1,\n      \"default\": true,\n      \"label\": \"Beach\",\n      \"dateCreated\": \"2017-10-27T16:31:52+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    },\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 2,\n      \"default\": false,\n      \"label\": \"Sightseeing\",\n      \"dateCreated\": \"2017-10-27T16:32:16+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    },\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 3,\n      \"default\": false,\n      \"label\": \"Wintersport\",\n      \"dateCreated\": \"2017-10-27T16:32:16+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    },\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 4,\n      \"default\": false,\n      \"label\": \"Nature\",\n      \"dateCreated\": \"2017-10-27T16:32:16+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b4b6171-6265-4e0c-9a80-6639250f7e22",
+          "name": "Retrieve specific metaproperty",
+          "request": {
+            "name": "Retrieve specific metaproperty",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "metaproperties",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb75187d-b259-4abd-b323-52410eaf7f97",
+              "name": "Metaproperty object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "metaproperties",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ID\": \"00000000-0000-0000-0000-000000000000\",\n  \"label\": \"Holiday Type\",\n  \"short_name\": \"JOB-9\",\n  \"description\": \"\",\n  \"export\": \"false\",\n  \"removed_by\": null,\n  \"dependency\": null,\n  \"position\": 12,\n  \"default\": true,\n  \"dateCreated\": \"2017-10-27T16:31:52+00:00\",\n  \"exportName\": \"\",\n  \"type\": \"select\",\n  \"required\": false,\n  \"dependencyValue\": null,\n  \"assetbank_metaproperty\": null,\n  \"entity\": \"job\",\n  \"created_by\": {\n    \"ID\": \"00000000-0000-0000-0000-000000000000\",\n    \"fullName\": \"User1\"\n  },\n  \"options\": [\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 1,\n      \"default\": true,\n      \"label\": \"Beach\",\n      \"dateCreated\": \"2017-10-27T16:31:52+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    },\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 2,\n      \"default\": false,\n      \"label\": \"Sightseeing\",\n      \"dateCreated\": \"2017-10-27T16:32:16+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    },\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 3,\n      \"default\": false,\n      \"label\": \"Wintersport\",\n      \"dateCreated\": \"2017-10-27T16:32:16+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    },\n    {\n      \"ID\": \"00000000-0000-0000-0000-000000000000\",\n      \"position\": 4,\n      \"default\": false,\n      \"label\": \"Nature\",\n      \"dateCreated\": \"2017-10-27T16:32:16+00:00\",\n      \"metapropertyID\": \"00000000-0000-0000-0000-000000000000\",\n      \"created_by\": {\n        \"ID\": \"00000000-0000-0000-0000-000000000000\",\n        \"fullName\": \"User1\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "545efacc-56c6-4a45-8a8f-a6c69346969c",
+    "name": "Workflow Metaproperties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

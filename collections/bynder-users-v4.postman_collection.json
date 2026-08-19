@@ -1,0 +1,1090 @@
+{
+  "item": [
+    {
+      "id": "75958fa7-4bb3-43a1-955e-5dd454d8912b",
+      "name": "Users",
+      "description": {
+        "content": "Manage users within your Bynder account. You can create, retrieve, update, and delete users as needed.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e54e7f77-f16f-4106-baf8-4df8737a2144",
+          "name": "Retrieve users",
+          "request": {
+            "name": "Retrieve users",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeInActive",
+                  "value": "false",
+                  "description": "Whether to include inactive users in the list of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum results to return. If limit is not provided, all results are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "What page of results to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f456358e-8b00-45e8-b0fa-5d184a811b32",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeInActive",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of records.",
+                  "key": "X-Pagination-TotalRecords",
+                  "value": "8712"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages.",
+                  "key": "X-Pagination-TotalPages",
+                  "value": "8712"
+                },
+                {
+                  "disabled": false,
+                  "description": "Current page number.",
+                  "key": "X-Pagination-Page",
+                  "value": "8712"
+                },
+                {
+                  "disabled": false,
+                  "description": "Limit of records per page.",
+                  "key": "X-Pagination-Limit",
+                  "value": "8712"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"email2\": \"string\",\n    \"salesrepId\": \"string\",\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"active\": 4323,\n    \"isSSOOnly\": false,\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"profileId\": \"string\",\n    \"employeeNumber\": \"string\",\n    \"timeZone\": \"string\",\n    \"website\": \"string\",\n    \"country\": \"string\",\n    \"groups\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\"\n      }\n    ]\n  },\n  {\n    \"email2\": \"string\",\n    \"salesrepId\": \"string\",\n    \"name\": \"string\",\n    \"id\": \"string\",\n    \"active\": 4690,\n    \"isSSOOnly\": true,\n    \"username\": \"string\",\n    \"email\": \"string\",\n    \"profileId\": \"string\",\n    \"employeeNumber\": \"string\",\n    \"timeZone\": \"string\",\n    \"website\": \"string\",\n    \"country\": \"string\",\n    \"groups\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d2fb9ac-226c-466a-a233-34e038546254",
+          "name": "Create user",
+          "request": {
+            "name": "Create user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "profileId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "firstname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "lastname",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "isSSOOnly",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "infix",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "phoneNumber",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "companyName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "department",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "job",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "costCenter",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd0f0106-68dc-4993-ad20-f185b5047005",
+              "name": "User created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "profileId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "firstname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "lastname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "active",
+                      "value": "1"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "isSSOOnly",
+                      "value": "false"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "infix",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "groupIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "companyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "department",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "job",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "costCenter",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"username\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4cc4f120-03ef-4845-8ffa-fe739107d16a",
+      "name": "Users ID",
+      "description": {
+        "content": "Manage specific users by their ID. This includes retrieving, updating, and deleting user information based on the user ID.\n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dac223eb-f415-42f3-84ca-6ffbcd2a9960",
+          "name": "Retrieve specific user",
+          "request": {
+            "name": "Retrieve specific user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The id or username of the user you’d like to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3d4e21a-f524-4061-8344-c29cea40e704",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The id or username of the user you’d like to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"phoneNumber\": \"string\",\n  \"profileId\": \"string\",\n  \"lastLogin\": \"1988-01-23T09:37:36.201Z\",\n  \"department\": \"string\",\n  \"job\": \"string\",\n  \"state\": \"string\",\n  \"firstname\": \"string\",\n  \"city\": \"string\",\n  \"infix\": \"string\",\n  \"timeZone\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"persisted\": true,\n  \"legalEntity\": \"string\",\n  \"county\": \"string\",\n  \"postalCode\": \"string\",\n  \"language\": \"string\",\n  \"country\": \"string\",\n  \"costCenter\": \"string\",\n  \"groups\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\"\n    }\n  ],\n  \"lastname\": \"string\",\n  \"cellphoneNumber\": \"string\",\n  \"employeeNumber\": \"string\",\n  \"departmentCode\": \"string\",\n  \"gender\": \"string\",\n  \"id\": \"string\",\n  \"companyName\": \"string\",\n  \"active\": true,\n  \"isSSOOnly\": true,\n  \"address\": \"string\",\n  \"terms\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "987ad153-de81-4b91-9fb9-0c4f5e5dc916",
+          "name": "Modify user",
+          "request": {
+            "name": "Modify user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The id of the user you’d like to modify."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "profileId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "isSSOOnly",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "firstname",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "infix",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastname",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "phoneNumber",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "companyName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "department",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "job",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "costCenter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "termsAccepted",
+                  "value": "<boolean>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae828eb6-757e-4def-8fed-f6943ee32bdd",
+              "name": "User modified",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The id of the user you’d like to modify."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "profileId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "active",
+                      "value": "1"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "isSSOOnly",
+                      "value": "false"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "firstname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "infix",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "lastname",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "groupIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phoneNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "companyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "department",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "job",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "costCenter",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "termsAccepted",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"username\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1734b0ab-aff7-4108-bcc0-a8a35c6cb6a2",
+          "name": "Delete user",
+          "request": {
+            "name": "Delete user",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The id or username of the user you’d like to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9e6507cb-c096-4432-b82e-1fefee2c684e",
+              "name": "User deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The id or username of the user you’d like to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "614dc721-f5cc-44aa-8bae-620ebdeeba44",
+      "name": "Current User",
+      "description": {
+        "content": "Retrieve information about the currently authenticated user without needing to know their user ID.         \n",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7bb95152-46cd-48a6-8c5c-e191973c41fb",
+          "name": "Retrieve current user",
+          "request": {
+            "name": "Retrieve current user",
+            "description": {
+              "content": "Retrieve the current user information. Unlike [Retrieve specific user](#reference/users/specific-user-operations/retrieve-specific-user) this call doesn't require you to know your user id in order to retrieve your current user information.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v4",
+                "currentUser",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb7d95dc-6859-40e2-b2e7-1cadf75f54ad",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v4",
+                    "currentUser",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"phoneNumber\": \"string\",\n  \"profileId\": \"string\",\n  \"lastLogin\": \"1996-12-04T03:34:56.174Z\",\n  \"department\": \"string\",\n  \"job\": \"string\",\n  \"state\": \"string\",\n  \"firstname\": \"string\",\n  \"city\": \"string\",\n  \"infix\": \"string\",\n  \"timeZone\": \"string\",\n  \"username\": \"string\",\n  \"email\": \"string\",\n  \"persisted\": true,\n  \"legalEntity\": \"string\",\n  \"county\": \"string\",\n  \"postalCode\": \"string\",\n  \"language\": \"string\",\n  \"country\": \"string\",\n  \"costCenter\": \"string\",\n  \"lastname\": \"string\",\n  \"cellphoneNumber\": \"string\",\n  \"employeeNumber\": \"string\",\n  \"departmentCode\": \"string\",\n  \"gender\": \"string\",\n  \"id\": \"string\",\n  \"companyName\": \"string\",\n  \"active\": true,\n  \"isSSOOnly\": false,\n  \"address\": \"string\",\n  \"terms\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "acd88b2a-20fa-4c4d-a7a1-0df4f9202a9b",
+    "name": "Users",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

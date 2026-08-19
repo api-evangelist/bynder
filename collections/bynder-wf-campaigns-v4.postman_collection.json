@@ -1,0 +1,770 @@
+{
+  "item": [
+    {
+      "id": "7cb98eda-1eba-444f-881e-b6fcaa9f125e",
+      "name": "Campaigns",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a146b2ed-6b78-4e6e-a590-6eede4d6788f",
+          "name": "Retrieve campaigns",
+          "request": {
+            "name": "Retrieve campaigns",
+            "description": {
+              "content": "Requires the CAMPAIGNOVERVIEW security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "CAMPAIGNOVERVIEW CAMPAIGNADD CAMPAIGNEDIT CAMPAIGNREMOVE CAMPAIGNWRITE"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a7748a20-95bf-49ad-b245-6b0b595401d6",
+              "name": "Successfully retrieved campaigns",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dateStart\": \"2017-02-01T00:00:00+00:00\",\n    \"description\": \"Campaign example\",\n    \"responsibleID\": \"00000000-0000-0000-0000-000000000000\",\n    \"dateModified\": \"2017-01-10T07:43:12+00:00\",\n    \"dateCreated\": \"2017-01-10T07:43:12+00:00\",\n    \"ID\": \"00000000-0000-0000-0000-000000000000\",\n    \"deadline\": \"1956-01-30\",\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"accountID\": \"00000000-0000-0000-0000-000000000000\",\n    \"presetID\": \"00000000-0000-0000-0000-000000000000\",\n    \"closed\": false,\n    \"key\": \"excp\",\n    \"name\": \"Example campaign\",\n    \"thumbnailURL\": \"https://bynder-public-eu-central-1.s3.eu-central-1.amazonaws.com:443/workflow/campaign/988BBB04-F0E2-4A28-B5F892890849BAFE/FEE78434-649A-449B-A62A1C6C6D59CAC3/500x500.jpg\",\n    \"campaignMetaproperties\": {\n      \"key_0\": \"00000000-0000-0000-0000-000000000000\",\n      \"key_1\": \"00000000-0000-0000-0000-000000000000\",\n      \"key_2\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  },\n  {\n    \"dateStart\": \"2017-02-01T00:00:00+00:00\",\n    \"description\": \"Campaign example\",\n    \"responsibleID\": \"00000000-0000-0000-0000-000000000000\",\n    \"dateModified\": \"2017-01-10T07:43:12+00:00\",\n    \"dateCreated\": \"2017-01-10T07:43:12+00:00\",\n    \"ID\": \"00000000-0000-0000-0000-000000000000\",\n    \"deadline\": \"1996-08-02\",\n    \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n    \"accountID\": \"00000000-0000-0000-0000-000000000000\",\n    \"presetID\": \"00000000-0000-0000-0000-000000000000\",\n    \"closed\": false,\n    \"key\": \"excp\",\n    \"name\": \"Example campaign\",\n    \"thumbnailURL\": \"https://bynder-public-eu-central-1.s3.eu-central-1.amazonaws.com:443/workflow/campaign/988BBB04-F0E2-4A28-B5F892890849BAFE/FEE78434-649A-449B-A62A1C6C6D59CAC3/500x500.jpg\",\n    \"campaignMetaproperties\": {\n      \"key_0\": \"00000000-0000-0000-0000-000000000000\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e71fc2e2-22a8-4162-8490-c29bbbcb7667",
+          "name": "Create campaign",
+          "request": {
+            "name": "Create campaign",
+            "description": {
+              "content": "Requires the CAMPAIGNADD security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "CAMPAIGNOVERVIEW CAMPAIGNADD CAMPAIGNEDIT CAMPAIGNREMOVE CAMPAIGNWRITE"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"description\": \"<string>\",\n  \"dateStart\": \"<date>\",\n  \"deadline\": \"<date>\",\n  \"closed\": \"<boolean>\",\n  \"responsibleID\": \"<string>\",\n  \"campaignMetaproperties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f02b027-a075-48ca-a9b3-5a30d3165b76",
+              "name": "Campaign created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example campaign\",\n  \"key\": \"excp\",\n  \"description\": \"Campaign example\",\n  \"dateStart\": \"<date>\",\n  \"deadline\": \"<date>\",\n  \"closed\": false,\n  \"responsibleID\": \"00000000-0000-0000-0000-000000000000\",\n  \"campaignMetaproperties\": {\n    \"key_0\": \"00000000-0000-0000-0000-000000000000\",\n    \"key_1\": \"00000000-0000-0000-0000-000000000000\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL of the created campaign",
+                  "key": "Location",
+                  "value": "https://your-bynder-domain/api/workflow/campaigns/00000000-0000-0000-0000-000000000000/"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000000000000000000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0d3382e-93eb-42a0-8ac9-9bfa8bef5682",
+          "name": "Retrieve specific campaign",
+          "request": {
+            "name": "Retrieve specific campaign",
+            "description": {
+              "content": "Requires the CAMPAIGNOVERVIEW security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "campaigns",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "CAMPAIGNOVERVIEW CAMPAIGNADD CAMPAIGNEDIT CAMPAIGNREMOVE CAMPAIGNWRITE"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f874acce-f3ad-4153-b521-79e8121b108d",
+              "name": "Successfully retrieved specific campaign",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ID\": \"00000000-0000-0000-0000-000000000000\",\n  \"name\": \"Example campaign\",\n  \"key\": \"excp\",\n  \"closed\": false,\n  \"description\": \"Campaign example\",\n  \"dateStart\": \"2017-02-01T00:00:00+00:00\",\n  \"deadline\": \"1970-04-13\",\n  \"accountID\": \"00000000-0000-0000-0000-000000000000\",\n  \"presetID\": \"00000000-0000-0000-0000-000000000000\",\n  \"createdByID\": \"00000000-0000-0000-0000-000000000000\",\n  \"responsibleID\": \"00000000-0000-0000-0000-000000000000\",\n  \"dateCreated\": \"2017-01-10T07:43:12+00:00\",\n  \"dateModified\": \"2017-01-10T07:43:12+00:00\",\n  \"thumbnailURL\": \"https://bynder-public-eu-central-1.s3.eu-central-1.amazonaws.com:443/workflow/campaign/988BBB04-F0E2-4A28-B5F892890849BAFE/FEE78434-649A-449B-A62A1C6C6D59CAC3/500x500.jpg\",\n  \"campaignMetaproperties\": {\n    \"key_0\": \"00000000-0000-0000-0000-000000000000\",\n    \"key_1\": \"00000000-0000-0000-0000-000000000000\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3027a227-d50c-41be-aacc-c3f9731c5ffb",
+          "name": "Modify campaign",
+          "request": {
+            "name": "Modify campaign",
+            "description": {
+              "content": "Requires the CAMPAIGNEDIT security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "campaigns",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "CAMPAIGNOVERVIEW CAMPAIGNADD CAMPAIGNEDIT CAMPAIGNREMOVE CAMPAIGNWRITE"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"description\": \"<string>\",\n  \"dateStart\": \"<date>\",\n  \"deadline\": \"<date>\",\n  \"closed\": \"<boolean>\",\n  \"responsibleID\": \"<string>\",\n  \"campaignMetaproperties\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bdba142b-2cbc-40f9-9944-ebe7d6c00d38",
+              "name": "Campaign modified successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example campaign\",\n  \"key\": \"excp\",\n  \"description\": \"Campaign for managing examples\",\n  \"dateStart\": \"<date>\",\n  \"deadline\": \"<date>\",\n  \"closed\": false,\n  \"responsibleID\": \"00000000-0000-0000-0000-000000000000\",\n  \"campaignMetaproperties\": {\n    \"key_0\": \"00000000-0000-0000-0000-000000000000\",\n    \"key_1\": \"00000000-0000-0000-0000-000000000000\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"00000000000000000000000000000000\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21e53bfa-9f18-4b81-b6ca-a8cf672e9738",
+          "name": "Delete campaign",
+          "request": {
+            "name": "Delete campaign",
+            "description": {
+              "content": "Requires the CAMPAIGNREMOVE security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "campaigns",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "CAMPAIGNOVERVIEW CAMPAIGNADD CAMPAIGNEDIT CAMPAIGNREMOVE CAMPAIGNWRITE"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2b516c10-fb2e-4da2-b1de-bf0ba8231a2a",
+              "name": "Campaign deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6c911c2-824b-48ca-bbe9-3a2e0d1234dd",
+          "name": "Close campaign",
+          "request": {
+            "name": "Close campaign",
+            "description": {
+              "content": "Requires the CAMPAIGNWRITE security role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workflow",
+                "campaigns",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "CAMPAIGNOVERVIEW CAMPAIGNADD CAMPAIGNEDIT CAMPAIGNREMOVE CAMPAIGNWRITE"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "90ddadb0-33b0-45c3-a463-7c44149bc0f6",
+              "name": "Campaign closed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7757a615-ac63-44a2-8ea0-1f076d1c6cea",
+              "name": "Campaign not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workflow",
+                    "campaigns",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "729fe1d7-dc7a-4ee6-8559-99695c4a9d71",
+    "name": "Workflow Campaigns API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

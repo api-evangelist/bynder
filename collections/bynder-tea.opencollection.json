@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TEA - Public API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Document",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://$ACCOUNT.bynder.com/api/1/authoring/documents/:document_uuid",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "Referer",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "document_uuid",
+                "value": "",
+                "type": "path",
+                "description": "The UUID of the document to be actioned."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Use this endpoint to retrieve your text content in CXUC. The `$ACCOUNT` is your assigned subdomain, or just replace the URL if you have a custom domain."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

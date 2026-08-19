@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Similar Assets Search API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for similar assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{your-bynder-domain}/api/1/assets/similarity-search/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `assetIds`, and [Note on identifiers](https://api.bynder.com/docs/getting-started#note-on-identifiers) for more information. Additionally, only one of the search parameters (`assetIds`, `imageUrl`, `imageData`, `textQuery`) should be provided per request. Providing multiple parameters will result in a `400` Bad Request response. Only OAuth2 authentication is supported for this endpoin"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

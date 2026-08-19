@@ -1,0 +1,301 @@
+{
+  "item": [
+    {
+      "id": "fac9a176-051f-4345-bcf2-9fdd78e2a8cc",
+      "name": "Trash",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76b410ea-7032-4fe4-a24e-6d7521e16354",
+          "name": "Retrieve recently removed assets",
+          "request": {
+            "name": "Retrieve recently removed assets",
+            "description": {
+              "content": "Retrieve assets removed in the last 30 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "trash",
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "dateRemoved",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "field",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "trash.assets"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://{your-bynder-domain}/v6/authentication/oauth2/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "client_credentials"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8b79eb1d-19c4-48ed-9799-258e7d3ab2fc",
+              "name": "Successfully retrieved recently removed assets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trash",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "dateRemoved",
+                      "value": "2017-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "field",
+                      "value": "media.dateCreated"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"name\": \"Beach\",\n    \"dateRemoved\": \"2017-09-05T13:11:49+00:00\",\n    \"dateCreated\": \"2017-02-12T10:12:19+00:00\",\n    \"username\": \"johndoe@bynder.com\",\n    \"userId\": \"00000000-0000-0000-0000000000000000\",\n    \"S3_filepointer\": \"___URL_TO_BYNDER_CDN___\"\n  },\n  {\n    \"id\": \"00000000-0000-0000-0000000000000000\",\n    \"name\": \"Beach\",\n    \"dateRemoved\": \"2017-09-05T13:11:49+00:00\",\n    \"dateCreated\": \"2017-02-12T10:12:19+00:00\",\n    \"username\": \"johndoe@bynder.com\",\n    \"userId\": \"00000000-0000-0000-0000000000000000\",\n    \"S3_filepointer\": \"___URL_TO_BYNDER_CDN___\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9fdddb2-4b99-4ebf-a692-fc4d20ee32dc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trash",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "dateRemoved",
+                      "value": "2017-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "field",
+                      "value": "media.dateCreated"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e35e0225-9d5a-4407-8743-99cd1bd1ac4f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "trash",
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "dateRemoved",
+                      "value": "2017-04-01T00:00:00Z"
+                    },
+                    {
+                      "key": "field",
+                      "value": "media.dateCreated"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{your-bynder-domain}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "419068c9-fc4c-4869-8284-bdcf7ce4be6c",
+    "name": "Trash API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

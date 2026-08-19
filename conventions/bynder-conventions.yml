@@ -1,0 +1,143 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://api.bynder.com/docs/getting-started and the 34 active OpenAPI
+  definitions Bynder publishes (parameters, response headers and security
+  schemes read directly from the specs in openapi/).
+docs: https://api.bynder.com/docs/getting-started
+summary: >-
+  Bynder's cross-cutting semantics are inconsistent by generation. The API is
+  really six services behind one customer portal hostname, each with its own path
+  prefix, its own id format, its own pagination style and its own error media
+  type. There is no idempotency contract, no request-id header, no rate-limit
+  header and no API version header anywhere in the surface.
+base_url:
+  form: https://{your-bynder-domain}
+  templated: true
+  note: >-
+    Every published OpenAPI declares a templated server. There is no shared API
+    hostname — each customer calls their own portal domain (for example
+    https://acme.bynder.com). This is the documented and correct base; it is not
+    a placeholder to be repaired.
+authentication:
+  style: oauth2-bearer-jwt
+  header: 'Authorization: Bearer <access_token>'
+  token_format: JWT
+  flows: [authorizationCode, clientCredentials, refreshToken]
+  alternative:
+    name: permanentToken
+    type: apiKey
+    in: header
+    parameter: Authorization
+    note: >-
+      A long-lived permanent token is declared as a second securityScheme in 25 of
+      the published definitions. It is an apiKey in the Authorization header, and
+      it carries no scopes — it inherits the issuing user's full security profile.
+  authorization_model: two-layer
+  authorization_note: >-
+    An OAuth scope alone does not authorize a call. Bynder additionally enforces
+    named security roles from the user's security profile (MEDIAHIGHRES,
+    ARCHIVEDOWNLOAD, DOWNLOADWATERMARK, KEYVISUALSDOWNLOAD, PERMISSIONMANAGEMENT,
+    "Manage Webhooks configurations", ...). A token with the right scope still
+    gets a 403 when the profile lacks the role. Both layers must be satisfied.
+  detail: authentication/bynder-authentication.yml
+  scopes: scopes/bynder-scopes.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    Bynder publishes no idempotency contract. No Idempotency-Key header or
+    parameter appears in the documentation or in any of the 34 published OpenAPI
+    definitions, and no operation documents replay-safe retry semantics. Retrying
+    a POST — for instance Create user, Create collection or Create automation
+    rule — after a network timeout risks a duplicate. This profile therefore
+    emits no `Idempotency` pointer.
+  compounding_risk: >-
+    The absence matters more here than usual because the only documented failure
+    mode is a per-IP 429 block that arrives with no Retry-After, so retry is
+    exactly the situation a caller lands in.
+pagination:
+  consistent: false
+  styles:
+  - style: page-and-limit
+    params: [page, limit]
+    surfaces: [/api/v4/media, /api/v4/users, /api/v4/collections, /api/v4/metaproperties]
+    response_headers: [X-Pagination-TotalRecords, X-Pagination-TotalPages, X-Pagination-Page, X-Pagination-Limit]
+    note: The classic asset-bank style. Total counts are returned in headers, not in the body.
+  - style: cursor
+    params: [cursor, limit]
+    surfaces: [analytics, asset usage]
+    response_headers: [Next-Cursor, Next-Url, X-Bynder-NextCursor]
+    note: >-
+      The newer analytics surfaces are cursor-paged and return both an opaque
+      Next-Cursor and a fully-formed Next-Url. Two different header spellings for
+      the same idea coexist — Next-Cursor (16 operations) and X-Bynder-NextCursor (1).
+  - style: start-and-limit
+    params: [start, limit]
+    surfaces: [automation workflow rules]
+    response_headers: []
+    note: Offset paging under a third parameter name again.
+  observed_parameter_counts:
+    limit: 28
+    cursor: 17
+    page: 10
+    start: 3
+field_expansion:
+  supported: false
+  note: >-
+    No expand / include / fields parameter is published. Related objects are
+    fetched with a second call; there is no sparse-fieldset or embed mechanism.
+metadata:
+  mechanism: metaproperties
+  note: >-
+    Custom metadata is first-class and modelled as Metaproperty + MetapropertyOption
+    objects rather than as a free-form key/value bag. Options support dependency
+    graphs (an option can require another option), exposed through dedicated
+    dependency and dependency-group endpoints.
+request_tracing:
+  request_id_header: null
+  note: >-
+    No request-id or correlation-id header is documented or declared in any spec.
+    There is nothing for a caller to quote when opening a support ticket about a
+    specific failed call.
+versioning:
+  scheme: uri-path
+  global_version_header: false
+  note: >-
+    Version is per service and lives in the path — /api/v4, /api/1, /v6, /v7,
+    /api/workflow, /api/store. There is no Accept-version or API-version header
+    and no version negotiation. See lifecycle/bynder-lifecycle.yml.
+identifiers:
+  formats:
+  - surface: /api/v4/*
+    format: ColdFusion UUID (8-4-4-16)
+  - surface: /api/* without /v4
+    format: RFC 4122 UUID v4 (8-4-4-4-12)
+  note: >-
+    Two incompatible UUID formats in one API, documented in Getting Started.
+    Passing an id from one surface to the other produces a 404, not a 400.
+  source: https://api.bynder.com/docs/getting-started
+error_envelope:
+  consistent: false
+  media_types: [application/json, application/vnd.api+json, text/plain]
+  rfc9457: false
+  error_codes: false
+  detail: errors/bynder-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  status: 429
+  note: >-
+    A hard limit is published (4500 requests / 5 minutes / source IP) but no
+    header carries the remaining budget, and no spec declares the 429. See
+    rate-limits/bynder-rate-limits.yml.
+  detail: rate-limits/bynder-rate-limits.yml
+webhooks:
+  supported: true
+  detail: asyncapi/bynder-webhooks.yml
+cross_links:
+- authentication/bynder-authentication.yml
+- scopes/bynder-scopes.yml
+- errors/bynder-problem-types.yml
+- lifecycle/bynder-lifecycle.yml
+- rate-limits/bynder-rate-limits.yml
+- data-model/bynder-data-model.yml
