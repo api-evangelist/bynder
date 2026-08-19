@@ -43,7 +43,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/bynder/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-08-13'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: bynder:bynder-access-rights-and-options-v4-api
   name: Bynder Access Rights and Optiops API
