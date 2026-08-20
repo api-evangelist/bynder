@@ -160,6 +160,9 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Downloads
+  - Assets
+  tags_raw:
   - Download
   - Assets
   properties:
@@ -249,6 +252,9 @@ apis:
   baseURL: https://yourportal.bynder.com
   tags:
   - Automation
+  - Workflows
+  tags_raw:
+  - Automation
   - Workflow
   properties:
   - type: OpenAPI
@@ -312,6 +318,9 @@ apis:
   baseURL: https://yourportal.bynder.com
   tags:
   - Brandstore
+  - Order
+  tags_raw:
+  - Brandstore
   - Orders
   properties:
   - type: OpenAPI
@@ -333,6 +342,9 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Collection
+  - Sharing
+  tags_raw:
   - Collections
   - Sharing
   properties:
@@ -354,6 +366,9 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Transformation
+  - Media
+  tags_raw:
   - Transformations
   - Media
   properties:
@@ -396,6 +411,9 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Group
+  - Administration
+  tags_raw:
   - Groups
   - Administration
   properties:
@@ -462,6 +480,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Authentication
+  tags_raw:
   - Authentication
   - OAuth
   properties:
@@ -548,6 +568,9 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Search
+  - Artificial Intelligence
+  tags_raw:
   - Search
   - AI
   properties:
@@ -653,6 +676,9 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - User
+  - Administration
+  tags_raw:
   - Users
   - Administration
   properties:
@@ -675,6 +701,9 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Webhook
+  - Event
+  tags_raw:
   - Webhooks
   - Events
   properties:
