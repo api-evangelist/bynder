@@ -9,6 +9,13 @@
       "method": "feed"
     },
     {
+      "source": "https://www.bynder.com/rss/",
+      "feed_url": "https://www.bynder.com/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://www.bynder.com",
       "feed_url": "https://www.bynder.com/rss/",
       "title": "",
@@ -16,6 +23,6 @@
       "method": "discovered"
     }
   ],
-  "fetched": "2026-08-15T12:22:01Z",
+  "fetched": "2026-08-22T20:20:02Z",
   "post_count": 43
 }
