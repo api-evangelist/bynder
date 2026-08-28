@@ -14,6 +14,17 @@ description: >-
   component. Authentication is OAuth 2.0 with JWT bearer tokens, layered on top of
   named security roles that gate operations independently of scope.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: quote-only
   onboarding: sales-led
