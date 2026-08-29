@@ -3,7 +3,7 @@ provider: Bynder
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Software & Technology
+- Media, Entertainment & Telecom Content
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 6
+edge_count: 12
 edges:
 - tag: Configurations
   spec_file: bynder-configurations-api-openapi.yml
@@ -19,58 +19,112 @@ edges:
   capability_id_l1: BC-4270
   capability_name: Webhook & Event Subscription Management
   confidence: 0.8
-  evidence: '"Create a Webhook Configuration", "Update a Webhook Configuration" on /v7/webhooks/public/api/subscriptions/{id};
-    schema ApiV7WebhooksPublicApiSubscriptionsRequest'
-  reason: Despite the generic tag string, the operations plainly manage the lifecycle of outbound webhook
-    event subscriptions exposed to integrators, which is the Webhook & Event Subscription Management sub-capability
-    of the developer/API ecosystem.
+  evidence: POST /v7/webhooks/public/api/subscriptions/{id} "Create a Webhook Configuration"
+  reason: Purely the lifecycle of outbound webhook subscriptions (create/update/patch/delete subscriptions),
+    which is the Webhook & Event Subscription Management capability rather than any media business function.
 - tag: Profiles
   spec_file: bynder-profiles-api-openapi.yml
   capability_id: BC-620.20
   capability_id_l1: BC-620
   capability_name: Identity & Access Management
-  confidence: 0.8
-  evidence: To determine the security profile for your user you can compare the security profile id with
-    the profileId ... It's the API's responsibility to enforce that users can only perform allowed actions
-  reason: Despite the 'Profiles' noun these are security profiles governing which actions a user may perform
-    — permission/role retrieval, i.e. identity and access management.
-- tag: Media
-  spec_file: bynder-media-api-openapi.yml
-  capability_id: BC-400
-  capability_id_l1: BC-400
-  capability_name: Marketing Management
-  confidence: 0.7
-  evidence: POST /api/v4/media/save/{importId} "Save as a new asset"; GET /api/v4/media/ "Retrieve assets"
-  reason: Core digital asset bank operations for the vendor's 'brand and marketing assets'. Clearly marketing
-    asset management at L1; ambiguous between marketing operations (martech/DAM) and content marketing
-    (content production/distribution), so no L2 asserted.
+  confidence: 0.78
+  evidence: '''Retrieve security profiles''; description: ''It''s the API''s responsibility to enforce
+    that users can only perform allowed actions'''
+  reason: These are security profiles governing which actions a user may perform, i.e. access rights administration,
+    which is identity and access management rather than any content capability.
+- tag: Step 5
+  spec_file: bynder-step-5-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.78
+  evidence: POST /api/v4/media/save/{importId}  Save as a new asset
+  reason: Creating a new asset record in the digital asset management system from an uploaded import is
+    plainly asset ingest into the asset platform.
+- tag: Step 6 EITHER Save as a new asset
+  spec_file: bynder-step-6-either-save-as-a-new-asset-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.78
+  evidence: POST /api/v4/media/save/{importId}  Save as a new asset
+  reason: Creates a new asset in the digital asset management platform from an upload — onboarding of
+    source material into the asset platform.
 - tag: Media ID
   spec_file: bynder-media-id-api-openapi.yml
-  capability_id: BC-400
-  capability_id_l1: BC-400
-  capability_name: Marketing Management
+  capability_id: BC-3710
+  capability_id_l1: BC-3710
+  capability_name: Media Asset Management
+  confidence: 0.75
+  evidence: GET /api/v4/media/{id} "Retrieve specific asset"; POST /api/v4/media/{id} "Modify asset";
+    DELETE /api/v4/media/{id} "Delete asset"
+  reason: Core asset-record CRUD in a digital asset management platform. Clearly media asset management
+    at L1, but spans cataloguing, storage and lifecycle so no single L2 is warranted.
+- tag: Metaproperty options operations
+  spec_file: bynder-metaproperty-options-operations-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.72
+  evidence: GET /api/v4/metaproperties/{id}/options — 'Retrieve metaproperty options'; POST 'Create metaproperty
+    option'
+  reason: Bynder is a DAM; metaproperties and their options are the descriptive metadata taxonomy applied
+    to assets, so authoring/retrieving option values realises metadata cataloguing over media assets.
+- tag: Step 4 OR Finalize and save an additional uploaded file as a new asset.
+  spec_file: bynder-step-4-or-finalize-and-save-an-additional-uploaded-file-as-a-new-asset-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.72
+  evidence: POST /api/v4/media/{id}/save/additional/{uploadId}/  Finalize additional file
+  reason: Finalises an uploaded file and saves it against a media asset in the DAM — onboarding of source
+    material into the asset platform.
+- tag: Collections assets
+  spec_file: bynder-collections-assets-api-openapi.yml
+  capability_id: BC-3710
+  capability_id_l1: BC-3710
+  capability_name: Media Asset Management
   confidence: 0.7
-  evidence: GET /api/v4/media/{id} "Retrieve specific asset"; POST "Modify asset"; DELETE "Delete asset"
-  reason: CRUD over individual marketing/brand assets in the DAM asset bank. Marketing asset management
-    at L1; L2 left open because the operations do not distinguish marketing operations from content production.
-- tag: Reporting
-  spec_file: bynder-reporting-api-openapi.yml
-  capability_id: BC-610.50
-  capability_id_l1: BC-610
-  capability_name: Analytics & BI Management
+  evidence: GET /api/v4/collections/{id}/media "Retrieve the assets of a specific collection"; POST "Add
+    assets to a collection"
+  reason: Operations manage membership of media assets within collections in the DAM — clearly media asset
+    organisation. L1 only, since it is neither purely cataloguing metadata nor storage tiering.
+- tag: Media
+  spec_file: bynder-media-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
   confidence: 0.7
-  evidence: These endpoints provide reporting capabilities for assets of the DAM, making it easier to
-    build your own customised reports; GET /v7/analytics/api/v1/report/asset
-  reason: Explicitly analytics/reporting endpoints intended for building customised reports over DAM asset
-    data — analytics and BI delivery. Not marketing performance management, since the surface is generic
-    asset reporting.
-- tag: Users ID
-  spec_file: bynder-users-id-api-openapi.yml
-  capability_id: BC-620.20
-  capability_id_l1: BC-620
-  capability_name: Identity & Access Management
+  evidence: POST /api/v4/media/save/{importId} "Save as a new asset"; POST /api/v4/media/{id}/save/{importId}
+    "Save as a new asset version"
+  reason: Finalises an upload into the asset bank as a new asset or asset version — onboarding of source
+    material into the DAM. Ingest is the closest L2; versioning also appears, so some L2 ambiguity remains.
+- tag: Options V1
+  spec_file: bynder-options-v1-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
   confidence: 0.7
-  evidence: GET /api/v4/users/{id} "Retrieve specific user"; POST "Modify user"; DELETE "Delete user";
-    "Manage specific users by their ID"
-  reason: Full lifecycle management of individual platform user accounts — joiner/mover/leaver style identity
-    administration for the SaaS portal.
+  evidence: GET /api/1/taxonomy/metaproperties/{metapropertyId}/options; schemas ListOptionsOutput, MetapropertyOption
+  reason: Taxonomy metaproperty option listing is curation of the descriptive metadata vocabulary that
+    makes DAM assets discoverable.
+- tag: Specific metaproperty operations
+  spec_file: bynder-specific-metaproperty-operations-api-openapi.yml
+  capability_id: BC-3710.20
+  capability_id_l1: BC-3710
+  capability_name: Metadata Cataloguing
+  confidence: 0.7
+  evidence: GET /api/v4/metaproperties/{id} Retrieve specific metaproperty; POST Modify metaproperty;
+    DELETE Delete metaproperty
+  reason: Metaproperties are Bynder's descriptive metadata fields attached to media assets; CRUD over
+    them realises metadata cataloguing that makes assets discoverable. Some chance the honest reading
+    is generic taxonomy/data governance.
+- tag: Step 6 OR Save uploaded file to existing asset
+  spec_file: bynder-step-6-or-save-uploaded-file-to-existing-asset-api-openapi.yml
+  capability_id: BC-3710.10
+  capability_id_l1: BC-3710
+  capability_name: Asset Ingest & Quality Control
+  confidence: 0.7
+  evidence: POST /api/v4/media/{id}/save/{importId}  Save uploaded file to existing asset
+  reason: Attaches an uploaded file to an existing DAM asset, completing ingest of source material into
+    the asset platform.
