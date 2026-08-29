@@ -1,0 +1,95 @@
+openapi: 3.2.0
+info:
+  title: Group Upload Assets API Steps Step 1 Get closest AmazonS3 upload endpoint API
+  contact: {}
+  version: 1.0.0
+  description: 'This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://bynder-public-us-east-1.s3.amazonaws.com/
+  variables: {}
+security: []
+tags:
+- name: Step 1 Get closest AmazonS3 upload endpoint
+  description: 'This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.
+
+    '
+paths:
+  /api/upload/endpoint:
+    parameters: []
+    get:
+      tags:
+      - Step 1 Get closest AmazonS3 upload endpoint
+      summary: Get closest Amazon S3 upload endpoint
+      description: Get the closest AmazonS3 upload endpoint.
+      operationId: Get closest Amazon S3 upload endpoint
+      parameters: []
+      responses:
+        '200':
+          description: Successful response
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: string
+                examples:
+                - https://bynder-public-eu-central-1.s3.amazonaws.com/
+                contentMediaType: application/json
+              example: https://bynder-public-eu-central-1.s3.amazonaws.com/
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://your-bynder-domainDefaultValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

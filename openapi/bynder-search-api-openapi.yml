@@ -1,0 +1,76 @@
+openapi: 3.2.0
+info:
+  title: Similar Assets Search API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Search
+  description: ''
+paths:
+  /api/1/assets/similarity-search/:
+    post:
+      summary: Search for similar assets
+      tags:
+      - Search
+      description: This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `assetIds`, and [Note on identifiers](https://api.bynder.com/docs/getting-started#note-on-identifiers) for more information. Additionally, only one of the search parameters (`assetIds`, `imageUrl`, `imageData`, `textQuery`) should be provided per request. Providing multiple parameters will result in a `400` Bad Request response. Only OAuth2 authentication is supported for this endpoint, and permanent tokens are not accepted.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                assetIds:
+                  type: array
+                  items:
+                    type: string
+                  description: List of asset IDs to search similar assets for.
+                  example:
+                  - f4d5881d-9a2b-4e3d-a1f7-29f6771309f9
+                  - 5af81baa-ee0b-4611-bfa6-fd023c7989b8
+                imageUrl:
+                  type: string
+                  description: URL of the image to find similar assets.
+                  example: https://d2csxpduxe849s.cloudfront.net/media/A7148429-45E9-45C9-98BABD031228C0E2/0A1C48A2-2523-440C-81DD9DFA221D28FC/webimage-5FE11596-1C5D-4FC1-9C216A240BA53979.png
+                imageData:
+                  type: string
+                  description: Base64 encoded image data for similarity search.
+                  example: data:image/jpeg;base64,...
+                textQuery:
+                  type: string
+                  description: A text query describing the image for the search.
+                  example: Image of a sunset
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  assets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        assetId:
+                          type: string
+                          example: e0664bc4-4d64-4776-a010-a19d337f7ee9
+                        similarityScore:
+                          type: number
+                          format: float
+                          example: 0.98
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Multiple search parameters provided. Please provide only one of the following parameters: assetIds, imageUrl, imageData, textQuery.'
+                  reason:
+                    type: string
+                    example: MULTIPLE_SEARCH_PARAMETERS

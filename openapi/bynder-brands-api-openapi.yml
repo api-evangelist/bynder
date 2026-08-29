@@ -1,0 +1,64 @@
+openapi: 3.2.0
+info:
+  title: Brands API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Brands
+paths:
+  /api/v4/brands/:
+    get:
+      summary: Retrieve brands
+      security:
+      - permanentToken: []
+      - OAuth2: []
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    image:
+                      type: string
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    description:
+                      type: string
+                    subBrands:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          description:
+                            type: string
+                          name:
+                            type: string
+                          image:
+                            type: string
+      tags:
+      - Brands
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes: {}
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes: {}

@@ -1,0 +1,626 @@
+openapi: 3.2.0
+info:
+  title: Bynder Media API
+  version: 1.0.0
+  description: 'Operations tagged Media across 2 of this provider''s published API definitions: bynder-asset-upload-openapi.json, bynder-asset-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Media
+paths:
+  /api/v4/media/save/{importId}:
+    post:
+      summary: Save as a new asset
+      description: 'For metaproperties that use options (Select, Select2, Autocomplete), modifying an asset''s metaproperty options should be done via option UUID''s for the API to work optimally, sending name or label values will be deprecated in the future. Other metaproperties (Date, Text and Longtext), values can be submitted directly.
+
+        '
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      parameters:
+      - in: path
+        name: importId
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+        description: Import id of a finalised and processed upload to be saved.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                brandId:
+                  type: string
+                  description: Brand id to save the asset to.
+                  example: 00000000-0000-0000-0000-0000000000000000
+                name:
+                  type: string
+                  description: Name of the asset.
+                  example: Asset name
+                description:
+                  type: string
+                  description: Extended asset description.
+                  example: Extended asset description
+                copyright:
+                  type: string
+                  description: Copyright information of the asset.
+                  example: Copyright (c) Example corp.
+                tags:
+                  type: string
+                  description: Comma-separated list of tags of the asset.
+                  example: scenery,grassland,Holland
+                metaproperty:
+                  type: string
+                  description: 'Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.
+
+                    '
+                  example: metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
+                categories:
+                  type: string
+                  description: Comma-separated category ids of the asset.
+                  example: 00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
+                audit:
+                  type: boolean
+                  description: Flags if the asset should be sent to the waiting room.
+                  example: true
+                isPublic:
+                  type: boolean
+                  description: Flags if the asset should be Public.
+                  example: true
+                accessRequestId:
+                  type: string
+                  description: 'If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.
+
+                    '
+                  example: 00000000-0000-0000-0000000000000000
+                requestorId:
+                  type: string
+                  description: 'If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.
+
+                    '
+                  example: 00000000-0000-0000-0000000000000000
+                accessType:
+                  type: string
+                  description: 'If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.
+
+                    '
+                  enum:
+                  - upload
+                  - edit
+                  - export
+                  - shutterstock
+                  - stock
+                  example: upload
+                ISOPublicationDate:
+                  type: string
+                  format: date-time
+                  description: Date/time of publication in ISO08601-format.
+                  example: '2014-06-12T14:53:21-04:00'
+                publicationDate:
+                  type: string
+                  description: '*DEPRECATED* Date/time of publication in linked API user selected locale-format.
+
+                    '
+                  example: 05-31-2010
+                archiveDate:
+                  type: string
+                  format: date-time
+                  description: Archive date/time of the asset in ISO8601-format.
+                  example: '2014-12-25T10:30:00Z'
+                watermarkDate:
+                  type: string
+                  format: date-time
+                  description: 'Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.
+
+                    '
+                  example: '2014-12-25T10:30:00Z'
+                crc32:
+                  type: integer
+                  description: CRC32 checksum of the original file, used for verification.
+                  example: 79764919
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              examples:
+                success:
+                  summary: Successful response
+                  value:
+                    accessRequestId: 00000000-0000-0000-0000000000000000
+                    mediaid: 00000000-0000-0000-0000000000000000
+                    batchId: 00000000-0000-0000-0000000000000000
+                    success: true
+                    mediaitems:
+                    - original: final/00000000-0000-0000-0000000000000000/image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+        '303':
+          description: Import not converted yet, please poll
+          content:
+            application/json:
+              examples:
+                poll:
+                  summary: Poll response
+                  value:
+                    message: Import not converted yet, please poll
+                    statuscode: '303'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              examples:
+                noImportId:
+                  summary: No importId provided
+                  value:
+                    message: No importid provided
+                    statuscode: '400'
+                noBrandId:
+                  summary: No brandId provided
+                  value:
+                    message: No brandid provided
+                    statuscode: '400'
+                invalidCrc32:
+                  summary: Invalid unsigned integer for CRC32
+                  value:
+                    message: Invalid unsigned integer for CRC32
+                    statuscode: '400'
+                invalidCrc32Type:
+                  summary: Invalid argument type for CRC32
+                  value:
+                    message: Invalid argument type for CRC32
+                    statuscode: '400'
+                invalidDateFormat:
+                  summary: Date format not ISO8601-compliant
+                  value:
+                    message: Date format not ISO8601-compliant
+                    statuscode: '400'
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              examples:
+                accessDenied:
+                  summary: Access denied response
+                  value:
+                    message: Access denied
+                    statuscode: '403'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                importIdNotFound:
+                  summary: Import ID not found
+                  value:
+                    message: Import ID not found
+                    statuscode: '404'
+                uploadNotExist:
+                  summary: Upload doesn't exist
+                  value:
+                    message: Upload doesn't exist
+                    statuscode: '404'
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              examples:
+                uploadFailed:
+                  summary: Upload failed or not ready
+                  value:
+                    message: Upload failed or not ready
+                    statuscode: '500'
+      tags:
+      - Media
+    servers:
+    - url: https://{your-bynder-domain}/
+  /api/v4/media/{id}/save/{importId}:
+    post:
+      summary: Save as a new asset version
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+        description: Asset id for which to save the new version.
+      - in: path
+        name: importId
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+        description: Import id of a finalised and processed upload to be saved.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              examples:
+                success:
+                  summary: Successful response
+                  value:
+                    mediaid: 00000000-0000-0000-0000000000000000
+                    batchId: 00000000-0000-0000-0000000000000000
+                    success: true
+                    mediaitems:
+                    - original: final/00000000-0000-0000-0000000000000000/image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+      tags:
+      - Media
+    servers:
+    - url: https://{your-bynder-domain}/
+  /api/v4/media/:
+    get:
+      summary: Retrieve assets
+      description: '`original` is only returned for assets marked as public and requires the account to have the `seoBaseUrl` setting configured.
+
+        '
+      tags:
+      - Media
+      parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: OAuth 2.0 Bearer access token.
+      - in: query
+        name: brandId
+        schema:
+          type: string
+          format: uuid
+        description: Brand id, can be retrieved using the Retrieve brands and subbrands call.
+      - in: query
+        name: subBrandId
+        schema:
+          type: string
+          format: uuid
+        description: Sub-brand id, can be retrieved using the Retrieve brands and subbrands call.
+      - in: query
+        name: categoryId
+        schema:
+          type: string
+          format: uuid
+        description: Category id, can be retrieved using the Retrieve categories call.
+      - in: query
+        name: collectionId
+        schema:
+          type: string
+          format: uuid
+        description: Collection id, can be retrieved using the Retrieve collections call.
+      - in: query
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: Asset id, will return the asset for that id.
+      - in: query
+        name: ids
+        schema:
+          type: string
+        description: Comma-separated list of asset ids. Will return an asset for each existing id.
+      - in: query
+        name: propertyOptionId
+        schema:
+          type: string
+        description: Comma-separated list of (metaproperty) option ids, can be retrieved using the Retrieve metaproperties call.
+      - in: query
+        name: tags
+        schema:
+          type: string
+        description: Comma-separated list of tags, can be retrieved using the Retrieve tags call.
+      - in: query
+        name: type
+        schema:
+          type: string
+          enum:
+          - image
+          - document
+          - audio
+          - video
+          - 3d
+        description: Comma-separated list of asset types.
+      - in: query
+        name: orientation
+        schema:
+          type: string
+          enum:
+          - square
+          - portrait
+          - landscape
+        description: Comma-separated list of asset orientation.
+      - in: query
+        name: property_NAME
+        schema:
+          type: string
+        description: Metaproperty option name or comma-separated list ids of metaproperty options for that metaproperty. Beware that NAME should be replaced with the actual metaproperty name. This is an AND operation when passing multiple values. If a Date type metaproperty is added, retrieving assets using the dates for that metaproperty is not supported.
+      - in: query
+        name: limited
+        schema:
+          type: boolean
+        description: Indicates whether or not the response should only contain assets marked as "limited usage".
+      - in: query
+        name: archive
+        schema:
+          type: boolean
+        description: Indicates whether or not the response should only contain archived assets.
+      - in: query
+        name: isPublic
+        schema:
+          type: boolean
+        description: Indicates whether or not the response should only contain assets marked as public.
+      - in: query
+        name: keyword
+        schema:
+          type: string
+        description: Search on filenames, tags, extensions, collection names, guidelines, brandstore, campaigns in workflow, enriched PDFs, word documents.
+      - in: query
+        name: dateCreated
+        schema:
+          type: string
+          format: date-time
+        description: Retrieve assets created after this date.
+      - in: query
+        name: dateCreatedTo
+        schema:
+          type: string
+          format: date-time
+        description: Set a date range together with the "dateCreated" parameter.
+      - in: query
+        name: dateCreatedOn
+        schema:
+          type: string
+          format: date-time
+        description: Retrieve assets created on this specific date.
+      - in: query
+        name: dateModified
+        schema:
+          type: string
+          format: date-time
+        description: Retrieve assets modified after this date.
+      - in: query
+        name: dateModifiedTo
+        schema:
+          type: string
+          format: date-time
+        description: Set a date range together with the "dateModified" parameter.
+      - in: query
+        name: dateModifiedOn
+        schema:
+          type: string
+          format: date-time
+        description: Retrieve assets modified on this specific date.
+      - in: query
+        name: orderBy
+        schema:
+          type: string
+          enum:
+          - dateCreated asc
+          - dateModified asc
+          - datePublished asc
+          - name asc
+          - dateCreated desc
+          - dateModified desc
+          - datePublished desc
+          - name desc
+        description: Order of the returned list of assets.
+      - in: query
+        name: limit
+        schema:
+          type: integer
+          maximum: 1000
+          default: 50
+        description: Maximum number of results.
+      - in: query
+        name: page
+        schema:
+          type: integer
+          default: 1
+        description: 'Offset page for results: return the N-th set of limit-results.
+
+          '
+      - in: query
+        name: count
+        schema:
+          type: boolean
+          default: false
+        description: Indicating whether or not the response should include count results.
+      - in: query
+        name: total
+        schema:
+          type: boolean
+          default: false
+        description: Indicating whether or not the response should include the total count of results.
+      - in: query
+        name: includeMediaItems
+        schema:
+          type: boolean
+          default: false
+        description: Indicating whether or not the response should include all the different media items (derivatives) available for each asset.
+      - in: query
+        name: includeVersionNumber
+        schema:
+          type: boolean
+          default: false
+        description: Indicating whether or not the response should include the active version number.
+      - in: query
+        name: cursor
+        schema:
+          type: string
+        description: cursorMark returned in the X-Bynder-NextCursor response header which allows to return the next set of results.
+      security:
+      - permanentToken:
+        - ''
+        - ARCHIVEMEDIA
+        - ARCHIVEDOWNLOAD
+        - EMARGOMEDIA
+        - KEYVISUALDOWNLOAD
+      - OAuth2:
+        - ''
+        - ARCHIVEMEDIA
+        - ARCHIVEDOWNLOAD
+        - EMARGOMEDIA
+        - KEYVISUALDOWNLOAD
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            X-Bynder-NextCursor:
+              description: SOLR nextCursorMark which can be used to return the next X number of results. Returned when solr-cursor account feature is enabled.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    dateModified:
+                      type: string
+                      format: date-time
+                    propertyOptions:
+                      type: array
+                      items:
+                        type: string
+                    type:
+                      type: string
+                    brandId:
+                      type: string
+                      format: uuid
+                    fileSize:
+                      type: integer
+                    id:
+                      type: string
+                      format: uuid
+                    height:
+                      type: integer
+                    description:
+                      type: string
+                    idHash:
+                      type: string
+                    name:
+                      type: string
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                    orientation:
+                      type: string
+                    width:
+                      type: integer
+                    datePublished:
+                      type: string
+                      format: date-time
+                    copyright:
+                      type: string
+                    extension:
+                      type: array
+                      items:
+                        type: string
+                    userCreated:
+                      type: string
+                    dateCreated:
+                      type: string
+                      format: date-time
+                    archive:
+                      type: boolean
+                    property_limitedrights:
+                      type: string
+                    watermarked:
+                      type: boolean
+                    limited:
+                      type: boolean
+                    isPublic:
+                      type: boolean
+                    thumbnails:
+                      type: object
+                      properties:
+                        mini:
+                          type: string
+                        webimage:
+                          type: string
+                        thul:
+                          type: string
+                    transformBaseUrl:
+                      type: string
+                    videoPreviewURLs:
+                      type: array
+                      items:
+                        type: string
+                    original:
+                      type: string
+                    mediaItems:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          publicUrl:
+                            type: string
+                          type:
+                            type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  statuscode:
+                    type: string
+    servers:
+    - url: https://{your-bynder-domain}/
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+x-refined-from:
+- bynder-asset-upload-openapi.json
+- bynder-asset-v4-openapi.json

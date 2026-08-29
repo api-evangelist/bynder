@@ -1,0 +1,218 @@
+openapi: 3.2.0
+info:
+  title: Bynder Step 2 API
+  version: 1.0.0
+  description: 'Operations tagged Step 2 across 2 of this provider''s published API definitions: bynder-asset-upload-steps-test-openapi.json, bynder-modern-stack-upload-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+tags:
+- name: Step 2
+  description: 'This endpoint uploads a chunk of the file. You need to provide the file ID obtained from the prepare upload step and the chunk number (starting from 0). The request body should contain the binary data of the chunk being uploaded.
+
+    '
+paths:
+  /api/upload/init:
+    parameters: []
+    post:
+      tags:
+      - Step 2
+      summary: Initialise upload
+      description: Initialise an upload.
+      operationId: Initialiseupload
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          const: application/x-www-form-urlencoded
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              type: object
+              properties:
+                filename:
+                  type: string
+                  examples:
+                  - image.jpeg
+              contentMediaType: application/x-www-form-urlencoded
+        required: false
+      responses:
+        '200':
+          description: Successful response
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiUploadInitResponse'
+        '400':
+          description: Invalid input
+          headers: {}
+          content:
+            text/plain:
+              schema:
+                type: string
+                examples:
+                - filename: '''image'' is not a valid filename'
+                contentMediaType: text/plain
+              example:
+                filename: '''image'' is not a valid filename'
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+    servers:
+    - url: https://{your-bynder-domain}/
+      variables:
+        your-bynder-domain:
+          default: your-bynder-domainDefaultValue
+    - url: https://{your-auth-url}
+      variables:
+        your-auth-url:
+          default: DefaultParameterValue
+  /v7/file_cmds/upload/{file_id}/chunk/{chunk_number}:
+    post:
+      summary: Upload a file chunk
+      description: Upload a chunk of the file.
+      tags:
+      - Step 2
+      parameters:
+      - name: file_id
+        in: path
+        required: true
+        description: The file ID retrieved from the prepare upload step.
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+      - name: chunk_number
+        in: path
+        required: true
+        description: The number of the chunk being uploaded. The first chunk is 0.
+        schema:
+          type: integer
+          example: 0
+      requestBody:
+        required: true
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '201':
+          description: Chunk uploaded successfully
+        '400':
+          description: Bad request
+    servers:
+    - url: https://{your-bynder-domain}/
+      variables:
+        your-bynder-domain:
+          default: example.com
+          description: Your Bynder domain.
+components:
+  schemas:
+    ApiUploadInitResponse:
+      title: ApiUploadInitResponse
+      type: object
+      properties:
+        s3file:
+          $ref: '#/components/schemas/S3file'
+        s3_filename:
+          type: string
+          examples:
+          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
+        target_key:
+          type: string
+          examples:
+          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
+        multipart_params:
+          $ref: '#/components/schemas/MultipartParams'
+    MultipartParams:
+      title: MultipartParams
+      type: object
+      properties:
+        acl:
+          type: string
+          examples:
+          - private
+        success_action_status:
+          type: string
+          examples:
+          - '201'
+        Content-Type:
+          type: string
+          examples:
+          - image/*
+        key:
+          type: string
+          examples:
+          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
+        Policy:
+          type: string
+          examples:
+          - AWS_S3_POLICY
+        X-Amz-Signature:
+          type: string
+          examples:
+          - AWS_S3_SIGNATURE
+        x-amz-credential:
+          type: string
+          examples:
+          - AWS_S3_AUTH
+        x-amz-algorithm:
+          type: string
+          examples:
+          - AWS4-HMAC-SHA256
+        x-amz-date:
+          type: string
+          examples:
+          - 20160216T100755Z
+    S3file:
+      title: S3file
+      type: object
+      properties:
+        uploadid:
+          type: string
+          examples:
+          - UPLOAD_ID
+        targetid:
+          type: string
+          examples:
+          - final/00000000-0000-0000-0000-000000000000/image.jpeg
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://DefaultParameterValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+x-refined-from:
+- bynder-asset-upload-steps-test-openapi.json
+- bynder-modern-stack-upload-openapi.json

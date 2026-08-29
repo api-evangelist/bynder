@@ -1,0 +1,94 @@
+openapi: 3.2.0
+info:
+  title: Upload Assets API Steps Step 4 API
+  contact: {}
+  version: 1.0.0
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+security: []
+tags:
+- name: Step 4
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into
+
+    '
+paths:
+  /api/v4/upload/poll:
+    parameters: []
+    get:
+      tags:
+      - Step 4
+      summary: Retrieve poll state
+      description: 'This call needs to be executed in a loop until its response returns the item(s) id(s) passed in the **items** parameter.
+
+        '
+      operationId: Retrievepollstate
+      parameters:
+      - name: items
+        in: query
+        description: Comma-separated import id's of a finalised file, as returned by the finalise call.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: Successful response
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - itemsDone:
+                  - 00000000-0000-0000-0000000000000000
+                  itemsFailed: []
+                  itemsRejected: []
+                contentMediaType: application/json
+              examples:
+                success:
+                  summary: Successful response
+                  value:
+                    itemsDone:
+                    - 00000000-0000-0000-0000000000000000
+                    itemsFailed: []
+                    itemsRejected: []
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://DefaultParameterValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

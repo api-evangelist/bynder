@@ -1,0 +1,306 @@
+openapi: 3.2.0
+info:
+  title: Analytics Search Usage API
+  version: 1.0.0
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Assets API endpoints](#reference/assets) or the [Users API endpoints](#reference/users).
+
+    '
+servers:
+- url: https://{your-bynder-domain}
+security:
+- permanentToken:
+  - analytics.api:read
+- oauth2:
+  - analytics.api:read
+tags:
+- name: Search Usage
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Assets API endpoints](#reference/assets) or the [Users API endpoints](#reference/users).
+
+    '
+paths:
+  /v7/analytics/api/v1/search/executions:
+    get:
+      summary: Retrieve search execution events
+      tags:
+      - Search Usage
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+      - name: fromDateTime
+        in: query
+        description: Retrieve executions events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    eventId:
+                      type: string
+                      example: 1408aec2-3114-43dd-be20-ffb1246a5231
+                    eventType:
+                      type: string
+                      example: SearchExecuted
+                    dateTime:
+                      type: string
+                      format: date-time
+                      example: '2021-11-15T10:07:57.781+00:00'
+                    userId:
+                      type: string
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    terms:
+                      type: array
+                      items:
+                        type: string
+                      example:
+                      - digital
+                    filters:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          field:
+                            type: string
+                            example: language
+                          value:
+                            type: string
+                            example: english
+                    operator:
+                      type: string
+                      example: OR
+                    sortOrder:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                          example: datePublished
+                        order:
+                          type: string
+                          example: desc
+                    results:
+                      type: object
+                      properties:
+                        assets:
+                          type: integer
+                          example: 48
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"eventId\": \"1408aec2-3114-43dd-be20-ffb1246a5231\",\n    \"eventType\": \"SearchExecuted\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"terms\": [\"digital\"],\n    \"filters\": [{\"field\": \"language\", \"value\": \"english\"}],\n    \"operator\": \"OR\",\n    \"sortOrder\": {\"field\": \"datePublished\", \"order\": \"desc\"},\n    \"results\": {\"assets\": 48}\n  },\n  {\n    \"eventId\": \"5908aec2-3114-43dd-be20-ffb1246a5231\",\n    \"eventType\": \"SearchExecuted\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"terms\": [\"template\"],\n    \"filters\": [{\"field\": \"language\", \"value\": \"spanish\"}],\n    \"operator\": \"OR\",\n    \"sortOrder\": {\"field\": \"datePublished\", \"order\": \"asc\"},\n    \"results\": {\"assets\": 23}\n  }\n]\n"
+  /v7/analytics/api/v1/search/keyword:
+    get:
+      summary: Retrieve search keyword events
+      description: Deprecated. Use the Search Executions endpoint instead.
+      tags:
+      - Search Usage
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+      - name: fromDateTime
+        in: query
+        description: Retrieve keyword events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 62de6d714e29485a81824fe3
+                    eventType:
+                      type: string
+                      example: search.keyword
+                    userId:
+                      type: string
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime:
+                      type: string
+                      format: date-time
+                      example: '2021-11-15T10:07:57.781+00:00'
+                    keyword:
+                      type: string
+                      example: digital templates
+                    totalResults:
+                      type: integer
+                      example: 27
+                    tagsResults:
+                      type: integer
+                      example: 0
+                    assetsResults:
+                      type: integer
+                      example: 24
+                    documentsResults:
+                      type: integer
+                      example: 0
+                    guidelinesResults:
+                      type: integer
+                      example: 0
+                    collectionsResults:
+                      type: integer
+                      example: 3
+                    metapropertiesResults:
+                      type: integer
+                      example: 0
+                    collectionAssetsResults:
+                      type: integer
+                      example: 0
+                    workflowCampaignsResults:
+                      type: integer
+                      example: 0
+                    brandstoreProductsResults:
+                      type: integer
+                      example: 0
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"search.keyword\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"keyword\": \"digital templates\",\n    \"totalResults\": 27,\n    \"tagsResults\": 0,\n    \"assetsResults\": 24,\n    \"documentsResults\": 0,\n    \"guidelinesResults\": 0,\n    \"collectionsResults\": 3,\n    \"metapropertiesResults\": 0,\n    \"collectionAssetsResults\": 0,\n    \"workflowCampaignsResults\": 0,\n    \"brandstoreProductsResults\": 0\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"search.keyword\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"keyword\": \"assets\",\n    \"totalResults\": 56,\n    \"tagsResults\": 0,\n    \"assetsResults\": 48,\n    \"documentsResults\": 0,\n    \"guidelinesResults\": 0,\n    \"collectionsResults\": 8,\n    \"metapropertiesResults\": 0,\n    \"collectionAssetsResults\": 0,\n    \"workflowCampaignsResults\": 0,\n    \"brandstoreProductsResults\": 0\n  }\n]\n"
+  /v7/analytics/api/v1/search/keyword.csv:
+    get:
+      summary: Retrieve search keyword events in CSV format
+      description: Deprecated. Use the Search Executions endpoint instead.
+      tags:
+      - Search Usage
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+      - name: fromDateTime
+        in: query
+        description: Retrieve keyword events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            text/csv:
+              examples:
+                example-1:
+                  summary: Example CSV response
+                  value: 'id,eventType,userId,dateTime,keyword,totalResults,tagsResults,assetsResults,documentsResults,guidelinesResults,collectionsResults,metapropertiesResults,collectionAssetsResults,workflowCampaignsResults,brandstoreProductsResults
+
+                    62de6d714e29485a81824fe3,search.keyword,"1A84D758-2B3A-141F-8F07D71AA1F223BD",1655823377864,"digital templates",27,0,24,0,0,3,0,0,0,0
+
+                    62de6d714e29485a81824fe4,search.keyword,"1A84D758-2B3A-141F-8F07D71AA1F223BD",1655996103781,digital,56,0,48,0,0,8,0,0,0,0,0
+
+                    '
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''

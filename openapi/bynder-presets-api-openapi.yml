@@ -1,0 +1,111 @@
+openapi: 3.2.0
+info:
+  title: Workflow Jobs Presets API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}
+tags:
+- name: Presets
+  description: ''
+paths:
+  /api/workflow/presets/job/{id}:
+    get:
+      summary: Retrieve specific job preset
+      tags:
+      - Presets
+      security:
+      - permanentToken:
+        - PRESETOVERVIEW
+      - OAuth2:
+        - PRESETOVERVIEW
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ID:
+                    type: string
+                  name:
+                    type: string
+                  ftp_settings:
+                    type: string
+                  wf_uuid:
+                    type: string
+                  presetstages:
+                    type: object
+                    properties:
+                      ID:
+                        type: string
+                      name:
+                        type: string
+                      description:
+                        type: string
+                      position:
+                        type: string
+                      editableBy:
+                        type: string
+                      restrictToGroupID:
+                        type: string
+                      type:
+                        type: string
+                      responsibleID:
+                        type: string
+                      responsibleGroupID:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                    ID: 00000000-0000-0000-0000-000000000000
+                    name: API name
+                    ftp_settings: {}
+                    wf_uuid: 00000000-0000-0000-0000-000000000000
+                    presetstages:
+                      ID: 00000000-0000-0000-0000-000000000000
+                      name: Revision Stage
+                      description: ''
+                      position: '1.0'
+                      editableBy: all
+                      restrictToGroupID: null
+                      type: download
+                      responsibleID: null
+                      responsibleGroupID: null
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''

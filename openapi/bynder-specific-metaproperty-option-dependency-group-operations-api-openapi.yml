@@ -1,0 +1,117 @@
+openapi: 3.2.0
+info:
+  title: Bynder Specific metaproperty option dependency group operations API
+  version: 1.0.0
+  description: 'Operations tagged Specific metaproperty option dependency group operations across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+security:
+- OAuth2:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+- permanentToken:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+tags:
+- name: Specific metaproperty option dependency group operations
+paths:
+  /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group/{groupId}:
+    post:
+      summary: Modify dependency group
+      description: Modify a dependency group for a metaproperty option.
+      tags:
+      - Specific metaproperty option dependency group operations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: optionId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: The id of the metaproperty the (metaproperty) option belongs to.
+                  example: 00000000-0000-0000-0000000000000000
+                optionId:
+                  type: string
+                  description: The id of the (metaproperty) option the dependency group belongs to.
+                  example: 00000000-0000-0000-0000000000000000
+                groupId:
+                  type: string
+                  description: The id of the dependency group you’d like to modify.
+                  example: 00000000-0000-0000-0000000000000000
+                data:
+                  type: array
+                  items:
+                    type: string
+                  description: JSON-serialised string of dependency (metaproperty option) ids.
+                  example:
+                  - 00000000-0000-0000-0000000000000000
+                  - 00000000-0000-0000-0000000000000000
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              examples:
+                example-201:
+                  value:
+                    message: Created
+                    statuscode: 201
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                example-unknown-metaproperty-option:
+                  value:
+                    message: Unknown metaproperty option
+                    statuscode: '404'
+                example-unknown-group:
+                  value:
+                    message: Unknown group
+                    statuscode: '404'
+    servers:
+    - url: https://{your-bynder-domain}/
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+x-refined-from:
+- bynder-metaproperty-options-v4-openapi.json
+- bynder-options-v4-openapi.json

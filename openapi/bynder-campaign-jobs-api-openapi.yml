@@ -1,0 +1,325 @@
+openapi: 3.2.0
+info:
+  title: Workflow Jobs Campaign jobs API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}
+tags:
+- name: Campaign jobs
+  description: ''
+paths:
+  /api/workflow/campaigns/{id}/jobs:
+    get:
+      summary: Retrieve the jobs of a specific campaign
+      description: Requires the CAMPAIGNOVERVIEW security role.
+      tags:
+      - Campaign jobs
+      security:
+      - permanentToken:
+        - CAMPAIGNOVERVIEW
+      - OAuth2:
+        - CAMPAIGNOVERVIEW
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 00000000-0000-0000-0000-000000000000
+      - name: dateCreatedFrom
+        in: query
+        schema:
+          type: string
+          description: Retrieve jobs created after this date. ISO8601 format yyyy-mm-ddThh:mm:ssZ.
+          format: date-time
+        example: '2020-01-01T12:00:00Z'
+      - name: dateCreatedTo
+        in: query
+        schema:
+          type: string
+          description: Set a date range together with the "dateCreated" parameter. ISO8601 format yyyy-mm-ddThh:mm:ssZ.
+          format: date-time
+        example: '2020-01-01T12:00:00Z'
+      - name: dateModifiedFrom
+        in: query
+        schema:
+          type: string
+          description: Retrieve jobs modified after this date. ISO8601 format yyyy-mm-ddThh:mm:ssZ.
+          format: date-time
+        example: '2020-01-01T12:00:00Z'
+      - name: dateModifiedTo
+        in: query
+        schema:
+          type: string
+          description: Set a date range together with the "dateModified" parameter. ISO8601 format yyyy-mm-ddThh:mm:ssZ.
+          format: date-time
+        example: '2020-01-01T12:00:00Z'
+      - name: deadlineFrom
+        in: query
+        schema:
+          type: string
+          description: Retrieve jobs with a deadline after this date. ISO8601 format yyyy-mm-ddThh:mm:ssZ.
+          format: date-time
+        example: '2020-01-01T12:00:00Z'
+      - name: deadlineTo
+        in: query
+        schema:
+          type: string
+          description: Retrieve jobs with a deadline before this date. ISO8601 format yyyy-mm-ddThh:mm:ssZ.
+          format: date-time
+        example: '2020-01-01T12:00:00Z'
+      - name: resonsibleIDs
+        in: query
+        schema:
+          type: string
+        example: 00000000000000000000000000000000,00000000000000000000000000000000
+      - name: accountableIDs
+        in: query
+        schema:
+          type: string
+        example: 00000000000000000000000000000000,00000000000000000000000000000000
+      - name: status
+        in: query
+        schema:
+          type: string
+        example: Approved,NeedsChanges
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+        example: dateModified desc
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        example: 100
+      - name: page
+        in: query
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            X-Pagination-TotalRecords:
+              schema:
+                type: integer
+              example: 10000
+            X-Pagination-TotalPages:
+              schema:
+                type: integer
+              example: 100
+            X-Pagination-Page:
+              schema:
+                type: integer
+              example: 2
+            X-Pagination-Limit:
+              schema:
+                type: integer
+              example: 100
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    deadline:
+                      type: string
+                    createdByID:
+                      type: string
+                    accountableID:
+                      type: string
+                    dateCreated:
+                      type: string
+                    dateModified:
+                      type: string
+                    basedOnPreset:
+                      type: string
+                    presetID:
+                      type: string
+                    campaignID:
+                      type: string
+                    bookedMinutes:
+                      type: number
+                    jobKey:
+                      type: string
+                    dateFinished:
+                      type: string
+                    jobFinishedHistory:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          userId:
+                            type: string
+                          date:
+                            type: string
+                    job_stages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          position:
+                            type: string
+                          status:
+                            type: string
+                          id:
+                            type: string
+                    job_previous_stage:
+                      type: object
+                      properties:
+                        position:
+                          type: string
+                        status:
+                          type: string
+                        id:
+                          type: string
+                    job_active_stage:
+                      type: object
+                      properties:
+                        position:
+                          type: string
+                        status:
+                          type: string
+                        id:
+                          type: string
+                    job_next_stage:
+                      type: object
+                      properties:
+                        position:
+                          type: string
+                        status:
+                          type: string
+                        id:
+                          type: string
+                    jobMetaproperties:
+                      type: object
+                      additionalProperties:
+                        type: string
+              examples:
+                example-1:
+                  value:
+                  - job_stages:
+                    - position: 1
+                      status: Approved
+                      id: 00000000-0000-0000-0000-000000000000
+                    - position: 2
+                      status: Active
+                      id: 00000000-0000-0000-0000-000000000000
+                    - position: 3
+                      status: Idle
+                      id: 00000000-0000-0000-0000-000000000000
+                    dateModified: '2017-03-30T11:43:19+00:00'
+                    presetID: null
+                    jobKey: 0000-0
+                    dateFinished: '2021-02-25T16:19:42+00:00'
+                    jobFinishedHistory:
+                    - userId: 00000000-0000-0000-0000-000000000000
+                      date: '2021-02-24T16:23:48+00:00'
+                    - userId: 00000000-0000-0000-0000-000000000000
+                      date: '2021-02-25T16:19:42+00:00'
+                    jobMetaproperties:
+                      00000000-0000-0000-0000-000000000001: 00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000
+                      00000000-0000-0000-0000-000000000002: Country
+                      00000000-0000-0000-0000-000000000003: City
+                    createdByID: 00000000-0000-0000-0000-000000000000
+                    job_next_stage:
+                      position: 3
+                      status: Idle
+                      id: 00000000-0000-0000-0000-000000000000
+                    id: 00000000-0000-0000-0000-000000000000
+                    description: ''
+                    accountableID: 00000000-0000-0000-0000-000000000000
+                    basedOnPreset: false
+                    dateCreated: '2017-03-30T11:42:30+00:00'
+                    job_active_stage:
+                      position: 2
+                      status: Active
+                      id: 00000000-0000-0000-0000-000000000000
+                    deadline: null
+                    name: Test API
+                    campaignID: 00000000-0000-0000-0000-000000000000
+                    job_previous_stage:
+                      position: 1
+                      status: Approved
+                      id: 00000000-0000-0000-0000-000000000000
+                  - job_stages:
+                    - position: 1
+                      status: Approved
+                      id: 00000000-0000-0000-0000-000000000000
+                    - position: 2
+                      status: Active
+                      id: 00000000-0000-0000-0000-000000000000
+                    - position: 3
+                      status: Idle
+                      id: 00000000-0000-0000-0000-000000000000
+                      bookedMinutes: 5
+                    dateModified: '2017-03-30T11:43:19+00:00'
+                    presetID: null
+                    jobKey: 0000-0
+                    dateFinished: null
+                    jobFinishedHistory: null
+                    jobMetaproperties:
+                      00000000-0000-0000-0000-000000000001: 00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000
+                      00000000-0000-0000-0000-000000000002: Country
+                      00000000-0000-0000-0000-000000000003: City
+                    createdByID: 00000000-0000-0000-0000-000000000000
+                    job_next_stage:
+                      position: 3
+                      status: Idle
+                      id: 00000000-0000-0000-0000-000000000000
+                    id: 00000000-0000-0000-0000-000000000000
+                    description: ''
+                    accountableID: 00000000-0000-0000-0000-000000000000
+                    basedOnPreset: false
+                    dateCreated: '2017-03-30T11:42:30+00:00'
+                    job_active_stage:
+                      position: 2
+                      status: Active
+                      id: 00000000-0000-0000-0000-000000000000
+                    deadline: null
+                    name: Test API with booked time
+                    campaignID: 00000000-0000-0000-0000-000000000000
+                    bookedMinutes: 10
+                    job_previous_stage:
+                      position: 1
+                      status: Approved
+                      id: 00000000-0000-0000-0000-000000000000
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''

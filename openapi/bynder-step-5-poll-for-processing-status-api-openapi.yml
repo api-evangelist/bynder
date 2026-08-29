@@ -1,0 +1,116 @@
+openapi: 3.2.0
+info:
+  title: Group Upload Assets API Steps Step 5 Poll for processing status API
+  contact: {}
+  version: 1.0.0
+  description: 'This endpoint allows you to check the processing status of a finalized upload. It should be called repeatedly until the response indicates that the processing is complete or provides the item IDs of the processed files.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://bynder-public-us-east-1.s3.amazonaws.com/
+  variables: {}
+security: []
+tags:
+- name: Step 5 Poll for processing status
+  description: 'This endpoint allows you to check the processing status of a finalized upload. It should be called repeatedly until the response indicates that the processing is complete or provides the item IDs of the processed files.
+
+    '
+paths:
+  /api/v4/upload/poll:
+    parameters: []
+    get:
+      tags:
+      - Step 5 Poll for processing status
+      summary: Retrieve poll state
+      description: 'This call needs to be executed in a loop until its response returns the item(s) id(s) passed in the **items** parameter.
+
+        '
+      operationId: Retrieve poll state
+      parameters:
+      - name: items
+        in: query
+        description: Comma-separated import id's of a finalised file, as returned by the finalise call.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000,00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: Successful response
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - itemsDone:
+                  - 00000000-0000-0000-0000000000000000
+                  itemsFailed: []
+                  itemsRejected: []
+                contentMediaType: application/json
+              examples:
+                success:
+                  summary: Successful response
+                  value:
+                    itemsDone:
+                    - 00000000-0000-0000-0000000000000000
+                    itemsFailed: []
+                    itemsRejected: []
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://your-bynder-domainDefaultValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

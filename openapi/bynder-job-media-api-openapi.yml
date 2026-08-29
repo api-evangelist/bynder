@@ -1,0 +1,179 @@
+openapi: 3.2.0
+info:
+  title: Workflow Jobs Job media API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}
+tags:
+- name: Job media
+  description: ''
+paths:
+  /api/workflow/jobs/{id}/media:
+    get:
+      summary: Retrieve media of specific job
+      description: Requires the JOBOVERVIEW security role.
+      tags:
+      - Job media
+      security:
+      - permanentToken:
+        - JOBOVERVIEW
+      - OAuth2:
+        - JOBOVERVIEW
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    filename:
+                      type: string
+                    uploader_name:
+                      type: string
+                    responsible_name:
+                      type: string
+                    dateCreated:
+                      type: string
+                    dateModified:
+                      type: string
+                    orientation:
+                      type: string
+                    original_url:
+                      type: string
+                    status:
+                      type: string
+                    versionParentID:
+                      type: string
+                    version:
+                      type: number
+                    previews:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                          url:
+                            type: string
+                    sub_versions:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          filename:
+                            type: string
+                          uploader_name:
+                            type: string
+                          responsible_name:
+                            type: string
+                          dateCreated:
+                            type: string
+                          dateModified:
+                            type: string
+                          orientation:
+                            type: string
+                          original_url:
+                            type: string
+                          status:
+                            type: string
+                          versionParentID:
+                            type: string
+                          version:
+                            type: number
+                          previews:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                url:
+                                  type: string
+                          sub_versions:
+                            type: array
+                            items: {}
+              examples:
+                example-1:
+                  value:
+                  - id: 00000000-0000-0000-0000-000000000000
+                    filename: filename.png
+                    uploader_name: John Doe
+                    responsible_name: John Doe
+                    dateCreated: '2021-05-12T08:48:01+00:00'
+                    dateModified: '2021-05-12T08:51:22+00:00'
+                    orientation: square
+                    original_url: https://url.to.file/original.png
+                    status: AwaitingApproval
+                    versionParentID: null
+                    version: 1
+                    previews:
+                    - type: thumbnail
+                      url: https://url.to.file/preview.png
+                    - type: preview
+                      url: https://url.to.file/preview.png
+                    - type: activity
+                      url: https://url.to.file/preview.png
+                    sub_versions:
+                    - id: 00000000-0000-0000-0000-000000000000
+                      filename: filename.png
+                      uploader_name: John Doe
+                      responsible_name: John Doe
+                      dateCreated: '2021-05-13T08:48:01+00:00'
+                      dateModified: '2021-05-13T08:51:22+00:00'
+                      orientation: square
+                      original_url: https://url.to.file/original.png
+                      status: AwaitingApproval
+                      versionParentID: 00000000-0000-0000-0000-000000000000
+                      version: 2
+                      previews:
+                      - type: thumbnail
+                        url: https://url.to.file/preview.png
+                      - type: preview
+                        url: https://url.to.file/preview.png
+                      - type: activity
+                        url: https://url.to.file/preview.png
+                      sub_versions: []
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''

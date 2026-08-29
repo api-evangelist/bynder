@@ -1,0 +1,65 @@
+openapi: 3.2.0
+info:
+  title: Adaptive Video Streaming Public links API
+  description: API for retrieving public links to HLS and DASH manifests for video assets
+  version: 1.0.0
+servers:
+- url: https://api.example.com
+  description: API server
+tags:
+- name: Public links
+  description: ''
+paths:
+  /api/1/assets/{asset_id}/public-links:
+    get:
+      summary: Get public links for an asset
+      description: This API returns public links to both HLS and DASH manifests for video assets, as well as the Video player HTML embed code to integrate Adaptive Video Streaming links with a supported video player. This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `asset_id`, and [Note on identifiers](https://api.bynder.com/docs/getting-started#note-on-identifiers) for more information.
+      tags:
+      - Public links
+      operationId: getAssetPublicLinks
+      parameters:
+      - name: asset_id
+        in: path
+        description: The UUID of the asset
+        required: true
+        schema:
+          type: string
+          format: uuid
+          example: f4d5881d-9a2b-4e3d-a1f7-29f6771309f9
+      responses:
+        '200':
+          description: Successful response with public links
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicLinks'
+        '404':
+          description: No adaptive streaming available for given asset
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: manifest file not found
+components:
+  schemas:
+    PublicLinks:
+      type: object
+      properties:
+        hls:
+          type: string
+          format: uri
+          description: URL to the HLS manifest
+          example: https://your.portal.url/vod-stream/00000000-0000-0000-0000-000000000000/play-hls2.m3u8
+        dash:
+          type: string
+          format: uri
+          description: URL to the DASH manifest
+          example: https://your.portal.url/vod-stream/00000000-0000-0000-0000-000000000000/play-dash.mpd
+        embedCode:
+          type: string
+          description: HTML embed code for integrating the video player
+          example: <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/controls.min.css"/><div   bvd-manifest-url="https://deliver-testmanual.bynder-stage.com/vod-stream/450b9520-b186-48c6-8a51-faec286abc37/play-hls2.m3u8" bvd-poster="https://deliver-testmanual.bynder-stage.com/asset/450b9520-b186-48c6-8a51-faec286abc37/thumbnail/webimage-poster"></div><script src="https://deliver-testmanual.bynder-stage.com/v7/video-delivery/main.js"></script>
+      required:
+      - hls
+      - dash
+      - embedCode

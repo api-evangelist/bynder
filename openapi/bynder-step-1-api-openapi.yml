@@ -1,0 +1,113 @@
+openapi: 3.2.0
+info:
+  title: Bynder Step 1 API
+  version: 1.0.0
+  description: 'Operations tagged Step 1 across 2 of this provider''s published API definitions: bynder-asset-upload-steps-test-openapi.json, bynder-modern-stack-upload-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+tags:
+- name: Step 1
+  description: 'This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.
+
+    '
+paths:
+  /api/upload/endpoint:
+    parameters: []
+    get:
+      tags:
+      - Step 1
+      summary: Get closest AmazonS3 upload endpoint
+      description: Get the closest AmazonS3 upload endpoint.
+      operationId: GetclosestAmazonS3uploadendpoint
+      parameters: []
+      responses:
+        '200':
+          description: Successful response
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: string
+                examples:
+                - https://bynder-public-eu-central-1.s3.amazonaws.com/
+                contentMediaType: application/json
+              example: https://bynder-public-eu-central-1.s3.amazonaws.com/
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+    servers:
+    - url: https://{your-bynder-domain}/
+      variables:
+        your-bynder-domain:
+          default: your-bynder-domainDefaultValue
+    - url: https://{your-auth-url}
+      variables:
+        your-auth-url:
+          default: DefaultParameterValue
+  /v7/file_cmds/upload/prepare:
+    post:
+      summary: Prepare the upload
+      description: Prepare the upload of a file in chunks.
+      tags:
+      - Step 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  file_id:
+                    type: string
+                    description: File ID to be used in subsequent upload steps.
+                    example: 00000000-0000-0000-0000-000000000000
+        '400':
+          description: Bad request
+    servers:
+    - url: https://{your-bynder-domain}/
+      variables:
+        your-bynder-domain:
+          default: example.com
+          description: Your Bynder domain.
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://DefaultParameterValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+x-refined-from:
+- bynder-asset-upload-steps-test-openapi.json
+- bynder-modern-stack-upload-openapi.json

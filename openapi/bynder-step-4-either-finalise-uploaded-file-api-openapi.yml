@@ -1,0 +1,205 @@
+openapi: 3.2.0
+info:
+  title: Group Upload Assets API Steps Step 4 EITHER Finalise uploaded file API
+  contact: {}
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://bynder-public-us-east-1.s3.amazonaws.com/
+  variables: {}
+security: []
+tags:
+- name: Step 4 EITHER Finalise uploaded file
+  description: ''
+paths:
+  /api/v4/upload/{id}/:
+    parameters: []
+    post:
+      tags:
+      - Step 4 EITHER Finalise uploaded file
+      summary: Finalise an uploaded file
+      description: The endpoints described in Step 4 are an Either/Or choice. You should use either the `Finalise an uploaded file` endpoint to finalize and process a standard upload, or the `Finalize additional file` endpoint to finalize and save an additional uploaded file as a new asset.
+      operationId: Finalise an uploaded file
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          examples:
+          - T3.fS5.5HPhtYFtm2b_.e7wVe910tL5XQutKw1jkMqlP5cPQVyZkOZxZ9lJiGUk4FIw6M0CFZ3xogTWrm.GPI2p2CaglQcAS5aH37zT_vHJnbtkebYbheXIQc_.M_6hM
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          $ref: '#/components/schemas/Content-Type'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - targetid
+              - s3_filename
+              - chunks
+              type: object
+              properties:
+                targetid:
+                  type: string
+                  description: Target id as returned by the initialise call.
+                  examples:
+                  - final/E3333526-7F87-49F9-B49C0054C0D31477/Logo.png
+                s3_filename:
+                  type: string
+                  description: Base location of the uploaded file.
+                  examples:
+                  - api_uploads/159D8D4B-B981-49B8-BF0569FD144CB359/A29FABF0-26B8-44BF-890920E4C09E7C11/Logo.png
+                chunks:
+                  type: number
+                  description: Total number of chunks uploaded.
+                  contentEncoding: double
+                  examples:
+                  - 5
+                original_filename:
+                  type: string
+                  description: Filename including special characters to be displayed in Bynder.
+                  examples:
+                  - Logo.png
+              contentMediaType: application/x-www-form-urlencoded
+        required: false
+      responses:
+        '202':
+          description: Accepted
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiV4UploadResponse1'
+        '500':
+          description: Internal Server Error
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiV4Upload500Error1'
+      deprecated: false
+components:
+  schemas:
+    ApiV4Upload500Error1:
+      title: ApiV4Upload500Error1
+      type: object
+      properties:
+        message:
+          type: string
+          examples:
+          - Could not complete upload
+        retry:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+        success:
+          type: boolean
+          examples:
+          - false
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
+    File:
+      title: File
+      type: object
+      properties:
+        bucket:
+          type: string
+          examples:
+          - BUCKET
+        path:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        type:
+          type: string
+          examples:
+          - s3
+    ApiV4UploadResponse1:
+      title: ApiV4UploadResponse1
+      type: object
+      properties:
+        output:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/
+        batchId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        file:
+          $ref: '#/components/schemas/File'
+        filename:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        importId:
+          type: string
+          examples:
+          - 000000000-0000-0000-0000000000000000
+        locationType:
+          type: string
+          examples:
+          - s3
+        success:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://your-bynder-domainDefaultValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

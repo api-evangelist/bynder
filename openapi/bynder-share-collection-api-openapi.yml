@@ -1,0 +1,128 @@
+openapi: 3.2.0
+info:
+  title: Collections Share collection API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Share collection
+  description: ''
+paths:
+  /api/v4/collections/{id}/share:
+    post:
+      summary: Share collection
+      description: Share a specific collection by ID.
+      tags:
+      - Share collection
+      security:
+      - OAuth2:
+        - SHARECOLLECTION
+        - SHARING
+      - permanentToken:
+        - SHARECOLLETION
+        - SHARING
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                recipients:
+                  type: string
+                  example: user1@bynder.com,user2@bynder.com
+                groups:
+                  type: string
+                  example: 00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
+                profiles:
+                  type: string
+                  example: 00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
+                collectionOptions:
+                  type: string
+                  enum:
+                  - readOnly
+                  - view
+                  - readAccess
+                  - edit
+                  example: view
+                loginRequired:
+                  type: boolean
+                  example: true
+                dateStart:
+                  type: string
+                  example: '2014-08-12T08:07:24Z'
+                dateEnd:
+                  type: string
+                  example: '2015-08-12T08:07:24Z'
+                sendMail:
+                  type: boolean
+                  example: true
+                message:
+                  type: string
+                  example: Your message goes here
+      responses:
+        '202':
+          description: Collection shared.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: accepted
+                  statuscode:
+                    type: integer
+                    example: 202
+        '400':
+          description: Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Recipients, groups or profiles must contain at least one entry
+                  statuscode:
+                    type: integer
+                    example: 400
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            collection.public.view: To retrieve public collections
+            INBOXPUBLIC: To retrieve collections other users shared/received
+            OUTBOXPUBLIC: To retrieve collections other users shared/received
+            PUBLICCOLLECTIONS: To retrieve collections other users created
+            COLLECTIONS: ''
+            PUBLISHCOLLECTIONS: ''
+            SHARECOLLECTION: ''
+            SHARING: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            collection.public.view: To retrieve public collections
+            INBOXPUBLIC: To retrieve collections other users shared/received
+            OUTBOXPUBLIC: To retrieve collections other users shared/received
+            PUBLICCOLLECTIONS: To retrieve collections other users created
+            COLLECTIONS: ''
+            PUBLISHCOLLECTIONS: ''
+            SHARECOLLECTION: ''
+            SHARING: ''

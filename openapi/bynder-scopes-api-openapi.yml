@@ -1,0 +1,55 @@
+openapi: 3.2.0
+info:
+  title: OAuth 2.0 Scopes API
+  version: 1.0.0
+tags:
+- name: Scopes
+paths:
+  /v6/authentication/oauth2/scopes:
+    get:
+      summary: Retrieve scopes
+      description: Retrieve a JSON formatted overview of the existing scopes within Bynder and the required user permissions.
+      tags:
+      - Scopes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: Group name
+                        scopes:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                example: scope:action
+                              description:
+                                type: string
+                                example: Scope description
+                              anyOfPermissions:
+                                type: array
+                                items:
+                                  type: string
+                                  example: scope.permission
+              examples:
+                example-1:
+                  value:
+                    groups:
+                    - name: Group name
+                      scopes:
+                      - name: scope:action
+                        description: Scope description
+                        anyOfPermissions:
+                        - scope.permission

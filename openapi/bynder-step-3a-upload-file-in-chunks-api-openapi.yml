@@ -1,0 +1,81 @@
+openapi: 3.2.0
+info:
+  title: Group Upload Assets API Steps Step 3A Upload file in chunks API
+  contact: {}
+  version: 1.0.0
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://bynder-public-us-east-1.s3.amazonaws.com/
+  variables: {}
+security: []
+tags:
+- name: Step 3A Upload file in chunks
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+paths:
+  /bynder-public-us-east-1.s3.amazonaws.com/:
+    parameters: []
+    post:
+      tags:
+      - Step 3A Upload file in chunks
+      summary: Upload file in chunks
+      description: Uploading a file consists of the following two parts. Breaking down your file in parts/chunks. Each part must be at least 5 MB in size, except the last part. There is no size limit on the last part of your multipart upload. For more information, about how amazon handles parts/chunks, visit Amazon's website. Sending the chunks over to Amazon and then registering them to Bynder. You can repeat those calls up until your file has been uploaded completely. Upload a chunk Make a POST request to the Amazon upload endpoint you received from calling Get closest AmazonS3 upload endpoint. Use a multipart/form-data to send all of the parameters that the multipart_params of the previous request included; plus the following additional parameters.
+      operationId: Upload file in chunks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+          content: {}
+      deprecated: false
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://your-bynder-domainDefaultValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

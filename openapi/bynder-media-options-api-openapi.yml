@@ -1,0 +1,186 @@
+openapi: 3.2.0
+info:
+  title: Asset Management Media options API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Media options
+  description: ''
+paths:
+  /api/media/options:
+    post:
+      summary: Add metaproperty options
+      description: These calls allow you to change the metaproperty options attached to an asset.
+      tags:
+      - Media options
+      security:
+      - permanentToken:
+        - MEDIAEDIT
+      - OAuth2:
+        - MEDIAEDIT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                asset_id:
+                  type: string
+                  example: 00000000-0000-0000-0000000000000000
+                metaproperty_id:
+                  type: string
+                  example: 00000000-0000-0000-0000000000000000
+                metaproperty_option_ids:
+                  type: array
+                  items:
+                    type: string
+                    example: 00000000-0000-0000-0000000000000000
+            examples:
+              example1:
+                value:
+                  asset_id: 00000000-0000-0000-0000000000000000
+                  metaproperty_id: 00000000-0000-0000-0000000000000000
+                  metaproperty_option_ids:
+                  - 00000000-0000-0000-0000000000000000
+                  - 00000000-0000-0000-0000000000000001
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Created
+                  statuscode:
+                    type: integer
+                    example: 201
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Access denied
+                  statuscode:
+                    type: integer
+                    example: 403
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Not Found
+                  statuscode:
+                    type: integer
+                    example: 404
+    delete:
+      summary: Delete metaproperty options
+      tags:
+      - Media options
+      security:
+      - permanentToken:
+        - MEDIAEDIT
+      - OAuth2:
+        - MEDIAEDIT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                asset_id:
+                  type: string
+                  example: 00000000-0000-0000-0000000000000000
+                metaproperty_id:
+                  type: string
+                  example: 00000000-0000-0000-0000000000000000
+                metaproperty_option_ids:
+                  type: array
+                  items:
+                    type: string
+                    example: 00000000-0000-0000-0000000000000000
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No Content
+                  statuscode:
+                    type: integer
+                    example: 204
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Access denied
+                  statuscode:
+                    type: integer
+                    example: 403
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Not Found
+                  statuscode:
+                    type: integer
+                    example: 404
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            ARCHIVEMEDIA: ''
+            ARCHIVEDOWNLOAD: ''
+            EMARGOMEDIA: ''
+            KEYVISUALDOWNLOAD: ''
+            STATISTICS: ''
+            MEDIAEDIT: ''
+            MARKPUBLIC: ''
+            MEDIAREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            ARCHIVEMEDIA: ''
+            ARCHIVEDOWNLOAD: ''
+            EMARGOMEDIA: ''
+            KEYVISUALDOWNLOAD: ''
+            STATISTICS: ''
+            MEDIAEDIT: ''
+            MARKPUBLIC: ''
+            MEDIAREMOVE: ''

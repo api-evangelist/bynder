@@ -1,0 +1,188 @@
+openapi: 3.2.0
+info:
+  title: Bynder Automation Workflow Conditions API
+  version: 1.0.0
+  description: 'Operations tagged Automation Workflow Conditions across 2 of this provider''s published API definitions: bynder-automation-workflow-openapi.json, bynder-automation-workflow-svc-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://example.com/api/1/automation-workflow/
+tags:
+- name: Automation Workflow Conditions
+paths:
+  /conditions:
+    get:
+      tags:
+      - Automation Workflow Conditions
+      summary: List Automation Workflow Conditions
+      description: Get a list of available automation workflow conditions.
+      operationId: getConditions
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutomationWorkflowConditionsResponse'
+              example:
+                conditions:
+                - name: AssetType
+                  operators:
+                  - CONTAINS
+                  - DOES_NOT_CONTAIN
+                  terms:
+                  - IMAGE
+                  - VIDEO
+                  - DOCUMENT
+                  - AUDIO
+                  - 3D
+                - name: Metaproperty
+                  operators:
+                  - CONTAINS
+                  - DOES_NOT_CONTAIN
+                  terms:
+                  - 00000000-0000-0000-0000-000000000000
+                  - 00000000-0000-0000-0000-000000000000
+                maxConditionsCount: 5
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorAuthorizationResponse'
+      security:
+      - {}
+      - httpAuth: []
+components:
+  schemas:
+    AutomationWorkflowConditionsResponse:
+      title: AutomationWorkflowConditionsResponse
+      type: object
+      required:
+      - maxConditionsCount
+      properties:
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowCondition'
+        maxConditionsCount:
+          type: integer
+          format: int32
+    AutomationWorkflowCondition:
+      title: AutomationWorkflowCondition
+      type: object
+      required:
+      - name
+      - weight
+      properties:
+        name:
+          type: string
+        weight:
+          type: integer
+          format: int32
+        operators:
+          type: array
+          items:
+            type: string
+        terms:
+          type: array
+          items:
+            type: string
+    ErrorResponse:
+      title: ErrorResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+    AutomationWorkflowConditionsResponse_2:
+      title: AutomationWorkflowConditionsResponse
+      type: object
+      required:
+      - max_conditions_count
+      properties:
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowCondition_2'
+        max_conditions_count:
+          type: integer
+          format: int32
+    Term:
+      title: Term
+      oneOf:
+      - $ref: '#/components/schemas/ArchiveTerm'
+      - $ref: '#/components/schemas/AssetTypeTerm'
+      - $ref: '#/components/schemas/MetapropertyOptionTerm'
+    AutomationWorkflowCondition_2:
+      title: AutomationWorkflowCondition
+      type: object
+      required:
+      - name
+      - weight
+      properties:
+        name:
+          type: string
+        weight:
+          type: integer
+          format: int32
+        operators:
+          type: array
+          items:
+            type: string
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/Term'
+    AssetTypeTerm:
+      title: AssetTypeTerm
+      type: object
+      required:
+      - asset_type
+      properties:
+        asset_type:
+          type: string
+    ArchiveTerm:
+      title: ArchiveTerm
+      type: object
+      required:
+      - offset_amount
+      - offset_unit
+      properties:
+        offset_amount:
+          type: integer
+          format: int32
+        offset_unit:
+          type: string
+    MetapropertyOptionTerm:
+      title: MetapropertyOptionTerm
+      type: object
+      required:
+      - metaproperty_id
+      properties:
+        metaproperty_id:
+          type: string
+          format: uuid
+        metaproperty_option_id:
+          type: string
+          format: uuid
+  securitySchemes:
+    httpAuth:
+      type: http
+      scheme: bearer
+x-refined-from:
+- bynder-automation-workflow-openapi.json
+- bynder-automation-workflow-svc-openapi.json

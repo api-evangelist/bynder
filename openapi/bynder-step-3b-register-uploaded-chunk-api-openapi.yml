@@ -1,0 +1,213 @@
+openapi: 3.2.0
+info:
+  title: Group Upload Assets API Steps Step 3B Register uploaded chunk API
+  contact: {}
+  version: 1.0.0
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://bynder-public-us-east-1.s3.amazonaws.com/
+  variables: {}
+security: []
+tags:
+- name: Step 3B Register uploaded chunk
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+paths:
+  /api/v4/upload/{id}:
+    parameters: []
+    post:
+      tags:
+      - Step 3B Register uploaded chunk
+      summary: Register uploaded chunk
+      description: Register the completion of an uploaded chunk.
+      operationId: Register uploaded chunk
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          examples:
+          - T3.fS5.5HPhtYFtm2b_.e7wVe910tL5XQutKw1jkMqlP5cPQVyZkOZxZ9lJiGUk4FIw6M0CFZ3xogTWrm.GPI2p2CaglQcAS5aH37zT_vHJnbtkebYbheXIQc_.M_6hM
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          $ref: '#/components/schemas/Content-Type'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              type: object
+              properties:
+                chunkNumber:
+                  type: number
+                  description: required for every chunk
+                  contentEncoding: double
+                  examples:
+                  - 5
+                targetid:
+                  type: string
+                  description: required for every chunk
+                  examples:
+                  - final/00000000-0000-0000-0000000000000000/Logo.png
+                filename:
+                  type: string
+                  description: required for every chunk
+                  examples:
+                  - api_uploads/00000000-0000-0000-0000000000000000/00000000-0000-0000-0000000000000000/Logo.png/p5
+              contentMediaType: application/x-www-form-urlencoded
+        required: false
+      responses:
+        '202':
+          description: Chunk registered successfully
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiV4UploadResponse'
+        '500':
+          description: Upload failed or not ready
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiV4Upload500Error1'
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+components:
+  schemas:
+    ApiV4Upload500Error1:
+      title: ApiV4Upload500Error1
+      type: object
+      properties:
+        message:
+          type: string
+          examples:
+          - Could not complete upload
+        retry:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+        success:
+          type: boolean
+          examples:
+          - false
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
+    File:
+      title: File
+      type: object
+      properties:
+        bucket:
+          type: string
+          examples:
+          - BUCKET
+        path:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        type:
+          type: string
+          examples:
+          - s3
+    ApiV4UploadResponse:
+      title: ApiV4UploadResponse
+      type: object
+      properties:
+        status:
+          type: string
+          description: Only for chunk registration
+          examples:
+          - ok
+        output:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/
+        batchId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        file:
+          $ref: '#/components/schemas/File'
+        filename:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        importId:
+          type: string
+          examples:
+          - 000000000-0000-0000-0000000000000000
+        locationType:
+          type: string
+          examples:
+          - s3
+        success:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://your-bynder-domainDefaultValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

@@ -1,0 +1,301 @@
+openapi: 3.2.0
+info:
+  title: Bynder Users API
+  version: 1.0.0
+  description: 'Operations tagged Users across 2 of this provider''s published API definitions: bynder-users-v4-openapi.json, bynder-wf-users-groups-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+- url: https://{your-bynder-domain}
+tags:
+- name: Users
+  description: 'Manage users within your Bynder account. You can create, retrieve, update, and delete users as needed.
+
+    '
+paths:
+  /api/v4/users/:
+    get:
+      summary: Retrieve users
+      tags:
+      - Users
+      security:
+      - permanentToken:
+        - USERMANAGEMENT
+      - OAuth2:
+        - USERMANAGEMENT
+      parameters:
+      - name: includeInActive
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether to include inactive users in the list of results.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 100
+        description: Maximum results to return. If limit is not provided, all results are returned.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+        description: What page of results to return.
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            X-Pagination-TotalRecords:
+              schema:
+                type: integer
+              description: Total number of records.
+            X-Pagination-TotalPages:
+              schema:
+                type: integer
+              description: Total number of pages.
+            X-Pagination-Page:
+              schema:
+                type: integer
+              description: Current page number.
+            X-Pagination-Limit:
+              schema:
+                type: integer
+              description: Limit of records per page.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    email2:
+                      type: string
+                    salesrepId:
+                      type: string
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    active:
+                      type: integer
+                    isSSOOnly:
+                      type: boolean
+                    username:
+                      type: string
+                    email:
+                      type: string
+                    profileId:
+                      type: string
+                    employeeNumber:
+                      type: string
+                    timeZone:
+                      type: string
+                    website:
+                      type: string
+                    country:
+                      type: string
+                    groups:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          id:
+                            type: string
+    post:
+      summary: Create user
+      tags:
+      - Users
+      security:
+      - permanentToken:
+        - USERMANAGEMENT
+      - OAuth2:
+        - USERMANAGEMENT
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  username:
+                    type: string
+    servers:
+    - url: https://{your-bynder-domain}/
+  /api/workflow/users/:
+    get:
+      summary: Retrieve users
+      tags:
+      - Users
+      security:
+      - permanentToken:
+        - USERMANAGEMENT
+      - OAuth2:
+        - USERMANAGEMENT
+      responses:
+        '200':
+          description: A list of workflow users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    ID:
+                      type: string
+                      example: 00000000-0000-0000-0000-000000000000
+                    fullname:
+                      type: string
+                      example: Firstname Lastname
+                    BynderUser:
+                      type: object
+                      properties:
+                        firstName:
+                          type: string
+                          example: Firstname
+                        lastName:
+                          type: string
+                          example: Lastname
+                        infix:
+                          type: string
+                          example: Van
+                        email:
+                          type: string
+                          example: example@example.com
+                        id:
+                          type: string
+                          example: 00000000-0000-0000-0000-000000000000
+    servers:
+    - url: https://{your-bynder-domain}
+  /api/workflow/users/{id}:
+    get:
+      summary: Retrieve specific user
+      tags:
+      - Users
+      security:
+      - permanentToken:
+        - USERMANAGEMENT
+      - OAuth2:
+        - USERMANAGEMENT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: A specific workflow user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ID:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+                  fullname:
+                    type: string
+                    example: Firstname Lastname
+                  BynderUser:
+                    type: object
+                    properties:
+                      firstName:
+                        type: string
+                        example: Firstname
+                      lastName:
+                        type: string
+                        example: Lastname
+                      infix:
+                        type: string
+                        example: Van
+                      email:
+                        type: string
+                        example: example@example.com
+                      id:
+                        type: string
+                        example: 00000000-0000-0000-0000-000000000000
+    servers:
+    - url: https://{your-bynder-domain}
+components:
+  schemas:
+    User:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        profileId:
+          type: string
+        active:
+          type: integer
+          enum:
+          - 1
+          - 0
+          default: 1
+        isSSOOnly:
+          type: boolean
+          default: false
+        language:
+          type: string
+        firstname:
+          type: string
+        infix:
+          type: string
+        lastname:
+          type: string
+        groupIds:
+          type: string
+        phoneNumber:
+          type: string
+        companyName:
+          type: string
+        department:
+          type: string
+        job:
+          type: string
+        costCenter:
+          type: string
+      required:
+      - password
+      - email
+      - profileId
+      - firstname
+      - lastname
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            USERMANAGEMENT: Grants permission to manage users
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            USERMANAGEMENT: Grants permission to manage users
+x-refined-from:
+- bynder-users-v4-openapi.json
+- bynder-wf-users-groups-v4-openapi.json

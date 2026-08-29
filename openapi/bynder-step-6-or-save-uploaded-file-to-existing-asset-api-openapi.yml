@@ -1,0 +1,122 @@
+openapi: 3.2.0
+info:
+  title: Group Upload Assets API Steps Step 6 OR Save uploaded file to existing asset API
+  contact: {}
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://bynder-public-us-east-1.s3.amazonaws.com/
+  variables: {}
+security: []
+tags:
+- name: Step 6 OR Save uploaded file to existing asset
+paths:
+  /api/v4/media/{id}/save/{importId}:
+    parameters: []
+    post:
+      tags:
+      - Step 6 OR Save uploaded file to existing asset
+      summary: Save uploaded file to existing asset
+      description: Be aware that the endpoints described in Step 6 are an Either/Or choice. You should use either the `Save as a new asset` endpoint to save the uploaded file as a new asset, or the `Update existing asset` endpoint to update an existing asset with the uploaded file.
+      operationId: Save uploaded file to existing asset
+      parameters:
+      - name: id
+        in: path
+        description: Asset id to which to save the uploaded file.
+        required: true
+        style: simple
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+      - name: importId
+        in: path
+        description: Import id of a finalised and processed upload to be saved.
+        required: true
+        style: simple
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+      requestBody:
+        description: ''
+        content:
+          text/plain:
+            schema:
+              contentMediaType: text/plain
+        required: false
+      responses:
+        '201':
+          description: Created
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - mediaid: 00000000-0000-0000-0000000000000000
+                  batchId: 00000000-0000-0000-0000000000000000
+                  success: true
+                  mediaitems:
+                  - original: final/00000000-0000-0000-0000000000000000/image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                  - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                  - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                contentMediaType: application/json
+              examples:
+                success:
+                  summary: Successful response
+                  value:
+                    mediaid: 00000000-0000-0000-0000000000000000
+                    batchId: 00000000-0000-0000-0000000000000000
+                    success: true
+                    mediaitems: null
+      deprecated: false
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://your-bynder-domainDefaultValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

@@ -1,0 +1,691 @@
+openapi: 3.2.0
+info:
+  title: Analytics Asset Usage V1 API
+  version: 1.0.0
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Analytics Reporting tool](#reference/analytics/reporting) or the [Users API endpoints](#reference/users).
+
+    '
+servers:
+- url: https://{your-bynder-domain}
+security:
+- permanentToken:
+  - analytics.api:read
+- oauth2:
+  - analytics.api:read
+tags:
+- name: Asset Usage V1
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Analytics Reporting tool](#reference/analytics/reporting) or the [Users API endpoints](#reference/users).
+
+    '
+paths:
+  /v7/analytics/api/v1/asset/view:
+    get:
+      summary: Retrieve asset view events
+      tags:
+      - Asset Usage V1
+      description: This endpoint will be deprecated on July, 15th. Use the Asset Views V2 endpoint instead.
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+      - name: fromDateTime
+        in: query
+        description: 'Retrieve view events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: 'Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next url path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            application/json:
+              examples:
+                example-1:
+                  summary: Example response
+                  value:
+                  - id: 62de6d714e29485a81824fe3
+                    eventType: asset.view
+                    userId: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime: '2021-11-15T10:07:57.781+00:00'
+                    assetId: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+                    assetType: image
+                    assetName: Product Insights
+                    assetAudit: ACCEPTED
+                    fileName: CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights
+                  - id: 62de6d714e29485a81824fe4
+                    eventType: asset.view
+                    userId: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime: '2021-11-15T10:08:18.752+00:00'
+                    assetId: C58ED8C6-6B09-4CD6-B71C32C6715834F1
+                    assetType: image
+                    assetName: Reporting Schedule Nov 2022
+                    assetAudit: ACCEPTED
+                    fileName: C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022
+            text/csv:
+              examples:
+                example-1:
+                  summary: Example CSV response
+                  value: 'id,eventType,userId,dateTime,assetId,assetType,assetName,assetAudit,fileName
+
+                    62de6d714e29485a81824fe3,asset.view,1A84D758-2B3A-141F-8F07D71AA1F223BD,1655823377864,CA510292-E39E-4B28-AB6444CDD2B1C5C0,image,Product Insights,ACCEPTED,CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights
+
+                    62de6d714e29485a81824fe4,asset.view,1A84D758-2B3A-141F-8F07D71AA1F223BD,1655996103781,C58ED8C6-6B09-4CD6-B71C32C6715834F1,image,Reporting Schedule Nov 2022,ACCEPTED,C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022
+
+                    '
+  /v7/analytics/api/v1/asset/download:
+    get:
+      summary: Retrieve asset download events
+      tags:
+      - Asset Usage V1
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+      - name: fromDateTime
+        in: query
+        description: 'Retrieve download events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: 'Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next url path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            application/json:
+              examples:
+                example-1:
+                  summary: Example response
+                  value:
+                  - id: 62de6d714e29485a81824fe3
+                    eventType: asset.download
+                    userId: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime: '2021-11-15T10:07:57.781+00:00'
+                    assetId: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+                    assetType: image
+                    assetName: Product Insights
+                    assetAudit: ACCEPTED
+                    fileName: CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights
+                    mediaItemId: 69293464-7721-4062-9E05EFAF23FE70E7
+                    mediaItemType: original
+                  - id: 62de6d714e29485a81824fe4
+                    eventType: asset.download
+                    userId: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime: '2021-11-15T10:08:18.752+00:00'
+                    assetId: C58ED8C6-6B09-4CD6-B71C32C6715834F1
+                    assetType: image
+                    assetName: Reporting Schedule Nov 2022
+                    assetAudit: ACCEPTED
+                    fileName: C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022
+                    mediaItemId: 69293464-7721-4062-9E05EFAF23FE70E7
+                    mediaItemType: web
+            text/csv:
+              examples:
+                example-1:
+                  summary: Example CSV response
+                  value: 'id,eventType,userId,dateTime,assetId,assetType,assetName,assetAudit,fileName,mediaItemId,mediaItemType
+
+                    62de6d714e29485a81824fe3,asset.download,1A84D758-2B3A-141F-8F07D71AA1F223BD,1655823377864,CA510292-E39E-4B28-AB6444CDD2B1C5C0,image,Product Insights,ACCEPTED,CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights,69293464-7721-4062-9E05EFAF23FE70E7,original
+
+                    62de6d714e29485a81824fe4,asset.download,1A84D758-2B3A-141F-8F07D71AA1F223BD,1655996103781,C58ED8C6-6B09-4CD6-B71C32C6715834F1,image,Reporting Schedule Nov 2022,ACCEPTED,C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022,69293464-7721-4062-9E05EFAF23FE70E7,web
+
+                    '
+  /v7/analytics/api/v1/asset/v2/download:
+    get:
+      summary: Retrieve asset download events
+      tags:
+      - Asset Usage V1
+      description: This endpoint only offers data from 2023-11-01. Use the Asset Download endpoint for previous data.
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+          example: 100
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+          example: MTAwMA
+      - name: fromDateTime
+        in: query
+        description: 'Retrieve download events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: 2022-01-01T01:00
+      - name: toDateTime
+        in: query
+        description: 'Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: 2022-06-01T01:00
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: MTAwMA
+            Next-Url:
+              description: The next url path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: /api/v1/asset/v2/download?limit=1000&cursor=MTAwMA
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    eventId:
+                      type: string
+                      description: Id of the event
+                      example: 1408aec2-3114-43dd-be20-ffb1246a5231
+                    eventType:
+                      type: string
+                      description: Type of event
+                      example: AssetDownloadRequested
+                    dateTime:
+                      type: string
+                      format: date-time
+                      description: Date and time when the event occurred
+                      example: '2021-11-15T10:07:57.781Z'
+                    userId:
+                      type: string
+                      description: Id of the user that generated the event
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    assetId:
+                      type: string
+                      description: Id of the asset
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+                    downloadReasons:
+                      type: array
+                      items:
+                        type: string
+                      description: Reasons given on why the asset was downloaded
+                      example:
+                      - reason1
+                      - reason2
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"eventId\": \"1408aec2-3114-43dd-be20-ffb1246a5231\",\n    \"eventType\": \"AssetDownloadRequested\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\",\n    \"downloadReasons\": [\n      \"reason1\",\n      \"reason2\"\n    ]\n  },\n  {\n    \"eventId\": \"5908aec2-3114-43dd-be20-ffb1246a5231\",\n    \"eventType\": \"AssetDownloadRequested\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"assetId\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F\",\n    \"downloadReasons\": [\n      \"reason2\"\n    ]\n  }\n]\n"
+  /v7/analytics/api/v1/asset/create:
+    get:
+      summary: Retrieve asset creation events
+      description: Retrieve asset creation events within a specified date range.
+      tags:
+      - Asset Usage V1
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+          example: 100
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+          example: MTAwMA
+      - name: fromDateTime
+        in: query
+        description: Retrieve create events occurred after this date.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: '2022-01-01T01:00:00.000Z'
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: '2022-06-01T01:00:00.000Z'
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: MTAwMA
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: /api/v1/asset/create?limit=1000&cursor=MTAwMA
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 62de6d714e29485a81824fe3
+                    eventType:
+                      type: string
+                      example: asset.create
+                    userId:
+                      type: string
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime:
+                      type: string
+                      format: date-time
+                      example: '2021-11-15T10:07:57.781Z'
+                    assetId:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+                    assetType:
+                      type: string
+                      example: image
+                    assetName:
+                      type: string
+                      example: Product Insights
+                    assetAudit:
+                      type: string
+                      example: ACCEPTED
+                    fileName:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"asset.create\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Product Insights\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights\"\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"asset.create\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:08:18.752+00:00\",\n    \"assetId\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Reporting Schedule Nov 2022\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022\"\n  }\n]\n"
+  /v7/analytics/api/v1/asset/archive:
+    get:
+      summary: Retrieve asset archive events
+      description: Retrieve archive events for assets within a specified date range.
+      tags:
+      - Asset Usage V1
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+          example: 100
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+          example: MTAwMA
+      - name: fromDateTime
+        in: query
+        description: Retrieve archive events occurred after this date.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: '2022-01-01T01:00:00.000Z'
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: '2022-06-01T01:00:00.000Z'
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: MTAwMA
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: /api/v1/asset/archive?limit=1000&cursor=MTAwMA
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 62de6d714e29485a81824fe3
+                    eventType:
+                      type: string
+                      example: asset.archive
+                    userId:
+                      type: string
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime:
+                      type: string
+                      format: date-time
+                      example: '2021-11-15T10:07:57.781Z'
+                    assetId:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+                    assetType:
+                      type: string
+                      example: image
+                    assetName:
+                      type: string
+                      example: Product Insights
+                    assetAudit:
+                      type: string
+                      example: ACCEPTED
+                    fileName:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"asset.archive\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Product Insights\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights\"\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"asset.archive\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:08:18.752+00:00\",\n    \"assetId\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Reporting Schedule Nov 2022\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022\"\n  }\n]\n"
+  /v7/analytics/api/v1/asset/remove:
+    get:
+      summary: Retrieve removed asset events
+      description: Retrieve analytics events for removed assets.
+      tags:
+      - Asset Usage V1
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+          example: 100
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+          example: MTAwMA
+      - name: fromDateTime
+        in: query
+        description: Retrieve remove events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: '2022-01-01T01:00:00.000Z'
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: '2022-06-01T01:00:00.000Z'
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: MTAwMA
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: /api/v1/asset/remove?limit=1000&cursor=MTAwMA
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 62de6d714e29485a81824fe3
+                    eventType:
+                      type: string
+                      example: asset.remove
+                    userId:
+                      type: string
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime:
+                      type: string
+                      format: date-time
+                      example: '2021-11-15T10:07:57.781Z'
+                    assetId:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+                    assetType:
+                      type: string
+                      example: image
+                    assetName:
+                      type: string
+                      example: Product Insights
+                    assetAudit:
+                      type: string
+                      example: ACCEPTED
+                    fileName:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"asset.remove\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Product Insights\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights\"\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"asset.remove\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:08:18.752+00:00\",\n    \"assetId\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Reporting Schedule Nov 2022\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022\"\n  }\n]\n"
+  /v7/analytics/api/v1/asset/{assetId}:
+    get:
+      summary: Retrieve all events performed in a given asset
+      description: This endpoint will allow you to retrieve all the events performed in a given asset.
+      tags:
+      - Asset Usage V1
+      parameters:
+      - name: assetId
+        in: path
+        description: Asset id.
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+          example: 100
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+          example: MTAwMA
+      - name: fromDateTime
+        in: query
+        description: Retrieve events performed in a given asset occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: 2022-01-01T01:00
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter.
+        required: false
+        schema:
+          type: string
+          format: date-time
+          example: 2022-06-01T01:00
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: MTAwMA
+            Next-Url:
+              description: The next url path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: /api/v1/asset/CA510292-E39E-4B28-AB6444CDD2B1C5C0?limit=1000&cursor=MTAwMA
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 62de6d714e29485a81824fe3
+                    eventType:
+                      type: string
+                      example: asset.download
+                    userId:
+                      type: string
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime:
+                      type: string
+                      format: date-time
+                      example: '2021-11-15T10:07:57.781+00:00'
+                    assetId:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+                    assetType:
+                      type: string
+                      example: image
+                    assetName:
+                      type: string
+                      example: Product Insights
+                    assetAudit:
+                      type: string
+                      example: ACCEPTED
+                    fileName:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights
+                    mediaItemId:
+                      type: string
+                      example: 69293464-7721-4062-9E05EFAF23FE70E7
+                    mediaItemType:
+                      type: string
+                      example: original
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"asset.download\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Product Insights\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights\",\n    \"mediaItemId\": \"69293464-7721-4062-9E05EFAF23FE70E7\",\n    \"mediaItemType\": \"original\"\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"asset.view\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:08:18.752+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Product Insights\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights\"\n  }\n]\n"
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''

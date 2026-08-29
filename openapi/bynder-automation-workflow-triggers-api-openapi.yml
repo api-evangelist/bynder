@@ -1,0 +1,80 @@
+openapi: 3.2.0
+info:
+  title: Bynder Automation Workflow Triggers API
+  version: 1.0.0
+  description: 'Operations tagged Automation Workflow Triggers across 2 of this provider''s published API definitions: bynder-automation-workflow-openapi.json, bynder-automation-workflow-svc-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://example.com/api/1/automation-workflow/
+tags:
+- name: Automation Workflow Triggers
+paths:
+  /triggers:
+    get:
+      tags:
+      - Automation Workflow Triggers
+      summary: List Automation Workflow Triggers
+      description: Get a list of available automation workflow triggers.
+      operationId: getTriggers
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutomationWorkflowTriggersResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorAuthorizationResponse'
+      security:
+      - {}
+      - httpAuth: []
+components:
+  schemas:
+    AutomationWorkflowTriggersResponse:
+      title: AutomationWorkflowTriggersResponse
+      type: object
+      properties:
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowTrigger'
+    AutomationWorkflowTrigger:
+      title: AutomationWorkflowTrigger
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+    ErrorResponse:
+      title: ErrorResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+  securitySchemes:
+    httpAuth:
+      type: http
+      scheme: bearer
+x-refined-from:
+- bynder-automation-workflow-openapi.json
+- bynder-automation-workflow-svc-openapi.json

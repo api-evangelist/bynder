@@ -1,0 +1,119 @@
+openapi: 3.2.0
+info:
+  title: Upload Assets API Steps Step 6 API
+  contact: {}
+  version: 1.0.0
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+security: []
+tags:
+- name: Step 6
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+paths:
+  /api/v4/media/{id}/save/{importId}:
+    parameters: []
+    post:
+      tags:
+      - Step 6
+      summary: Save as a new asset version
+      description: ''
+      operationId: Saveasanewassetversion
+      parameters:
+      - name: id
+        in: path
+        description: Asset id for which to save the new version.
+        required: true
+        style: simple
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+      - name: importId
+        in: path
+        description: Import id of a finalised and processed upload to be saved.
+        required: true
+        style: simple
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+      requestBody:
+        description: ''
+        content:
+          text/plain:
+            schema:
+              contentMediaType: text/plain
+        required: false
+      responses:
+        '201':
+          description: Created
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - mediaid: 00000000-0000-0000-0000000000000000
+                  batchId: 00000000-0000-0000-0000000000000000
+                  success: true
+                  mediaitems:
+                  - original: final/00000000-0000-0000-0000000000000000/image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                  - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                  - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                contentMediaType: application/json
+              examples:
+                success:
+                  summary: Successful response
+                  value:
+                    mediaid: 00000000-0000-0000-0000000000000000
+                    batchId: 00000000-0000-0000-0000000000000000
+                    success: true
+                    mediaitems:
+                    - original: final/00000000-0000-0000-0000000000000000/image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://DefaultParameterValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

@@ -1,0 +1,92 @@
+openapi: 3.2.0
+info:
+  title: Bynder Retrieve all metaproperty option dependencies for a metaproperty API
+  version: 1.0.0
+  description: 'Operations tagged Retrieve all metaproperty option dependencies for a metaproperty across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+security:
+- OAuth2:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+- permanentToken:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+tags:
+- name: Retrieve all metaproperty option dependencies for a metaproperty
+paths:
+  /api/v4/metaproperties/{id}/options/dependencies:
+    get:
+      summary: Retrieve metaproperty option dependencies
+      description: Retrieve all metaproperty option dependencies for a specific metaproperty.
+      tags:
+      - Retrieve all metaproperty option dependencies for a metaproperty
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      responses:
+        '200':
+          description: A list of metaproperty option dependencies.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+                  additionalProperties:
+                    type: array
+                    items:
+                      type: string
+                      example: 00000000-0000-0000-0000000000000000
+              examples:
+                example1:
+                  value:
+                    00000000-0000-0000-0000000000000000:
+                      00000000-0000-0000-0000000000000000:
+                      - 00000000-0000-0000-0000000000000000
+                      - 00000000-0000-0000-0000000000000001
+                      - 00000000-0000-0000-0000000000000002
+                      ungrouped:
+                      - 00000000-0000-0000-0000000000000000
+        '404':
+          description: Unknown metaproperty
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unknown metaproperty
+                  statuscode:
+                    type: string
+                    example: '404'
+    servers:
+    - url: https://{your-bynder-domain}/
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+x-refined-from:
+- bynder-metaproperty-options-v4-openapi.json
+- bynder-options-v4-openapi.json

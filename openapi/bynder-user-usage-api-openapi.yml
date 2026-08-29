@@ -1,0 +1,181 @@
+openapi: 3.2.0
+info:
+  title: Analytics User Usage API
+  version: 1.0.0
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Assets API endpoints](#reference/assets) or the [Users API endpoints](#reference/users).
+
+    '
+servers:
+- url: https://{your-bynder-domain}
+security:
+- permanentToken:
+  - analytics.api:read
+- oauth2:
+  - analytics.api:read
+tags:
+- name: User Usage
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Assets API endpoints](#reference/assets) or the [Users API endpoints](#reference/users).
+
+    '
+paths:
+  /v7/analytics/api/v1/user/login:
+    get:
+      summary: User Login
+      description: Retrieve login events.
+      tags:
+      - User Usage
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+      - name: fromDateTime
+        in: query
+        description: 'Retrieve login events occurred after this date. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: 'Set a date range together with the "fromDateTime" parameter. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            application/json:
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"user.login\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\"\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"user.login\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:08:18.752+00:00\"\n  }\n]\n"
+            text/csv:
+              examples:
+                example-1:
+                  summary: Example CSV response
+                  value: 'id,eventType,userId,dateTime
+
+                    62de6d714e29485a81824fe3,user.login,"1A84D758-2B3A-141F-8F07D71AA1F223BD",1655823377864
+
+                    62de6d714e29485a81824fe4,user.login,"1A84D758-2B3A-141F-8F07D71AA1F223BD",1655996103781
+
+                    '
+  /v7/analytics/api/v1/user/{userId}:
+    get:
+      summary: User Activity
+      description: Retrieve all the events triggered by a given user.
+      tags:
+      - User Usage
+      parameters:
+      - name: userId
+        in: path
+        description: User id.
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MDow
+      - name: fromDateTime
+        in: query
+        description: 'Retrieve events triggered by a user occurred after this date. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: 'Set a date range together with the "fromDateTime" parameter. ISO8601 format: yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            application/json:
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"asset.download\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Product Insights\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights\",\n    \"mediaItemId\": \"69293464-7721-4062-9E05EFAF23FE70E7\",\n    \"mediaItemType\": \"original\"\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"asset.view\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:08:18.752+00:00\",\n    \"assetId\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1\",\n    \"assetType\": \"image\",\n    \"assetName\": \"Reporting Schedule Nov 2022\",\n    \"assetAudit\": \"ACCEPTED\",\n    \"fileName\": \"C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022\"\n  }\n]\n"
+            text/csv:
+              examples:
+                example-1:
+                  summary: Example CSV response
+                  value: 'id,eventType,userId,dateTime,assetId,assetType,assetName,assetAudit,fileName,mediaItemId,mediaItemType
+
+                    62de6d714e29485a81824fe3,asset.download,"1A84D758-2B3A-141F-8F07D71AA1F223BD",1655823377864,"CA510292-E39E-4B28-AB6444CDD2B1C5C0",image,Product Insights,ACCEPTED,CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights,69293464-7721-4062-9E05EFAF23FE70E7,original
+
+                    62de6d714e29485a81824fe4,asset.view,1A84D758-2B3A-141F-8F07D71AA1F223BD,1655996103781,C58ED8C6-6B09-4CD6-B71C32C6715834F1,image,Reporting Schedule Nov 2022,ACCEPTED,C58ED8C6-6B09-4CD6-B71C32C6715834F1___Reporting Schedule Nov 2022
+
+                    '
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''

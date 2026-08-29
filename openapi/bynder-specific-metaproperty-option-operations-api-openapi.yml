@@ -1,0 +1,169 @@
+openapi: 3.2.0
+info:
+  title: Bynder Specific metaproperty option operations API
+  version: 1.0.0
+  description: 'Operations tagged Specific metaproperty option operations across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+security:
+- OAuth2:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+- permanentToken:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+tags:
+- name: Specific metaproperty option operations
+paths:
+  /api/v4/metaproperties/{id}/options/{optionId}:
+    post:
+      summary: Modify metaproperty option
+      description: Modify a specific metaproperty option.
+      tags:
+      - Specific metaproperty option operations
+      security:
+      - OAuth2:
+        - METAPROPERTYMANAGEMENT
+        - METAMANAGEMENT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: optionId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: string
+                  description: JSON-serialised string
+                  example: '{"label": "Blue", "externalReference": "Reference number 1", "labels": {"fr_FR": "foo", "en_US": "foo"}, "zindex": 4, "isSelectable": true, "parentId": "00000000-0000-0000-0000000000000000"}'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Created
+                  statuscode:
+                    type: integer
+                    example: 201
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Editing meta property option name not allowed
+                  statuscode:
+                    type: string
+                    example: '400'
+              examples:
+                invalidName:
+                  value:
+                    message: Editing meta property option name not allowed
+                    statuscode: '400'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Meta property option not found
+                  statuscode:
+                    type: string
+                    example: '404'
+              examples:
+                notFound:
+                  value:
+                    message: Meta property option not found
+                    statuscode: '404'
+    delete:
+      summary: Delete metaproperty option
+      tags:
+      - Specific metaproperty option operations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: optionId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              example:
+                message: Meta property option deleted successfully
+                statuscode: '204'
+        '404':
+          description: Meta property option not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Meta property option not found
+                  statuscode:
+                    type: string
+                    example: '404'
+              examples:
+                notFound:
+                  value:
+                    message: Meta property option not found
+                    statuscode: '404'
+    servers:
+    - url: https://{your-bynder-domain}/
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+x-refined-from:
+- bynder-metaproperty-options-v4-openapi.json
+- bynder-options-v4-openapi.json

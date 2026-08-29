@@ -1,0 +1,356 @@
+openapi: 3.2.0
+info:
+  title: Group Upload Assets API Steps Step 6 EITHER Save as a new asset API
+  contact: {}
+  version: 1.0.0
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://your-bynder-domainDefaultValue
+  variables: {}
+- url: https://bynder-public-us-east-1.s3.amazonaws.com/
+  variables: {}
+security: []
+tags:
+- name: Step 6 EITHER Save as a new asset
+  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
+
+    '
+paths:
+  /api/v4/media/save/{importId}:
+    parameters: []
+    post:
+      tags:
+      - Step 6 EITHER Save as a new asset
+      summary: Save as a new asset
+      description: 'For metaproperties that use options (Select, Select2, Autocomplete), modifying an asset''s metaproperty options should be done via option UUID''s for the API to work optimally, sending name or label values will be deprecated in the future. Other metaproperties (Date, Text and Longtext), values can be submitted directly. Be aware that the endpoints described in Step 6 are an Either/Or choice. You should use either the `Save as a new asset` endpoint to save the uploaded file as a new asset, or the `Update existing asset` endpoint to update an existing asset with the uploaded file.
+
+        '
+      operationId: Saveasanewasset
+      parameters:
+      - name: importId
+        in: path
+        description: Import id of a finalised and processed upload to be saved.
+        required: true
+        style: simple
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          $ref: '#/components/schemas/Content-Type'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              type: object
+              properties:
+                brandId:
+                  type: string
+                  description: Brand id to save the asset to.
+                  examples:
+                  - 00000000-0000-0000-0000-0000000000000000
+                name:
+                  type: string
+                  description: Name of the asset.
+                  examples:
+                  - Asset name
+                description:
+                  type: string
+                  description: Extended asset description.
+                  examples:
+                  - Extended asset description
+                copyright:
+                  type: string
+                  description: Copyright information of the asset.
+                  examples:
+                  - Copyright (c) Example corp.
+                tags:
+                  type: string
+                  description: Comma-separated list of tags of the asset.
+                  examples:
+                  - scenery,grassland,Holland
+                metaproperty:
+                  type: string
+                  description: Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.
+                  examples:
+                  - metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
+                categories:
+                  type: string
+                  description: Comma-separated category ids of the asset.
+                  examples:
+                  - 00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
+                audit:
+                  type: boolean
+                  description: Flags if the asset should be sent to the waiting room.
+                  examples:
+                  - true
+                isPublic:
+                  type: boolean
+                  description: Flags if the asset should be Public.
+                  examples:
+                  - true
+                accessRequestId:
+                  type: string
+                  description: If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.
+                  examples:
+                  - 00000000-0000-0000-0000000000000000
+                requestorId:
+                  type: string
+                  description: If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.
+                  examples:
+                  - 00000000-0000-0000-0000000000000000
+                accessType:
+                  $ref: '#/components/schemas/accessType'
+                ISOPublicationDate:
+                  type: string
+                  description: Date/time of publication in ISO08601-format.
+                  contentEncoding: date-time
+                  examples:
+                  - '2014-06-12T18:53:21.000Z'
+                publicationDate:
+                  type: string
+                  description: '*DEPRECATED* Date/time of publication in linked API user selected locale-format.'
+                  examples:
+                  - 05-31-2010
+                archiveDate:
+                  type: string
+                  description: Archive date/time of the asset in ISO8601-format.
+                  contentEncoding: date-time
+                  examples:
+                  - '2014-12-25T10:30:00.000Z'
+                watermarkDate:
+                  type: string
+                  description: 'Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.'
+                  contentEncoding: date-time
+                  examples:
+                  - '2014-12-25T10:30:00.000Z'
+                crc32:
+                  type: integer
+                  description: CRC32 checksum of the original file, used for verification.
+                  contentEncoding: int32
+                  examples:
+                  - 79764919
+              contentMediaType: application/x-www-form-urlencoded
+        required: false
+      responses:
+        '201':
+          description: Created
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - accessRequestId: 00000000-0000-0000-0000000000000000
+                  mediaid: 00000000-0000-0000-0000000000000000
+                  batchId: 00000000-0000-0000-0000000000000000
+                  success: true
+                  mediaitems:
+                  - original: final/00000000-0000-0000-0000000000000000/image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                  - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                  - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
+                    destination: ___URL_TO_BYNDER_CDN___
+                contentMediaType: application/json
+              examples:
+                success:
+                  summary: Successful response
+                  value:
+                    accessRequestId: 00000000-0000-0000-0000000000000000
+                    mediaid: 00000000-0000-0000-0000000000000000
+                    batchId: 00000000-0000-0000-0000000000000000
+                    success: true
+                    mediaitems:
+                    - original: final/00000000-0000-0000-0000000000000000/image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+                    - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
+                      destination: ___URL_TO_BYNDER_CDN___
+        '303':
+          description: Import not converted yet, please poll
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - message: Import not converted yet, please poll
+                  statuscode: '303'
+                contentMediaType: application/json
+              examples:
+                poll:
+                  summary: Poll response
+                  value:
+                    message: Import not converted yet, please poll
+                    statuscode: '303'
+        '400':
+          description: Bad Request
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - '{"message":"No importid provided","statuscode":"400"}'
+                - '{"message":"No brandid provided","statuscode":"400"}'
+                - '{"message":"Invalid unsigned integer for CRC32","statuscode":"400"}'
+                - '{"message":"Invalid argument type for CRC32","statuscode":"400"}'
+                - '{"message":"Date format not ISO8601-compliant","statuscode":"400"}'
+                contentMediaType: application/json
+              examples:
+                noImportId:
+                  summary: No importId provided
+                  value:
+                    message: No importid provided
+                    statuscode: '400'
+                noBrandId:
+                  summary: No brandId provided
+                  value:
+                    message: No brandid provided
+                    statuscode: '400'
+                invalidCrc32:
+                  summary: Invalid unsigned integer for CRC32
+                  value:
+                    message: Invalid unsigned integer for CRC32
+                    statuscode: '400'
+                invalidCrc32Type:
+                  summary: Invalid argument type for CRC32
+                  value:
+                    message: Invalid argument type for CRC32
+                    statuscode: '400'
+                invalidDateFormat:
+                  summary: Date format not ISO8601-compliant
+                  value:
+                    message: Date format not ISO8601-compliant
+                    statuscode: '400'
+        '403':
+          description: Access denied
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - message: Access denied
+                  statuscode: '403'
+                contentMediaType: application/json
+              examples:
+                accessDenied:
+                  summary: Access denied response
+                  value:
+                    message: Access denied
+                    statuscode: '403'
+        '404':
+          description: Not Found
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - '{"message":"Import ID not found","statuscode":"404"}'
+                - '{"message":"Upload doesn''t exist","statuscode":"404"}'
+                contentMediaType: application/json
+              examples:
+                importIdNotFound:
+                  summary: Import ID not found
+                  value:
+                    message: Import ID not found
+                    statuscode: '404'
+                uploadNotExist:
+                  summary: Upload doesn't exist
+                  value:
+                    message: Upload doesn't exist
+                    statuscode: '404'
+        '500':
+          description: Internal Server Error
+          headers: {}
+          content:
+            application/json:
+              schema:
+                examples:
+                - message: Upload failed or not ready
+                  statuscode: '500'
+                contentMediaType: application/json
+              examples:
+                uploadFailed:
+                  summary: Upload failed or not ready
+                  value:
+                    message: Upload failed or not ready
+                    statuscode: '500'
+      deprecated: false
+      security:
+      - OAuth2:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+      - permanentToken:
+        - MEDIAUPLOAD
+        - MEDIAUPLOADFORAPPROVAL
+components:
+  schemas:
+    accessType:
+      title: accessType
+      enum:
+      - upload
+      - edit
+      - export
+      - shutterstock
+      - stock
+      type: string
+      description: 'If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.'
+      examples:
+      - upload
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''
+        authorizationCode:
+          authorizationUrl: https://your-bynder-domainDefaultValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/token
+          scopes:
+            MEDIAUPLOAD: ''
+            MEDIAUPLOADFORAPPROVAL: ''

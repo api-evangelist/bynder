@@ -1,0 +1,265 @@
+openapi: 3.2.0
+info:
+  title: TEST OAuth 2.0 Authentication API
+  description: 'In order to authorize API requests using OAuth 2.0, a client has to be created in the portal. For more information on how to create these, please see the [Knowledge Base article](https://support.bynder.com/hc/en-us/articles/360013875180-Create-your-OAuth-Apps). An OAuth client can only be used to authenticate with the portal it was created in. For partners we can create global OAuth tokens, please contact your partner manager for more information.
+
+    '
+  contact: {}
+  version: 1.0.0
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
+tags:
+- name: Authentication
+paths:
+  /v6/authentication/oauth2/auth:
+    parameters: []
+    get:
+      summary: Authorize application
+      description: 'When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user is authenticated and approves the authorization request, Bynder will redirect the user back with an authorization code which can then be passed to the Token endpoint.
+
+        '
+      operationId: Authorizeapplication
+      parameters:
+      - name: client_id
+        in: query
+        description: The client ID provided for the OAuth application.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+      - name: scope
+        in: query
+        description: Scopes to request authorization for. These must be separated by a space. Include **offline** to get a Refresh Token.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - offline asset:read
+      - name: redirect_uri
+        in: query
+        description: The URL for the authorize response redirect. This must exactly match one of the "Authorization redirect URIs" values specified for the OAuth application.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - https://localhost/callback
+      - name: response_type
+        in: query
+        description: Determines the grant being used. Only **code** is supported for the Authorization Code grant.
+        required: true
+        style: form
+        explode: true
+        schema:
+          allOf:
+          - $ref: '#/components/schemas/response_type'
+          - description: Determines the grant being used. Only **code** is supported for the Authorization Code grant.
+            examples:
+            - code
+      - name: state
+        in: query
+        description: A random string used to maintain state between the request and callback. This value is used to prevent CSRF attacks.
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          examples:
+          - state
+      responses:
+        '302':
+          description: Found. Redirecting to the login provider.
+          headers:
+            Location:
+              description: Redirect URL
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                    description: Redirect URL
+                    examples:
+                    - https://your-bynder-domain/v6/login-provider/login?login_challenge=8e41a26ceb3b845114b5a37d9d0e2e50
+                    contentMediaType: text/plain
+                  example: https://your-bynder-domain/v6/login-provider/login?login_challenge=8e41a26ceb3b845114b5a37d9d0e2e50
+          content:
+            text/plain:
+              schema:
+                type: string
+                examples:
+                - 'Found. Redirecting to https://your-bynder-domain/v6/login-provider/login?login_challenge=8e41a26ceb3b845114b5a37d9d0e2e50
+
+                  '
+                contentMediaType: text/plain
+              example: 'Found. Redirecting to https://your-bynder-domain/v6/login-provider/login?login_challenge=8e41a26ceb3b845114b5a37d9d0e2e50
+
+                '
+      deprecated: false
+      tags:
+      - Authentication
+  /v6/authentication/oauth2/token:
+    parameters: []
+    post:
+      summary: Retrieve token
+      description: 'Use the token endpoint to retrieve an access token which can be used to authorize API requests. Depending on the type of grant, different fields are required which are outlined per request.
+
+        '
+      operationId: Retrievetoken
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        schema:
+          const: application/x-www-form-urlencoded
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  description: Application client ID.
+                  examples:
+                  - 00000000-0000-0000-0000-000000000000
+                client_secret:
+                  type: string
+                  description: Application client secret.
+                  examples:
+                  - 00000000-0000-0000-0000-000000000000
+                grant_type:
+                  type: string
+                  description: Identifies the grant type being used.
+                  examples:
+                  - authorization_code
+                redirect_uri:
+                  type: string
+                  description: The URL specified in the Authorize application request, the values must match.
+                  examples:
+                  - https://localhost/callback
+                code:
+                  type: string
+                  description: The Authorization Code returned from the Authorize application request.
+                  examples:
+                  - 6440327e7ddb660435e377a17a5463ba
+                scope:
+                  type: string
+                  description: List of scopes to request to be granted to the access token. Can only be a subset of the scopes requested in the Authorize application request.
+                  examples:
+                  - offline asset:read
+              contentMediaType: application/x-www-form-urlencoded
+        required: false
+      responses:
+        '200':
+          description: Successful response
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V6AuthenticationOauth2TokenResponse'
+      deprecated: false
+      tags:
+      - Authentication
+  /v6/authentication/oauth2/scopes:
+    parameters: []
+    get:
+      summary: Retrieve scopes
+      description: 'The scopes endpoint provides a JSON formatted overview of the existing scopes within Bynder and what user permissions are required in order for the OAuth2 service to grant a scope to a user.
+
+        '
+      operationId: Retrievescopes
+      parameters: []
+      responses:
+        '200':
+          description: Successful response
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/V6AuthenticationOauth2ScopesResponse'
+      deprecated: false
+      tags:
+      - Authentication
+components:
+  schemas:
+    response_type:
+      title: response_type
+      const: code
+      type: string
+      examples:
+      - code
+    V6AuthenticationOauth2ScopesResponse:
+      title: V6AuthenticationOauth2ScopesResponse
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+          description: ''
+    Scope:
+      title: Scope
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - scope:action
+        description:
+          type: string
+          examples:
+          - Scope description
+        anyOfPermissions:
+          type: array
+          items:
+            type: string
+          description: ''
+    V6AuthenticationOauth2TokenResponse:
+      title: V6AuthenticationOauth2TokenResponse
+      type: object
+      properties:
+        refresh_token:
+          type: string
+          examples:
+          - c12e...b5dc
+        token_type:
+          type: string
+          examples:
+          - bearer
+        expires_in:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 3600
+        access_token:
+          type: string
+          examples:
+          - eyJh...NDcw
+        scope:
+          type: string
+          examples:
+          - offline asset:read
+    Group:
+      title: Group
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - Group name
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scope'
+          description: ''

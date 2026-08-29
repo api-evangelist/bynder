@@ -1,0 +1,151 @@
+openapi: 3.2.0
+info:
+  title: Asset Usage Sync API
+  version: 1.0.0
+  description: 'These calls allow you to keep track of assets being exported from Bynder and imported into a third party application. In order to get started or find an existing integration id you should check out this [Bynder support](https://help.bynder.com/en/216226-track-asset-usage.html#UUID-5db586ff-9502-8e5b-4355-ca3630fceee3_N1579707153615_body) article. If you want to register a new third party application please contact us at [support@bynder.com](mailto:support@bynder.com).
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+security:
+- OAuth2:
+  - STATISTICS
+- permanentToken:
+  - STATISTICS
+tags:
+- name: Asset Usage Sync
+  description: 'This alternative API call allows you to sync all your usage from a single integration.
+
+    * A usage will be created when there is no existing usage on the specified asset
+
+    * A usage will be updated when adding additional info
+
+    * A usage will be deleted when specifying a URI but not using that URI in a usage
+
+
+    __Warning:__ Requires the STATISTICS security role.
+
+    '
+paths:
+  /api/media/usage/sync:
+    post:
+      summary: Sync asset usage
+      description: Sync all usage from a single integration.
+      tags:
+      - Asset Usage Sync
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                integration_id:
+                  type: string
+                  description: Integration id.
+                uris:
+                  type: array
+                  items:
+                    type: string
+                  description: An array of URIs that are part of your integration.
+                usages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      asset_id:
+                        type: string
+                      uri:
+                        type: string
+                      additional:
+                        type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accepted:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        additional:
+                          type: string
+                        asset_id:
+                          type: string
+                        uri:
+                          type: string
+                  new:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        additional:
+                          type: string
+                        asset_id:
+                          type: string
+                        id:
+                          type: string
+                        integration:
+                          type: object
+                          properties:
+                            description:
+                              type: string
+                            id:
+                              type: string
+                        timestamp:
+                          type: string
+                          format: date-time
+                        uri:
+                          type: string
+                  rejected:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        asset_id:
+                          type: string
+                        reason:
+                          type: string
+                        uri:
+                          type: string
+                  removed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        asset_id:
+                          type: string
+                        uri:
+                          type: string
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  integration_id:
+                    type: string
+                  asset_id:
+                    type: string
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            STATISTICS: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            STATISTICS: ''

@@ -1,0 +1,153 @@
+openapi: 3.2.0
+info:
+  title: Bynder Manage ungrouped metaproperty option dependencies API
+  version: 1.0.0
+  description: 'Operations tagged Manage ungrouped metaproperty option dependencies across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+security:
+- OAuth2:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+- permanentToken:
+  - METAPROPERTYMANAGEMENT
+  - METAMANAGEMENT
+tags:
+- name: Manage ungrouped metaproperty option dependencies
+paths:
+  /api/v4/metaproperties/{id}/options/{optionId}/dependencies/{dependencyId}:
+    post:
+      summary: Add a dependency
+      description: Manage ungrouped metaproperty option dependencies
+      tags:
+      - Manage ungrouped metaproperty option dependencies
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: optionId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: dependencyId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              examples:
+                example-201:
+                  value:
+                    message: Created
+                    statuscode: 201
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                example-unknown-metaproperty:
+                  value:
+                    message: Unknown metaproperty
+                    statuscode: 404
+                example-unknown-metaproperty-option:
+                  value:
+                    message: Unknown metaproperty option
+                    statuscode: 404
+                example-unknown-dependency-option:
+                  value:
+                    message: Unknown dependency option
+                    statuscode: 404
+    delete:
+      summary: Delete a dependency
+      description: Delete a dependency from a metaproperty option.
+      tags:
+      - Manage ungrouped metaproperty option dependencies
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: optionId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      - name: dependencyId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unknown metaproperty
+                  statuscode:
+                    type: string
+                    example: '404'
+              examples:
+                example-unknown-metaproperty:
+                  value:
+                    message: Unknown metaproperty
+                    statuscode: 404
+                example-unknown-metaproperty-option:
+                  value:
+                    message: Unknown metaproperty option
+                    statuscode: 404
+                example-unknown-dependency-option:
+                  value:
+                    message: Unknown dependency option
+                    statuscode: 404
+    servers:
+    - url: https://{your-bynder-domain}/
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            METAPROPERTYMANAGEMENT: ''
+            METAMANAGEMENT: ''
+x-refined-from:
+- bynder-metaproperty-options-v4-openapi.json
+- bynder-options-v4-openapi.json

@@ -1,0 +1,109 @@
+openapi: 3.2.0
+info:
+  title: OAuth 2.0 Token endpoint API
+  version: 1.0.0
+  description: 'Use the token endpoint to retrieve a access token which can be used to authorize API
+
+    requests. Depending on the type of grant, different fields are required which are
+
+    outlined per request.
+
+
+    _The token endpoint requires authorization either in the body or by
+
+    sending the Authorization header._
+
+    '
+tags:
+- name: Token endpoint
+  description: 'Use the token endpoint to retrieve a access token which can be used to authorize API
+
+    requests. Depending on the type of grant, different fields are required which are
+
+    outlined per request.
+
+
+    _The token endpoint requires authorization either in the body or by
+
+    sending the Authorization header._
+
+    '
+paths:
+  /v6/authentication/oauth2/token:
+    post:
+      summary: Using an authorization code or the refresh token
+      description: 'Use the token endpoint to retrieve an access token which can be used to authorize API
+
+        requests. This endpoint supports the Authorization Code grant, the Refresh Token grant and the Client Credentials grant.
+
+        '
+      tags:
+      - Token endpoint
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: string
+                  description: Application client ID.
+                  example: 00000000-0000-0000-0000-000000000000
+                client_secret:
+                  type: string
+                  description: Application client secret.
+                  example: 00000000-0000-0000-0000-000000000000
+                grant_type:
+                  type: string
+                  description: Identifies the grant type being used. For Authorization Code grant use **authorization_code**.
+                  example:
+                  - authorization_code
+                  - refresh_token
+                  - client_credentials
+                redirect_uri:
+                  type: string
+                  description: The URL specified in the Authorize application request, the values must match.
+                  example: https://localhost/callback
+                code:
+                  type: string
+                  description: The Authorization Code returned from the Authorize application request.
+                  example: 6440327e7ddb660435e377a17a5463ba
+                scope:
+                  type: string
+                  description: List of scopes to request to be granted to the access token. Can only be a subset of the scopes requested in the Authorize application request. When not passed, all the scopes will be requested.
+                  example: offline asset:read
+                refresh_token:
+                  type: string
+                  description: Refresh token returned from the Retrieve token request.
+                  example: c11e...b5bc
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  refresh_token:
+                    type: string
+                    example: c12e...b5dc
+                  token_type:
+                    type: string
+                    example: bearer
+                  expires_in:
+                    type: integer
+                    example: 3600
+                  access_token:
+                    type: string
+                    example: eyJh...NDcw
+                  scope:
+                    type: string
+                    example: offline asset:read
+              examples:
+                example-1:
+                  value:
+                    token_type: bearer
+                    expires_in: 3600
+                    access_token: eyJh...NDcw
+                    scope: offline asset:read

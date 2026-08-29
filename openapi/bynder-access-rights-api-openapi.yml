@@ -1,0 +1,252 @@
+openapi: 3.2.0
+info:
+  title: Bynder Access rights API
+  version: 1.0.0
+  description: 'Operations tagged Access rights across 2 of this provider''s published API definitions: bynder-access-rights-and-options-v4-openapi.json, bynder-access-rights-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+  variables:
+    your-bynder-domain:
+      default: your-bynder-domainDefaultValue
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
+- url: https://{your-auth-url}
+  variables:
+    your-auth-url:
+      default: DefaultParameterValue
+security:
+- OAuth2: []
+- permanentToken: []
+tags:
+- name: Access rights
+  description: ''
+paths:
+  /api/content_access/metaproperties/{metaproperty_id}:
+    parameters: []
+    get:
+      tags:
+      - Access rights
+      summary: Retrievemetapropertyaccess
+      description: ''
+      operationId: Retrievemetapropertyaccess
+      parameters:
+      - name: metaproperty_id
+        in: path
+        description: Metaproperty id.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful retrieval of metaproperty access
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiContentAccessMetapropertiesResponse'
+                description: ''
+                contentMediaType: application/json
+      deprecated: false
+    post:
+      tags:
+      - Access rights
+      summary: Createmetapropertyaccess
+      description: ''
+      operationId: Createmetapropertyaccess
+      parameters:
+      - name: metaproperty_id
+        in: path
+        description: Metaproperty id.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiContentAccessMetapropertiesRequest'
+        required: true
+      responses:
+        '201':
+          description: Metaproperty access created
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiContentAccessMetapropertiesResponse1'
+                description: ''
+                contentMediaType: application/json
+      deprecated: false
+    delete:
+      tags:
+      - Access rights
+      summary: Deletemetapropertyaccess
+      description: ''
+      operationId: Deletemetapropertyaccess
+      parameters:
+      - name: metaproperty_id
+        in: path
+        description: Metaproperty id.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiContentAccessMetapropertiesRequest1'
+        required: true
+      responses:
+        '204':
+          description: Metaproperty access deleted
+          headers: {}
+          content: {}
+      deprecated: false
+    servers:
+    - url: https://{your-bynder-domain}/
+      variables:
+        your-bynder-domain:
+          default: your-bynder-domainDefaultValue
+    - url: https://DefaultParameterValue
+      variables: {}
+    - url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+      variables: {}
+    - url: https://{your-auth-url}
+      variables:
+        your-auth-url:
+          default: DefaultParameterValue
+    - url: https://DefaultParameterValue
+      variables: {}
+    - url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+      variables: {}
+components:
+  schemas:
+    ApiContentAccessMetapropertiesRequest1:
+      title: ApiContentAccessMetapropertiesRequest1
+      type: object
+      properties:
+        contentAccessIds:
+          type: array
+          items:
+            type: string
+          description: ''
+    PrincipalExtraInformation:
+      title: PrincipalExtraInformation
+      type: object
+      properties:
+        email:
+          type: string
+          examples:
+          - user_email@bynder.com
+    PrincipalType:
+      title: PrincipalType
+      enum:
+      - user
+      - group
+      - profile
+      type: string
+      examples:
+      - user
+    ApiContentAccessMetapropertiesResponse1:
+      title: ApiContentAccessMetapropertiesResponse1
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+        principalType:
+          type: string
+          examples:
+          - user
+    Principal:
+      title: Principal
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        principalType:
+          $ref: '#/components/schemas/PrincipalType'
+    Level:
+      title: Level
+      const: metaproperty.hide
+      type: string
+      examples:
+      - metaproperty.hide
+    ApiContentAccessMetapropertiesRequest:
+      title: ApiContentAccessMetapropertiesRequest
+      type: object
+      properties:
+        principals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Principal'
+          description: ''
+        level:
+          $ref: '#/components/schemas/Level'
+    ApiContentAccessMetapropertiesResponse:
+      title: ApiContentAccessMetapropertiesResponse
+      type: object
+      properties:
+        id:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+        contentId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+        contentType:
+          type: string
+          examples:
+          - metaproperty
+        level:
+          type: string
+          examples:
+          - metaproperty.hide
+        ruleType:
+          type: string
+          examples:
+          - allow
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+        principalType:
+          type: string
+          examples:
+          - user
+        principalName:
+          type: string
+          examples:
+          - User full name
+        principalExtraInformation:
+          $ref: '#/components/schemas/PrincipalExtraInformation'
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      name: Authorization
+      in: header
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes: {}
+        authorizationCode:
+          authorizationUrl: https://DefaultParameterValue/
+          tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
+          scopes: {}
+x-refined-from:
+- bynder-access-rights-and-options-v4-openapi.json
+- bynder-access-rights-v4-openapi.json

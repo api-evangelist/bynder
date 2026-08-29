@@ -1,0 +1,95 @@
+openapi: 3.2.0
+info:
+  title: Workflow Jobs File upload API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}
+tags:
+- name: File upload
+  description: ''
+paths:
+  /workflow-jobs/{id}/upload:
+    post:
+      summary: Upload a file to a workflow job
+      description: 'To upload a file to a workflow job it needs to be uploaded via the Upload file endpoint for modern stack. After completing the various steps described in the Upload file endpoint, the `fileId` retrieved from those steps is needed in this request to reference the file to the job. This file will be attached to the job only.
+
+        **Warning:** Requires the **JOBEDIT** security role.
+
+        **Warning:** Is only available for Files-Service portals.
+
+        '
+      tags:
+      - File upload
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The id of a Job.
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fileId:
+                  type: string
+                  description: Id of the file to be saved to the job (to be retrieved from Upload file endpoint)
+                  example: 00000000-0000-0000-0000-000000000001
+                name:
+                  type: string
+                  description: Value to be used as filename
+                  example: example-name.jpg
+                fileSize:
+                  type: number
+                  description: Size of the file in bytes
+                  example: 50000
+                assetId:
+                  type: string
+                  description: Id of the parent asset if this file is a new version of an asset
+                  example: 00000000-0000-0000-0000-000000000002
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mediaId:
+                    type: string
+                    description: Media ID of the uploaded file
+                    example: '00000000000000000000000000000000'
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''

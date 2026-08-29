@@ -1,0 +1,220 @@
+openapi: 3.2.0
+info:
+  title: Users ID API
+  version: 1.0.0
+  description: 'Manage specific users by their ID. This includes retrieving, updating, and deleting user information based on the user ID.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Users ID
+  description: 'Manage specific users by their ID. This includes retrieving, updating, and deleting user information based on the user ID.
+
+    '
+paths:
+  /api/v4/users/{id}:
+    get:
+      summary: Retrieve specific user
+      tags:
+      - Users ID
+      security:
+      - permanentToken:
+        - USERMANAGEMENT
+      - OAuth2:
+        - USERMANAGEMENT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The id or username of the user you’d like to retrieve.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  phoneNumber:
+                    type: string
+                  profileId:
+                    type: string
+                  lastLogin:
+                    type: string
+                    format: date-time
+                  department:
+                    type: string
+                  job:
+                    type: string
+                  state:
+                    type: string
+                  firstname:
+                    type: string
+                  city:
+                    type: string
+                  infix:
+                    type: string
+                  timeZone:
+                    type: string
+                  username:
+                    type: string
+                  email:
+                    type: string
+                  persisted:
+                    type: boolean
+                  legalEntity:
+                    type: string
+                  county:
+                    type: string
+                  postalCode:
+                    type: string
+                  language:
+                    type: string
+                  country:
+                    type: string
+                  costCenter:
+                    type: string
+                  groups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        id:
+                          type: string
+                  lastname:
+                    type: string
+                  cellphoneNumber:
+                    type: string
+                  employeeNumber:
+                    type: string
+                  departmentCode:
+                    type: string
+                  gender:
+                    type: string
+                  id:
+                    type: string
+                  companyName:
+                    type: string
+                  active:
+                    type: boolean
+                  isSSOOnly:
+                    type: boolean
+                  address:
+                    type: string
+                  terms:
+                    type: string
+    post:
+      summary: Modify user
+      tags:
+      - Users ID
+      security:
+      - permanentToken:
+        - USERMANAGEMENT
+      - OAuth2:
+        - USERMANAGEMENT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The id of the user you’d like to modify.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                email:
+                  type: string
+                profileId:
+                  type: string
+                active:
+                  type: integer
+                  enum:
+                  - 1
+                  - 0
+                  default: 1
+                isSSOOnly:
+                  type: boolean
+                  default: false
+                language:
+                  type: string
+                firstname:
+                  type: string
+                infix:
+                  type: string
+                lastname:
+                  type: string
+                groupIds:
+                  type: string
+                phoneNumber:
+                  type: string
+                companyName:
+                  type: string
+                department:
+                  type: string
+                job:
+                  type: string
+                costCenter:
+                  type: string
+                termsAccepted:
+                  type: boolean
+      responses:
+        '202':
+          description: User modified
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  username:
+                    type: string
+    delete:
+      summary: Delete user
+      tags:
+      - Users ID
+      security:
+      - permanentToken:
+        - USERMANAGEMENT
+      - OAuth2:
+        - USERMANAGEMENT
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The id or username of the user you’d like to delete.
+      responses:
+        '204':
+          description: User deleted
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            USERMANAGEMENT: Grants permission to manage users
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            USERMANAGEMENT: Grants permission to manage users

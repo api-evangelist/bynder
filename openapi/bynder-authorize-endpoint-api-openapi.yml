@@ -1,0 +1,75 @@
+openapi: 3.2.0
+info:
+  title: OAuth 2.0 Authorize endpoint API
+  version: 1.0.0
+  description: 'When using the Authorization Code grant, redirect the user to the [Authorize application](#reference/oauth-2.0/authorize-endpoint/authorize-application) endpoint. After the user
+
+    is authenticated and approves the authorization request, Bynder will redirect the user back with an
+
+    authorization code which can then be passed to the [Token endpoint](#reference/oauth-2.0/token-endpoint/using-an-authorization-code).
+
+    '
+tags:
+- name: Authorize endpoint
+  description: 'When using the Authorization Code grant, redirect the user to the [Authorize application](#reference/oauth-2.0/authorize-endpoint/authorize-application) endpoint. After the user
+
+    is authenticated and approves the authorization request, Bynder will redirect the user back with an
+
+    authorization code which can then be passed to the [Token endpoint](#reference/oauth-2.0/token-endpoint/using-an-authorization-code).
+
+    '
+paths:
+  /v6/authentication/oauth2/auth:
+    get:
+      summary: Authorize endpoint
+      description: 'When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user is authenticated and approves the authorization request, Bynder will redirect the user back with an authorization code which can then be passed to the Token endpoint.
+
+        '
+      tags:
+      - Authorize endpoint
+      parameters:
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+        example: 00000000-0000-0000-0000-000000000000
+      - name: scope
+        in: query
+        required: true
+        schema:
+          type: string
+        example: offline asset:read
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+        example: https://localhost/callback
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+        example: code
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        example: xyz
+      responses:
+        '302':
+          description: Found. Redirecting to the login provider.
+          headers:
+            Location:
+              description: URL to redirect the user to for login.
+              schema:
+                type: string
+          content:
+            text/plain:
+              examples:
+                example-1:
+                  value: Found. Redirecting to https://your-bynder-domain/v6/login-provider/login?login_challenge=8e41a26ceb3b845114b5a37d9d0e2e50
+      security:
+      - OAuth2: []

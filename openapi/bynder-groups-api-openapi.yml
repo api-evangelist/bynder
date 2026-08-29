@@ -1,0 +1,325 @@
+openapi: 3.2.0
+info:
+  title: Bynder Groups API
+  version: 1.0.0
+  description: 'Operations tagged Groups across 2 of this provider''s published API definitions: bynder-groups-v4-openapi.json, bynder-wf-users-groups-v4-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://{your-bynder-domain}/
+- url: https://{your-bynder-domain}
+tags:
+- name: Groups
+  description: 'Manage and retrieve groups within your Bynder account. Requires the **GROUPMANAGEMENT** security role.
+
+    '
+paths:
+  /api/groups/list/:
+    get:
+      summary: Retrieve groups
+      description: Requires the **GROUPMANAGEMENT** security role.
+      tags:
+      - Groups
+      parameters:
+      - name: search_term
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Search on matching group names.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+        description: What page of results to return.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 20
+        description: Maximum results to return. If limit is not provided the first 20 results will be returned.
+      - name: sort_order
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        description: Order of the returned list of groups.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+      security:
+      - permanentToken:
+        - GROUPMANAGEMENT
+      - OAuth2:
+        - GROUPMANAGEMENT
+    servers:
+    - url: https://{your-bynder-domain}/
+  /api/workflow/groups/:
+    get:
+      summary: Retrieve groups
+      tags:
+      - Groups
+      security:
+      - permanentToken:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      - OAuth2:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      responses:
+        '200':
+          description: A list of workflow groups
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        bynderUser:
+                          type: object
+                          properties:
+                            firstName:
+                              type: string
+                              example: FirstName
+                            lastName:
+                              type: string
+                              example: LastName
+                            id:
+                              type: string
+                              example: 00000000-0000-0000-0000-000000000000
+                            infix:
+                              type: string
+                              example: null
+                            email:
+                              type: string
+                              example: test@bynder.com
+                        fullName:
+                          type: string
+                          example: FirstName LastName
+                        ID:
+                          type: string
+                          example: 00000000-0000-0000-0000-000000000000
+                  accountID:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+                  ID:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+                  createdByID:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+                  name:
+                    type: string
+                    example: Content Reviewers
+                  dateCreated:
+                    type: string
+                    example: '2017-10-27T16:32:16+00:00'
+    post:
+      summary: Create group
+      tags:
+      - Groups
+      security:
+      - permanentToken:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      - OAuth2:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: new name
+                user_ids:
+                  type: array
+                  items:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: Group created
+          content:
+            application/json:
+              schema:
+                type: object
+    servers:
+    - url: https://{your-bynder-domain}
+  /api/workflow/groups/{id}:
+    get:
+      summary: Retrieve specific group
+      tags:
+      - Groups
+      security:
+      - permanentToken:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      - OAuth2:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: A specific workflow group
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        bynderUser:
+                          type: object
+                          properties:
+                            firstName:
+                              type: string
+                              example: FirstName
+                            lastName:
+                              type: string
+                              example: LastName
+                            id:
+                              type: string
+                              example: 00000000-0000-0000-0000-000000000000
+                            infix:
+                              type: string
+                              example: null
+                            email:
+                              type: string
+                              example: test@bynder.com
+                        fullName:
+                          type: string
+                          example: FirstName LastName
+                        ID:
+                          type: string
+                          example: 00000000-0000-0000-0000-000000000000
+                  accountID:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+                  ID:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+                  createdByID:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+                  name:
+                    type: string
+                    example: Content Reviewers
+                  dateCreated:
+                    type: string
+                    example: '2017-10-27T16:32:16+00:00'
+    put:
+      summary: Modify group
+      tags:
+      - Groups
+      security:
+      - permanentToken:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      - OAuth2:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: new name
+                user_ids:
+                  type: array
+                  items:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: Group modified
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      summary: Delete group
+      tags:
+      - Groups
+      security:
+      - permanentToken:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      - OAuth2:
+        - GROUPOVERVIEW
+        - WORKFLOWADMIN
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '204':
+          description: Group deleted
+    servers:
+    - url: https://{your-bynder-domain}
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            GROUPMANAGEMENT: Grants permission to manage groups
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            GROUPMANAGEMENT: Grants permission to manage groups
+x-refined-from:
+- bynder-groups-v4-openapi.json
+- bynder-wf-users-groups-v4-openapi.json

@@ -1,0 +1,119 @@
+openapi: 3.2.0
+info:
+  title: Security Roles Profiles API
+  version: 1.0.0
+  description: 'To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It''s the API''s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
+
+    '
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Profiles
+  description: 'To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It''s the API''s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
+
+    '
+paths:
+  /api/v4/profiles/:
+    get:
+      summary: Retrieve security profiles
+      description: 'To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It’s the API’s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
+
+        '
+      tags:
+      - Profiles
+      security:
+      - permanentToken:
+        - PERMISSIONMANAGEMENT
+      - OAuth2:
+        - PERMISSIONMANAGEMENT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: string
+                    roles:
+                      type: array
+                      items:
+                        type: string
+              example: "[\n  {\n    \"name\": \"Admin\",\n    \"id\": \"1\",\n    \"roles\": [\n      \"GROUPMANAGEMENT\",\n      \"USERMANAGEMENT\",\n      \"PERMISSIONMANAGEMENT\"\n    ]\n  },\n  {\n    \"name\": \"User\",\n    \"id\": \"2\",\n    \"roles\": [\n      \"USERMANAGEMENT\"\n    ]\n  }\n]\n"
+        '401':
+          description: Invalid or expired token
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'Invalid or expired token.
+
+                '
+  /api/v4/profiles/{id}:
+    get:
+      summary: Retrieve specific security profile
+      description: 'This call allows you to retrieve your own security profile without requiring the PERMISSIONMANAGEMENT security role. In order to get your own security profile use your user profile id retrieved by executing the Specific User or Current User call.
+
+        '
+      tags:
+      - Profiles
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Security profile id.
+      security:
+      - OAuth2:
+        - ''
+        - PERMISSIONMANAGEMENT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  id:
+                    type: string
+                  roles:
+                    type: array
+                    items:
+                      type: string
+              example: "{\n  \"name\": \"Admin\",\n  \"id\": \"1\",\n  \"roles\": [\n    \"GROUPMANAGEMENT\",\n    \"USERMANAGEMENT\",\n    \"PERMISSIONMANAGEMENT\"\n  ]\n}\n"
+        '401':
+          description: Invalid or expired token
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: 'Invalid or expired token.
+
+                '
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PERMISSIONMANAGEMENT: Grants permission to manage permissions
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PERMISSIONMANAGEMENT: Grants permission to manage permissions

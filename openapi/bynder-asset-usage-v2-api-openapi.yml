@@ -1,0 +1,117 @@
+openapi: 3.2.0
+info:
+  title: Analytics Asset Usage V2 API
+  version: 1.0.0
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Analytics Reporting tool](#reference/analytics/reporting) or the [Users API endpoints](#reference/users).
+
+    This new version resolves pagination performance issues.
+
+    '
+servers:
+- url: https://{your-bynder-domain}
+security:
+- permanentToken:
+  - analytics.api:read
+- oauth2:
+  - analytics.api:read
+tags:
+- name: Asset Usage V2
+  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Analytics Reporting tool](#reference/analytics/reporting) or the [Users API endpoints](#reference/users).
+
+    This new version resolves pagination performance issues.
+
+    '
+paths:
+  /v7/analytics/api/v2/asset/views:
+    get:
+      summary: Retrieve asset views
+      tags:
+      - Asset Usage V2
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of analytics events to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: integer
+          default: 0
+      - name: fromDateTime
+        in: query
+        description: Retrieve view events occurred after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateTime
+        in: query
+        description: Set a date range together with the "fromDateTime" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: integer
+                example: 1000
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+                example: /api/v1/asset/view?limit=1000&cursor=1000
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    eventId:
+                      type: string
+                      example: 236280dd-b06e-44be-ae9f-85e2661510a1
+                    eventType:
+                      type: string
+                      example: AssetViewed
+                    userId:
+                      type: string
+                      example: 1A84D758-2B3A-141F-8F07D71AA1F223BD
+                    dateTime:
+                      type: string
+                      format: date-time
+                      example: '2021-11-15T10:07:57.781+00:00'
+                    assetId:
+                      type: string
+                      example: CA510292-E39E-4B28-AB6444CDD2B1C5C0
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"eventId\": \"236280dd-b06e-44be-ae9f-85e2661510a1\",\n    \"eventType\": \"AssetViewed\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\"\n  },\n  {\n    \"eventId\": \"236280dd-b06e-44be-ae9f-85e2661510a2\",\n    \"eventType\": \"AssetViewed\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-16T07:13:46.781+00:00\",\n    \"assetId\": \"CA510292-E39E-4B28-AB6444CDD2B1C5C0\"\n  }\n]\n"
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''

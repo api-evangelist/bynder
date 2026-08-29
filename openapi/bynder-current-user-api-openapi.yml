@@ -1,0 +1,106 @@
+openapi: 3.2.0
+info:
+  title: Users Current User API
+  version: 1.0.0
+  description: "Retrieve information about the currently authenticated user without needing to know their user ID.         \n"
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Current User
+  description: "Retrieve information about the currently authenticated user without needing to know their user ID.         \n"
+paths:
+  /api/v4/currentUser/:
+    get:
+      summary: Retrieve current user
+      description: 'Retrieve the current user information. Unlike [Retrieve specific user](#reference/users/specific-user-operations/retrieve-specific-user) this call doesn''t require you to know your user id in order to retrieve your current user information.
+
+        '
+      tags:
+      - Current User
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  phoneNumber:
+                    type: string
+                  profileId:
+                    type: string
+                  lastLogin:
+                    type: string
+                    format: date-time
+                  department:
+                    type: string
+                  job:
+                    type: string
+                  state:
+                    type: string
+                  firstname:
+                    type: string
+                  city:
+                    type: string
+                  infix:
+                    type: string
+                  timeZone:
+                    type: string
+                  username:
+                    type: string
+                  email:
+                    type: string
+                  persisted:
+                    type: boolean
+                  legalEntity:
+                    type: string
+                  county:
+                    type: string
+                  postalCode:
+                    type: string
+                  language:
+                    type: string
+                  country:
+                    type: string
+                  costCenter:
+                    type: string
+                  lastname:
+                    type: string
+                  cellphoneNumber:
+                    type: string
+                  employeeNumber:
+                    type: string
+                  departmentCode:
+                    type: string
+                  gender:
+                    type: string
+                  id:
+                    type: string
+                  companyName:
+                    type: string
+                  active:
+                    type: boolean
+                  isSSOOnly:
+                    type: boolean
+                  address:
+                    type: string
+                  terms:
+                    type: string
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            USERMANAGEMENT: Grants permission to manage users
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            USERMANAGEMENT: Grants permission to manage users

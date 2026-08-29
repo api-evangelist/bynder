@@ -1,0 +1,227 @@
+openapi: 3.2.0
+info:
+  title: Collections ID API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Collections ID
+  description: ''
+paths:
+  /api/v4/collections/{id}:
+    get:
+      summary: Retrieve specific collection
+      description: Retrieve a specific collection by ID.
+      tags:
+      - Collections ID
+      security:
+      - OAuth2: []
+      - permanentToken: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      responses:
+        '200':
+          description: A specific collection.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dateCreated:
+                    type: string
+                    example: March, 01 2017 10:49:12 +0000
+                  thumbnail:
+                    type: string
+                    example: ___URL_TO_BYNDER_CDN___
+                  name:
+                    type: string
+                    example: Collection 1
+                  link:
+                    type: string
+                    example: ___URL_TO_BYNDER_CDN___
+                  views:
+                    type: integer
+                    example: 2
+                  description:
+                    type: string
+                    example: Collection 1 with various assets.
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 80E53210-5BB0-4BF9-907F917D457801BB
+                      name:
+                        type: string
+                        example: Jane Doe
+              examples:
+                example1:
+                  value:
+                    dateCreated: March, 01 2017 10:49:12 +0000
+                    thumbnail: ___URL_TO_BYNDER_CDN___
+                    name: Collection 1
+                    link: ___URL_TO_BYNDER_CDN___
+                    views: 2
+                    description: Collection 1 with various assets.
+                    user:
+                      id: 80E53210-5BB0-4BF9-907F917D457801BB
+                      name: Jane Doe
+        '404':
+          description: Collection not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Collection not found
+                  statuscode:
+                    type: integer
+                    example: 404
+    post:
+      summary: Modify collection
+      description: Modify a specific collection by ID.
+      tags:
+      - Collections ID
+      security:
+      - OAuth2:
+        - COLLECTIONS
+        - PUBLISHCOLLECTIONS
+      - permanentToken:
+        - COLLECTIONS
+        - PUBLISHCOLLECTIONS
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Featured collection
+                description:
+                  type: string
+                  example: Collection of featured assets
+                isPublic:
+                  type: boolean
+                  example: true
+                thumbnailAssetId:
+                  type: string
+                  example: 00000000-0000-0000-0000000000000000
+      responses:
+        '201':
+          description: Collection modified.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Created
+                  statuscode:
+                    type: integer
+                    example: 201
+        '400':
+          description: Invalid request parameters.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Collection name can't be empty
+                  statuscode:
+                    type: integer
+                    example: 400
+        '403':
+          description: Access denied.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Access denied
+                  statuscode:
+                    type: integer
+                    example: 403
+    delete:
+      summary: Delete collection
+      description: Delete a specific collection by ID.
+      tags:
+      - Collections ID
+      security:
+      - OAuth2: []
+      - permanentToken: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: 00000000-0000-0000-0000000000000000
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: Collection not found.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Collection not found
+                  statuscode:
+                    type: integer
+                    example: 404
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            collection.public.view: To retrieve public collections
+            INBOXPUBLIC: To retrieve collections other users shared/received
+            OUTBOXPUBLIC: To retrieve collections other users shared/received
+            PUBLICCOLLECTIONS: To retrieve collections other users created
+            COLLECTIONS: ''
+            PUBLISHCOLLECTIONS: ''
+            SHARECOLLECTION: ''
+            SHARING: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            collection.public.view: To retrieve public collections
+            INBOXPUBLIC: To retrieve collections other users shared/received
+            OUTBOXPUBLIC: To retrieve collections other users shared/received
+            PUBLICCOLLECTIONS: To retrieve collections other users created
+            COLLECTIONS: ''
+            PUBLISHCOLLECTIONS: ''
+            SHARECOLLECTION: ''
+            SHARING: ''

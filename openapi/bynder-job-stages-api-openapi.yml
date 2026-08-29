@@ -1,0 +1,125 @@
+openapi: 3.2.0
+info:
+  title: Workflow Jobs Job stages API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}
+tags:
+- name: Job stages
+paths:
+  /api/workflow/jobs/{id}/stages:
+    get:
+      summary: Retrieve stages of specific job
+      description: Requires the JOBOVERVIEW security role.
+      tags:
+      - Job stages
+      security:
+      - permanentToken:
+        - JOBOVERVIEW
+      - OAuth2:
+        - JOBOVERVIEW
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    deadline:
+                      type: string
+                      nullable: true
+                    dateCreated:
+                      type: string
+                    createdByID:
+                      type: string
+                    status:
+                      type: string
+                      enum:
+                      - Idle
+                      - Active
+                      - Cancelled
+                      - Approved
+                      - NeedsChanges
+                    position:
+                      type: number
+                    responsible:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        type:
+                          type: string
+                          enum:
+                          - user
+                          - group
+              examples:
+                example-1:
+                  value:
+                  - id: 00000000-0000-0000-0000-000000000000
+                    name: Start stage
+                    description: This is the first stage
+                    deadline: null
+                    dateCreated: '2021-02-08T16:38:03+00:00'
+                    createdByID: 00000000-0000-0000-0000-000000000000
+                    status: Active
+                    position: 1
+                    responsible:
+                      id: 00000000-0000-0000-0000-000000000000
+                      type: user
+                  - id: 00000000-0000-0000-0000-000000000000
+                    name: Second stage
+                    description: ''
+                    deadline: '2021-02-18T18:00:00+00:00'
+                    dateCreated: '2021-02-08T16:38:03+00:00'
+                    createdByID: 00000000-0000-0000-0000-000000000000
+                    status: Idle
+                    position: 2
+                    responsible:
+                      id: 00000000-0000-0000-0000-000000000000
+                      type: group
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''

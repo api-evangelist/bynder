@@ -1,0 +1,67 @@
+openapi: 3.2.0
+info:
+  title: Analytics Historical Data API
+  version: 1.0.0
+  description: 'This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints. **Note:** This data isn''t available by default. Please, contact your CSM if you require access to it.
+
+    '
+servers:
+- url: https://{your-bynder-domain}
+security:
+- permanentToken:
+  - analytics.api:read
+- oauth2:
+  - analytics.api:read
+tags:
+- name: Historical Data
+  description: 'This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints. **Note:** This data isn''t available by default. Please, contact your CSM if you require access to it.
+
+    '
+paths:
+  /v7/analytics/api/v1/historical/{year}.csv:
+    get:
+      summary: Retrieve historical data in CSV format
+      description: This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints.
+      tags:
+      - Historical Data
+      parameters:
+      - name: year
+        in: path
+        description: Year.
+        required: true
+        schema:
+          type: string
+          example: '2022'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/csv:
+              examples:
+                example-1:
+                  summary: Example CSV response
+                  value: 'asset.view,2023-03-25T07:26:09.739Z,1A84D758-2B3A-141F-8F07D71AA1F223BD,CA510292-E39E-4B28-AB6444CDD2B1C5C0,Product Insights,image,ACCEPTED,CA510292-E39E-4B28-AB6444CDD2B1C5C___Product Insights,"","","","","","","","",""
+
+                    user.login,2023-03-22T12:26:23.862Z,1A84D758-2B3A-141F-8F07D71AA1F223BD,"","","","","","","","","","","","","",""
+
+                    SearchExecuted,2023-02-23T11:03:30.971Z,1A84D758-2B3A-141F-8F07D71AA1F223BD,"","","","","","","","",[de],"","","",{168}
+
+                    '
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''

@@ -1,0 +1,366 @@
+openapi: 3.2.0
+info:
+  title: Asset Management Media ID API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}/
+tags:
+- name: Media ID
+  description: ''
+paths:
+  /api/v4/media/{id}:
+    get:
+      summary: Retrieve specific asset
+      description: Requires the **STATISTICS** security role in order to retrieve *views* and *downloads* statistics data in the response, using the `stats` parameter.
+      tags:
+      - Media ID
+      security:
+      - permanentToken:
+        - ''
+        - STATISTICS
+      - OAuth2:
+        - ''
+        - STATISTICS
+      parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: OAuth 2.0 Bearer access token.
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        description: Asset id.
+      - in: query
+        name: versions
+        schema:
+          type: boolean
+          default: false
+        description: Include information about the different asset media items including versions.
+      - in: query
+        name: stats
+        schema:
+          type: boolean
+          default: false
+        description: Include information about *views* and *downloads*.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dateModified:
+                    type: string
+                    format: date-time
+                  propertyOptions:
+                    type: array
+                    items:
+                      type: string
+                  type:
+                    type: string
+                  brandId:
+                    type: string
+                    format: uuid
+                  fileSize:
+                    type: integer
+                  id:
+                    type: string
+                    format: uuid
+                  height:
+                    type: integer
+                  description:
+                    type: string
+                  idHash:
+                    type: string
+                  name:
+                    type: string
+                  tags:
+                    type: array
+                    items:
+                      type: string
+                  orientation:
+                    type: string
+                  width:
+                    type: integer
+                  datePublished:
+                    type: string
+                    format: date-time
+                  copyright:
+                    type: string
+                  extension:
+                    type: array
+                    items:
+                      type: string
+                  userCreated:
+                    type: string
+                  dateCreated:
+                    type: string
+                    format: date-time
+                  archive:
+                    type: boolean
+                  property_assettype:
+                    type: array
+                    items:
+                      type: string
+                  watermarked:
+                    type: boolean
+                  limited:
+                    type: boolean
+                  videoPreviewURLs:
+                    type: array
+                    items:
+                      type: string
+                  thumbnails:
+                    type: object
+                    properties:
+                      mini:
+                        type: string
+                      webimage:
+                        type: string
+                      thul:
+                        type: string
+                  views:
+                    type: integer
+                  downloads:
+                    type: integer
+                  isPublic:
+                    type: boolean
+                  original:
+                    type: string
+                  relatedAssets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        metaPropertyId:
+                          type: string
+                        assets:
+                          type: array
+                          items:
+                            type: string
+                        metaPropertyName:
+                          type: string
+                  activeOriginalFocusPoint:
+                    type: object
+                    properties:
+                      y:
+                        type: integer
+                      x:
+                        type: integer
+                  transformBaseUrl:
+                    type: string
+        '404':
+          description: File not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  statuscode:
+                    type: string
+    post:
+      summary: Modify asset
+      description: Requires the **MEDIAEDIT** security role. Requires the **MARKPUBLIC** security role in order to change an asset's isPublic state.
+      tags:
+      - Media ID
+      security:
+      - permanentToken:
+        - ''
+        - MEDIAEDIT
+        - MARKPUBLIC
+      - OAuth2:
+        - ''
+        - MEDIAEDIT
+        - MARKPUBLIC
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        description: Asset id.
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Asset id.
+                name:
+                  type: string
+                  description: Name of the asset, beware the asset will have no name when this is empty.
+                description:
+                  type: string
+                  description: Asset description.
+                copyright:
+                  type: string
+                  description: Copyright information of the asset.
+                brandId:
+                  type: string
+                  description: Id of the brand to save the asset to.
+                tags:
+                  type: string
+                  description: Comma-separated tags. Tags will overwrite the current tags list.
+                metaproperty:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  description: Dictionary with (metaproperty) options to set on the asset.
+                datePublished:
+                  type: string
+                  format: date-time
+                  description: 'Publication datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.
+
+                    '
+                archive:
+                  type: boolean
+                  description: Indicating the archived state of the asset.
+                archiveDate:
+                  type: string
+                  format: date-time
+                  description: 'Archive datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.
+
+                    '
+                limited:
+                  type: boolean
+                  description: Indicating the limit state of the asset.
+                limitedDate:
+                  type: string
+                  format: date-time
+                  description: 'Limit datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.
+
+                    '
+                watermarkDate:
+                  type: string
+                  format: date-time
+                  description: 'Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.
+
+                    '
+                isPublic:
+                  type: boolean
+                  description: Indicating the public state of the asset. Warning irreversible, once changed to true it cannot be changed back.
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  statuscode:
+                    type: integer
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  statuscode:
+                    type: string
+        '404':
+          description: Media not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  statuscode:
+                    type: string
+    delete:
+      summary: Delete asset
+      description: Requires the **MEDIAREMOVE** security role.
+      tags:
+      - Media ID
+      security:
+      - permanentToken:
+        - ''
+        - MEDIAREMOVE
+      - OAuth2:
+        - ''
+        - MEDIAREMOVE
+      parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        description: OAuth 2.0 Bearer access token.
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        description: Asset id.
+      responses:
+        '204':
+          description: No Content
+        '403':
+          description: Access denied
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  statuscode:
+                    type: string
+        '404':
+          description: Media not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  statuscode:
+                    type: string
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            ARCHIVEMEDIA: ''
+            ARCHIVEDOWNLOAD: ''
+            EMARGOMEDIA: ''
+            KEYVISUALDOWNLOAD: ''
+            STATISTICS: ''
+            MEDIAEDIT: ''
+            MARKPUBLIC: ''
+            MEDIAREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            ARCHIVEMEDIA: ''
+            ARCHIVEDOWNLOAD: ''
+            EMARGOMEDIA: ''
+            KEYVISUALDOWNLOAD: ''
+            STATISTICS: ''
+            MEDIAEDIT: ''
+            MARKPUBLIC: ''
+            MEDIAREMOVE: ''

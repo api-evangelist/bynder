@@ -1,0 +1,278 @@
+openapi: 3.2.0
+info:
+  title: Analytics Reporting API
+  version: 1.0.0
+  description: 'These endpoints provide reporting capabilities for assets of the DAM, making it easier to build your own customised reports.
+
+    '
+servers:
+- url: https://{your-bynder-domain}
+security:
+- permanentToken:
+  - analytics.api:read
+- oauth2:
+  - analytics.api:read
+tags:
+- name: Reporting
+  description: 'These endpoints provide reporting capabilities for assets of the DAM, making it easier to build your own customised reports.
+
+    '
+paths:
+  /v7/analytics/api/v1/report/asset:
+    get:
+      summary: Retrieve asset reports
+      description: This endpoint allows you to retrieve a human readable report of any of the assets in the DAM. The report will include all the metadata of the asset.
+      tags:
+      - Reporting
+      parameters:
+      - name: limit
+        in: query
+        description: The maximum number of asset reports to retrieve. Allowed values are between 1 and 10000.
+        required: false
+        schema:
+          type: integer
+          default: 1000
+      - name: cursor
+        in: query
+        description: Cursor mark returned in the response headers to be used for pagination purposes.
+        required: false
+        schema:
+          type: string
+          default: MA
+      - name: fromDateCreated
+        in: query
+        description: 'Retrieve reports of assets created after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateCreated
+        in: query
+        description: 'Set a date range together with the "fromDateCreated" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: fromDateModified
+        in: query
+        description: 'Retrieve reports of assets modified after this date. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: toDateModified
+        in: query
+        description: 'Set a date range together with the "fromDateModified" parameter. ISO8601 format yyyy-mm-ddThh:mm[:ssZ] with optional seconds.
+
+          '
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Successful response
+          headers:
+            Next-Cursor:
+              description: The next cursor value to send if you want to continue with your paginated request.
+              schema:
+                type: string
+            Next-Url:
+              description: The next URL path to query if you want to continue with your paginated request.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    assetId:
+                      type: string
+                      example: 3DF53D46-4E72-47A0-A42ECC22CDE211D5
+                    name:
+                      type: string
+                      example: Asset 1
+                    description:
+                      type: string
+                      example: Asset Description
+                    isArchived:
+                      type: boolean
+                      example: false
+                    type:
+                      type: string
+                      example: image
+                    audit:
+                      type: string
+                      example: ACCEPTED
+                    copyright:
+                      type: string
+                      example: ''
+                    isLimited:
+                      type: boolean
+                      example: false
+                    datePublished:
+                      type: string
+                      format: date-time
+                      example: '2016-12-29T10:39:52.000+00:00'
+                    isRemoved:
+                      type: boolean
+                      example: true
+                    dateRemoved:
+                      type: string
+                      format: date-time
+                      example: '2019-01-04T13:19:47.000+00:00'
+                    idHash:
+                      type: string
+                      example: 6bb400d042cfe865
+                    phash:
+                      type: string
+                      example: '56033317620'
+                    userCreated:
+                      type: string
+                      example: 00000000-0000-0000-0000000000000000
+                    dateCreated:
+                      type: string
+                      format: date-time
+                      example: '2018-12-21T13:11:46.000+00:00'
+                    userModified:
+                      type: string
+                      example: 00000000-0000-0000-0000000000000000
+                    dateModified:
+                      type: string
+                      format: date-time
+                      example: '2019-01-04T13:19:47.000+00:00'
+                    isWatermarked:
+                      type: boolean
+                      example: false
+                    isPublic:
+                      type: boolean
+                      example: false
+                    metaproperties:
+                      type: object
+                      additionalProperties:
+                        type: string
+                      example:
+                        metaproperty_1: option3
+                        metaproperty_2: option2, option1
+                        metaproperty_3: ''
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "[\n  {\n    \"assetId\": \"3DF53D46-4E72-47A0-A42ECC22CDE211D5\",\n    \"name\": \"Asset 1\",\n    \"description\": \"Asset Description\",\n    \"isArchived\": false,\n    \"type\": \"image\",\n    \"audit\": \"ACCEPTED\",\n    \"copyright\": \"\",\n    \"isLimited\": false,\n    \"datePublished\": \"2016-12-29T10:39:52.000+00:00\",\n    \"isRemoved\": true,\n    \"dateRemoved\": \"2019-01-04T13:19:47.000+00:00\",\n    \"idHash\": \"6bb400d042cfe865\",\n    \"phash\": \"56033317620\",\n    \"userCreated\": \"00000000-0000-0000-0000000000000000\",\n    \"dateCreated\": \"2018-12-21T13:11:46.000+00:00\",\n    \"userModified\": \"00000000-0000-0000-0000000000000000\",\n    \"dateModified\": \"2019-01-04T13:19:47.000+00:00\",\n    \"isWatermarked\": false,\n    \"isPublic\": false\n  },\n  {\n    \"assetId\": \"CD729A10-9101-47C7-9D14FA2E14CF28D9\",\n    \"name\": \"Asset 2\",\n    \"description\": \"Asset 2 description\",\n    \"isArchived\": false,\n    \"type\": \"image\",\n    \"audit\": \"ACCEPTED\",\n    \"copyright\": \"\",\n    \"isLimited\": false,\n    \"datePublished\": \"2019-03-31T23:55:21.000+00:00\",\n    \"isRemoved\": false,\n    \"idHash\": \"792e23855f02cdcb\",\n    \"phash\": \"56033317620\",\n    \"userCreated\": \"4BE80C1E-D8FF-4104-8CF774F06B1E60CE\",\n    \"dateCreated\": \"2019-03-31T23:59:40.000+00:00\",\n    \"userModified\": \"00000000-0000-0000-0000000000000000\",\n    \"dateModified\": \"2020-12-04T21:18:27.000+00:00\",\n    \"isWatermarked\": false,\n    \"isPublic\": false,\n    \"metaproperties\": {\n      \"metaproperty_1\": \"option3\",\n      \"metaproperty_2\": \"option2, option1\",\n      \"metaproperty_3\": \"\"\n    }\n  }\n]\n"
+  /v7/analytics/api/v1/report/asset/{assetId}:
+    get:
+      summary: Retrieve specific asset report
+      description: This endpoint allows you to retrieve a human readable report for a specific asset in the DAM. The report will include all the metadata of the asset.
+      tags:
+      - Reporting
+      parameters:
+      - name: assetId
+        in: path
+        description: Asset id.
+        required: true
+        schema:
+          type: string
+          example: CD729A10-9101-47C7-9D14FA2E14CF28D9
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  assetId:
+                    type: string
+                    example: CD729A10-9101-47C7-9D14FA2E14CF28D9
+                  name:
+                    type: string
+                    example: Asset 2
+                  description:
+                    type: string
+                    example: Asset 2 description
+                  isArchived:
+                    type: boolean
+                    example: false
+                  type:
+                    type: string
+                    example: image
+                  audit:
+                    type: string
+                    example: ACCEPTED
+                  copyright:
+                    type: string
+                    example: ''
+                  isLimited:
+                    type: boolean
+                    example: false
+                  datePublished:
+                    type: string
+                    format: date-time
+                    example: '2019-03-31T23:55:21.000+00:00'
+                  isRemoved:
+                    type: boolean
+                    example: false
+                  idHash:
+                    type: string
+                    example: 792e23855f02cdcb
+                  phash:
+                    type: string
+                    example: '56033317620'
+                  userCreated:
+                    type: string
+                    example: 4BE80C1E-D8FF-4104-8CF774F06B1E60CE
+                  dateCreated:
+                    type: string
+                    format: date-time
+                    example: '2019-03-31T23:59:40.000+00:00'
+                  userModified:
+                    type: string
+                    example: 00000000-0000-0000-0000000000000000
+                  dateModified:
+                    type: string
+                    format: date-time
+                    example: '2020-12-04T21:18:27.000+00:00'
+                  isWatermarked:
+                    type: boolean
+                    example: false
+                  isPublic:
+                    type: boolean
+                    example: false
+                  metaproperties:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    example:
+                      metaproperty_1: option3
+                      metaproperty_2: option2, option1
+                      metaproperty_3: ''
+              examples:
+                example-1:
+                  summary: Example response
+                  value: "{\n  \"assetId\": \"CD729A10-9101-47C7-9D14FA2E14CF28D9\",\n  \"name\": \"Asset 2\",\n  \"description\": \"Asset 2 description\",\n  \"isArchived\": false,\n  \"type\": \"image\",\n  \"audit\": \"ACCEPTED\",\n  \"copyright\": \"\",\n  \"isLimited\": false,\n  \"datePublished\": \"2019-03-31T23:55:21.000+00:00\",\n  \"isRemoved\": false,\n  \"idHash\": \"792e23855f02cdcb\",\n  \"phash\": \"56033317620\",\n  \"userCreated\": \"4BE80C1E-D8FF-4104-8CF774F06B1E60CE\",\n  \"dateCreated\": \"2019-03-31T23:59:40.000+00:00\",\n  \"userModified\": \"00000000-0000-0000-0000000000000000\",\n  \"dateModified\": \"2020-12-04T21:18:27.000+00:00\",\n  \"isWatermarked\": false,\n  \"isPublic\": false,\n  \"metaproperties\": {\n    \"metaproperty_1\": \"option3\",\n    \"metaproperty_2\": \"option2, option1\",\n    \"metaproperty_3\": \"\"\n  }\n}\n"
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            analytics.api:read: ''

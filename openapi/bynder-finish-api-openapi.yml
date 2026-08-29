@@ -1,0 +1,127 @@
+openapi: 3.2.0
+info:
+  title: Workflow Jobs Finish API
+  version: 1.0.0
+servers:
+- url: https://{your-bynder-domain}
+tags:
+- name: Finish
+  description: ''
+paths:
+  /api/workflow/jobs/{id}/finish:
+    patch:
+      summary: Finish job
+      description: Requires the JOBAPPROVE security role.
+      tags:
+      - Finish
+      security:
+      - permanentToken:
+        - JOBAPPROVE
+      - OAuth2:
+        - JOBAPPROVE
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 00000000-0000-0000-0000-000000000000
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: Finished
+                job_id:
+                  type: string
+                  example: 00000000-0000-0000-0000-000000000000
+      responses:
+        '200':
+          description: 'Ok: Job finished successfully
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: Finished
+                  job_id:
+                    type: string
+                    example: 00000000-0000-0000-0000-000000000000
+              examples:
+                example-1:
+                  value:
+                    status: Finished
+                    job_id: 00000000-0000-0000-0000-000000000000
+        '403':
+          description: 'Forbidden: The user does not have the required permissions for this operation.
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-1:
+                  value: {}
+        '409':
+          description: 'Conflict: The job is not open (has been finished), the activeStage.status is Approved. Or the job is not on the last stage.
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: Job already finished.
+                  message:
+                    type: string
+                    example: Re-open the job to finish again.
+              examples:
+                example-1:
+                  value:
+                    status: Job already finished.
+                    message: Re-open the job to finish again.
+                example-2:
+                  value:
+                    status: Job not on last stage.
+                    message: Advance the job 00000000-0000-0000-0000-000000000000 to the last stage to finish.
+components:
+  securitySchemes:
+    permanentToken:
+      type: apiKey
+      in: header
+      name: Authorization
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''
+        authorizationCode:
+          authorizationUrl: https://{your-auth-url}
+          tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
+          scopes:
+            PRESETOVERVIEW: ''
+            JOBOVERVIEW: ''
+            CAMPAIGNOVERVIEW: ''
+            JOBADD: ''
+            JOBEDIT: ''
+            JOBAPPROVE: ''
+            JOBREMOVE: ''
