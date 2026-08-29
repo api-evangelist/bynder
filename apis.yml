@@ -1240,6 +1240,9 @@ apis:
   - type: Authentication
     url: authentication/bynder-authentication.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/bynder-capability-edges.yml
+    name: Bynder Business Capability Map
   - type: Overlay
     url: overlays/bynder-access-rights-and-options-v4-overlay.yaml
   - type: Overlay

@@ -1,0 +1,76 @@
+slug: bynder
+provider: Bynder
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Configurations
+  spec_file: bynder-configurations-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.8
+  evidence: '"Create a Webhook Configuration", "Update a Webhook Configuration" on /v7/webhooks/public/api/subscriptions/{id};
+    schema ApiV7WebhooksPublicApiSubscriptionsRequest'
+  reason: Despite the generic tag string, the operations plainly manage the lifecycle of outbound webhook
+    event subscriptions exposed to integrators, which is the Webhook & Event Subscription Management sub-capability
+    of the developer/API ecosystem.
+- tag: Profiles
+  spec_file: bynder-profiles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: To determine the security profile for your user you can compare the security profile id with
+    the profileId ... It's the API's responsibility to enforce that users can only perform allowed actions
+  reason: Despite the 'Profiles' noun these are security profiles governing which actions a user may perform
+    — permission/role retrieval, i.e. identity and access management.
+- tag: Media
+  spec_file: bynder-media-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.7
+  evidence: POST /api/v4/media/save/{importId} "Save as a new asset"; GET /api/v4/media/ "Retrieve assets"
+  reason: Core digital asset bank operations for the vendor's 'brand and marketing assets'. Clearly marketing
+    asset management at L1; ambiguous between marketing operations (martech/DAM) and content marketing
+    (content production/distribution), so no L2 asserted.
+- tag: Media ID
+  spec_file: bynder-media-id-api-openapi.yml
+  capability_id: BC-400
+  capability_id_l1: BC-400
+  capability_name: Marketing Management
+  confidence: 0.7
+  evidence: GET /api/v4/media/{id} "Retrieve specific asset"; POST "Modify asset"; DELETE "Delete asset"
+  reason: CRUD over individual marketing/brand assets in the DAM asset bank. Marketing asset management
+    at L1; L2 left open because the operations do not distinguish marketing operations from content production.
+- tag: Reporting
+  spec_file: bynder-reporting-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: These endpoints provide reporting capabilities for assets of the DAM, making it easier to
+    build your own customised reports; GET /v7/analytics/api/v1/report/asset
+  reason: Explicitly analytics/reporting endpoints intended for building customised reports over DAM asset
+    data — analytics and BI delivery. Not marketing performance management, since the surface is generic
+    asset reporting.
+- tag: Users ID
+  spec_file: bynder-users-id-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /api/v4/users/{id} "Retrieve specific user"; POST "Modify user"; DELETE "Delete user";
+    "Manage specific users by their ID"
+  reason: Full lifecycle management of individual platform user accounts — joiner/mover/leaver style identity
+    administration for the SaaS portal.
