@@ -340,6 +340,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -471,6 +473,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - File Upload
+  tags_raw:
   - File upload
   properties:
   - type: OpenAPI
@@ -504,6 +508,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -571,6 +577,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -769,6 +777,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -821,6 +831,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Public Links
+  tags_raw:
   - Public links
   properties:
   - type: OpenAPI
@@ -872,7 +884,8 @@ apis:
     for retrieve all metaproperty option dependencies for a metaproperty.
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
-  tags:
+  tags: []
+  tags_raw:
   - Retrieve all metaproperty option dependencies for a metaproperty
   properties:
   - type: OpenAPI
@@ -909,7 +922,8 @@ apis:
     options a metaproperty option depends on.
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
-  tags:
+  tags: []
+  tags_raw:
   - Retrieve options a metaproperty option depends on
   properties:
   - type: OpenAPI
@@ -1127,6 +1141,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Token Endpoint
+  tags_raw:
   - Token endpoint
   properties:
   - type: OpenAPI
@@ -1143,6 +1159,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Transforms
+  tags_raw:
   - Transform
   properties:
   - type: OpenAPI
@@ -1211,6 +1229,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -1256,7 +1276,8 @@ apis:
     steps to upload the file chunks and finalize the upload.
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
-  tags:
+  tags: []
+  tags_raw:
   - Step 1 Get closest AmazonS3 upload endpoint
   properties:
   - type: OpenAPI
@@ -1329,7 +1350,8 @@ apis:
     for step 4 or finalize and save an additional uploaded file as a new asset..
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
-  tags:
+  tags: []
+  tags_raw:
   - Step 4 OR Finalize and save an additional uploaded file as a new asset.
   properties:
   - type: OpenAPI
@@ -1379,7 +1401,8 @@ apis:
     ID and details about the file, including its name, size, and the number of chunks it was split into.
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
-  tags:
+  tags: []
+  tags_raw:
   - Step 6 EITHER Save as a new asset
   properties:
   - type: OpenAPI
@@ -1391,7 +1414,8 @@ apis:
     save uploaded file to existing asset.
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
-  tags:
+  tags: []
+  tags_raw:
   - Step 6 OR Save uploaded file to existing asset
   properties:
   - type: OpenAPI
