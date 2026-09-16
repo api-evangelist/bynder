@@ -1197,22 +1197,6 @@ apis:
     url: https://api.bynder.com/reference
   - type: Authentication
     url: authentication/bynder-authentication.yml
-- aid: bynder:bynder-upload-api
-  name: Bynder Upload API
-  description: The Upload API from Bynder — 4 operation(s) for upload.
-  humanURL: https://api.bynder.com/reference
-  baseURL: https://yourportal.bynder.com
-  tags:
-  - Upload
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-upload-api-openapi.yml
-  - type: Documentation
-    url: https://api.bynder.com/docs/getting-started
-  - type: APIReference
-    url: https://api.bynder.com/reference
-  - type: Authentication
-    url: authentication/bynder-authentication.yml
 - aid: bynder:bynder-user-usage-api
   name: Bynder User Usage API
   description: >-
@@ -1269,16 +1253,6 @@ apis:
     url: https://api.bynder.com/reference
   - type: Authentication
     url: authentication/bynder-authentication.yml
-- aid: bynder:bynder-authentication-api
-  name: Bynder Authentication API
-  description: The Authentication API from Bynder — 3 operation(s) for authentication.
-  humanURL: https://api.bynder.com/reference
-  baseURL: https://yourportal.bynder.com
-  tags:
-  - Authentication
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-authentication-api-openapi.yml
 - aid: bynder:bynder-step-1-get-closest-amazons3-upload-endpoint-api
   name: Bynder Step 1 Get closest AmazonS3 upload endpoint API
   description: >-
@@ -1329,18 +1303,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bynder-step-3b-register-uploaded-chunk-api-openapi.yml
-- aid: bynder:bynder-step-4-api
-  name: Bynder Step 4 API
-  description: >-
-    This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file
-    ID and details about the file, including its name, size, and the number of chunks it was split into
-  humanURL: https://api.bynder.com/reference
-  baseURL: https://yourportal.bynder.com
-  tags:
-  - Step 4
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-step-4-api-openapi.yml
 - aid: bynder:bynder-step-4-either-finalise-uploaded-file-api
   name: Bynder Step 4 EITHER Finalise uploaded file API
   description: >-
@@ -1367,18 +1329,6 @@ apis:
   - type: OpenAPI
     url: >-
       openapi/bynder-step-4-or-finalize-and-save-an-additional-uploaded-file-as-a-new-asset-api-openapi.yml
-- aid: bynder:bynder-step-5-api
-  name: Bynder Step 5 API
-  description: >-
-    This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file
-    ID and details about the file, including its name, size, and the number of chunks it was split into.
-  humanURL: https://api.bynder.com/reference
-  baseURL: https://yourportal.bynder.com
-  tags:
-  - Step 5
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-step-5-api-openapi.yml
 - aid: bynder:bynder-step-5-poll-for-processing-status-api
   name: Bynder Step 5 Poll for processing status API
   description: >-
@@ -1392,18 +1342,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bynder-step-5-poll-for-processing-status-api-openapi.yml
-- aid: bynder:bynder-step-6-api
-  name: Bynder Step 6 API
-  description: >-
-    This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file
-    ID and details about the file, including its name, size, and the number of chunks it was split into.
-  humanURL: https://api.bynder.com/reference
-  baseURL: https://yourportal.bynder.com
-  tags:
-  - Step 6
-  properties:
-  - type: OpenAPI
-    url: openapi/bynder-step-6-api-openapi.yml
 - aid: bynder:bynder-step-6-either-save-as-a-new-asset-api
   name: Bynder Step 6 EITHER Save as a new asset API
   description: >-
