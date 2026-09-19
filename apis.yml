@@ -467,6 +467,8 @@ apis:
   humanURL: https://api.bynder.com/reference
   baseURL: https://yourportal.bynder.com
   tags:
+  - Documents
+  tags_raw:
   - Document
   properties:
   - type: OpenAPI
