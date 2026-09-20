@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 12
+edge_count: 14
 edges:
 - tag: Configurations
   spec_file: bynder-configurations-api-openapi.yml
@@ -108,6 +108,18 @@ edges:
   evidence: GET /api/1/taxonomy/metaproperties/{metapropertyId}/options; schemas ListOptionsOutput, MetapropertyOption
   reason: Taxonomy metaproperty option listing is curation of the descriptive metadata vocabulary that
     makes DAM assets discoverable.
+- tag: Reporting
+  spec_file: bynder-reporting-api-openapi.yml
+  capability_id: BC-610.50
+  capability_id_l1: BC-610
+  capability_name: Analytics & BI Management
+  confidence: 0.7
+  evidence: These endpoints provide reporting capabilities for assets of the DAM, making it easier to
+    build your own customised reports; GET /v7/analytics/api/v1/report/asset
+  reason: Explicitly analytics/reporting endpoints intended for building customised reports over DAM asset
+    data — analytics and BI delivery. Not marketing performance management, since the surface is generic
+    asset reporting.
+  recovered_from: sweep-20260828T235257Z-edges.json
 - tag: Specific metaproperty operations
   spec_file: bynder-specific-metaproperty-operations-api-openapi.yml
   capability_id: BC-3710.20
@@ -128,3 +140,14 @@ edges:
   evidence: POST /api/v4/media/{id}/save/{importId}  Save uploaded file to existing asset
   reason: Attaches an uploaded file to an existing DAM asset, completing ingest of source material into
     the asset platform.
+- tag: Users ID
+  spec_file: bynder-users-id-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /api/v4/users/{id} "Retrieve specific user"; POST "Modify user"; DELETE "Delete user";
+    "Manage specific users by their ID"
+  reason: Full lifecycle management of individual platform user accounts — joiner/mover/leaver style identity
+    administration for the SaaS portal.
+  recovered_from: sweep-20260828T235257Z-edges.json
