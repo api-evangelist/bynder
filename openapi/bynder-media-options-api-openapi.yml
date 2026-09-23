@@ -85,6 +85,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 404
+      operationId: postApiMediaOptions
+      x-operation-id-source: derived
     delete:
       summary: Delete metaproperty options
       tags:
@@ -152,6 +154,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 404
+      operationId: deleteApiMediaOptions
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

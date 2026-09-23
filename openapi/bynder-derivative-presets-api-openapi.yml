@@ -7,7 +7,7 @@ tags:
 paths:
   /api/1/derivative-presets/:
     get:
-      summary: Retrieve all configured derivative presets.
+      summary: Retrieve all configured derivative presets
       description: Retrieve all configured derivative presets.
       operationId: retrieveAllDerivativePresets
       responses:
@@ -47,7 +47,7 @@ paths:
       - Derivative Presets
   /api/1/derivative-presets/{preset_id}:
     get:
-      summary: Retrieve a specific configured derivative preset.
+      summary: Retrieve a specific configured derivative preset
       description: Retrieve a specific configured derivative preset.
       operationId: retrieveSpecificDerivativePreset
       parameters:

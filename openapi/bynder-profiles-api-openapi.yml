@@ -2,23 +2,17 @@ openapi: 3.2.0
 info:
   title: Security Roles Profiles API
   version: 1.0.0
-  description: 'To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It''s the API''s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
-
-    '
+  description: To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It's the API's responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
 servers:
 - url: https://{your-bynder-domain}/
 tags:
 - name: Profiles
-  description: 'To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It''s the API''s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
-
-    '
+  description: To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It's the API's responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
 paths:
   /api/v4/profiles/:
     get:
       summary: Retrieve security profiles
-      description: 'To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It’s the API’s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
-
-        '
+      description: To determine the security profile for your user you can compare the security profile id with the profileId retrieved from either the Retrieve specific user or Retrieve current user call. It’s the API’s responsibility to enforce that users can only perform allowed actions but nevertheless we recommend that your application checks whether or not an action can be performed because this will create a better user experience.
       tags:
       - Profiles
       security:
@@ -54,12 +48,12 @@ paths:
               example: 'Invalid or expired token.
 
                 '
+      operationId: getApiV4Profiles
+      x-operation-id-source: derived
   /api/v4/profiles/{id}:
     get:
       summary: Retrieve specific security profile
-      description: 'This call allows you to retrieve your own security profile without requiring the PERMISSIONMANAGEMENT security role. In order to get your own security profile use your user profile id retrieved by executing the Specific User or Current User call.
-
-        '
+      description: This call allows you to retrieve your own security profile without requiring the PERMISSIONMANAGEMENT security role. In order to get your own security profile use your user profile id retrieved by executing the Specific User or Current User call.
       tags:
       - Profiles
       parameters:
@@ -99,6 +93,8 @@ paths:
               example: 'Invalid or expired token.
 
                 '
+      operationId: getApiV4ProfilesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

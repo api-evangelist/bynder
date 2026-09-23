@@ -287,6 +287,8 @@ paths:
                       position: 1
                       status: Approved
                       id: 00000000-0000-0000-0000-000000000000
+      operationId: getApiWorkflowJobs
+      x-operation-id-source: derived
     post:
       summary: Create job
       description: Requires the JOBADD security role.
@@ -383,6 +385,8 @@ paths:
                   value:
                     status: Created
                     job_id: 00000000-0000-0000-0000-000000000000
+      operationId: postApiWorkflowJobs
+      x-operation-id-source: derived
   /api/workflow/jobs/{id}:
     get:
       summary: Retrieve specific job
@@ -533,6 +537,8 @@ paths:
                       status: Idle
                       id: 00000000-0000-0000-0000-000000000000
                     jobMetaproperties: {}
+      operationId: getApiWorkflowJobsById
+      x-operation-id-source: derived
     put:
       summary: Modify job
       description: Requires the JOBEDIT security role.
@@ -690,6 +696,8 @@ paths:
                   value:
                     status: Updated
                     job_id: 00000000-0000-0000-0000-000000000000
+      operationId: putApiWorkflowJobsById
+      x-operation-id-source: derived
     delete:
       summary: Delete job
       description: Requires the JOBREMOVE security role.
@@ -715,6 +723,8 @@ paths:
               examples:
                 example-1:
                   value: {}
+      operationId: deleteApiWorkflowJobsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

@@ -80,6 +80,8 @@ paths:
                       additionalProperties:
                         type: string
                         example: 00000000-0000-0000-0000-000000000000
+      operationId: getApiWorkflowCampaigns
+      x-operation-id-source: derived
     post:
       summary: Create campaign
       description: Requires the CAMPAIGNADD security role.
@@ -142,6 +144,8 @@ paths:
                   id:
                     type: string
                     example: '00000000000000000000000000000000'
+      operationId: postApiWorkflowCampaigns
+      x-operation-id-source: derived
   /api/workflow/campaigns/{id}:
     get:
       summary: Retrieve specific campaign
@@ -219,6 +223,8 @@ paths:
                     additionalProperties:
                       type: string
                       example: 00000000-0000-0000-0000-000000000000
+      operationId: getApiWorkflowCampaignsById
+      x-operation-id-source: derived
     put:
       summary: Modify campaign
       description: Requires the CAMPAIGNEDIT security role.
@@ -282,6 +288,8 @@ paths:
                   id:
                     type: string
                     example: '00000000000000000000000000000000'
+      operationId: putApiWorkflowCampaignsById
+      x-operation-id-source: derived
     delete:
       summary: Delete campaign
       description: Requires the CAMPAIGNREMOVE security role.
@@ -302,6 +310,8 @@ paths:
       responses:
         '204':
           description: Campaign deleted successfully
+      operationId: deleteApiWorkflowCampaignsById
+      x-operation-id-source: derived
     post:
       summary: Close campaign
       description: Requires the CAMPAIGNWRITE security role.

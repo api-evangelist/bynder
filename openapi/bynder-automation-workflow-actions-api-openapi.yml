@@ -1,10 +1,22 @@
 openapi: 3.2.0
 info:
-  title: Bynder Automation Workflow Actions API
+  title: automation-workflow-svc Automation Workflow Actions API
   version: 1.0.0
-  description: 'Operations tagged Automation Workflow Actions across 2 of this provider''s published API definitions: bynder-automation-workflow-openapi.json, bynder-automation-workflow-svc-openapi.json. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://example.com/api/1/automation-workflow/
+  description: 'This API enables clients to manage automation-workflow rules.
+
+    **Servers:**
+
+    1. **Local Development:**
+
+    - Base URL: `http://localhost:8080/{endpoint}`
+
+
+    2. **Stage or Production:**
+
+    - Base URL: `https://automation-workflow-service.bynder.com/api/1/automation-workflow/{endpoint}`
+
+
+    Ensure you are using the appropriate server based on your environment (local or production).'
 tags:
 - name: Automation Workflow Actions
 paths:
@@ -47,13 +59,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AutomationWorkflowAction'
-    AutomationWorkflowAction:
-      title: AutomationWorkflowAction
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
       type: object
       required:
-      - action_type
+      - message
       properties:
-        action_type:
+        message:
           type: string
     ErrorResponse:
       title: ErrorResponse
@@ -63,31 +75,15 @@ components:
       properties:
         message:
           type: string
-    ErrorAuthorizationResponse:
-      title: ErrorAuthorizationResponse
+    AutomationWorkflowAction:
+      title: AutomationWorkflowAction
       type: object
       required:
-      - message
+      - action_type
       properties:
-        message:
+        action_type:
           type: string
-    AutomationWorkflowActionsResponse_2:
-      title: AutomationWorkflowActionsResponse
-      type: object
-      required:
-      - max_actions_limit
-      properties:
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AutomationWorkflowAction'
-        max_actions_limit:
-          type: integer
-          format: int32
   securitySchemes:
     httpAuth:
       type: http
       scheme: bearer
-x-refined-from:
-- bynder-automation-workflow-openapi.json
-- bynder-automation-workflow-svc-openapi.json

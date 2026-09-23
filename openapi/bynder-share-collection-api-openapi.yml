@@ -94,6 +94,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 400
+      operationId: postApiV4CollectionsByIdShare
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

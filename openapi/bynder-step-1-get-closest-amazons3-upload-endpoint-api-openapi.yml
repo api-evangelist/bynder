@@ -1,11 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Group Upload Assets API Steps Step 1 Get closest AmazonS3 upload endpoint API
+  title: Group Upload Assets API Steps Step 1 Get closest AmazonS3…
   contact: {}
   version: 1.0.0
-  description: 'This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.
-
-    '
+  description: This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.
 servers:
 - url: https://{your-bynder-domain}/
   variables:
@@ -40,9 +38,7 @@ servers:
 security: []
 tags:
 - name: Step 1 Get closest AmazonS3 upload endpoint
-  description: 'This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.
-
-    '
+  description: This endpoint prepares the upload of a file in chunks. It returns a file ID that will be used in subsequent steps to upload the file chunks and finalize the upload.
 paths:
   /api/upload/endpoint:
     parameters: []

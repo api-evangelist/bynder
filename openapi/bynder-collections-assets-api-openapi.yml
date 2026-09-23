@@ -53,6 +53,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 404
+      operationId: getApiV4CollectionsByIdMedia
+      x-operation-id-source: derived
     post:
       summary: Add assets to a collection
       description: Add assets to a specific collection by ID.
@@ -107,6 +109,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 403
+      operationId: postApiV4CollectionsByIdMedia
+      x-operation-id-source: derived
     delete:
       summary: Remove assets from a collection
       description: Remove assets from a specific collection by ID.
@@ -146,6 +150,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 403
+      operationId: deleteApiV4CollectionsByIdMedia
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

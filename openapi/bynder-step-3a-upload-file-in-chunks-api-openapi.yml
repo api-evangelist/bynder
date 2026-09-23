@@ -1,11 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Group Upload Assets API Steps Step 3A Upload file in chunks API
+  title: Group Upload Assets API Steps Step 3A Upload file in chunks…
   contact: {}
   version: 1.0.0
-  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
-
-    '
+  description: This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
 servers:
 - url: https://{your-bynder-domain}/
   variables:
@@ -40,9 +38,7 @@ servers:
 security: []
 tags:
 - name: Step 3A Upload file in chunks
-  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
-
-    '
+  description: This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
 paths:
   /bynder-public-us-east-1.s3.amazonaws.com/:
     parameters: []

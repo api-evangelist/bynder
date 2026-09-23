@@ -1,11 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Group Upload Assets API Steps Step 3B Register uploaded chunk API
+  title: Group Upload Assets API Steps Step 3B Register uploaded…
   contact: {}
   version: 1.0.0
-  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
-
-    '
+  description: This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
 servers:
 - url: https://{your-bynder-domain}/
   variables:
@@ -40,9 +38,7 @@ servers:
 security: []
 tags:
 - name: Step 3B Register uploaded chunk
-  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
-
-    '
+  description: This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
 paths:
   /api/v4/upload/{id}:
     parameters: []
@@ -119,27 +115,6 @@ paths:
         - MEDIAUPLOADFORAPPROVAL
 components:
   schemas:
-    ApiV4Upload500Error1:
-      title: ApiV4Upload500Error1
-      type: object
-      properties:
-        message:
-          type: string
-          examples:
-          - Could not complete upload
-        retry:
-          type: integer
-          contentEncoding: int32
-          examples:
-          - 1
-        success:
-          type: boolean
-          examples:
-          - false
-    Content-Type:
-      title: Content-Type
-      const: application/x-www-form-urlencoded
-      type: string
     File:
       title: File
       type: object
@@ -156,6 +131,10 @@ components:
           type: string
           examples:
           - s3
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
     ApiV4UploadResponse:
       title: ApiV4UploadResponse
       type: object
@@ -192,6 +171,23 @@ components:
           contentEncoding: int32
           examples:
           - 1
+    ApiV4Upload500Error1:
+      title: ApiV4Upload500Error1
+      type: object
+      properties:
+        message:
+          type: string
+          examples:
+          - Could not complete upload
+        retry:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+        success:
+          type: boolean
+          examples:
+          - false
   securitySchemes:
     permanentToken:
       type: apiKey

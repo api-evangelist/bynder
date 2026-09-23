@@ -147,6 +147,8 @@ paths:
                       - type: activity
                         url: https://url.to.file/preview.png
                       sub_versions: []
+      operationId: getApiWorkflowJobsByIdMedia
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

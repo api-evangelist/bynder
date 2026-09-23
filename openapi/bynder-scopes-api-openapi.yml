@@ -53,3 +53,5 @@ paths:
                         description: Scope description
                         anyOfPermissions:
                         - scope.permission
+      operationId: getV6AuthenticationOauth2Scopes
+      x-operation-id-source: derived

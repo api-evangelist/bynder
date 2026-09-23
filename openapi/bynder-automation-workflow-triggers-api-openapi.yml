@@ -1,10 +1,22 @@
 openapi: 3.2.0
 info:
-  title: Bynder Automation Workflow Triggers API
+  title: automation-workflow-svc Automation Workflow Triggers API
   version: 1.0.0
-  description: 'Operations tagged Automation Workflow Triggers across 2 of this provider''s published API definitions: bynder-automation-workflow-openapi.json, bynder-automation-workflow-svc-openapi.json. Each path carries the servers of the definition it was published in.'
-servers:
-- url: https://example.com/api/1/automation-workflow/
+  description: 'This API enables clients to manage automation-workflow rules.
+
+    **Servers:**
+
+    1. **Local Development:**
+
+    - Base URL: `http://localhost:8080/{endpoint}`
+
+
+    2. **Stage or Production:**
+
+    - Base URL: `https://automation-workflow-service.bynder.com/api/1/automation-workflow/{endpoint}`
+
+
+    Ensure you are using the appropriate server based on your environment (local or production).'
 tags:
 - name: Automation Workflow Triggers
 paths:
@@ -47,6 +59,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AutomationWorkflowTrigger'
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
     AutomationWorkflowTrigger:
       title: AutomationWorkflowTrigger
       type: object
@@ -63,18 +83,7 @@ components:
       properties:
         message:
           type: string
-    ErrorAuthorizationResponse:
-      title: ErrorAuthorizationResponse
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
   securitySchemes:
     httpAuth:
       type: http
       scheme: bearer
-x-refined-from:
-- bynder-automation-workflow-openapi.json
-- bynder-automation-workflow-svc-openapi.json

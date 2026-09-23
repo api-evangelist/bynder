@@ -8,9 +8,7 @@ servers:
 - url: https://{your-bynder-domain}
 tags:
 - name: Groups
-  description: 'Manage and retrieve groups within your Bynder account. Requires the **GROUPMANAGEMENT** security role.
-
-    '
+  description: Manage and retrieve groups within your Bynder account. Requires the **GROUPMANAGEMENT** security role.
 paths:
   /api/groups/list/:
     get:
@@ -67,6 +65,8 @@ paths:
         - GROUPMANAGEMENT
       - OAuth2:
         - GROUPMANAGEMENT
+      operationId: getApiGroupsList
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
   /api/workflow/groups/:
@@ -133,6 +133,8 @@ paths:
                   dateCreated:
                     type: string
                     example: '2017-10-27T16:32:16+00:00'
+      operationId: getApiWorkflowGroups
+      x-operation-id-source: derived
     post:
       summary: Create group
       tags:
@@ -166,6 +168,8 @@ paths:
             application/json:
               schema:
                 type: object
+      operationId: postApiWorkflowGroups
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}
   /api/workflow/groups/{id}:
@@ -239,6 +243,8 @@ paths:
                   dateCreated:
                     type: string
                     example: '2017-10-27T16:32:16+00:00'
+      operationId: getApiWorkflowGroupsById
+      x-operation-id-source: derived
     put:
       summary: Modify group
       tags:
@@ -279,6 +285,8 @@ paths:
             application/json:
               schema:
                 type: object
+      operationId: putApiWorkflowGroupsById
+      x-operation-id-source: derived
     delete:
       summary: Delete group
       tags:
@@ -300,6 +308,8 @@ paths:
       responses:
         '204':
           description: Group deleted
+      operationId: deleteApiWorkflowGroupsById
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}
 components:

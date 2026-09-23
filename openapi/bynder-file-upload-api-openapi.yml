@@ -5,7 +5,7 @@ info:
 servers:
 - url: https://{your-bynder-domain}
 tags:
-- name: File upload
+- name: File Upload
   description: ''
 paths:
   /workflow-jobs/{id}/upload:
@@ -15,11 +15,9 @@ paths:
 
         **Warning:** Requires the **JOBEDIT** security role.
 
-        **Warning:** Is only available for Files-Service portals.
-
-        '
+        **Warning:** Is only available for Files-Service portals.'
       tags:
-      - File upload
+      - File Upload
       parameters:
       - name: id
         in: path
@@ -63,6 +61,8 @@ paths:
                     type: string
                     description: Media ID of the uploaded file
                     example: '00000000000000000000000000000000'
+      operationId: postWorkflowJobsByIdUpload
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

@@ -84,6 +84,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 404
+      operationId: getApiV4CollectionsById
+      x-operation-id-source: derived
     post:
       summary: Modify collection
       description: Modify a specific collection by ID.
@@ -162,6 +164,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 403
+      operationId: postApiV4CollectionsById
+      x-operation-id-source: derived
     delete:
       summary: Delete collection
       description: Delete a specific collection by ID.
@@ -193,6 +197,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 404
+      operationId: deleteApiV4CollectionsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

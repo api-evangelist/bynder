@@ -185,6 +185,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 400
+      operationId: getApiV4Collections
+      x-operation-id-source: derived
     post:
       summary: Create collection
       description: Create a new collection.
@@ -255,6 +257,8 @@ paths:
                   statuscode:
                     type: integer
                     example: 403
+      operationId: postApiV4Collections
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

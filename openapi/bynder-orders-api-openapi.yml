@@ -59,6 +59,8 @@ paths:
                     currency_symbol:
                       type: string
                       example: '8364'
+      operationId: getApiStoreOrder
+      x-operation-id-source: derived
   /api/store/order/{id}/:
     get:
       summary: Retrieve specific order info
@@ -96,6 +98,8 @@ paths:
                   orderReference:
                     type: string
                     example: NL0456
+      operationId: getApiStoreOrderById
+      x-operation-id-source: derived
   /api/store/order/{id}/products:
     get:
       summary: Retrieve specific order by id
@@ -207,6 +211,8 @@ paths:
                     quantity:
                       type: integer
                       example: 3
+      operationId: getApiStoreOrderByIdProducts
+      x-operation-id-source: derived
     post:
       summary: Modify order
       tags:
@@ -263,6 +269,8 @@ paths:
                   status_code:
                     type: integer
                     example: 201
+      operationId: postApiStoreOrderByIdProducts
+      x-operation-id-source: derived
   /api/store/orderproducts/{id}:
     get:
       summary: Retrieve specific orderline
@@ -300,6 +308,8 @@ paths:
                   customerReference:
                     type: string
                     example: '000000000000'
+      operationId: getApiStoreOrderproductsById
+      x-operation-id-source: derived
     patch:
       summary: Modify orderline
       tags:
@@ -346,6 +356,8 @@ paths:
                   status_code:
                     type: integer
                     example: 201
+      operationId: patchApiStoreOrderproductsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

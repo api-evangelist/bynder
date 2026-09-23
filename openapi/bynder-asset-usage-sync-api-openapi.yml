@@ -2,9 +2,7 @@ openapi: 3.2.0
 info:
   title: Asset Usage Sync API
   version: 1.0.0
-  description: 'These calls allow you to keep track of assets being exported from Bynder and imported into a third party application. In order to get started or find an existing integration id you should check out this [Bynder support](https://help.bynder.com/en/216226-track-asset-usage.html#UUID-5db586ff-9502-8e5b-4355-ca3630fceee3_N1579707153615_body) article. If you want to register a new third party application please contact us at [support@bynder.com](mailto:support@bynder.com).
-
-    '
+  description: These calls allow you to keep track of assets being exported from Bynder and imported into a third party application. In order to get started or find an existing integration id you should check out this Bynder support article. If you want to register a new third party application please contact us at support@bynder.com.
 servers:
 - url: https://{your-bynder-domain}/
 security:
@@ -23,9 +21,7 @@ tags:
     * A usage will be deleted when specifying a URI but not using that URI in a usage
 
 
-    __Warning:__ Requires the STATISTICS security role.
-
-    '
+    __Warning:__ Requires the STATISTICS security role.'
 paths:
   /api/media/usage/sync:
     post:
@@ -131,6 +127,8 @@ paths:
                     type: string
                   asset_id:
                     type: string
+      operationId: postApiMediaUsageSync
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

@@ -127,54 +127,24 @@ paths:
       - bearerAuth: []
 components:
   schemas:
-    ErrorsObject:
-      title: ErrorsObject
+    Resourcerepresentingthecontentinadocument1:
+      title: Resourcerepresentingthecontentinadocument1
       required:
-      - errors
+      - id
+      - type
+      - attributes
       type: object
       properties:
-        errors:
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorObject'
-          description: ''
-    Accept:
-      title: Accept
-      const: application/vnd.api+json
-      type: string
-    Attributes:
-      title: Attributes
-      type: object
-      properties:
-        document:
+        id:
           type: string
-          description: ProseMirror JSON Object (https://prosemirror.net/docs/ref/#model.Document_Structure)
-          examples:
-          - type: doc
-            content:
-            - type: paragraph
-              content:
-              - type: text
-                text: Hello world.
-        html:
+          description: UUID identifier
+          contentEncoding: uuid
+        type:
+          const: document
           type: string
-          description: HTML string
-          examples:
-          - <p>Hello world!</p>
-        documentGroupId:
-          type: string
-          description: The group id to which the document belongs. This is used to group documents together.
-          examples:
-          - group_id_1
-    DocumentContentBody:
-      title: DocumentContentBody
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Resourcerepresentingthecontentinadocument1'
+          description: Resource type
+        attributes:
+          $ref: '#/components/schemas/Attributes'
     ErrorCode:
       title: ErrorCode
       enum:
@@ -189,6 +159,22 @@ components:
       description: Machine readable error code
       examples:
       - VALIDATION_ERROR
+    Accept:
+      title: Accept
+      const: application/vnd.api+json
+      type: string
+    ErrorsObject:
+      title: ErrorsObject
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          description: ''
     ErrorObject:
       title: ErrorObject
       required:
@@ -227,24 +213,38 @@ components:
           - body/data/attributes must have required property 'html'
         meta:
           description: An object of any arbitrary data. Record<string, unknown>
-    Resourcerepresentingthecontentinadocument1:
-      title: Resourcerepresentingthecontentinadocument1
-      required:
-      - id
-      - type
-      - attributes
+    Attributes:
+      title: Attributes
       type: object
       properties:
-        id:
+        document:
           type: string
-          description: UUID identifier
-          contentEncoding: uuid
-        type:
-          const: document
+          description: ProseMirror JSON Object (https://prosemirror.net/docs/ref/#model.Document_Structure)
+          examples:
+          - type: doc
+            content:
+            - type: paragraph
+              content:
+              - type: text
+                text: Hello world.
+        html:
           type: string
-          description: Resource type
-        attributes:
-          $ref: '#/components/schemas/Attributes'
+          description: HTML string
+          examples:
+          - <p>Hello world!</p>
+        documentGroupId:
+          type: string
+          description: The group id to which the document belongs. This is used to group documents together.
+          examples:
+          - group_id_1
+    DocumentContentBody:
+      title: DocumentContentBody
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Resourcerepresentingthecontentinadocument1'
   securitySchemes:
     bearerAuth:
       type: http

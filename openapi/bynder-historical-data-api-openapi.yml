@@ -2,9 +2,7 @@ openapi: 3.2.0
 info:
   title: Analytics Historical Data API
   version: 1.0.0
-  description: 'This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints. **Note:** This data isn''t available by default. Please, contact your CSM if you require access to it.
-
-    '
+  description: This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints. **Note:** This data isn't available by default. Please, contact your CSM if you require access to it.
 servers:
 - url: https://{your-bynder-domain}
 security:
@@ -14,9 +12,7 @@ security:
   - analytics.api:read
 tags:
 - name: Historical Data
-  description: 'This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints. **Note:** This data isn''t available by default. Please, contact your CSM if you require access to it.
-
-    '
+  description: This endpoint provides historical Analytics data beyond the 12 month retention period that applies to the Analytics API endpoints. **Note:** This data isn't available by default. Please, contact your CSM if you require access to it.
 paths:
   /v7/analytics/api/v1/historical/{year}.csv:
     get:
@@ -47,6 +43,8 @@ paths:
                     SearchExecuted,2023-02-23T11:03:30.971Z,1A84D758-2B3A-141F-8F07D71AA1F223BD,"","","","","","","","",[de],"","","",{168}
 
                     '
+      operationId: getV7AnalyticsApiV1Historical{year}Csv
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

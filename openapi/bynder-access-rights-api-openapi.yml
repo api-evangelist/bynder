@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Bynder Access rights API
+  title: Optiops Access rights API
+  contact: {}
   version: 1.0.0
-  description: 'Operations tagged Access rights across 2 of this provider''s published API definitions: bynder-access-rights-and-options-v4-openapi.json, bynder-access-rights-v4-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{your-bynder-domain}/
   variables:
@@ -16,6 +16,10 @@ servers:
   variables:
     your-auth-url:
       default: DefaultParameterValue
+- url: https://DefaultParameterValue
+  variables: {}
+- url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
+  variables: {}
 security:
 - OAuth2: []
 - permanentToken: []
@@ -110,90 +114,8 @@ paths:
           headers: {}
           content: {}
       deprecated: false
-    servers:
-    - url: https://{your-bynder-domain}/
-      variables:
-        your-bynder-domain:
-          default: your-bynder-domainDefaultValue
-    - url: https://DefaultParameterValue
-      variables: {}
-    - url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
-      variables: {}
-    - url: https://{your-auth-url}
-      variables:
-        your-auth-url:
-          default: DefaultParameterValue
-    - url: https://DefaultParameterValue
-      variables: {}
-    - url: https://your-bynder-domainDefaultValue/v6/authentication/oauth2
-      variables: {}
 components:
   schemas:
-    ApiContentAccessMetapropertiesRequest1:
-      title: ApiContentAccessMetapropertiesRequest1
-      type: object
-      properties:
-        contentAccessIds:
-          type: array
-          items:
-            type: string
-          description: ''
-    PrincipalExtraInformation:
-      title: PrincipalExtraInformation
-      type: object
-      properties:
-        email:
-          type: string
-          examples:
-          - user_email@bynder.com
-    PrincipalType:
-      title: PrincipalType
-      enum:
-      - user
-      - group
-      - profile
-      type: string
-      examples:
-      - user
-    ApiContentAccessMetapropertiesResponse1:
-      title: ApiContentAccessMetapropertiesResponse1
-      type: object
-      properties:
-        principalId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000-000000000000
-        principalType:
-          type: string
-          examples:
-          - user
-    Principal:
-      title: Principal
-      type: object
-      properties:
-        principalId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000000000000000
-        principalType:
-          $ref: '#/components/schemas/PrincipalType'
-    Level:
-      title: Level
-      const: metaproperty.hide
-      type: string
-      examples:
-      - metaproperty.hide
-    ApiContentAccessMetapropertiesRequest:
-      title: ApiContentAccessMetapropertiesRequest
-      type: object
-      properties:
-        principals:
-          type: array
-          items:
-            $ref: '#/components/schemas/Principal'
-          description: ''
-        level:
-          $ref: '#/components/schemas/Level'
     ApiContentAccessMetapropertiesResponse:
       title: ApiContentAccessMetapropertiesResponse
       type: object
@@ -232,6 +154,71 @@ components:
           - User full name
         principalExtraInformation:
           $ref: '#/components/schemas/PrincipalExtraInformation'
+    PrincipalExtraInformation:
+      title: PrincipalExtraInformation
+      type: object
+      properties:
+        email:
+          type: string
+          examples:
+          - user_email@bynder.com
+    Principal:
+      title: Principal
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        principalType:
+          $ref: '#/components/schemas/PrincipalType'
+    PrincipalType:
+      title: PrincipalType
+      enum:
+      - user
+      - group
+      - profile
+      type: string
+      examples:
+      - user
+    ApiContentAccessMetapropertiesResponse1:
+      title: ApiContentAccessMetapropertiesResponse1
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+        principalType:
+          type: string
+          examples:
+          - user
+    ApiContentAccessMetapropertiesRequest1:
+      title: ApiContentAccessMetapropertiesRequest1
+      type: object
+      properties:
+        contentAccessIds:
+          type: array
+          items:
+            type: string
+          description: ''
+    Level:
+      title: Level
+      const: metaproperty.hide
+      type: string
+      examples:
+      - metaproperty.hide
+    ApiContentAccessMetapropertiesRequest:
+      title: ApiContentAccessMetapropertiesRequest
+      type: object
+      properties:
+        principals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Principal'
+          description: ''
+        level:
+          $ref: '#/components/schemas/Level'
   securitySchemes:
     permanentToken:
       type: apiKey
@@ -247,6 +234,3 @@ components:
           authorizationUrl: https://DefaultParameterValue/
           tokenUrl: https://your-bynder-domainDefaultValue/v6/authentication/oauth2/token
           scopes: {}
-x-refined-from:
-- bynder-access-rights-and-options-v4-openapi.json
-- bynder-access-rights-v4-openapi.json

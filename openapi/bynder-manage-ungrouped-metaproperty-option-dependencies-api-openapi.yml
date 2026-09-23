@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Bynder Manage ungrouped metaproperty option dependencies API
+  title: Metaproperty Options and Operations Manage ungrouped…
   version: 1.0.0
-  description: 'Operations tagged Manage ungrouped metaproperty option dependencies across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{your-bynder-domain}/
 security:
@@ -73,6 +72,8 @@ paths:
                   value:
                     message: Unknown dependency option
                     statuscode: 404
+      operationId: postApiV4MetapropertiesByIdOptionsByOptionIdDependenciesByDependencyId
+      x-operation-id-source: derived
     delete:
       summary: Delete a dependency
       description: Delete a dependency from a metaproperty option.
@@ -126,8 +127,8 @@ paths:
                   value:
                     message: Unknown dependency option
                     statuscode: 404
-    servers:
-    - url: https://{your-bynder-domain}/
+      operationId: deleteApiV4MetapropertiesByIdOptionsByOptionIdDependenciesByDependencyId
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:
@@ -148,6 +149,3 @@ components:
           scopes:
             METAPROPERTYMANAGEMENT: ''
             METAMANAGEMENT: ''
-x-refined-from:
-- bynder-metaproperty-options-v4-openapi.json
-- bynder-options-v4-openapi.json

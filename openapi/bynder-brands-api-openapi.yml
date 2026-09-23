@@ -46,6 +46,8 @@ paths:
                             type: string
       tags:
       - Brands
+      operationId: getApiV4Brands
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

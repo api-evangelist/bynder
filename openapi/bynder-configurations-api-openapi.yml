@@ -150,6 +150,20 @@ paths:
       deprecated: false
 components:
   schemas:
+    ApiV7WebhooksPublicApiSubscriptionsRequest1:
+      title: ApiV7WebhooksPublicApiSubscriptionsRequest1
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: string
+          description: ''
+        preArchivedNotificationDays:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 5
     ApiV7WebhooksPublicApiSubscriptionsResponse:
       title: ApiV7WebhooksPublicApiSubscriptionsResponse
       type: object
@@ -158,6 +172,19 @@ components:
           type: string
           examples:
           - 00000000-0000-0000-0000-000000000000
+    ApiV7WebhooksPublicApiSubscriptionsRequest2:
+      title: ApiV7WebhooksPublicApiSubscriptionsRequest2
+      type: object
+      properties:
+        name:
+          type: string
+          examples:
+          - Updated name via API
+        status:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
     ApiV7WebhooksPublicApiSubscriptionsRequest:
       title: ApiV7WebhooksPublicApiSubscriptionsRequest
       type: object
@@ -184,30 +211,3 @@ components:
           contentEncoding: int32
           examples:
           - 5
-    ApiV7WebhooksPublicApiSubscriptionsRequest1:
-      title: ApiV7WebhooksPublicApiSubscriptionsRequest1
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            type: string
-          description: ''
-        preArchivedNotificationDays:
-          type: integer
-          contentEncoding: int32
-          examples:
-          - 5
-    ApiV7WebhooksPublicApiSubscriptionsRequest2:
-      title: ApiV7WebhooksPublicApiSubscriptionsRequest2
-      type: object
-      properties:
-        name:
-          type: string
-          examples:
-          - Updated name via API
-        status:
-          type: integer
-          contentEncoding: int32
-          examples:
-          - 1

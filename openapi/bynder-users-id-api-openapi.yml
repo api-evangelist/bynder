@@ -2,16 +2,12 @@ openapi: 3.2.0
 info:
   title: Users ID API
   version: 1.0.0
-  description: 'Manage specific users by their ID. This includes retrieving, updating, and deleting user information based on the user ID.
-
-    '
+  description: Manage specific users by their ID. This includes retrieving, updating, and deleting user information based on the user ID.
 servers:
 - url: https://{your-bynder-domain}/
 tags:
 - name: Users ID
-  description: 'Manage specific users by their ID. This includes retrieving, updating, and deleting user information based on the user ID.
-
-    '
+  description: Manage specific users by their ID. This includes retrieving, updating, and deleting user information based on the user ID.
 paths:
   /api/v4/users/{id}:
     get:
@@ -108,6 +104,8 @@ paths:
                     type: string
                   terms:
                     type: string
+      operationId: getApiV4UsersById
+      x-operation-id-source: derived
     post:
       summary: Modify user
       tags:
@@ -181,6 +179,8 @@ paths:
                     type: string
                   username:
                     type: string
+      operationId: postApiV4UsersById
+      x-operation-id-source: derived
     delete:
       summary: Delete user
       tags:
@@ -200,6 +200,8 @@ paths:
       responses:
         '204':
           description: User deleted
+      operationId: deleteApiV4UsersById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

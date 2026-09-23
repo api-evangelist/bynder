@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Bynder Retrieve options a metaproperty option depends on API
+  title: Metaproperty Options and Operations Retrieve options a…
   version: 1.0.0
-  description: 'Operations tagged Retrieve options a metaproperty option depends on across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{your-bynder-domain}/
 security:
@@ -83,8 +82,8 @@ paths:
                   statuscode:
                     type: string
                     example: '404'
-    servers:
-    - url: https://{your-bynder-domain}/
+      operationId: getApiV4MetapropertiesByIdOptionsByOptionIdDependencies
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:
@@ -105,6 +104,3 @@ components:
           scopes:
             METAPROPERTYMANAGEMENT: ''
             METAMANAGEMENT: ''
-x-refined-from:
-- bynder-metaproperty-options-v4-openapi.json
-- bynder-options-v4-openapi.json

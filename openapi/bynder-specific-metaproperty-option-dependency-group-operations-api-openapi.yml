@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Bynder Specific metaproperty option dependency group operations API
+  title: Metaproperty Options and Operations Specific metaproperty…
   version: 1.0.0
-  description: 'Operations tagged Specific metaproperty option dependency group operations across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{your-bynder-domain}/
 security:
@@ -90,8 +89,8 @@ paths:
                   value:
                     message: Unknown group
                     statuscode: '404'
-    servers:
-    - url: https://{your-bynder-domain}/
+      operationId: postApiV4MetapropertiesByIdOptionsByOptionIdDependenciesGroupByGroupId
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:
@@ -112,6 +111,3 @@ components:
           scopes:
             METAPROPERTYMANAGEMENT: ''
             METAMANAGEMENT: ''
-x-refined-from:
-- bynder-metaproperty-options-v4-openapi.json
-- bynder-options-v4-openapi.json

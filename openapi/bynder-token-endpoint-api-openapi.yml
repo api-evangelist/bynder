@@ -11,11 +11,9 @@ info:
 
     _The token endpoint requires authorization either in the body or by
 
-    sending the Authorization header._
-
-    '
+    sending the Authorization header._'
 tags:
-- name: Token endpoint
+- name: Token Endpoint
   description: 'Use the token endpoint to retrieve a access token which can be used to authorize API
 
     requests. Depending on the type of grant, different fields are required which are
@@ -25,20 +23,16 @@ tags:
 
     _The token endpoint requires authorization either in the body or by
 
-    sending the Authorization header._
-
-    '
+    sending the Authorization header._'
 paths:
   /v6/authentication/oauth2/token:
     post:
       summary: Using an authorization code or the refresh token
       description: 'Use the token endpoint to retrieve an access token which can be used to authorize API
 
-        requests. This endpoint supports the Authorization Code grant, the Refresh Token grant and the Client Credentials grant.
-
-        '
+        requests. This endpoint supports the Authorization Code grant, the Refresh Token grant and the Client Credentials grant.'
       tags:
-      - Token endpoint
+      - Token Endpoint
       requestBody:
         required: true
         content:
@@ -107,3 +101,5 @@ paths:
                     expires_in: 3600
                     access_token: eyJh...NDcw
                     scope: offline asset:read
+      operationId: postV6AuthenticationOauth2Token
+      x-operation-id-source: derived

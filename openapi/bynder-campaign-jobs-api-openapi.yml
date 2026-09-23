@@ -293,6 +293,8 @@ paths:
                       position: 1
                       status: Approved
                       id: 00000000-0000-0000-0000-000000000000
+      operationId: getApiWorkflowCampaignsByIdJobs
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

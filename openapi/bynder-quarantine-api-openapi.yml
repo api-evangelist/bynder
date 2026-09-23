@@ -102,6 +102,8 @@ paths:
                   message:
                     type: string
                     example: Asset not found
+      operationId: getV7QuarantineV1Assets
+      x-operation-id-source: derived
   /v7/quarantine/v1/assets/{asset_id}:
     get:
       summary: Retrieve a quarantined asset by id
@@ -195,6 +197,8 @@ paths:
                   message:
                     type: string
                     example: Asset not found
+      operationId: getV7QuarantineV1AssetsByAssetId
+      x-operation-id-source: derived
     put:
       summary: Update review status by id
       tags:
@@ -256,6 +260,8 @@ paths:
                   message:
                     type: string
                     example: Asset not found
+      operationId: putV7QuarantineV1AssetsByAssetId
+      x-operation-id-source: derived
   /v7/quarantine/v1/antivirus-audit:
     post:
       summary: Update review status by list of asset Ids
@@ -306,6 +312,8 @@ paths:
             application/json:
               schema:
                 type: object
+      operationId: postV7QuarantineV1AntivirusAudit
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

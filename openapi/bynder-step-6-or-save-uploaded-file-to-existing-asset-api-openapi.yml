@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Group Upload Assets API Steps Step 6 OR Save uploaded file to existing asset API
+  title: Group Upload Assets API Steps Step 6 OR Save uploaded file…
   contact: {}
   version: 1.0.0
 servers:

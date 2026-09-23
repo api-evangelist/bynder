@@ -2,9 +2,7 @@ openapi: 3.2.0
 info:
   title: Analytics Search Usage API
   version: 1.0.0
-  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Assets API endpoints](#reference/assets) or the [Users API endpoints](#reference/users).
-
-    '
+  description: These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the Assets API endpoints or the Users API endpoints.
 servers:
 - url: https://{your-bynder-domain}
 security:
@@ -14,9 +12,7 @@ security:
   - analytics.api:read
 tags:
 - name: Search Usage
-  description: 'These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the [Assets API endpoints](#reference/assets) or the [Users API endpoints](#reference/users).
-
-    '
+  description: These endpoints return information related to the specific event. You can enrich these events with specific data about the asset or the user by making use of the Assets API endpoints or the Users API endpoints.
 paths:
   /v7/analytics/api/v1/search/executions:
     get:
@@ -123,6 +119,8 @@ paths:
                 example-1:
                   summary: Example response
                   value: "[\n  {\n    \"eventId\": \"1408aec2-3114-43dd-be20-ffb1246a5231\",\n    \"eventType\": \"SearchExecuted\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"terms\": [\"digital\"],\n    \"filters\": [{\"field\": \"language\", \"value\": \"english\"}],\n    \"operator\": \"OR\",\n    \"sortOrder\": {\"field\": \"datePublished\", \"order\": \"desc\"},\n    \"results\": {\"assets\": 48}\n  },\n  {\n    \"eventId\": \"5908aec2-3114-43dd-be20-ffb1246a5231\",\n    \"eventType\": \"SearchExecuted\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"terms\": [\"template\"],\n    \"filters\": [{\"field\": \"language\", \"value\": \"spanish\"}],\n    \"operator\": \"OR\",\n    \"sortOrder\": {\"field\": \"datePublished\", \"order\": \"asc\"},\n    \"results\": {\"assets\": 23}\n  }\n]\n"
+      operationId: getV7AnalyticsApiV1SearchExecutions
+      x-operation-id-source: derived
   /v7/analytics/api/v1/search/keyword:
     get:
       summary: Retrieve search keyword events
@@ -227,6 +225,8 @@ paths:
                 example-1:
                   summary: Example response
                   value: "[\n  {\n    \"id\": \"62de6d714e29485a81824fe3\",\n    \"eventType\": \"search.keyword\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"keyword\": \"digital templates\",\n    \"totalResults\": 27,\n    \"tagsResults\": 0,\n    \"assetsResults\": 24,\n    \"documentsResults\": 0,\n    \"guidelinesResults\": 0,\n    \"collectionsResults\": 3,\n    \"metapropertiesResults\": 0,\n    \"collectionAssetsResults\": 0,\n    \"workflowCampaignsResults\": 0,\n    \"brandstoreProductsResults\": 0\n  },\n  {\n    \"id\": \"62de6d714e29485a81824fe4\",\n    \"eventType\": \"search.keyword\",\n    \"userId\": \"1A84D758-2B3A-141F-8F07D71AA1F223BD\",\n    \"dateTime\": \"2021-11-15T10:07:57.781+00:00\",\n    \"keyword\": \"assets\",\n    \"totalResults\": 56,\n    \"tagsResults\": 0,\n    \"assetsResults\": 48,\n    \"documentsResults\": 0,\n    \"guidelinesResults\": 0,\n    \"collectionsResults\": 8,\n    \"metapropertiesResults\": 0,\n    \"collectionAssetsResults\": 0,\n    \"workflowCampaignsResults\": 0,\n    \"brandstoreProductsResults\": 0\n  }\n]\n"
+      operationId: getV7AnalyticsApiV1SearchKeyword
+      x-operation-id-source: derived
   /v7/analytics/api/v1/search/keyword.csv:
     get:
       summary: Retrieve search keyword events in CSV format
@@ -286,6 +286,8 @@ paths:
                     62de6d714e29485a81824fe4,search.keyword,"1A84D758-2B3A-141F-8F07D71AA1F223BD",1655996103781,digital,56,0,48,0,0,8,0,0,0,0,0
 
                     '
+      operationId: getV7AnalyticsApiV1SearchKeywordCsv
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

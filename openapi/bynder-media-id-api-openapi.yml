@@ -165,6 +165,8 @@ paths:
                     type: string
                   statuscode:
                     type: string
+      operationId: getApiV4MediaById
+      x-operation-id-source: derived
     post:
       summary: Modify asset
       description: Requires the **MEDIAEDIT** security role. Requires the **MARKPUBLIC** security role in order to change an asset's isPublic state.
@@ -282,6 +284,8 @@ paths:
                     type: string
                   statuscode:
                     type: string
+      operationId: postApiV4MediaById
+      x-operation-id-source: derived
     delete:
       summary: Delete asset
       description: Requires the **MEDIAREMOVE** security role.
@@ -332,6 +336,8 @@ paths:
                     type: string
                   statuscode:
                     type: string
+      operationId: deleteApiV4MediaById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

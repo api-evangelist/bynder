@@ -124,6 +124,8 @@ paths:
                   value:
                     message: Metaproperty not found
                     statuscode: 404
+      operationId: getApiV4MetapropertiesById
+      x-operation-id-source: derived
     post:
       summary: Modify metaproperty
       description: Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role.
@@ -178,6 +180,8 @@ paths:
                   value:
                     message: Metaproperty not found
                     statuscode: 404
+      operationId: postApiV4MetapropertiesById
+      x-operation-id-source: derived
     delete:
       summary: Delete metaproperty
       description: Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role.
@@ -202,6 +206,8 @@ paths:
                   value:
                     message: Metaproperty not found
                     statuscode: 404
+      operationId: deleteApiV4MetapropertiesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

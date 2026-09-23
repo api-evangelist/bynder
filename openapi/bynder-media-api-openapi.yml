@@ -1,287 +1,17 @@
 openapi: 3.2.0
 info:
-  title: Bynder Media API
+  title: Asset Management Media API
   version: 1.0.0
-  description: 'Operations tagged Media across 2 of this provider''s published API definitions: bynder-asset-upload-openapi.json, bynder-asset-v4-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{your-bynder-domain}/
 tags:
 - name: Media
+  description: ''
 paths:
-  /api/v4/media/save/{importId}:
-    post:
-      summary: Save as a new asset
-      description: 'For metaproperties that use options (Select, Select2, Autocomplete), modifying an asset''s metaproperty options should be done via option UUID''s for the API to work optimally, sending name or label values will be deprecated in the future. Other metaproperties (Date, Text and Longtext), values can be submitted directly.
-
-        '
-      security:
-      - OAuth2:
-        - MEDIAUPLOAD
-        - MEDIAUPLOADFORAPPROVAL
-      - permanentToken:
-        - MEDIAUPLOAD
-        - MEDIAUPLOADFORAPPROVAL
-      parameters:
-      - in: path
-        name: importId
-        required: true
-        schema:
-          type: string
-          example: 00000000-0000-0000-0000-000000000000
-        description: Import id of a finalised and processed upload to be saved.
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                brandId:
-                  type: string
-                  description: Brand id to save the asset to.
-                  example: 00000000-0000-0000-0000-0000000000000000
-                name:
-                  type: string
-                  description: Name of the asset.
-                  example: Asset name
-                description:
-                  type: string
-                  description: Extended asset description.
-                  example: Extended asset description
-                copyright:
-                  type: string
-                  description: Copyright information of the asset.
-                  example: Copyright (c) Example corp.
-                tags:
-                  type: string
-                  description: Comma-separated list of tags of the asset.
-                  example: scenery,grassland,Holland
-                metaproperty:
-                  type: string
-                  description: 'Dictionary with (metaproperty) options to set on the asset. Send fields as `metaproperty.METAPROPERY_ID` with a string of all its (metaproperty) options ids comma-separated.
-
-                    '
-                  example: metaproperty.00000000-0000-0000-0000000000000000=00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
-                categories:
-                  type: string
-                  description: Comma-separated category ids of the asset.
-                  example: 00000000-0000-0000-0000000000000000,00000000-0000-0000-0000000000000000
-                audit:
-                  type: boolean
-                  description: Flags if the asset should be sent to the waiting room.
-                  example: true
-                isPublic:
-                  type: boolean
-                  description: Flags if the asset should be Public.
-                  example: true
-                accessRequestId:
-                  type: string
-                  description: 'If audit is set to `true` you can specify an accessRequestId to batch uploads to the waiting room. The accessRequestId is retrieved in the response of this endpoint, after you save the first asset of your batch.
-
-                    '
-                  example: 00000000-0000-0000-0000000000000000
-                requestorId:
-                  type: string
-                  description: 'If audit is set to `true` you can specify a requestor ID (user ID) to identify the user uploading the asset to the waiting room.
-
-                    '
-                  example: 00000000-0000-0000-0000000000000000
-                accessType:
-                  type: string
-                  description: 'If audit is set to `true` you can specify an access type to define to which waiting room location the asset is uploaded to. The available locations are: Upload, Edit, Workflow approval (export), Shutterstock and Stock.
-
-                    '
-                  enum:
-                  - upload
-                  - edit
-                  - export
-                  - shutterstock
-                  - stock
-                  example: upload
-                ISOPublicationDate:
-                  type: string
-                  format: date-time
-                  description: Date/time of publication in ISO08601-format.
-                  example: '2014-06-12T14:53:21-04:00'
-                publicationDate:
-                  type: string
-                  description: '*DEPRECATED* Date/time of publication in linked API user selected locale-format.
-
-                    '
-                  example: 05-31-2010
-                archiveDate:
-                  type: string
-                  format: date-time
-                  description: Archive date/time of the asset in ISO8601-format.
-                  example: '2014-12-25T10:30:00Z'
-                watermarkDate:
-                  type: string
-                  format: date-time
-                  description: 'Watermark datetime. ISO8601 format: yyyy-mm-ddThh:mm:ssZ.
-
-                    '
-                  example: '2014-12-25T10:30:00Z'
-                crc32:
-                  type: integer
-                  description: CRC32 checksum of the original file, used for verification.
-                  example: 79764919
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              examples:
-                success:
-                  summary: Successful response
-                  value:
-                    accessRequestId: 00000000-0000-0000-0000000000000000
-                    mediaid: 00000000-0000-0000-0000000000000000
-                    batchId: 00000000-0000-0000-0000000000000000
-                    success: true
-                    mediaitems:
-                    - original: final/00000000-0000-0000-0000000000000000/image.jpg
-                      destination: ___URL_TO_BYNDER_CDN___
-                    - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
-                      destination: ___URL_TO_BYNDER_CDN___
-                    - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
-                      destination: ___URL_TO_BYNDER_CDN___
-        '303':
-          description: Import not converted yet, please poll
-          content:
-            application/json:
-              examples:
-                poll:
-                  summary: Poll response
-                  value:
-                    message: Import not converted yet, please poll
-                    statuscode: '303'
-        '400':
-          description: Bad Request
-          content:
-            application/json:
-              examples:
-                noImportId:
-                  summary: No importId provided
-                  value:
-                    message: No importid provided
-                    statuscode: '400'
-                noBrandId:
-                  summary: No brandId provided
-                  value:
-                    message: No brandid provided
-                    statuscode: '400'
-                invalidCrc32:
-                  summary: Invalid unsigned integer for CRC32
-                  value:
-                    message: Invalid unsigned integer for CRC32
-                    statuscode: '400'
-                invalidCrc32Type:
-                  summary: Invalid argument type for CRC32
-                  value:
-                    message: Invalid argument type for CRC32
-                    statuscode: '400'
-                invalidDateFormat:
-                  summary: Date format not ISO8601-compliant
-                  value:
-                    message: Date format not ISO8601-compliant
-                    statuscode: '400'
-        '403':
-          description: Access denied
-          content:
-            application/json:
-              examples:
-                accessDenied:
-                  summary: Access denied response
-                  value:
-                    message: Access denied
-                    statuscode: '403'
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              examples:
-                importIdNotFound:
-                  summary: Import ID not found
-                  value:
-                    message: Import ID not found
-                    statuscode: '404'
-                uploadNotExist:
-                  summary: Upload doesn't exist
-                  value:
-                    message: Upload doesn't exist
-                    statuscode: '404'
-        '500':
-          description: Internal Server Error
-          content:
-            application/json:
-              examples:
-                uploadFailed:
-                  summary: Upload failed or not ready
-                  value:
-                    message: Upload failed or not ready
-                    statuscode: '500'
-      tags:
-      - Media
-    servers:
-    - url: https://{your-bynder-domain}/
-  /api/v4/media/{id}/save/{importId}:
-    post:
-      summary: Save as a new asset version
-      security:
-      - OAuth2:
-        - MEDIAUPLOAD
-        - MEDIAUPLOADFORAPPROVAL
-      - permanentToken:
-        - MEDIAUPLOAD
-        - MEDIAUPLOADFORAPPROVAL
-      parameters:
-      - in: path
-        name: id
-        required: true
-        schema:
-          type: string
-          example: 00000000-0000-0000-0000000000000000
-        description: Asset id for which to save the new version.
-      - in: path
-        name: importId
-        required: true
-        schema:
-          type: string
-          example: 00000000-0000-0000-0000000000000000
-        description: Import id of a finalised and processed upload to be saved.
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-      responses:
-        '201':
-          description: Created
-          content:
-            application/json:
-              examples:
-                success:
-                  summary: Successful response
-                  value:
-                    mediaid: 00000000-0000-0000-0000000000000000
-                    batchId: 00000000-0000-0000-0000000000000000
-                    success: true
-                    mediaitems:
-                    - original: final/00000000-0000-0000-0000000000000000/image.jpg
-                      destination: ___URL_TO_BYNDER_CDN___
-                    - original: final/00000000-0000-0000-0000000000000000/thul-image.jpg
-                      destination: ___URL_TO_BYNDER_CDN___
-                    - original: final/00000000-0000-0000-0000000000000000/mini-image.jpg
-                      destination: ___URL_TO_BYNDER_CDN___
-      tags:
-      - Media
-    servers:
-    - url: https://{your-bynder-domain}/
   /api/v4/media/:
     get:
       summary: Retrieve assets
-      description: '`original` is only returned for assets marked as public and requires the account to have the `seoBaseUrl` setting configured.
-
-        '
+      description: '`original` is only returned for assets marked as public and requires the account to have the `seoBaseUrl` setting configured.'
       tags:
       - Media
       parameters:
@@ -599,8 +329,8 @@ paths:
                     type: string
                   statuscode:
                     type: string
-    servers:
-    - url: https://{your-bynder-domain}/
+      operationId: getApiV4Media
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:
@@ -613,14 +343,23 @@ components:
         clientCredentials:
           tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
           scopes:
-            MEDIAUPLOAD: ''
-            MEDIAUPLOADFORAPPROVAL: ''
+            ARCHIVEMEDIA: ''
+            ARCHIVEDOWNLOAD: ''
+            EMARGOMEDIA: ''
+            KEYVISUALDOWNLOAD: ''
+            STATISTICS: ''
+            MEDIAEDIT: ''
+            MARKPUBLIC: ''
+            MEDIAREMOVE: ''
         authorizationCode:
           authorizationUrl: https://{your-auth-url}
           tokenUrl: https://{your-bynder-domain}/v6/authentication/oauth2/token
           scopes:
-            MEDIAUPLOAD: ''
-            MEDIAUPLOADFORAPPROVAL: ''
-x-refined-from:
-- bynder-asset-upload-openapi.json
-- bynder-asset-v4-openapi.json
+            ARCHIVEMEDIA: ''
+            ARCHIVEDOWNLOAD: ''
+            EMARGOMEDIA: ''
+            KEYVISUALDOWNLOAD: ''
+            STATISTICS: ''
+            MEDIAEDIT: ''
+            MARKPUBLIC: ''
+            MEDIAREMOVE: ''

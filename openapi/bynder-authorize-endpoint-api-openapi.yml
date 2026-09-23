@@ -2,29 +2,23 @@ openapi: 3.2.0
 info:
   title: OAuth 2.0 Authorize endpoint API
   version: 1.0.0
-  description: 'When using the Authorization Code grant, redirect the user to the [Authorize application](#reference/oauth-2.0/authorize-endpoint/authorize-application) endpoint. After the user
+  description: 'When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user
 
     is authenticated and approves the authorization request, Bynder will redirect the user back with an
 
-    authorization code which can then be passed to the [Token endpoint](#reference/oauth-2.0/token-endpoint/using-an-authorization-code).
-
-    '
+    authorization code which can then be passed to the Token endpoint.'
 tags:
 - name: Authorize endpoint
-  description: 'When using the Authorization Code grant, redirect the user to the [Authorize application](#reference/oauth-2.0/authorize-endpoint/authorize-application) endpoint. After the user
+  description: 'When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user
 
     is authenticated and approves the authorization request, Bynder will redirect the user back with an
 
-    authorization code which can then be passed to the [Token endpoint](#reference/oauth-2.0/token-endpoint/using-an-authorization-code).
-
-    '
+    authorization code which can then be passed to the Token endpoint.'
 paths:
   /v6/authentication/oauth2/auth:
     get:
       summary: Authorize endpoint
-      description: 'When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user is authenticated and approves the authorization request, Bynder will redirect the user back with an authorization code which can then be passed to the Token endpoint.
-
-        '
+      description: When using the Authorization Code grant, redirect the user to the Authorize application endpoint. After the user is authenticated and approves the authorization request, Bynder will redirect the user back with an authorization code which can then be passed to the Token endpoint.
       tags:
       - Authorize endpoint
       parameters:
@@ -73,3 +67,5 @@ paths:
                   value: Found. Redirecting to https://your-bynder-domain/v6/login-provider/login?login_challenge=8e41a26ceb3b845114b5a37d9d0e2e50
       security:
       - OAuth2: []
+      operationId: getV6AuthenticationOauth2Auth
+      x-operation-id-source: derived

@@ -99,6 +99,8 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
+      operationId: getApiTrashMedia
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

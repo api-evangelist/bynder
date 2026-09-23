@@ -49,12 +49,12 @@ paths:
                   isOpenImageBank:
                     type: boolean
                     example: false
+      operationId: getApiV4Account
+      x-operation-id-source: derived
   /api/v4/account/derivatives:
     get:
       summary: Retrieve derivatives
-      description: 'A derivative is a file that is based on another source, for example, a low-resolution representation of a print-quality photo. During the upload process, Bynder can automatically create pre-defined image derivatives with different dimensions, quality, and format. Bynder can either maintain the original aspect ratio of an image, or crop or pad an image to fit the specified dimensions. We can create smaller versions of your original image asset in both a JPG and PNG file extension. However, the resolution of derivatives can''t be larger than the original file.
-
-        '
+      description: A derivative is a file that is based on another source, for example, a low-resolution representation of a print-quality photo. During the upload process, Bynder can automatically create pre-defined image derivatives with different dimensions, quality, and format. Bynder can either maintain the original aspect ratio of an image, or crop or pad an image to fit the specified dimensions. We can create smaller versions of your original image asset in both a JPG and PNG file extension. However, the resolution of derivatives can't be larger than the original file.
       tags:
       - Account
       responses:
@@ -94,6 +94,8 @@ paths:
                     isPublic:
                       type: boolean
                       example: true
+      operationId: getApiV4AccountDerivatives
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

@@ -82,6 +82,8 @@ paths:
                     - 00000000-0000-0000-0000000000000000
                     - 00000000-0000-0000-0000000000000000
                     - 00000000-0000-0000-0000000000000000
+      operationId: getApiV4Smartfilters
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

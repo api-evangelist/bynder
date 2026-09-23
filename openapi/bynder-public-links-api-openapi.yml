@@ -7,15 +7,15 @@ servers:
 - url: https://api.example.com
   description: API server
 tags:
-- name: Public links
+- name: Public Links
   description: ''
 paths:
   /api/1/assets/{asset_id}/public-links:
     get:
       summary: Get public links for an asset
-      description: This API returns public links to both HLS and DASH manifests for video assets, as well as the Video player HTML embed code to integrate Adaptive Video Streaming links with a supported video player. This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `asset_id`, and [Note on identifiers](https://api.bynder.com/docs/getting-started#note-on-identifiers) for more information.
+      description: This API returns public links to both HLS and DASH manifests for video assets, as well as the Video player HTML embed code to integrate Adaptive Video Streaming links with a supported video player. This endpoint uses the newer, standard UUID format of 8-4-4-4-12, and letters are lowercase. See the example for `asset_id`, and Note on identifiers for more information.
       tags:
-      - Public links
+      - Public Links
       operationId: getAssetPublicLinks
       parameters:
       - name: asset_id

@@ -135,6 +135,8 @@ paths:
                       showInGridView: false
                       showInDuplicateView: false
                       useDependencies: false
+      operationId: getApiV4Metaproperties
+      x-operation-id-source: derived
     post:
       summary: Create metaproperty
       description: Requires the METAPROPERTYMANAGEMENT or METAMANAGEMENT security role.
@@ -174,6 +176,8 @@ paths:
                   value:
                     message: Invalid metaproperty type
                     statuscode: 400
+      operationId: postApiV4Metaproperties
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

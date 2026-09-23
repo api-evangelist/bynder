@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Bynder Create metaproperty option dependency group API
+  title: Metaproperty Options and Operations Create metaproperty…
   version: 1.0.0
-  description: 'Operations tagged Create metaproperty option dependency group across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{your-bynder-domain}/
 security:
@@ -90,8 +89,8 @@ paths:
                   value:
                     message: Unknown dependency option
                     statuscode: '404'
-    servers:
-    - url: https://{your-bynder-domain}/
+      operationId: postApiV4MetapropertiesByIdOptionsByOptionIdDependenciesGroup
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:
@@ -112,6 +111,3 @@ components:
           scopes:
             METAPROPERTYMANAGEMENT: ''
             METAMANAGEMENT: ''
-x-refined-from:
-- bynder-metaproperty-options-v4-openapi.json
-- bynder-options-v4-openapi.json

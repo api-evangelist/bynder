@@ -8,9 +8,7 @@ servers:
 - url: https://{your-bynder-domain}
 tags:
 - name: Users
-  description: 'Manage users within your Bynder account. You can create, retrieve, update, and delete users as needed.
-
-    '
+  description: Manage users within your Bynder account. You can create, retrieve, update, and delete users as needed.
 paths:
   /api/v4/users/:
     get:
@@ -106,6 +104,8 @@ paths:
                             type: string
                           id:
                             type: string
+      operationId: getApiV4Users
+      x-operation-id-source: derived
     post:
       summary: Create user
       tags:
@@ -133,6 +133,8 @@ paths:
                     type: string
                   username:
                     type: string
+      operationId: postApiV4Users
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
   /api/workflow/users/:
@@ -179,6 +181,8 @@ paths:
                         id:
                           type: string
                           example: 00000000-0000-0000-0000-000000000000
+      operationId: getApiWorkflowUsers
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}
   /api/workflow/users/{id}:
@@ -230,6 +234,8 @@ paths:
                       id:
                         type: string
                         example: 00000000-0000-0000-0000-000000000000
+      operationId: getApiWorkflowUsersById
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}
 components:

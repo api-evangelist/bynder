@@ -79,6 +79,8 @@ paths:
                       type: download
                       responsibleID: null
                       responsibleGroupID: null
+      operationId: getApiWorkflowPresetsJobById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

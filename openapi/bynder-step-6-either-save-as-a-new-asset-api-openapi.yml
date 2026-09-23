@@ -1,11 +1,9 @@
 openapi: 3.2.0
 info:
-  title: Group Upload Assets API Steps Step 6 EITHER Save as a new asset API
+  title: Group Upload Assets API Steps Step 6 EITHER Save as a new…
   contact: {}
   version: 1.0.0
-  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
-
-    '
+  description: This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
 servers:
 - url: https://{your-bynder-domain}/
   variables:
@@ -40,9 +38,7 @@ servers:
 security: []
 tags:
 - name: Step 6 EITHER Save as a new asset
-  description: 'This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
-
-    '
+  description: This endpoint finalizes the upload after all chunks have been uploaded. You need to provide the file ID and details about the file, including its name, size, and the number of chunks it was split into.
 paths:
   /api/v4/media/save/{importId}:
     parameters: []
@@ -50,9 +46,7 @@ paths:
       tags:
       - Step 6 EITHER Save as a new asset
       summary: Save as a new asset
-      description: 'For metaproperties that use options (Select, Select2, Autocomplete), modifying an asset''s metaproperty options should be done via option UUID''s for the API to work optimally, sending name or label values will be deprecated in the future. Other metaproperties (Date, Text and Longtext), values can be submitted directly. Be aware that the endpoints described in Step 6 are an Either/Or choice. You should use either the `Save as a new asset` endpoint to save the uploaded file as a new asset, or the `Update existing asset` endpoint to update an existing asset with the uploaded file.
-
-        '
+      description: For metaproperties that use options (Select, Select2, Autocomplete), modifying an asset's metaproperty options should be done via option UUID's for the API to work optimally, sending name or label values will be deprecated in the future. Other metaproperties (Date, Text and Longtext), values can be submitted directly. Be aware that the endpoints described in Step 6 are an Either/Or choice. You should use either the `Save as a new asset` endpoint to save the uploaded file as a new asset, or the `Update existing asset` endpoint to update an existing asset with the uploaded file.
       operationId: Saveasanewasset
       parameters:
       - name: importId

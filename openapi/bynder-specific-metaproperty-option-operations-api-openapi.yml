@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Bynder Specific metaproperty option operations API
+  title: Metaproperty Options and Operations Specific metaproperty…
   version: 1.0.0
-  description: 'Operations tagged Specific metaproperty option operations across 2 of this provider''s published API definitions: bynder-metaproperty-options-v4-openapi.json, bynder-options-v4-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{your-bynder-domain}/
 security:
@@ -99,6 +98,8 @@ paths:
                   value:
                     message: Meta property option not found
                     statuscode: '404'
+      operationId: postApiV4MetapropertiesByIdOptionsByOptionId
+      x-operation-id-source: derived
     delete:
       summary: Delete metaproperty option
       tags:
@@ -142,8 +143,8 @@ paths:
                   value:
                     message: Meta property option not found
                     statuscode: '404'
-    servers:
-    - url: https://{your-bynder-domain}/
+      operationId: deleteApiV4MetapropertiesByIdOptionsByOptionId
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:
@@ -164,6 +165,3 @@ components:
           scopes:
             METAPROPERTYMANAGEMENT: ''
             METAMANAGEMENT: ''
-x-refined-from:
-- bynder-metaproperty-options-v4-openapi.json
-- bynder-options-v4-openapi.json

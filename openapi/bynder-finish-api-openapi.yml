@@ -95,6 +95,8 @@ paths:
                   value:
                     status: Job not on last stage.
                     message: Advance the job 00000000-0000-0000-0000-000000000000 to the last stage to finish.
+      operationId: patchApiWorkflowJobsByIdFinish
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

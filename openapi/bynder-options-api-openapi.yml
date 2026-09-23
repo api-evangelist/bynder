@@ -73,6 +73,8 @@ paths:
       security:
       - OAuth2: []
       - permanentToken: []
+      operationId: getApi1ContentAccessOptionsByOptionId
+      x-operation-id-source: derived
     put:
       summary: Modify Option Access Rights
       tags:
@@ -104,6 +106,8 @@ paths:
       security:
       - OAuth2: []
       - permanentToken: []
+      operationId: putApi1ContentAccessOptionsByOptionId
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
       variables:
@@ -148,6 +152,8 @@ paths:
       security:
       - OAuth2: []
       - permanentToken: []
+      operationId: getApi1ContentAccessOptionsByOptionIdVisibility
+      x-operation-id-source: derived
     put:
       summary: Modify Option Default Visibility
       tags:
@@ -183,6 +189,8 @@ paths:
       security:
       - OAuth2: []
       - permanentToken: []
+      operationId: putApi1ContentAccessOptionsByOptionIdVisibility
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
       variables:
@@ -284,6 +292,8 @@ paths:
                           metapropertyid:
                             type: string
                             example: 00000000-0000-0000-0000-000000000000
+      operationId: getApiPimMetapropertiesByIdOptions
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
   /api/pim/metapropertyoptions/{id}:
@@ -317,66 +327,12 @@ paths:
       responses:
         '204':
           description: Metaproperty option modified successfully
+      operationId: putApiPimMetapropertyoptionsById
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
 components:
   schemas:
-    PrincipalExtraInformation:
-      title: PrincipalExtraInformation
-      type: object
-      properties:
-        email:
-          type: string
-          examples:
-          - user_email@bynder.com
-    PrincipalType:
-      title: PrincipalType
-      enum:
-      - user
-      - group
-      - profile
-      type: string
-      examples:
-      - user
-    ApiContentAccessMetapropertiesResponse1:
-      title: ApiContentAccessMetapropertiesResponse1
-      type: object
-      properties:
-        principalId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000-000000000000
-        principalType:
-          type: string
-          examples:
-          - user
-    Principal:
-      title: Principal
-      type: object
-      properties:
-        principalId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000000000000000
-        principalType:
-          $ref: '#/components/schemas/PrincipalType'
-    Level:
-      title: Level
-      const: metaproperty.hide
-      type: string
-      examples:
-      - metaproperty.hide
-    ApiContentAccessMetapropertiesRequest:
-      title: ApiContentAccessMetapropertiesRequest
-      type: object
-      properties:
-        principals:
-          type: array
-          items:
-            $ref: '#/components/schemas/Principal'
-          description: ''
-        level:
-          $ref: '#/components/schemas/Level'
     ApiContentAccessMetapropertiesResponse:
       title: ApiContentAccessMetapropertiesResponse
       type: object
@@ -415,6 +371,62 @@ components:
           - User full name
         principalExtraInformation:
           $ref: '#/components/schemas/PrincipalExtraInformation'
+    PrincipalExtraInformation:
+      title: PrincipalExtraInformation
+      type: object
+      properties:
+        email:
+          type: string
+          examples:
+          - user_email@bynder.com
+    Principal:
+      title: Principal
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        principalType:
+          $ref: '#/components/schemas/PrincipalType'
+    PrincipalType:
+      title: PrincipalType
+      enum:
+      - user
+      - group
+      - profile
+      type: string
+      examples:
+      - user
+    ApiContentAccessMetapropertiesResponse1:
+      title: ApiContentAccessMetapropertiesResponse1
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+        principalType:
+          type: string
+          examples:
+          - user
+    Level:
+      title: Level
+      const: metaproperty.hide
+      type: string
+      examples:
+      - metaproperty.hide
+    ApiContentAccessMetapropertiesRequest:
+      title: ApiContentAccessMetapropertiesRequest
+      type: object
+      properties:
+        principals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Principal'
+          description: ''
+        level:
+          $ref: '#/components/schemas/Level'
   securitySchemes:
     permanentToken:
       type: apiKey

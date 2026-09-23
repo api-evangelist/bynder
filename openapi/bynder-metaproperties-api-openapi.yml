@@ -31,6 +31,8 @@ paths:
                 items:
                   type: string
                   example: 00000000-0000-0000-0000-000000000000
+      operationId: getApiPimMetaproperties
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
   /api/pim/metaproperties/{id}:
@@ -111,6 +113,8 @@ paths:
                               metapropertyid:
                                 type: string
                                 example: 00000000-0000-0000-0000-000000000000
+      operationId: getApiPimMetapropertiesById
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}/
   /api/workflow/metaproperties:
@@ -282,6 +286,8 @@ paths:
                       created_by:
                         ID: 00000000-0000-0000-0000-000000000000
                         fullName: User1
+      operationId: getApiWorkflowMetaproperties
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}
   /api/workflow/metaproperties/{id}:
@@ -460,6 +466,8 @@ paths:
                       created_by:
                         ID: 00000000-0000-0000-0000-000000000000
                         fullName: User1
+      operationId: getApiWorkflowMetapropertiesById
+      x-operation-id-source: derived
     servers:
     - url: https://{your-bynder-domain}
 components:

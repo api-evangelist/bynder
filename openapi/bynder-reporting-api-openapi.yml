@@ -2,9 +2,7 @@ openapi: 3.2.0
 info:
   title: Analytics Reporting API
   version: 1.0.0
-  description: 'These endpoints provide reporting capabilities for assets of the DAM, making it easier to build your own customised reports.
-
-    '
+  description: These endpoints provide reporting capabilities for assets of the DAM, making it easier to build your own customised reports.
 servers:
 - url: https://{your-bynder-domain}
 security:
@@ -14,9 +12,7 @@ security:
   - analytics.api:read
 tags:
 - name: Reporting
-  description: 'These endpoints provide reporting capabilities for assets of the DAM, making it easier to build your own customised reports.
-
-    '
+  description: These endpoints provide reporting capabilities for assets of the DAM, making it easier to build your own customised reports.
 paths:
   /v7/analytics/api/v1/report/asset:
     get:
@@ -167,6 +163,8 @@ paths:
                 example-1:
                   summary: Example response
                   value: "[\n  {\n    \"assetId\": \"3DF53D46-4E72-47A0-A42ECC22CDE211D5\",\n    \"name\": \"Asset 1\",\n    \"description\": \"Asset Description\",\n    \"isArchived\": false,\n    \"type\": \"image\",\n    \"audit\": \"ACCEPTED\",\n    \"copyright\": \"\",\n    \"isLimited\": false,\n    \"datePublished\": \"2016-12-29T10:39:52.000+00:00\",\n    \"isRemoved\": true,\n    \"dateRemoved\": \"2019-01-04T13:19:47.000+00:00\",\n    \"idHash\": \"6bb400d042cfe865\",\n    \"phash\": \"56033317620\",\n    \"userCreated\": \"00000000-0000-0000-0000000000000000\",\n    \"dateCreated\": \"2018-12-21T13:11:46.000+00:00\",\n    \"userModified\": \"00000000-0000-0000-0000000000000000\",\n    \"dateModified\": \"2019-01-04T13:19:47.000+00:00\",\n    \"isWatermarked\": false,\n    \"isPublic\": false\n  },\n  {\n    \"assetId\": \"CD729A10-9101-47C7-9D14FA2E14CF28D9\",\n    \"name\": \"Asset 2\",\n    \"description\": \"Asset 2 description\",\n    \"isArchived\": false,\n    \"type\": \"image\",\n    \"audit\": \"ACCEPTED\",\n    \"copyright\": \"\",\n    \"isLimited\": false,\n    \"datePublished\": \"2019-03-31T23:55:21.000+00:00\",\n    \"isRemoved\": false,\n    \"idHash\": \"792e23855f02cdcb\",\n    \"phash\": \"56033317620\",\n    \"userCreated\": \"4BE80C1E-D8FF-4104-8CF774F06B1E60CE\",\n    \"dateCreated\": \"2019-03-31T23:59:40.000+00:00\",\n    \"userModified\": \"00000000-0000-0000-0000000000000000\",\n    \"dateModified\": \"2020-12-04T21:18:27.000+00:00\",\n    \"isWatermarked\": false,\n    \"isPublic\": false,\n    \"metaproperties\": {\n      \"metaproperty_1\": \"option3\",\n      \"metaproperty_2\": \"option2, option1\",\n      \"metaproperty_3\": \"\"\n    }\n  }\n]\n"
+      operationId: getV7AnalyticsApiV1ReportAsset
+      x-operation-id-source: derived
   /v7/analytics/api/v1/report/asset/{assetId}:
     get:
       summary: Retrieve specific asset report
@@ -258,6 +256,8 @@ paths:
                 example-1:
                   summary: Example response
                   value: "{\n  \"assetId\": \"CD729A10-9101-47C7-9D14FA2E14CF28D9\",\n  \"name\": \"Asset 2\",\n  \"description\": \"Asset 2 description\",\n  \"isArchived\": false,\n  \"type\": \"image\",\n  \"audit\": \"ACCEPTED\",\n  \"copyright\": \"\",\n  \"isLimited\": false,\n  \"datePublished\": \"2019-03-31T23:55:21.000+00:00\",\n  \"isRemoved\": false,\n  \"idHash\": \"792e23855f02cdcb\",\n  \"phash\": \"56033317620\",\n  \"userCreated\": \"4BE80C1E-D8FF-4104-8CF774F06B1E60CE\",\n  \"dateCreated\": \"2019-03-31T23:59:40.000+00:00\",\n  \"userModified\": \"00000000-0000-0000-0000000000000000\",\n  \"dateModified\": \"2020-12-04T21:18:27.000+00:00\",\n  \"isWatermarked\": false,\n  \"isPublic\": false,\n  \"metaproperties\": {\n    \"metaproperty_1\": \"option3\",\n    \"metaproperty_2\": \"option2, option1\",\n    \"metaproperty_3\": \"\"\n  }\n}\n"
+      operationId: getV7AnalyticsApiV1ReportAssetByAssetId
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

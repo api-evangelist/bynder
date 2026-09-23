@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Group Upload Assets API Steps Step 4 EITHER Finalise uploaded file API
+  title: Group Upload Assets API Steps Step 4 EITHER Finalise…
   contact: {}
   version: 1.0.0
 servers:
@@ -116,23 +116,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    ApiV4Upload500Error1:
-      title: ApiV4Upload500Error1
-      type: object
-      properties:
-        message:
-          type: string
-          examples:
-          - Could not complete upload
-        retry:
-          type: integer
-          contentEncoding: int32
-          examples:
-          - 1
-        success:
-          type: boolean
-          examples:
-          - false
     Content-Type:
       title: Content-Type
       const: application/x-www-form-urlencoded
@@ -184,6 +167,23 @@ components:
           contentEncoding: int32
           examples:
           - 1
+    ApiV4Upload500Error1:
+      title: ApiV4Upload500Error1
+      type: object
+      properties:
+        message:
+          type: string
+          examples:
+          - Could not complete upload
+        retry:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+        success:
+          type: boolean
+          examples:
+          - false
   securitySchemes:
     permanentToken:
       type: apiKey

@@ -84,9 +84,11 @@ paths:
                   value:
                     errorCode: metaproperty-not-existing
                     message: Metaproperty does not exist
+      summary: Get api1 taxonomy metaproperties metapropertyid options
+      x-summary-source: derived
 components:
   schemas:
-    OptionListCursorFormatInvalidOutput:
+    MetapropertyNotExistingOutput1:
       type: object
       required:
       - errorCode
@@ -96,28 +98,6 @@ components:
           type: string
         message:
           type: string
-    OptionListCursorParameterInvalidOutput:
-      type: object
-      required:
-      - errorCode
-      - message
-      properties:
-        errorCode:
-          type: string
-        message:
-          type: string
-    ListOptionsOutput:
-      type: object
-      required:
-      - metadata
-      - options
-      properties:
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetapropertyOption'
-        metadata:
-          $ref: '#/components/schemas/MetadataOutput'
     MetapropertyOption:
       type: object
       required:
@@ -144,7 +124,12 @@ components:
           type: string
         nextPage:
           type: string
-    MetapropertyNotExistingOutput1:
+    OptionListInvalidOutput:
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/OptionListCursorFormatInvalidOutput'
+      - $ref: '#/components/schemas/OptionListCursorParameterInvalidOutput'
+    OptionListCursorParameterInvalidOutput:
       type: object
       required:
       - errorCode
@@ -154,8 +139,25 @@ components:
           type: string
         message:
           type: string
-    OptionListInvalidOutput:
+    ListOptionsOutput:
       type: object
-      oneOf:
-      - $ref: '#/components/schemas/OptionListCursorFormatInvalidOutput'
-      - $ref: '#/components/schemas/OptionListCursorParameterInvalidOutput'
+      required:
+      - metadata
+      - options
+      properties:
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetapropertyOption'
+        metadata:
+          $ref: '#/components/schemas/MetadataOutput'
+    OptionListCursorFormatInvalidOutput:
+      type: object
+      required:
+      - errorCode
+      - message
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string

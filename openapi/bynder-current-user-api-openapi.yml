@@ -2,19 +2,17 @@ openapi: 3.2.0
 info:
   title: Users Current User API
   version: 1.0.0
-  description: "Retrieve information about the currently authenticated user without needing to know their user ID.         \n"
+  description: Retrieve information about the currently authenticated user without needing to know their user ID.
 servers:
 - url: https://{your-bynder-domain}/
 tags:
 - name: Current User
-  description: "Retrieve information about the currently authenticated user without needing to know their user ID.         \n"
+  description: Retrieve information about the currently authenticated user without needing to know their user ID.
 paths:
   /api/v4/currentUser/:
     get:
       summary: Retrieve current user
-      description: 'Retrieve the current user information. Unlike [Retrieve specific user](#reference/users/specific-user-operations/retrieve-specific-user) this call doesn''t require you to know your user id in order to retrieve your current user information.
-
-        '
+      description: Retrieve the current user information. Unlike Retrieve specific user this call doesn't require you to know your user id in order to retrieve your current user information.
       tags:
       - Current User
       responses:
@@ -86,6 +84,8 @@ paths:
                     type: string
                   terms:
                     type: string
+      operationId: getApiV4CurrentUser
+      x-operation-id-source: derived
 components:
   securitySchemes:
     permanentToken:

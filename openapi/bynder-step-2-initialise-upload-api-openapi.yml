@@ -3,9 +3,7 @@ info:
   title: Group Upload Assets API Steps Step 2 Initialise upload API
   contact: {}
   version: 1.0.0
-  description: 'This endpoint uploads a chunk of the file. You need to provide the file ID obtained from the prepare upload step and the chunk number (starting from 0). The request body should contain the binary data of the chunk being uploaded.
-
-    '
+  description: This endpoint uploads a chunk of the file. You need to provide the file ID obtained from the prepare upload step and the chunk number (starting from 0). The request body should contain the binary data of the chunk being uploaded.
 servers:
 - url: https://{your-bynder-domain}/
   variables:
@@ -40,9 +38,7 @@ servers:
 security: []
 tags:
 - name: Step 2 Initialise upload
-  description: 'This endpoint uploads a chunk of the file. You need to provide the file ID obtained from the prepare upload step and the chunk number (starting from 0). The request body should contain the binary data of the chunk being uploaded.
-
-    '
+  description: This endpoint uploads a chunk of the file. You need to provide the file ID obtained from the prepare upload step and the chunk number (starting from 0). The request body should contain the binary data of the chunk being uploaded.
 paths:
   /api/upload/init:
     parameters: []
@@ -103,26 +99,6 @@ paths:
         - MEDIAUPLOADFORAPPROVAL
 components:
   schemas:
-    ApiUploadInitResponse:
-      title: ApiUploadInitResponse
-      type: object
-      properties:
-        s3file:
-          $ref: '#/components/schemas/S3file'
-        s3_filename:
-          type: string
-          examples:
-          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
-        target_key:
-          type: string
-          examples:
-          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
-        multipart_params:
-          $ref: '#/components/schemas/MultipartParams'
-    Content-Type:
-      title: Content-Type
-      const: application/x-www-form-urlencoded
-      type: string
     MultipartParams:
       title: MultipartParams
       type: object
@@ -163,6 +139,26 @@ components:
           type: string
           examples:
           - 20160216T100755Z
+    ApiUploadInitResponse:
+      title: ApiUploadInitResponse
+      type: object
+      properties:
+        s3file:
+          $ref: '#/components/schemas/S3file'
+        s3_filename:
+          type: string
+          examples:
+          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
+        target_key:
+          type: string
+          examples:
+          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
+        multipart_params:
+          $ref: '#/components/schemas/MultipartParams'
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
     S3file:
       title: S3file
       type: object
