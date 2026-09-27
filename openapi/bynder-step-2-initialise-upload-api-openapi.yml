@@ -139,6 +139,18 @@ components:
           type: string
           examples:
           - 20160216T100755Z
+    S3file:
+      title: S3file
+      type: object
+      properties:
+        uploadid:
+          type: string
+          examples:
+          - UPLOAD_ID
+        targetid:
+          type: string
+          examples:
+          - final/00000000-0000-0000-0000-000000000000/image.jpeg
     ApiUploadInitResponse:
       title: ApiUploadInitResponse
       type: object
@@ -159,18 +171,6 @@ components:
       title: Content-Type
       const: application/x-www-form-urlencoded
       type: string
-    S3file:
-      title: S3file
-      type: object
-      properties:
-        uploadid:
-          type: string
-          examples:
-          - UPLOAD_ID
-        targetid:
-          type: string
-          examples:
-          - final/00000000-0000-0000-0000-000000000000/image.jpeg
   securitySchemes:
     permanentToken:
       type: apiKey

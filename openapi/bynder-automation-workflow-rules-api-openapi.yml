@@ -270,53 +270,6 @@ paths:
       - httpAuth: []
 components:
   schemas:
-    LeafCondition:
-      title: LeafCondition
-      type: object
-      required:
-      - condition_type
-      - expression
-      properties:
-        condition_type:
-          type: string
-        expression:
-          $ref: '#/components/schemas/ExpressionCondition'
-    ErrorResponse:
-      title: ErrorResponse
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-    AndCondition:
-      title: AndCondition
-      type: object
-      properties:
-        AND:
-          type: array
-          items:
-            $ref: '#/components/schemas/LeafCondition'
-    ExpressionCondition:
-      title: ExpressionCondition
-      type: object
-      required:
-      - operator
-      properties:
-        term:
-          type: array
-          items:
-            type: string
-        operator:
-          type: string
-    MetadataOutput:
-      title: MetadataOutput
-      type: object
-      properties:
-        previousPage:
-          type: string
-        nextPage:
-          type: string
     AutomationWorkflowStepActionAgent:
       title: AutomationWorkflowStepActionAgent
       type: object
@@ -328,26 +281,17 @@ components:
           type: string
         data:
           $ref: '#/components/schemas/StepActionAgentData'
-    AutomationWorkflowStepActionBase:
-      title: AutomationWorkflowStepActionBase
-      oneOf:
-      - $ref: '#/components/schemas/AutomationWorkflowStepActionAgent'
-    StepActionAgentData:
-      title: StepActionAgentData
+    LeafCondition:
+      title: LeafCondition
       type: object
       required:
-      - agentId
+      - condition_type
+      - expression
       properties:
-        agentId:
+        condition_type:
           type: string
-    ErrorAuthorizationResponse:
-      title: ErrorAuthorizationResponse
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
+        expression:
+          $ref: '#/components/schemas/ExpressionCondition'
     CreateAutomationWorkflowRuleResponse:
       title: CreateAutomationWorkflowRuleResponse
       type: object
@@ -376,6 +320,94 @@ components:
           type: string
         dateModified:
           type: string
+    AutomationWorkflowStepActionBase:
+      title: AutomationWorkflowStepActionBase
+      oneOf:
+      - $ref: '#/components/schemas/AutomationWorkflowStepActionAgent'
+    UpdateStatusAutomationWorkflowRuleBody:
+      title: UpdateStatusAutomationWorkflowRuleBody
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          type: string
+    AndCondition:
+      title: AndCondition
+      type: object
+      properties:
+        AND:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeafCondition'
+    ErrorResponseNotFound:
+      title: ErrorResponseNotFound
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+    ErrorResponse:
+      title: ErrorResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+    AutomationWorkflowResponse:
+      title: AutomationWorkflowResponse
+      type: object
+      required:
+      - id
+      - status
+      - name
+      - createdById
+      - dateCreated
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        name:
+          type: string
+        createdById:
+          type: string
+        dateCreated:
+          type: string
+        triggers:
+          type: array
+          items:
+            type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowStep'
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+    AutomationWorkflowStep:
+      title: AutomationWorkflowStep
+      type: object
+      properties:
+        step_triggers:
+          type: array
+          items:
+            type: string
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowStepActionBase'
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AndCondition'
     SingleRuleAutomationWorkflowResponse:
       title: SingleRuleAutomationWorkflowResponse
       type: object
@@ -411,14 +443,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AutomationWorkflowStep'
-    ErrorResponseNotFound:
-      title: ErrorResponseNotFound
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
     EditAutomationWorkflowRuleBody:
       title: EditAutomationWorkflowRuleBody
       type: object
@@ -433,25 +457,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AutomationWorkflowStep'
-    AutomationWorkflowResponse:
-      title: AutomationWorkflowResponse
+    MetadataOutput:
+      title: MetadataOutput
+      type: object
+      properties:
+        previousPage:
+          type: string
+        nextPage:
+          type: string
+    ErrorResponseRuleAlreadyPaused:
+      title: ErrorResponseRuleAlreadyPaused
       type: object
       required:
-      - id
-      - status
-      - name
-      - createdById
-      - dateCreated
+      - message
       properties:
-        id:
+        message:
           type: string
-        status:
-          type: string
+    AutomationWorkflowRuleBody:
+      title: AutomationWorkflowRuleBody
+      type: object
+      required:
+      - name
+      properties:
         name:
-          type: string
-        createdById:
-          type: string
-        dateCreated:
           type: string
         triggers:
           type: array
@@ -473,53 +501,25 @@ components:
             $ref: '#/components/schemas/AutomationWorkflowResponse'
         metadata:
           $ref: '#/components/schemas/MetadataOutput'
-    AutomationWorkflowRuleBody:
-      title: AutomationWorkflowRuleBody
+    StepActionAgentData:
+      title: StepActionAgentData
       type: object
       required:
-      - name
+      - agentId
       properties:
-        name:
+        agentId:
           type: string
-        triggers:
+    ExpressionCondition:
+      title: ExpressionCondition
+      type: object
+      required:
+      - operator
+      properties:
+        term:
           type: array
           items:
             type: string
-        steps:
-          type: array
-          items:
-            $ref: '#/components/schemas/AutomationWorkflowStep'
-    UpdateStatusAutomationWorkflowRuleBody:
-      title: UpdateStatusAutomationWorkflowRuleBody
-      type: object
-      required:
-      - status
-      properties:
-        status:
-          type: string
-    AutomationWorkflowStep:
-      title: AutomationWorkflowStep
-      type: object
-      properties:
-        step_triggers:
-          type: array
-          items:
-            type: string
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AutomationWorkflowStepActionBase'
-        conditions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AndCondition'
-    ErrorResponseRuleAlreadyPaused:
-      title: ErrorResponseRuleAlreadyPaused
-      type: object
-      required:
-      - message
-      properties:
-        message:
+        operator:
           type: string
   securitySchemes:
     httpAuth:

@@ -47,7 +47,7 @@ paths:
       - Step 1 Get closest AmazonS3 upload endpoint
       summary: Get closest Amazon S3 upload endpoint
       description: Get the closest AmazonS3 upload endpoint.
-      operationId: Get closest Amazon S3 upload endpoint
+      operationId: GetClosestAmazonS3UploadEndpoint
       parameters: []
       responses:
         '200':
@@ -69,6 +69,8 @@ paths:
       - permanentToken:
         - MEDIAUPLOAD
         - MEDIAUPLOADFORAPPROVAL
+      x-operation-id-source: normalized
+      x-operation-id-original: Get closest Amazon S3 upload endpoint
 components:
   securitySchemes:
     permanentToken:

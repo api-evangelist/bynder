@@ -47,7 +47,7 @@ paths:
       - Step 3A Upload file in chunks
       summary: Upload file in chunks
       description: Uploading a file consists of the following two parts. Breaking down your file in parts/chunks. Each part must be at least 5 MB in size, except the last part. There is no size limit on the last part of your multipart upload. For more information, about how amazon handles parts/chunks, visit Amazon's website. Sending the chunks over to Amazon and then registering them to Bynder. You can repeat those calls up until your file has been uploaded completely. Upload a chunk Make a POST request to the Amazon upload endpoint you received from calling Get closest AmazonS3 upload endpoint. Use a multipart/form-data to send all of the parameters that the multipart_params of the previous request included; plus the following additional parameters.
-      operationId: Upload file in chunks
+      operationId: UploadFileInChunks
       parameters: []
       responses:
         '200':
@@ -55,6 +55,8 @@ paths:
           headers: {}
           content: {}
       deprecated: false
+      x-operation-id-source: normalized
+      x-operation-id-original: Upload file in chunks
 components:
   securitySchemes:
     permanentToken:

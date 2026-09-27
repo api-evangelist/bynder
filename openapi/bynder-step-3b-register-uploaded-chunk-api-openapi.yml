@@ -47,7 +47,7 @@ paths:
       - Step 3B Register uploaded chunk
       summary: Register uploaded chunk
       description: Register the completion of an uploaded chunk.
-      operationId: Register uploaded chunk
+      operationId: RegisterUploadedChunk
       parameters:
       - name: id
         in: path
@@ -113,28 +113,10 @@ paths:
       - permanentToken:
         - MEDIAUPLOAD
         - MEDIAUPLOADFORAPPROVAL
+      x-operation-id-source: normalized
+      x-operation-id-original: Register uploaded chunk
 components:
   schemas:
-    File:
-      title: File
-      type: object
-      properties:
-        bucket:
-          type: string
-          examples:
-          - BUCKET
-        path:
-          type: string
-          examples:
-          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
-        type:
-          type: string
-          examples:
-          - s3
-    Content-Type:
-      title: Content-Type
-      const: application/x-www-form-urlencoded
-      type: string
     ApiV4UploadResponse:
       title: ApiV4UploadResponse
       type: object
@@ -188,6 +170,26 @@ components:
           type: boolean
           examples:
           - false
+    File:
+      title: File
+      type: object
+      properties:
+        bucket:
+          type: string
+          examples:
+          - BUCKET
+        path:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        type:
+          type: string
+          examples:
+          - s3
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
   securitySchemes:
     permanentToken:
       type: apiKey

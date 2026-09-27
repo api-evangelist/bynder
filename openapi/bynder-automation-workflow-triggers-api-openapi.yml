@@ -67,14 +67,6 @@ components:
       properties:
         message:
           type: string
-    AutomationWorkflowTrigger:
-      title: AutomationWorkflowTrigger
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
     ErrorResponse:
       title: ErrorResponse
       type: object
@@ -82,6 +74,14 @@ components:
       - message
       properties:
         message:
+          type: string
+    AutomationWorkflowTrigger:
+      title: AutomationWorkflowTrigger
+      type: object
+      required:
+      - name
+      properties:
+        name:
           type: string
   securitySchemes:
     httpAuth:

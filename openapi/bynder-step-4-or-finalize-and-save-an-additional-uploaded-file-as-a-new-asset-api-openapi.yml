@@ -46,7 +46,7 @@ paths:
       - Step 4 OR Finalize and save an additional uploaded file as a new asset.
       summary: Finalize additional file
       description: The endpoints described in Step 4 are an Either/Or choice. You should use either the `Finalise an uploaded file` endpoint to finalize and process a standard upload, or the `Finalize additional file` endpoint to finalize and save an additional uploaded file as a new asset.
-      operationId: Finalize additional file
+      operationId: FinalizeAdditionalFile
       parameters:
       - name: id
         in: path
@@ -116,6 +116,8 @@ paths:
                     success: true
                     mediaitems: null
       deprecated: false
+      x-operation-id-source: normalized
+      x-operation-id-original: Finalize additional file
 components:
   securitySchemes:
     permanentToken:

@@ -45,7 +45,7 @@ paths:
       - Step 6 OR Save uploaded file to existing asset
       summary: Save uploaded file to existing asset
       description: Be aware that the endpoints described in Step 6 are an Either/Or choice. You should use either the `Save as a new asset` endpoint to save the uploaded file as a new asset, or the `Update existing asset` endpoint to update an existing asset with the uploaded file.
-      operationId: Save uploaded file to existing asset
+      operationId: SaveUploadedFileToExistingAsset
       parameters:
       - name: id
         in: path
@@ -100,6 +100,8 @@ paths:
                     success: true
                     mediaitems: null
       deprecated: false
+      x-operation-id-source: normalized
+      x-operation-id-original: Save uploaded file to existing asset
 components:
   securitySchemes:
     permanentToken:

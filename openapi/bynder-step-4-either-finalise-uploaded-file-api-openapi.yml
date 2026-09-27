@@ -46,7 +46,7 @@ paths:
       - Step 4 EITHER Finalise uploaded file
       summary: Finalise an uploaded file
       description: The endpoints described in Step 4 are an Either/Or choice. You should use either the `Finalise an uploaded file` endpoint to finalize and process a standard upload, or the `Finalize additional file` endpoint to finalize and save an additional uploaded file as a new asset.
-      operationId: Finalise an uploaded file
+      operationId: FinaliseAnUploadedFile
       parameters:
       - name: id
         in: path
@@ -114,28 +114,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiV4Upload500Error1'
       deprecated: false
+      x-operation-id-source: normalized
+      x-operation-id-original: Finalise an uploaded file
 components:
   schemas:
-    Content-Type:
-      title: Content-Type
-      const: application/x-www-form-urlencoded
-      type: string
-    File:
-      title: File
+    ApiV4Upload500Error1:
+      title: ApiV4Upload500Error1
       type: object
       properties:
-        bucket:
+        message:
           type: string
           examples:
-          - BUCKET
-        path:
-          type: string
+          - Could not complete upload
+        retry:
+          type: integer
+          contentEncoding: int32
           examples:
-          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
-        type:
-          type: string
+          - 1
+        success:
+          type: boolean
           examples:
-          - s3
+          - false
     ApiV4UploadResponse1:
       title: ApiV4UploadResponse1
       type: object
@@ -167,23 +166,26 @@ components:
           contentEncoding: int32
           examples:
           - 1
-    ApiV4Upload500Error1:
-      title: ApiV4Upload500Error1
+    File:
+      title: File
       type: object
       properties:
-        message:
+        bucket:
           type: string
           examples:
-          - Could not complete upload
-        retry:
-          type: integer
-          contentEncoding: int32
+          - BUCKET
+        path:
+          type: string
           examples:
-          - 1
-        success:
-          type: boolean
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        type:
+          type: string
           examples:
-          - false
+          - s3
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
   securitySchemes:
     permanentToken:
       type: apiKey

@@ -47,7 +47,7 @@ paths:
       - Step 5 Poll for processing status
       summary: Retrieve poll state
       description: This call needs to be executed in a loop until its response returns the item(s) id(s) passed in the **items** parameter.
-      operationId: Retrieve poll state
+      operationId: RetrievePollState
       parameters:
       - name: items
         in: query
@@ -88,6 +88,8 @@ paths:
       - permanentToken:
         - MEDIAUPLOAD
         - MEDIAUPLOADFORAPPROVAL
+      x-operation-id-source: normalized
+      x-operation-id-original: Retrieve poll state
 components:
   securitySchemes:
     permanentToken:

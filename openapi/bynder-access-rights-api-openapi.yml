@@ -116,6 +116,71 @@ paths:
       deprecated: false
 components:
   schemas:
+    Level:
+      title: Level
+      const: metaproperty.hide
+      type: string
+      examples:
+      - metaproperty.hide
+    ApiContentAccessMetapropertiesResponse1:
+      title: ApiContentAccessMetapropertiesResponse1
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000-000000000000
+        principalType:
+          type: string
+          examples:
+          - user
+    Principal:
+      title: Principal
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        principalType:
+          $ref: '#/components/schemas/PrincipalType'
+    ApiContentAccessMetapropertiesRequest:
+      title: ApiContentAccessMetapropertiesRequest
+      type: object
+      properties:
+        principals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Principal'
+          description: ''
+        level:
+          $ref: '#/components/schemas/Level'
+    PrincipalExtraInformation:
+      title: PrincipalExtraInformation
+      type: object
+      properties:
+        email:
+          type: string
+          examples:
+          - user_email@bynder.com
+    PrincipalType:
+      title: PrincipalType
+      enum:
+      - user
+      - group
+      - profile
+      type: string
+      examples:
+      - user
+    ApiContentAccessMetapropertiesRequest1:
+      title: ApiContentAccessMetapropertiesRequest1
+      type: object
+      properties:
+        contentAccessIds:
+          type: array
+          items:
+            type: string
+          description: ''
     ApiContentAccessMetapropertiesResponse:
       title: ApiContentAccessMetapropertiesResponse
       type: object
@@ -154,71 +219,6 @@ components:
           - User full name
         principalExtraInformation:
           $ref: '#/components/schemas/PrincipalExtraInformation'
-    PrincipalExtraInformation:
-      title: PrincipalExtraInformation
-      type: object
-      properties:
-        email:
-          type: string
-          examples:
-          - user_email@bynder.com
-    Principal:
-      title: Principal
-      type: object
-      properties:
-        principalId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000000000000000
-        principalType:
-          $ref: '#/components/schemas/PrincipalType'
-    PrincipalType:
-      title: PrincipalType
-      enum:
-      - user
-      - group
-      - profile
-      type: string
-      examples:
-      - user
-    ApiContentAccessMetapropertiesResponse1:
-      title: ApiContentAccessMetapropertiesResponse1
-      type: object
-      properties:
-        principalId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000-000000000000
-        principalType:
-          type: string
-          examples:
-          - user
-    ApiContentAccessMetapropertiesRequest1:
-      title: ApiContentAccessMetapropertiesRequest1
-      type: object
-      properties:
-        contentAccessIds:
-          type: array
-          items:
-            type: string
-          description: ''
-    Level:
-      title: Level
-      const: metaproperty.hide
-      type: string
-      examples:
-      - metaproperty.hide
-    ApiContentAccessMetapropertiesRequest:
-      title: ApiContentAccessMetapropertiesRequest
-      type: object
-      properties:
-        principals:
-          type: array
-          items:
-            $ref: '#/components/schemas/Principal'
-          description: ''
-        level:
-          $ref: '#/components/schemas/Level'
   securitySchemes:
     permanentToken:
       type: apiKey
