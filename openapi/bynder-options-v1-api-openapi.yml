@@ -117,16 +117,6 @@ components:
           type: string
         message:
           type: string
-    MetapropertyNotExistingOutput1:
-      type: object
-      required:
-      - errorCode
-      - message
-      properties:
-        errorCode:
-          type: string
-        message:
-          type: string
     OptionListCursorFormatInvalidOutput:
       type: object
       required:
@@ -136,13 +126,6 @@ components:
         errorCode:
           type: string
         message:
-          type: string
-    MetadataOutput:
-      type: object
-      properties:
-        prevPage:
-          type: string
-        nextPage:
           type: string
     OptionListInvalidOutput:
       type: object
@@ -161,3 +144,20 @@ components:
             $ref: '#/components/schemas/MetapropertyOption'
         metadata:
           $ref: '#/components/schemas/MetadataOutput'
+    MetadataOutput:
+      type: object
+      properties:
+        prevPage:
+          type: string
+        nextPage:
+          type: string
+    MetapropertyNotExistingOutput1:
+      type: object
+      required:
+      - errorCode
+      - message
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string

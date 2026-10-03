@@ -99,6 +99,38 @@ paths:
         - MEDIAUPLOADFORAPPROVAL
 components:
   schemas:
+    S3file:
+      title: S3file
+      type: object
+      properties:
+        uploadid:
+          type: string
+          examples:
+          - UPLOAD_ID
+        targetid:
+          type: string
+          examples:
+          - final/00000000-0000-0000-0000-000000000000/image.jpeg
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
+    ApiUploadInitResponse:
+      title: ApiUploadInitResponse
+      type: object
+      properties:
+        s3file:
+          $ref: '#/components/schemas/S3file'
+        s3_filename:
+          type: string
+          examples:
+          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
+        target_key:
+          type: string
+          examples:
+          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
+        multipart_params:
+          $ref: '#/components/schemas/MultipartParams'
     MultipartParams:
       title: MultipartParams
       type: object
@@ -139,38 +171,6 @@ components:
           type: string
           examples:
           - 20160216T100755Z
-    S3file:
-      title: S3file
-      type: object
-      properties:
-        uploadid:
-          type: string
-          examples:
-          - UPLOAD_ID
-        targetid:
-          type: string
-          examples:
-          - final/00000000-0000-0000-0000-000000000000/image.jpeg
-    ApiUploadInitResponse:
-      title: ApiUploadInitResponse
-      type: object
-      properties:
-        s3file:
-          $ref: '#/components/schemas/S3file'
-        s3_filename:
-          type: string
-          examples:
-          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
-        target_key:
-          type: string
-          examples:
-          - pluploads/api/00000000-0000-0000-0000-000000000000/image.jpeg
-        multipart_params:
-          $ref: '#/components/schemas/MultipartParams'
-    Content-Type:
-      title: Content-Type
-      const: application/x-www-form-urlencoded
-      type: string
   securitySchemes:
     permanentToken:
       type: apiKey

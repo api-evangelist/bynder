@@ -71,14 +71,6 @@ paths:
       - httpAuth: []
 components:
   schemas:
-    ErrorAuthorizationResponse:
-      title: ErrorAuthorizationResponse
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
     ErrorResponse:
       title: ErrorResponse
       type: object
@@ -107,6 +99,14 @@ components:
           type: array
           items:
             type: string
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
     AutomationWorkflowConditionsResponse:
       title: AutomationWorkflowConditionsResponse
       type: object

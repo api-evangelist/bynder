@@ -67,14 +67,6 @@ components:
       properties:
         message:
           type: string
-    AutomationWorkflowActionsResponse:
-      title: AutomationWorkflowActionsResponse
-      type: object
-      properties:
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AutomationWorkflowAction'
     AutomationWorkflowAction:
       title: AutomationWorkflowAction
       type: object
@@ -83,6 +75,14 @@ components:
       properties:
         action_type:
           type: string
+    AutomationWorkflowActionsResponse:
+      title: AutomationWorkflowActionsResponse
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowAction'
   securitySchemes:
     httpAuth:
       type: http

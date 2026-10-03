@@ -127,18 +127,6 @@ paths:
       - bearerAuth: []
 components:
   schemas:
-    ErrorsObject:
-      title: ErrorsObject
-      required:
-      - errors
-      type: object
-      properties:
-        errors:
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/ErrorObject'
-          description: ''
     Attributes:
       title: Attributes
       type: object
@@ -163,32 +151,22 @@ components:
           description: The group id to which the document belongs. This is used to group documents together.
           examples:
           - group_id_1
-    DocumentContentBody:
-      title: DocumentContentBody
+    ErrorsObject:
+      title: ErrorsObject
       required:
-      - data
+      - errors
       type: object
       properties:
-        data:
-          $ref: '#/components/schemas/Resourcerepresentingthecontentinadocument1'
-    Resourcerepresentingthecontentinadocument1:
-      title: Resourcerepresentingthecontentinadocument1
-      required:
-      - id
-      - type
-      - attributes
-      type: object
-      properties:
-        id:
-          type: string
-          description: UUID identifier
-          contentEncoding: uuid
-        type:
-          const: document
-          type: string
-          description: Resource type
-        attributes:
-          $ref: '#/components/schemas/Attributes'
+        errors:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+          description: ''
+    Accept:
+      title: Accept
+      const: application/vnd.api+json
+      type: string
     ErrorCode:
       title: ErrorCode
       enum:
@@ -203,10 +181,14 @@ components:
       description: Machine readable error code
       examples:
       - VALIDATION_ERROR
-    Accept:
-      title: Accept
-      const: application/vnd.api+json
-      type: string
+    DocumentContentBody:
+      title: DocumentContentBody
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Resourcerepresentingthecontentinadocument1'
     ErrorObject:
       title: ErrorObject
       required:
@@ -245,6 +227,24 @@ components:
           - body/data/attributes must have required property 'html'
         meta:
           description: An object of any arbitrary data. Record<string, unknown>
+    Resourcerepresentingthecontentinadocument1:
+      title: Resourcerepresentingthecontentinadocument1
+      required:
+      - id
+      - type
+      - attributes
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifier
+          contentEncoding: uuid
+        type:
+          const: document
+          type: string
+          description: Resource type
+        attributes:
+          $ref: '#/components/schemas/Attributes'
   securitySchemes:
     bearerAuth:
       type: http

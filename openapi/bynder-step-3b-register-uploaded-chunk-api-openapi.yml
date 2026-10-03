@@ -117,6 +117,22 @@ paths:
       x-operation-id-original: Register uploaded chunk
 components:
   schemas:
+    File:
+      title: File
+      type: object
+      properties:
+        bucket:
+          type: string
+          examples:
+          - BUCKET
+        path:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        type:
+          type: string
+          examples:
+          - s3
     ApiV4UploadResponse:
       title: ApiV4UploadResponse
       type: object
@@ -153,6 +169,10 @@ components:
           contentEncoding: int32
           examples:
           - 1
+    Content-Type:
+      title: Content-Type
+      const: application/x-www-form-urlencoded
+      type: string
     ApiV4Upload500Error1:
       title: ApiV4Upload500Error1
       type: object
@@ -170,26 +190,6 @@ components:
           type: boolean
           examples:
           - false
-    File:
-      title: File
-      type: object
-      properties:
-        bucket:
-          type: string
-          examples:
-          - BUCKET
-        path:
-          type: string
-          examples:
-          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
-        type:
-          type: string
-          examples:
-          - s3
-    Content-Type:
-      title: Content-Type
-      const: application/x-www-form-urlencoded
-      type: string
   securitySchemes:
     permanentToken:
       type: apiKey
