@@ -117,6 +117,23 @@ paths:
       x-operation-id-original: Register uploaded chunk
 components:
   schemas:
+    ApiV4Upload500Error1:
+      title: ApiV4Upload500Error1
+      type: object
+      properties:
+        message:
+          type: string
+          examples:
+          - Could not complete upload
+        retry:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
+        success:
+          type: boolean
+          examples:
+          - false
     File:
       title: File
       type: object
@@ -173,23 +190,6 @@ components:
       title: Content-Type
       const: application/x-www-form-urlencoded
       type: string
-    ApiV4Upload500Error1:
-      title: ApiV4Upload500Error1
-      type: object
-      properties:
-        message:
-          type: string
-          examples:
-          - Could not complete upload
-        retry:
-          type: integer
-          contentEncoding: int32
-          examples:
-          - 1
-        success:
-          type: boolean
-          examples:
-          - false
   securitySchemes:
     permanentToken:
       type: apiKey

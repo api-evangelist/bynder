@@ -371,6 +371,36 @@ components:
           - User full name
         principalExtraInformation:
           $ref: '#/components/schemas/PrincipalExtraInformation'
+    PrincipalType:
+      title: PrincipalType
+      enum:
+      - user
+      - group
+      - profile
+      type: string
+      examples:
+      - user
+    Principal:
+      title: Principal
+      type: object
+      properties:
+        principalId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        principalType:
+          $ref: '#/components/schemas/PrincipalType'
+    ApiContentAccessMetapropertiesRequest:
+      title: ApiContentAccessMetapropertiesRequest
+      type: object
+      properties:
+        principals:
+          type: array
+          items:
+            $ref: '#/components/schemas/Principal'
+          description: ''
+        level:
+          $ref: '#/components/schemas/Level'
     ApiContentAccessMetapropertiesResponse1:
       title: ApiContentAccessMetapropertiesResponse1
       type: object
@@ -383,42 +413,12 @@ components:
           type: string
           examples:
           - user
-    ApiContentAccessMetapropertiesRequest:
-      title: ApiContentAccessMetapropertiesRequest
-      type: object
-      properties:
-        principals:
-          type: array
-          items:
-            $ref: '#/components/schemas/Principal'
-          description: ''
-        level:
-          $ref: '#/components/schemas/Level'
-    Principal:
-      title: Principal
-      type: object
-      properties:
-        principalId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000000000000000
-        principalType:
-          $ref: '#/components/schemas/PrincipalType'
     Level:
       title: Level
       const: metaproperty.hide
       type: string
       examples:
       - metaproperty.hide
-    PrincipalType:
-      title: PrincipalType
-      enum:
-      - user
-      - group
-      - profile
-      type: string
-      examples:
-      - user
     PrincipalExtraInformation:
       title: PrincipalExtraInformation
       type: object

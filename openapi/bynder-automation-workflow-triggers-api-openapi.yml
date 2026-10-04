@@ -51,8 +51,8 @@ paths:
       - httpAuth: []
 components:
   schemas:
-    ErrorResponse:
-      title: ErrorResponse
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
       type: object
       required:
       - message
@@ -67,14 +67,6 @@ components:
       properties:
         name:
           type: string
-    ErrorAuthorizationResponse:
-      title: ErrorAuthorizationResponse
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
     AutomationWorkflowTriggersResponse:
       title: AutomationWorkflowTriggersResponse
       type: object
@@ -83,6 +75,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AutomationWorkflowTrigger'
+    ErrorResponse:
+      title: ErrorResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
   securitySchemes:
     httpAuth:
       type: http

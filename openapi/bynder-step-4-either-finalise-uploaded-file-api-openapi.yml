@@ -118,6 +118,37 @@ paths:
       x-operation-id-original: Finalise an uploaded file
 components:
   schemas:
+    ApiV4UploadResponse1:
+      title: ApiV4UploadResponse1
+      type: object
+      properties:
+        output:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/
+        batchId:
+          type: string
+          examples:
+          - 00000000-0000-0000-0000000000000000
+        file:
+          $ref: '#/components/schemas/File'
+        filename:
+          type: string
+          examples:
+          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
+        importId:
+          type: string
+          examples:
+          - 000000000-0000-0000-0000000000000000
+        locationType:
+          type: string
+          examples:
+          - s3
+        success:
+          type: integer
+          contentEncoding: int32
+          examples:
+          - 1
     File:
       title: File
       type: object
@@ -155,37 +186,6 @@ components:
       title: Content-Type
       const: application/x-www-form-urlencoded
       type: string
-    ApiV4UploadResponse1:
-      title: ApiV4UploadResponse1
-      type: object
-      properties:
-        output:
-          type: string
-          examples:
-          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/
-        batchId:
-          type: string
-          examples:
-          - 00000000-0000-0000-0000000000000000
-        file:
-          $ref: '#/components/schemas/File'
-        filename:
-          type: string
-          examples:
-          - final/2ba07d00-586a-4a44-b13c-c58598cfe828/IMG_1874.JPG
-        importId:
-          type: string
-          examples:
-          - 000000000-0000-0000-0000000000000000
-        locationType:
-          type: string
-          examples:
-          - s3
-        success:
-          type: integer
-          contentEncoding: int32
-          examples:
-          - 1
   securitySchemes:
     permanentToken:
       type: apiKey

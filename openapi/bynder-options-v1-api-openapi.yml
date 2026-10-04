@@ -88,6 +88,26 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OptionListCursorParameterInvalidOutput:
+      type: object
+      required:
+      - errorCode
+      - message
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string
+    MetapropertyNotExistingOutput1:
+      type: object
+      required:
+      - errorCode
+      - message
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string
     MetapropertyOption:
       type: object
       required:
@@ -107,31 +127,6 @@ components:
           type: string
         metapropertyId:
           type: string
-    OptionListCursorParameterInvalidOutput:
-      type: object
-      required:
-      - errorCode
-      - message
-      properties:
-        errorCode:
-          type: string
-        message:
-          type: string
-    OptionListCursorFormatInvalidOutput:
-      type: object
-      required:
-      - errorCode
-      - message
-      properties:
-        errorCode:
-          type: string
-        message:
-          type: string
-    OptionListInvalidOutput:
-      type: object
-      oneOf:
-      - $ref: '#/components/schemas/OptionListCursorFormatInvalidOutput'
-      - $ref: '#/components/schemas/OptionListCursorParameterInvalidOutput'
     ListOptionsOutput:
       type: object
       required:
@@ -151,7 +146,12 @@ components:
           type: string
         nextPage:
           type: string
-    MetapropertyNotExistingOutput1:
+    OptionListInvalidOutput:
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/OptionListCursorFormatInvalidOutput'
+      - $ref: '#/components/schemas/OptionListCursorParameterInvalidOutput'
+    OptionListCursorFormatInvalidOutput:
       type: object
       required:
       - errorCode

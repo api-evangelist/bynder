@@ -127,6 +127,28 @@ paths:
       - bearerAuth: []
 components:
   schemas:
+    Accept:
+      title: Accept
+      const: application/vnd.api+json
+      type: string
+    Resourcerepresentingthecontentinadocument1:
+      title: Resourcerepresentingthecontentinadocument1
+      required:
+      - id
+      - type
+      - attributes
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID identifier
+          contentEncoding: uuid
+        type:
+          const: document
+          type: string
+          description: Resource type
+        attributes:
+          $ref: '#/components/schemas/Attributes'
     Attributes:
       title: Attributes
       type: object
@@ -163,10 +185,6 @@ components:
           items:
             $ref: '#/components/schemas/ErrorObject'
           description: ''
-    Accept:
-      title: Accept
-      const: application/vnd.api+json
-      type: string
     ErrorCode:
       title: ErrorCode
       enum:
@@ -227,24 +245,6 @@ components:
           - body/data/attributes must have required property 'html'
         meta:
           description: An object of any arbitrary data. Record<string, unknown>
-    Resourcerepresentingthecontentinadocument1:
-      title: Resourcerepresentingthecontentinadocument1
-      required:
-      - id
-      - type
-      - attributes
-      type: object
-      properties:
-        id:
-          type: string
-          description: UUID identifier
-          contentEncoding: uuid
-        type:
-          const: document
-          type: string
-          description: Resource type
-        attributes:
-          $ref: '#/components/schemas/Attributes'
   securitySchemes:
     bearerAuth:
       type: http

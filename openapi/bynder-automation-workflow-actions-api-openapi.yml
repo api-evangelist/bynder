@@ -51,6 +51,22 @@ paths:
       - httpAuth: []
 components:
   schemas:
+    AutomationWorkflowActionsResponse:
+      title: AutomationWorkflowActionsResponse
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowAction'
+    AutomationWorkflowAction:
+      title: AutomationWorkflowAction
+      type: object
+      required:
+      - action_type
+      properties:
+        action_type:
+          type: string
     ErrorAuthorizationResponse:
       title: ErrorAuthorizationResponse
       type: object
@@ -67,22 +83,6 @@ components:
       properties:
         message:
           type: string
-    AutomationWorkflowAction:
-      title: AutomationWorkflowAction
-      type: object
-      required:
-      - action_type
-      properties:
-        action_type:
-          type: string
-    AutomationWorkflowActionsResponse:
-      title: AutomationWorkflowActionsResponse
-      type: object
-      properties:
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AutomationWorkflowAction'
   securitySchemes:
     httpAuth:
       type: http
