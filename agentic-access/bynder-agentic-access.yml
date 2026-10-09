@@ -1,18 +1,39 @@
-generated: '2026-08-13'
+generated: '2026-09-23'
 method: generated
-source: openapi/bynder-access-rights-and-options-v4-openapi.json, openapi/bynder-access-rights-v4-openapi.json,
-  openapi/bynder-account-v4-openapi.json, openapi/bynder-analytics-openapi.json, openapi/bynder-antivirus-openapi.json,
-  openapi/bynder-asset-download-openapi.json, openapi/bynder-asset-upload-openapi.json, openapi/bynder-asset-usage-v4-openapi.json,
-  openapi/bynder-asset-v4-openapi.json, openapi/bynder-automation-workflow-svc-openapi.json,
-  openapi/bynder-avs-openapi.json, openapi/bynder-brands-v4-openapi.json, openapi/bynder-brandstore-openapi.json,
-  openapi/bynder-collections-v4-openapi.json, openapi/bynder-dat-openapi.json, openapi/bynder-derivative-presets-openapi.json,
-  openapi/bynder-groups-v4-openapi.json, openapi/bynder-metaproperty-v4-openapi.json, openapi/bynder-modern-stack-upload-openapi.json,
-  openapi/bynder-oauth2-openapi.json, openapi/bynder-options-v4-openapi.json, openapi/bynder-product-layer-v4-openapi.json,
-  openapi/bynder-securityroles-v4-openapi.json, openapi/bynder-similar-assets-openapi.json,
-  openapi/bynder-smartfilter-v4-openapi.json, openapi/bynder-taxonomy-v1-openapi.json, openapi/bynder-tea-openapi.json,
-  openapi/bynder-trash-v4-openapi.json, openapi/bynder-users-v4-openapi.json, openapi/bynder-webhooks-openapi.json,
-  openapi/bynder-wf-campaigns-v4-openapi.json, openapi/bynder-wf-jobs-v4-openapi.json, openapi/bynder-wf-metaproperties-v4-openapi.json,
-  openapi/bynder-wf-users-groups-v4-openapi.json
+source: openapi/bynder-access-rights-api-openapi.yml, openapi/bynder-account-api-openapi.yml,
+  openapi/bynder-asset-usage-api-openapi.yml, openapi/bynder-asset-usage-sync-api-openapi.yml,
+  openapi/bynder-asset-usage-v1-api-openapi.yml, openapi/bynder-asset-usage-v2-api-openapi.yml,
+  openapi/bynder-authorize-endpoint-api-openapi.yml, openapi/bynder-automation-workflow-actions-api-openapi.yml,
+  openapi/bynder-automation-workflow-conditions-api-openapi.yml, openapi/bynder-automation-workflow-rules-api-openapi.yml,
+  openapi/bynder-automation-workflow-triggers-api-openapi.yml, openapi/bynder-brands-api-openapi.yml,
+  openapi/bynder-campaign-jobs-api-openapi.yml, openapi/bynder-campaigns-api-openapi.yml, openapi/bynder-collection-usage-api-openapi.yml,
+  openapi/bynder-collections-api-openapi.yml, openapi/bynder-collections-assets-api-openapi.yml,
+  openapi/bynder-collections-id-api-openapi.yml, openapi/bynder-configurations-api-openapi.yml,
+  openapi/bynder-create-metaproperty-option-dependency-group-api-openapi.yml, openapi/bynder-current-user-api-openapi.yml,
+  openapi/bynder-derivative-presets-api-openapi.yml, openapi/bynder-document-api-openapi.yml,
+  openapi/bynder-file-upload-api-openapi.yml, openapi/bynder-finish-api-openapi.yml, openapi/bynder-groups-api-openapi.yml,
+  openapi/bynder-historical-data-api-openapi.yml, openapi/bynder-job-media-api-openapi.yml,
+  openapi/bynder-job-stages-api-openapi.yml, openapi/bynder-jobs-api-openapi.yml, openapi/bynder-manage-option-dependency-in-dependency-group-api-openapi.yml,
+  openapi/bynder-manage-ungrouped-metaproperty-option-dependencies-api-openapi.yml, openapi/bynder-media-api-openapi.yml,
+  openapi/bynder-media-download-api-openapi.yml, openapi/bynder-media-id-api-openapi.yml, openapi/bynder-media-options-api-openapi.yml,
+  openapi/bynder-metaproperties-api-openapi.yml, openapi/bynder-metaproperty-operations-api-openapi.yml,
+  openapi/bynder-metaproperty-options-operations-api-openapi.yml, openapi/bynder-options-api-openapi.yml,
+  openapi/bynder-options-v1-api-openapi.yml, openapi/bynder-orders-api-openapi.yml, openapi/bynder-presets-api-openapi.yml,
+  openapi/bynder-profiles-api-openapi.yml, openapi/bynder-public-links-api-openapi.yml, openapi/bynder-quarantine-api-openapi.yml,
+  openapi/bynder-reporting-api-openapi.yml, openapi/bynder-retrieve-all-metaproperty-option-dependencies-for-a-metaproperty-api-openapi.yml,
+  openapi/bynder-retrieve-all-metaproperty-option-dependencies-globally-api-openapi.yml, openapi/bynder-retrieve-options-a-metaproperty-option-depends-on-api-openapi.yml,
+  openapi/bynder-scopes-api-openapi.yml, openapi/bynder-search-api-openapi.yml, openapi/bynder-search-usage-api-openapi.yml,
+  openapi/bynder-share-collection-api-openapi.yml, openapi/bynder-smartfilters-api-openapi.yml,
+  openapi/bynder-specific-metaproperty-operations-api-openapi.yml, openapi/bynder-specific-metaproperty-option-dependency-group-operations-api-openapi.yml,
+  openapi/bynder-specific-metaproperty-option-operations-api-openapi.yml, openapi/bynder-step-1-api-openapi.yml,
+  openapi/bynder-step-1-get-closest-amazons3-upload-endpoint-api-openapi.yml, openapi/bynder-step-2-api-openapi.yml,
+  openapi/bynder-step-2-initialise-upload-api-openapi.yml, openapi/bynder-step-3-api-openapi.yml,
+  openapi/bynder-step-3a-upload-file-in-chunks-api-openapi.yml, openapi/bynder-step-3b-register-uploaded-chunk-api-openapi.yml,
+  openapi/bynder-step-4-either-finalise-uploaded-file-api-openapi.yml, openapi/bynder-step-4-or-finalize-and-save-an-additional-uploaded-file-as-a-new-asset-api-openapi.yml,
+  openapi/bynder-step-5-poll-for-processing-status-api-openapi.yml, openapi/bynder-step-6-either-save-as-a-new-asset-api-openapi.yml,
+  openapi/bynder-step-6-or-save-uploaded-file-to-existing-asset-api-openapi.yml, openapi/bynder-token-endpoint-api-openapi.yml,
+  openapi/bynder-transform-api-openapi.yml, openapi/bynder-trash-api-openapi.yml, openapi/bynder-user-usage-api-openapi.yml,
+  openapi/bynder-users-api-openapi.yml, openapi/bynder-users-id-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
@@ -69,95 +90,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/1/content-access/options/{optionId}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/1/content-access/options/{optionId}
-  method: put
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/1/content-access/options/{optionId}/visibility
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/1/content-access/options/{optionId}/visibility
-  method: put
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/content_access/metaproperties/{metaproperty_id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/content_access/metaproperties/{metaproperty_id}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/content_access/metaproperties/{metaproperty_id}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/v4/account
   method: get
+  operationId: getApiV4Account
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -167,6 +102,7 @@ operations:
     audit: none
 - path: /api/v4/account/derivatives
   method: get
+  operationId: getApiV4AccountDerivatives
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -174,400 +110,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /v7/analytics/api/v2/asset/views
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/asset/view
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/asset/download
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/asset/v2/download
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/asset/create
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/asset/archive
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/asset/remove
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/asset/{assetId}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/search/executions
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/search/keyword
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/search/keyword.csv
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/user/login
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/user/{userId}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/collection/views
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/collection/views.csv
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/report/asset
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/report/asset/{assetId}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/analytics/api/v1/historical/{year}.csv
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - analytics.api:read
-- path: /v7/quarantine/v1/assets
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - Audit quarantined assets
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v7/quarantine/v1/assets/{asset_id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - Audit quarantined assets
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v7/quarantine/v1/assets/{asset_id}
-  method: put
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - Audit quarantined assets
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v7/quarantine/v1/antivirus-audit
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - Audit quarantined assets
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/media/{id}/download
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - ARCHIVEDOWNLOAD
-    - DOWNLOADWATERMARK
-    - KEYVISUALSDOWNLOAD
-    - MEDIAHIGHRES
-- path: /api/v4/media/{id}/{version}/download
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - ARCHIVEDOWNLOAD
-    - DOWNLOADWATERMARK
-    - KEYVISUALSDOWNLOAD
-    - MEDIAHIGHRES
-- path: /api/v4/media/{id}/download/{itemId}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - ARCHIVEDOWNLOAD
-    - DOWNLOADWATERMARK
-    - KEYVISUALSDOWNLOAD
-    - MEDIAHIGHRES
-- path: /api/upload/endpoint
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - MEDIAUPLOAD
-    - MEDIAUPLOADFORAPPROVAL
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/upload/init
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - MEDIAUPLOAD
-    - MEDIAUPLOADFORAPPROVAL
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/upload/{id}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - MEDIAUPLOAD
-    - MEDIAUPLOADFORAPPROVAL
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/upload/poll
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - MEDIAUPLOAD
-    - MEDIAUPLOADFORAPPROVAL
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/media/save/{importId}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - MEDIAUPLOAD
-    - MEDIAUPLOADFORAPPROVAL
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/media/{id}/save/{importId}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - MEDIAUPLOAD
-    - MEDIAUPLOADFORAPPROVAL
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /api/media/usage
   method: get
+  operationId: getApiMediaUsage
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -579,6 +124,7 @@ operations:
     - STATISTICS
 - path: /api/media/usage
   method: post
+  operationId: postApiMediaUsage
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -596,6 +142,7 @@ operations:
     - STATISTICS
 - path: /api/media/usage
   method: delete
+  operationId: deleteApiMediaUsage
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -613,6 +160,7 @@ operations:
     - STATISTICS
 - path: /api/media/usage/sync
   method: post
+  operationId: postApiMediaUsageSync
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -628,104 +176,132 @@ operations:
     audit: required
     scope:
     - STATISTICS
-- path: /api/v4/media/
+- path: /v7/analytics/api/v1/asset/view
   method: get
+  operationId: getV7AnalyticsApiV1AssetView
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
-    scope:
-    - ''
-    - ARCHIVEDOWNLOAD
-    - ARCHIVEMEDIA
-    - EMARGOMEDIA
-    - KEYVISUALDOWNLOAD
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v4/media/{id}
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/asset/download
   method: get
+  operationId: getV7AnalyticsApiV1AssetDownload
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
-    scope:
-    - ''
-    - STATISTICS
     token:
       max-ttl: 3600
     audit: none
-- path: /api/v4/media/{id}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
     scope:
-    - ''
-    - MARKPUBLIC
-    - MEDIAEDIT
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/media/{id}
-  method: delete
+    - analytics.api:read
+- path: /v7/analytics/api/v1/asset/v2/download
+  method: get
+  operationId: getV7AnalyticsApiV1AssetV2Download
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - ''
-    - MEDIAREMOVE
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/media/options
-  method: post
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/asset/create
+  method: get
+  operationId: getV7AnalyticsApiV1AssetCreate
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - MEDIAEDIT
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/media/options
-  method: delete
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/asset/archive
+  method: get
+  operationId: getV7AnalyticsApiV1AssetArchive
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - MEDIAEDIT
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/asset/remove
+  method: get
+  operationId: getV7AnalyticsApiV1AssetRemove
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/asset/{assetId}
+  method: get
+  operationId: getV7AnalyticsApiV1AssetByAssetId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v2/asset/views
+  method: get
+  operationId: getV7AnalyticsApiV2AssetViews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v6/authentication/oauth2/auth
+  method: get
+  operationId: getV6AuthenticationOauth2Auth
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /actions
+  method: get
+  operationId: getActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /conditions
+  method: get
+  operationId: getConditions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /rules
   method: get
   operationId: getRules
@@ -794,36 +370,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /triggers
-  method: get
-  operationId: getTriggers
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /conditions
-  method: get
-  operationId: getConditions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /actions
-  method: get
-  operationId: getActions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /rules/{ruleId}/status
   method: patch
   operationId: patchRulesRuleidStatus
@@ -840,9 +386,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/1/assets/{asset_id}/public-links
+- path: /triggers
   method: get
-  operationId: getAssetPublicLinks
+  operationId: getTriggers
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -852,6 +398,7 @@ operations:
     audit: none
 - path: /api/v4/brands/
   method: get
+  operationId: getApiV4Brands
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -859,90 +406,141 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/store/order/
+- path: /api/workflow/campaigns/{id}/jobs
   method: get
+  operationId: getApiWorkflowCampaignsByIdJobs
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
     scope:
-    - brandstore.orderadmin.view
+    - CAMPAIGNOVERVIEW
     token:
       max-ttl: 3600
     audit: none
-- path: /api/store/order/{id}/
+- path: /api/workflow/campaigns
   method: get
+  operationId: getApiWorkflowCampaigns
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
     scope:
-    - brandstore.orderadmin.view
+    - CAMPAIGNOVERVIEW
     token:
       max-ttl: 3600
     audit: none
-- path: /api/store/order/{id}/products
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - brandstore.orderadmin.edit
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/store/order/{id}/products
+- path: /api/workflow/campaigns
   method: post
+  operationId: postApiWorkflowCampaigns
   x-agentic-access:
     action-class: acting
-    consequence: physical
+    consequence: write
     subject: required
     scope:
-    - brandstore.orderadmin.edit
+    - CAMPAIGNADD
     audience: null
     token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
+      max-ttl: 900
     escalation:
       human-in-the-loop: conditional
       triggers:
       - abnormal
       - high-value
     audit: required
-- path: /api/store/orderproducts/{id}
+- path: /api/workflow/campaigns/{id}
   method: get
+  operationId: getApiWorkflowCampaignsById
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
     scope:
-    - brandstore.orderadmin.view
+    - CAMPAIGNOVERVIEW
     token:
       max-ttl: 3600
     audit: none
-- path: /api/store/orderproducts/{id}
-  method: patch
+- path: /api/workflow/campaigns/{id}
+  method: put
+  operationId: putApiWorkflowCampaignsById
   x-agentic-access:
     action-class: acting
-    consequence: physical
+    consequence: write
     subject: required
     scope:
-    - brandstore.orderadmin.edit
+    - CAMPAIGNEDIT
     audience: null
     token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
+      max-ttl: 900
     escalation:
       human-in-the-loop: conditional
       triggers:
       - abnormal
       - high-value
     audit: required
+- path: /api/workflow/campaigns/{id}
+  method: delete
+  operationId: deleteApiWorkflowCampaignsById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - CAMPAIGNREMOVE
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/workflow/campaigns/{id}
+  method: post
+  operationId: closeCampaign
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - CAMPAIGNWRITE
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v7/analytics/api/v1/collection/views
+  method: get
+  operationId: getV7AnalyticsApiV1CollectionViews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/collection/views.csv
+  method: get
+  operationId: getV7AnalyticsApiV1CollectionViewsCsv
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
 - path: /api/v4/collections
   method: get
+  operationId: getApiV4Collections
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -957,6 +555,53 @@ operations:
     audit: none
 - path: /api/v4/collections
   method: post
+  operationId: postApiV4Collections
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - COLLECTIONS
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/collections/{id}/media
+  method: get
+  operationId: getApiV4CollectionsByIdMedia
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/collections/{id}/media
+  method: post
+  operationId: postApiV4CollectionsByIdMedia
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - COLLECTIONS
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/collections/{id}/media
+  method: delete
+  operationId: deleteApiV4CollectionsByIdMedia
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -974,6 +619,7 @@ operations:
     audit: required
 - path: /api/v4/collections/{id}
   method: get
+  operationId: getApiV4CollectionsById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -983,6 +629,7 @@ operations:
     audit: none
 - path: /api/v4/collections/{id}
   method: post
+  operationId: postApiV4CollectionsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1001,6 +648,7 @@ operations:
     audit: required
 - path: /api/v4/collections/{id}
   method: delete
+  operationId: deleteApiV4CollectionsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1014,694 +662,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/v4/collections/{id}/share
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - SHARECOLLECTION
-    - SHARECOLLETION
-    - SHARING
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/collections/{id}/media
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/collections/{id}/media
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - COLLECTIONS
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/collections/{id}/media
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - COLLECTIONS
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /transform/{id}/{name}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/1/derivative-presets/
-  method: get
-  operationId: retrieveAllDerivativePresets
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/1/derivative-presets/{preset_id}
-  method: get
-  operationId: retrieveSpecificDerivativePreset
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/groups/list/
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - GROUPMANAGEMENT
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/metaproperties
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /v7/file_cmds/upload/prepare
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v7/file_cmds/upload/{file_id}/chunk/{chunk_number}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v7/file_cmds/upload/{file_id}/finalise_api
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v6/authentication/oauth2/auth
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v6/authentication/oauth2/token
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v6/authentication/oauth2/scopes
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/metaproperties/options
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/metaproperties/{id}/options/{optionId}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/options/dependencies
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/dependencies
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/{dependencyId}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/{dependencyId}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group/{groupId}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group/{groupId}/{dependencyId}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group/{groupId}/{dependencyId}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-    scope:
-    - METAMANAGEMENT
-    - METAPROPERTYMANAGEMENT
-- path: /api/pim/metaproperties
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - metaproperty.view
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/pim/metaproperties/{id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - METAPROPERTYMANAGEMENT
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/pim/metaproperties/{id}/options
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - METAPROPERTYMANAGEMENT
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/pim/metapropertyoptions/{id}
-  method: put
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/profiles/
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - PERMISSIONMANAGEMENT
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/profiles/{id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - ''
-    - PERMISSIONMANAGEMENT
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/1/assets/similarity-search/
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/smartfilters
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/1/taxonomy/metaproperties/{metapropertyId}/options
-  method: get
-  operationId: getApi1TaxonomyMetapropertiesMetapropertyidOptions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /documents/{document_uuid}
-  method: get
-  operationId: getDocument
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/trash/media
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - trash.assets
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/users/
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - USERMANAGEMENT
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/users/
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - USERMANAGEMENT
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/users/{id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - USERMANAGEMENT
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/v4/users/{id}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - USERMANAGEMENT
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/users/{id}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - USERMANAGEMENT
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/v4/currentUser/
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /v7/webhooks/public/api/subscriptions/{id}
   method: get
   operationId: RetrieveaWebhookConfiguration
@@ -1776,25 +736,13 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/campaigns
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - CAMPAIGNOVERVIEW
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/workflow/campaigns
+- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group
   method: post
+  operationId: postApiV4MetapropertiesByIdOptionsByOptionIdDependenciesGroup
   x-agentic-access:
     action-class: acting
     consequence: write
     subject: required
-    scope:
-    - CAMPAIGNADD
     audience: null
     token:
       max-ttl: 900
@@ -1804,25 +752,150 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/campaigns/{id}
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/currentUser/
   method: get
+  operationId: getApiV4CurrentUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/1/derivative-presets/
+  method: get
+  operationId: retrieveAllDerivativePresets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/1/derivative-presets/{preset_id}
+  method: get
+  operationId: retrieveSpecificDerivativePreset
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /documents/{document_uuid}
+  method: get
+  operationId: getDocument
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /workflow-jobs/{id}/upload
+  method: post
+  operationId: postWorkflowJobsByIdUpload
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/workflow/jobs/{id}/finish
+  method: patch
+  operationId: patchApiWorkflowJobsByIdFinish
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - JOBAPPROVE
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/groups/list/
+  method: get
+  operationId: getApiGroupsList
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
     scope:
-    - CAMPAIGNOVERVIEW
+    - GROUPMANAGEMENT
     token:
       max-ttl: 3600
     audit: none
-- path: /api/workflow/campaigns/{id}
+- path: /api/workflow/groups/
+  method: get
+  operationId: getApiWorkflowGroups
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - GROUPOVERVIEW
+    - WORKFLOWADMIN
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/workflow/groups/
+  method: post
+  operationId: postApiWorkflowGroups
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - GROUPOVERVIEW
+    - WORKFLOWADMIN
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/workflow/groups/{id}
+  method: get
+  operationId: getApiWorkflowGroupsById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - GROUPOVERVIEW
+    - WORKFLOWADMIN
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/workflow/groups/{id}
   method: put
+  operationId: putApiWorkflowGroupsById
   x-agentic-access:
     action-class: acting
     consequence: write
     subject: required
     scope:
-    - CAMPAIGNEDIT
+    - GROUPOVERVIEW
+    - WORKFLOWADMIN
     audience: null
     token:
       max-ttl: 900
@@ -1832,14 +905,16 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/campaigns/{id}
+- path: /api/workflow/groups/{id}
   method: delete
+  operationId: deleteApiWorkflowGroupsById
   x-agentic-access:
     action-class: acting
     consequence: write
     subject: required
     scope:
-    - CAMPAIGNREMOVE
+    - GROUPOVERVIEW
+    - WORKFLOWADMIN
     audience: null
     token:
       max-ttl: 900
@@ -1849,37 +924,45 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/campaigns/{id}
-  method: post
-  operationId: closeCampaign
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - CAMPAIGNWRITE
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/workflow/presets/job/{id}
+- path: /v7/analytics/api/v1/historical/{year}.csv
   method: get
+  operationId: getV7AnalyticsApiV1Historical{year}Csv
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /api/workflow/jobs/{id}/media
+  method: get
+  operationId: getApiWorkflowJobsByIdMedia
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
     scope:
-    - PRESETOVERVIEW
+    - JOBOVERVIEW
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/workflow/jobs/{id}/stages
+  method: get
+  operationId: getApiWorkflowJobsByIdStages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - JOBOVERVIEW
     token:
       max-ttl: 3600
     audit: none
 - path: /api/workflow/jobs
   method: get
+  operationId: getApiWorkflowJobs
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1891,6 +974,7 @@ operations:
     audit: none
 - path: /api/workflow/jobs
   method: post
+  operationId: postApiWorkflowJobs
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1906,19 +990,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/campaigns/{id}/jobs
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - CAMPAIGNOVERVIEW
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /api/workflow/jobs/{id}
   method: get
+  operationId: getApiWorkflowJobsById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1930,6 +1004,7 @@ operations:
     audit: none
 - path: /api/workflow/jobs/{id}
   method: put
+  operationId: putApiWorkflowJobsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1947,6 +1022,7 @@ operations:
     audit: required
 - path: /api/workflow/jobs/{id}
   method: delete
+  operationId: deleteApiWorkflowJobsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1962,30 +1038,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/jobs/{id}/media
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - JOBOVERVIEW
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/workflow/jobs/{id}/stages
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - JOBOVERVIEW
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /workflow-jobs/{id}/upload
+- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group/{groupId}/{dependencyId}
   method: post
+  operationId: postApiV4MetapropertiesByIdOptionsByOptionIdDependenciesGroupByGroupIdByDependencyId
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1999,14 +1054,151 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/jobs/{id}/finish
-  method: patch
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group/{groupId}/{dependencyId}
+  method: delete
+  operationId: deleteApiV4MetapropertiesByIdOptionsByOptionIdDependenciesGroupByGroupIdByDependencyId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/{dependencyId}
+  method: post
+  operationId: postApiV4MetapropertiesByIdOptionsByOptionIdDependenciesByDependencyId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/{dependencyId}
+  method: delete
+  operationId: deleteApiV4MetapropertiesByIdOptionsByOptionIdDependenciesByDependencyId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/media/
+  method: get
+  operationId: getApiV4Media
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    - ARCHIVEDOWNLOAD
+    - ARCHIVEMEDIA
+    - EMARGOMEDIA
+    - KEYVISUALDOWNLOAD
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/media/{id}/download
+  method: get
+  operationId: getApiV4MediaByIdDownload
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - ARCHIVEDOWNLOAD
+    - DOWNLOADWATERMARK
+    - KEYVISUALSDOWNLOAD
+    - MEDIAHIGHRES
+- path: /api/v4/media/{id}/{version}/download
+  method: get
+  operationId: getApiV4MediaByIdByVersionDownload
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - ARCHIVEDOWNLOAD
+    - DOWNLOADWATERMARK
+    - KEYVISUALSDOWNLOAD
+    - MEDIAHIGHRES
+- path: /api/v4/media/{id}/download/{itemId}
+  method: get
+  operationId: getApiV4MediaByIdDownloadByItemId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - ARCHIVEDOWNLOAD
+    - DOWNLOADWATERMARK
+    - KEYVISUALSDOWNLOAD
+    - MEDIAHIGHRES
+- path: /api/v4/media/{id}
+  method: get
+  operationId: getApiV4MediaById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    - STATISTICS
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/media/{id}
+  method: post
+  operationId: postApiV4MediaById
   x-agentic-access:
     action-class: acting
     consequence: write
     subject: required
     scope:
-    - JOBAPPROVE
+    - ''
+    - MARKPUBLIC
+    - MEDIAEDIT
     audience: null
     token:
       max-ttl: 900
@@ -2016,8 +1208,88 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /api/v4/media/{id}
+  method: delete
+  operationId: deleteApiV4MediaById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - ''
+    - MEDIAREMOVE
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/media/options
+  method: post
+  operationId: postApiMediaOptions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - MEDIAEDIT
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/media/options
+  method: delete
+  operationId: deleteApiMediaOptions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - MEDIAEDIT
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/pim/metaproperties
+  method: get
+  operationId: getApiPimMetaproperties
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - metaproperty.view
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/pim/metaproperties/{id}
+  method: get
+  operationId: getApiPimMetapropertiesById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - METAPROPERTYMANAGEMENT
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/workflow/metaproperties
   method: get
+  operationId: getApiWorkflowMetaproperties
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2029,6 +1301,7 @@ operations:
     audit: none
 - path: /api/workflow/metaproperties/{id}
   method: get
+  operationId: getApiWorkflowMetapropertiesById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2038,8 +1311,915 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /api/v4/metaproperties
+  method: get
+  operationId: getApiV4Metaproperties
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties
+  method: post
+  operationId: postApiV4Metaproperties
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/options
+  method: get
+  operationId: getApiV4MetapropertiesOptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options
+  method: get
+  operationId: getApiV4MetapropertiesByIdOptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options
+  method: post
+  operationId: postApiV4MetapropertiesByIdOptions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/1/content-access/options/{optionId}
+  method: get
+  operationId: getApi1ContentAccessOptionsByOptionId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/1/content-access/options/{optionId}
+  method: put
+  operationId: putApi1ContentAccessOptionsByOptionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/1/content-access/options/{optionId}/visibility
+  method: get
+  operationId: getApi1ContentAccessOptionsByOptionIdVisibility
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/1/content-access/options/{optionId}/visibility
+  method: put
+  operationId: putApi1ContentAccessOptionsByOptionIdVisibility
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/pim/metaproperties/{id}/options
+  method: get
+  operationId: getApiPimMetapropertiesByIdOptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - METAPROPERTYMANAGEMENT
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/pim/metapropertyoptions/{id}
+  method: put
+  operationId: putApiPimMetapropertyoptionsById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/1/taxonomy/metaproperties/{metapropertyId}/options
+  method: get
+  operationId: getApi1TaxonomyMetapropertiesMetapropertyidOptions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/store/order/
+  method: get
+  operationId: getApiStoreOrder
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - brandstore.orderadmin.view
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/store/order/{id}/
+  method: get
+  operationId: getApiStoreOrderById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - brandstore.orderadmin.view
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/store/order/{id}/products
+  method: get
+  operationId: getApiStoreOrderByIdProducts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - brandstore.orderadmin.edit
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/store/order/{id}/products
+  method: post
+  operationId: postApiStoreOrderByIdProducts
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - brandstore.orderadmin.edit
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/store/orderproducts/{id}
+  method: get
+  operationId: getApiStoreOrderproductsById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - brandstore.orderadmin.view
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/store/orderproducts/{id}
+  method: patch
+  operationId: patchApiStoreOrderproductsById
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    scope:
+    - brandstore.orderadmin.edit
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/workflow/presets/job/{id}
+  method: get
+  operationId: getApiWorkflowPresetsJobById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - PRESETOVERVIEW
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/profiles/
+  method: get
+  operationId: getApiV4Profiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - PERMISSIONMANAGEMENT
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/profiles/{id}
+  method: get
+  operationId: getApiV4ProfilesById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - ''
+    - PERMISSIONMANAGEMENT
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/1/assets/{asset_id}/public-links
+  method: get
+  operationId: getAssetPublicLinks
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v7/quarantine/v1/assets
+  method: get
+  operationId: getV7QuarantineV1Assets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - Audit quarantined assets
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v7/quarantine/v1/assets/{asset_id}
+  method: get
+  operationId: getV7QuarantineV1AssetsByAssetId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - Audit quarantined assets
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v7/quarantine/v1/assets/{asset_id}
+  method: put
+  operationId: putV7QuarantineV1AssetsByAssetId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - Audit quarantined assets
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v7/quarantine/v1/antivirus-audit
+  method: post
+  operationId: postV7QuarantineV1AntivirusAudit
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - Audit quarantined assets
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v7/analytics/api/v1/report/asset
+  method: get
+  operationId: getV7AnalyticsApiV1ReportAsset
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/report/asset/{assetId}
+  method: get
+  operationId: getV7AnalyticsApiV1ReportAssetByAssetId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /api/v4/metaproperties/{id}/options/dependencies
+  method: get
+  operationId: getApiV4MetapropertiesByIdOptionsDependencies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/options/dependencies
+  method: get
+  operationId: getApiV4MetapropertiesOptionsDependencies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies
+  method: get
+  operationId: getApiV4MetapropertiesByIdOptionsByOptionIdDependencies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /v6/authentication/oauth2/scopes
+  method: get
+  operationId: getV6AuthenticationOauth2Scopes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/1/assets/similarity-search/
+  method: post
+  operationId: postApi1AssetsSimilaritySearch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v7/analytics/api/v1/search/executions
+  method: get
+  operationId: getV7AnalyticsApiV1SearchExecutions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/search/keyword
+  method: get
+  operationId: getV7AnalyticsApiV1SearchKeyword
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/search/keyword.csv
+  method: get
+  operationId: getV7AnalyticsApiV1SearchKeywordCsv
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /api/v4/collections/{id}/share
+  method: post
+  operationId: postApiV4CollectionsByIdShare
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - SHARECOLLECTION
+    - SHARECOLLETION
+    - SHARING
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/smartfilters
+  method: get
+  operationId: getApiV4Smartfilters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/metaproperties/{id}
+  method: get
+  operationId: getApiV4MetapropertiesById
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}
+  method: post
+  operationId: postApiV4MetapropertiesById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}
+  method: delete
+  operationId: deleteApiV4MetapropertiesById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options/{optionId}/dependencies/group/{groupId}
+  method: post
+  operationId: postApiV4MetapropertiesByIdOptionsByOptionIdDependenciesGroupByGroupId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /api/v4/metaproperties/{id}/options/{optionId}
+  method: post
+  operationId: postApiV4MetapropertiesByIdOptionsByOptionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/metaproperties/{id}/options/{optionId}
+  method: delete
+  operationId: deleteApiV4MetapropertiesByIdOptionsByOptionId
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+    scope:
+    - METAMANAGEMENT
+    - METAPROPERTYMANAGEMENT
+- path: /v7/file_cmds/upload/prepare
+  method: post
+  operationId: postV7FileCmdsUploadPrepare
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/upload/endpoint
+  method: get
+  operationId: Get closest Amazon S3 upload endpoint
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - MEDIAUPLOAD
+    - MEDIAUPLOADFORAPPROVAL
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v7/file_cmds/upload/{file_id}/chunk/{chunk_number}
+  method: post
+  operationId: postV7FileCmdsUploadByFileIdChunkByChunkNumber
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/upload/init
+  method: post
+  operationId: initialiseUpload
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - MEDIAUPLOAD
+    - MEDIAUPLOADFORAPPROVAL
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v7/file_cmds/upload/{file_id}/finalise_api
+  method: post
+  operationId: postV7FileCmdsUploadByFileIdFinaliseApi
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /bynder-public-us-east-1.s3.amazonaws.com/
+  method: post
+  operationId: Upload file in chunks
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/upload/{id}
+  method: post
+  operationId: Register uploaded chunk
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - MEDIAUPLOAD
+    - MEDIAUPLOADFORAPPROVAL
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/upload/{id}/
+  method: post
+  operationId: Finalise an uploaded file
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/media/{id}/save/additional/{uploadId}/
+  method: post
+  operationId: Finalize additional file
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/upload/poll
+  method: get
+  operationId: Retrieve poll state
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - MEDIAUPLOAD
+    - MEDIAUPLOADFORAPPROVAL
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/media/save/{importId}
+  method: post
+  operationId: Saveasanewasset
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - MEDIAUPLOAD
+    - MEDIAUPLOADFORAPPROVAL
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v4/media/{id}/save/{importId}
+  method: post
+  operationId: Save uploaded file to existing asset
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v6/authentication/oauth2/token
+  method: post
+  operationId: postV6AuthenticationOauth2Token
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /transform/{id}/{name}
+  method: get
+  operationId: getTransformByIdByName
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/trash/media
+  method: get
+  operationId: getApiTrashMedia
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - trash.assets
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v7/analytics/api/v1/user/login
+  method: get
+  operationId: getV7AnalyticsApiV1UserLogin
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /v7/analytics/api/v1/user/{userId}
+  method: get
+  operationId: getV7AnalyticsApiV1UserByUserId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+    scope:
+    - analytics.api:read
+- path: /api/v4/users/
+  method: get
+  operationId: getApiV4Users
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    scope:
+    - USERMANAGEMENT
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v4/users/
+  method: post
+  operationId: postApiV4Users
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    scope:
+    - USERMANAGEMENT
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /api/workflow/users/
   method: get
+  operationId: getApiWorkflowUsers
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2051,6 +2231,7 @@ operations:
     audit: none
 - path: /api/workflow/users/{id}
   method: get
+  operationId: getApiWorkflowUsersById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -2060,27 +2241,27 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/workflow/groups/
+- path: /api/v4/users/{id}
   method: get
+  operationId: getApiV4UsersById
   x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
     scope:
-    - GROUPOVERVIEW
-    - WORKFLOWADMIN
+    - USERMANAGEMENT
     token:
       max-ttl: 3600
     audit: none
-- path: /api/workflow/groups/
+- path: /api/v4/users/{id}
   method: post
+  operationId: postApiV4UsersById
   x-agentic-access:
     action-class: acting
     consequence: write
     subject: required
     scope:
-    - GROUPOVERVIEW
-    - WORKFLOWADMIN
+    - USERMANAGEMENT
     audience: null
     token:
       max-ttl: 900
@@ -2090,45 +2271,15 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/workflow/groups/{id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    scope:
-    - GROUPOVERVIEW
-    - WORKFLOWADMIN
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/workflow/groups/{id}
-  method: put
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    scope:
-    - GROUPOVERVIEW
-    - WORKFLOWADMIN
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/workflow/groups/{id}
+- path: /api/v4/users/{id}
   method: delete
+  operationId: deleteApiV4UsersById
   x-agentic-access:
     action-class: acting
     consequence: write
     subject: required
     scope:
-    - GROUPOVERVIEW
-    - WORKFLOWADMIN
+    - USERMANAGEMENT
     audience: null
     token:
       max-ttl: 900
