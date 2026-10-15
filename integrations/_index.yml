@@ -50,7 +50,7 @@
     app_slug: content-workflow-by-bynder
     beta: false
     builder: unknown (not in the directory record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: bynder-contentful-own
   label: Contentful (own)
