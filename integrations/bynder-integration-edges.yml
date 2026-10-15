@@ -1,6 +1,7 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- contentful/integrations/contentful-integration-edges.yml
 - https://aws.amazon.com/marketplace/
 - https://azuremarketplace.microsoft.com/
 marketplace_apps: []
@@ -35,3 +36,21 @@ edges:
   seller_name: Bynder
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: Contentful (own)
+  partner: contentful
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.contentful.com/marketplace/bynder-content-workflow/
+  mirror_of: contentful/integrations/contentful-integration-edges.yml
+  apps:
+  - Bynder Content Workflow
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+source:
+- contentful/integrations/contentful-integration-edges.yml
