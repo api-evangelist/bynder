@@ -401,6 +401,12 @@ components:
           description: ''
         level:
           $ref: '#/components/schemas/Level'
+    Level:
+      title: Level
+      const: metaproperty.hide
+      type: string
+      examples:
+      - metaproperty.hide
     ApiContentAccessMetapropertiesResponse1:
       title: ApiContentAccessMetapropertiesResponse1
       type: object
@@ -413,12 +419,6 @@ components:
           type: string
           examples:
           - user
-    Level:
-      title: Level
-      const: metaproperty.hide
-      type: string
-      examples:
-      - metaproperty.hide
     PrincipalExtraInformation:
       title: PrincipalExtraInformation
       type: object

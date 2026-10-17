@@ -163,20 +163,14 @@ components:
           contentEncoding: int32
           examples:
           - 1
-    ApiV7WebhooksPublicApiSubscriptionsRequest1:
-      title: ApiV7WebhooksPublicApiSubscriptionsRequest1
+    ApiV7WebhooksPublicApiSubscriptionsResponse:
+      title: ApiV7WebhooksPublicApiSubscriptionsResponse
       type: object
       properties:
-        events:
-          type: array
-          items:
-            type: string
-          description: ''
-        preArchivedNotificationDays:
-          type: integer
-          contentEncoding: int32
+        id:
+          type: string
           examples:
-          - 5
+          - 00000000-0000-0000-0000-000000000000
     ApiV7WebhooksPublicApiSubscriptionsRequest:
       title: ApiV7WebhooksPublicApiSubscriptionsRequest
       type: object
@@ -203,11 +197,17 @@ components:
           contentEncoding: int32
           examples:
           - 5
-    ApiV7WebhooksPublicApiSubscriptionsResponse:
-      title: ApiV7WebhooksPublicApiSubscriptionsResponse
+    ApiV7WebhooksPublicApiSubscriptionsRequest1:
+      title: ApiV7WebhooksPublicApiSubscriptionsRequest1
       type: object
       properties:
-        id:
-          type: string
+        events:
+          type: array
+          items:
+            type: string
+          description: ''
+        preArchivedNotificationDays:
+          type: integer
+          contentEncoding: int32
           examples:
-          - 00000000-0000-0000-0000-000000000000
+          - 5

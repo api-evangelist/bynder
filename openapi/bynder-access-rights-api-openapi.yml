@@ -116,15 +116,6 @@ paths:
       deprecated: false
 components:
   schemas:
-    ApiContentAccessMetapropertiesRequest1:
-      title: ApiContentAccessMetapropertiesRequest1
-      type: object
-      properties:
-        contentAccessIds:
-          type: array
-          items:
-            type: string
-          description: ''
     ApiContentAccessMetapropertiesResponse:
       title: ApiContentAccessMetapropertiesResponse
       type: object
@@ -193,6 +184,12 @@ components:
           description: ''
         level:
           $ref: '#/components/schemas/Level'
+    Level:
+      title: Level
+      const: metaproperty.hide
+      type: string
+      examples:
+      - metaproperty.hide
     ApiContentAccessMetapropertiesResponse1:
       title: ApiContentAccessMetapropertiesResponse1
       type: object
@@ -205,12 +202,6 @@ components:
           type: string
           examples:
           - user
-    Level:
-      title: Level
-      const: metaproperty.hide
-      type: string
-      examples:
-      - metaproperty.hide
     PrincipalExtraInformation:
       title: PrincipalExtraInformation
       type: object
@@ -219,6 +210,15 @@ components:
           type: string
           examples:
           - user_email@bynder.com
+    ApiContentAccessMetapropertiesRequest1:
+      title: ApiContentAccessMetapropertiesRequest1
+      type: object
+      properties:
+        contentAccessIds:
+          type: array
+          items:
+            type: string
+          description: ''
   securitySchemes:
     permanentToken:
       type: apiKey

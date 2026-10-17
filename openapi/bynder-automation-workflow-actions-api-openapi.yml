@@ -59,6 +59,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AutomationWorkflowAction'
+    ErrorResponse:
+      title: ErrorResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
     AutomationWorkflowAction:
       title: AutomationWorkflowAction
       type: object
@@ -69,14 +77,6 @@ components:
           type: string
     ErrorAuthorizationResponse:
       title: ErrorAuthorizationResponse
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-    ErrorResponse:
-      title: ErrorResponse
       type: object
       required:
       - message

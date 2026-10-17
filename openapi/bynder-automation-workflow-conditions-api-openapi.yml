@@ -71,27 +71,6 @@ paths:
       - httpAuth: []
 components:
   schemas:
-    AutomationWorkflowConditionsResponse:
-      title: AutomationWorkflowConditionsResponse
-      type: object
-      required:
-      - maxConditionsCount
-      properties:
-        conditions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AutomationWorkflowCondition'
-        maxConditionsCount:
-          type: integer
-          format: int32
-    ErrorAuthorizationResponse:
-      title: ErrorAuthorizationResponse
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
     AutomationWorkflowCondition:
       title: AutomationWorkflowCondition
       type: object
@@ -114,6 +93,27 @@ components:
             type: string
     ErrorResponse:
       title: ErrorResponse
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+    AutomationWorkflowConditionsResponse:
+      title: AutomationWorkflowConditionsResponse
+      type: object
+      required:
+      - maxConditionsCount
+      properties:
+        conditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutomationWorkflowCondition'
+        maxConditionsCount:
+          type: integer
+          format: int32
+    ErrorAuthorizationResponse:
+      title: ErrorAuthorizationResponse
       type: object
       required:
       - message
