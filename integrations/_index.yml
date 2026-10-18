@@ -88,7 +88,7 @@
     - connectors/applications/bynder
     vendor_link: http://www.bynder.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: bynder-meltano
   label: Meltano
@@ -117,5 +117,5 @@
     quality:
     - unknown
     builder: 'community (Meltano Hub variant maintainers: radico)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
