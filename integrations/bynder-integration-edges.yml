@@ -15,6 +15,7 @@ checked:
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
+- netlify/integrations/netlify-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -72,22 +73,6 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
-- partner_name: Contentful (own)
-  partner: contentful
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.contentful.com/marketplace/bynder-content-workflow/
-  mirror_of: contentful/integrations/contentful-integration-edges.yml
-  apps:
-  - Bynder Content Workflow
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
 - partner_name: Maven Central
   partner: maven-central
   partner_match: register
@@ -263,5 +248,39 @@ edges:
     builder: 'community (Meltano Hub variant maintainers: radico)'
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Contentful (own)
+  partner: contentful
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.contentful.com/marketplace/bynder-content-workflow/
+  mirror_of: contentful/integrations/contentful-integration-edges.yml
+  apps:
+  - Bynder Content Workflow
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+- partner_name: Netlify (own)
+  partner: netlify
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.netlify.com/integrations/bynder/
+  mirror_of: netlify/integrations/netlify-integration-edges.yml
+  apps:
+  - Bynder
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Search
+  partner_tier: listing
 source:
 - https://zapier.com/api/v4/apps/
