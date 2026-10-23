@@ -231,31 +231,6 @@
     builder: 'community (Meltano Hub variant maintainers: radico)'
   status: not-a-workflow
   arazzo: null
-- slug: bynder-contentful-own
-  label: Contentful (own)
-  partner: contentful
-  partner_name: Contentful (own)
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.contentful.com/marketplace/bynder-content-workflow/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: bynder-netlify-own
-  label: Netlify (own)
-  partner: netlify
-  partner_name: Netlify (own)
-  category: Search
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.netlify.com/integrations/bynder/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: bynder-packagist
   label: Packagist
   partner: packagist
@@ -303,5 +278,43 @@
       24 months'
     detected_by: sweep-php-dart-elixir-package-registries.py
     detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
+- slug: bynder-contentful-own
+  label: Contentful (own)
+  partner: contentful
+  partner_name: Contentful (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.contentful.com/marketplace/bynder-content-workflow/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: bynder-netlify-own
+  label: Netlify (own)
+  partner: netlify
+  partner_name: Netlify (own)
+  category: Search
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.netlify.com/integrations/bynder/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: bynder-adobe-experience-cloud-own
+  label: Adobe Experience Cloud (own)
+  partner: adobe-experience-cloud
+  partner_name: Adobe Experience Cloud (own)
+  category: Adobe Exchange Experience Cloud listing (GenStudio)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://exchange.adobe.com/apps/ec/ab4pt2ssop
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
